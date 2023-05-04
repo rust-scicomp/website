@@ -38,10 +38,10 @@ a:hover {color:#FF8800}
 .title {text-align:center;font-size:35px}
 .tagline {text-align:center;font-size:25px;color:white}
 
-.head, .footer {font-family: Work Sans, sans-serif;font-weight:bold}
+.head, .footer {font-family: Prompt, sans-serif;font-weight:bold}
 
 h2 {margin-top:50px}
-h1, h2, h3, h4, h5, h6 {font-family: Work Sans, sans-serif;font-weight:bold;color:black}
+h1, h2, h3, h4, h5, h6 {font-family: Prompt, sans-serif;font-weight:bold;color:black}
 body, p, li {font-family:sans}
 p {text-align:justify}
 
@@ -57,7 +57,7 @@ td.rotated {vertical-align: middle; text-align: center; width:20px}
 td.rotated span {-ms-writing-mode: tb-rl; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;}
 td.heading {font-weight:bold;font-size:80%}
 
-.talktitle, .timetabletalktitle {font-family: Work Sans, sans-serif;font-weight:bold}
+.talktitle, .timetabletalktitle {font-family: Prompt, sans-serif;font-weight:bold}
 .timetabletalktitle {font-size:70%}
 .timetabletalkspeaker {font-size:55%;margin-top:5px}
 

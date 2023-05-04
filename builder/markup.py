@@ -9,6 +9,12 @@ ref_map = {}
 
 def markup(content, icons=True):
     global page_references
+
+    if "{% no markup %}" in content:
+        before, after = content.split("{% no markup %}", 1)
+        middle, after = after.split("{% end no markup %}", 1)
+        return markup(before, icons) + middle + markup(after, icons)
+
     while "{{if " in content:
         pre, rest = content.split("{{if ", 1)
         condition, rest = rest.split("}}", 1)
@@ -39,6 +45,7 @@ def markup(content, icons=True):
 
     out = ""
     popen = False
+    ulopen = False
     code = False
     is_python = False
     for line in content.split("\n"):
@@ -46,6 +53,9 @@ def markup(content, icons=True):
             if popen:
                 out += "</p>\n"
                 popen = False
+            if ulopen:
+                out += "</ul>\n"
+                ulopen = False
             i = 0
             while line.startswith("#"):
                 line = line[1:]
@@ -61,7 +71,18 @@ def markup(content, icons=True):
         elif line == "```python":
             code = not code
             is_python = True
+        elif line.startswith("-"):
+            if popen:
+                out += "</p>\n"
+                popen = False
+            if not ulopen:
+                out += "<ul>\n"
+                ulopen = True
+            out += f"<li>{line[1:].strip()}</li>\n"
         else:
+            if ulopen:
+                out += "</ul>\n"
+                ulopen = False
             if not popen and not line.startswith("<") and not line.startswith("\\["):
                 if code:
                     out += "<p class='pcode'>"
@@ -77,8 +98,17 @@ def markup(content, icons=True):
             else:
                 out += line
                 out += " "
+    if popen:
+        out += "</p>\n"
+        popen = False
+    if ulopen:
+        out += "</ul>\n"
+        ulopen = False
+
     page_references = []
 
+    out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = out.replace("<timeselector>", "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>")
     out = re.sub(r"<ref ([^>]+)>", add_citation, out)
     out = re.sub(r"<ghostref ([^>]+)>", add_ghost_citation, out)
     out = insert_links(out)
@@ -273,6 +303,12 @@ def markup_person(details):
         out += f"<li><a href='https://github.com/{info['github']}'>"
         out += "<i class='fab fa-github'></i>&nbsp;"
         out += info["github"]
+        out += "</a></li>"
+    if "mastodon" in info:
+        username, domain = info['mastodon'].split('@')
+        out += f"<li><a href='https://{domain}/@{username}'>"
+        out += "<i class='fab fa-mastodon'></i>&nbsp;"
+        out += "@" + info["mastodon"]
         out += "</a></li>"
     if "twitter" in info:
         out += f"<li><a href='https://twitter.com/{info['twitter']}'>"
