@@ -32,11 +32,13 @@ function toggle_times() {
 </script>
 {% end no markup %}
 
-This workshop will be held virtually and is free to attend. I need to make a registration form.
+This workshop will be held virtually and is free to attend. If you want to attend the workshop,
+please [register using this form](NEED TO MAKE A FORM).
 
 ## Timetable
 The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
-speakers and 5-10 minute talks by workshop attendees.
+speakers and 5-10 minute talks by workshop attendees. If you would like to give a short talk about
+your project or experiences using Rust for scientific computing, please [fill out this form](NEED TO MAKE A FORM) by 13 June 2023.
 
 The talks will be complimented by informal discussion sessions where you will have a chance to meet
 and talk to other attendees.
