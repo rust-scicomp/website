@@ -14,7 +14,7 @@
   about: Andreas is a PhD candidate at the computer animation group at RWTH Aachen University.
   email: longva@cs.rwth-aachen.de
   github: Andlon
-  Twitter: andreas_longva
+  twitter: andreas_longva
 </person>
 
 <person>
