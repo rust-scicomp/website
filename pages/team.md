@@ -10,6 +10,14 @@
 </person>
 
 <person>
+  name: Andreas Longva
+  about: Andreas is a PhD candidate at the computer animation group at RWTH Aachen University.
+  email: longva@cs.rwth-aachen.de
+  github: Andlon
+  Twitter: andreas_longva
+</person>
+
+<person>
   name: I need to...
   about: ... add everyone else who's organising.
 </person>
