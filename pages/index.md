@@ -33,18 +33,17 @@ function toggle_times() {
 {% end no markup %}
 
 This workshop will be held virtually and is free to attend. If you want to attend the workshop,
-please [register using this form](NEED TO MAKE A FORM).
+please [register using this form](https://forms.gle/anecaSbnmKmi3Ay47).
 
 ## Timetable
 The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
 speakers and 5-10 minute talks by workshop attendees. If you would like to give a short talk about
-your project or experiences using Rust for scientific computing, please [fill out this form](NEED TO MAKE A FORM) by 13 June 2023.
+your project or experiences using Rust for scientific computing, please [fill out this form](https://forms.gle/d8RkNn9AagypxBsDA)
+by 13 June 2023.
 
 The talks will be complimented by informal discussion sessions where you will have a chance to meet
 and talk to other attendees.
 
-
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the [conference organisers](/team.md).
-
