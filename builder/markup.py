@@ -288,6 +288,8 @@ def markup_person(details):
 
     if "img" in info:
         out += f"<div class='imgwrap'><img src='{info['img']}'></div>\n"
+    else:
+        out += f"<div class='imgwrap'><img src='/img/faceholder.png'></div>\n"
     out += "<div class='innertext'>\n"
     out += f"<h3>{info['name']}</h3>\n{info['about']}"
     out += "<ul class='sociallist'>"
