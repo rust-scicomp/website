@@ -18,11 +18,6 @@
 </person>
 
 <person>
-  name: I need to...
-  about: ... add everyone else who's organising.
-</person>
-
-<person>
   img: /img/matthew-scroggs.jpg
   name: Matthew Scroggs
   about: Matthew is a postdoctoral researcher at the Department of Mathematics, University College London.
