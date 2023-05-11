@@ -46,4 +46,4 @@ and talk to other attendees.
 
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the [conference organisers](/team.md).
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing rust@mscroggs.co.uk or by contacting any of the [conference organisers](/team.md).
