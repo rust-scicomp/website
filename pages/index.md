@@ -39,7 +39,7 @@ please [register using this form](https://forms.gle/anecaSbnmKmi3Ay47).
 The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
 speakers and 5-10 minute talks by workshop attendees. If you would like to give a short talk about
 your project or experiences using Rust for scientific computing, please [fill out this form](https://forms.gle/d8RkNn9AagypxBsDA)
-by 13 June 2023. Shortly after this date, you will be notified via email whether your talk has been selected.
+by 13 June 2023. Shortly after this date, you will be notified via email whether your talk has been accepted.
 
 The talks will be complimented by informal discussion sessions where you will have a chance to meet
 and talk to other attendees.
