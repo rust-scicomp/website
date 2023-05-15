@@ -1,6 +1,6 @@
 # Scientific Computing in Rust 2023
 
-This repo runs the [Scientific Computing in Rust 2023 website](https://rust-scicomp.github.io/).
+This repo runs the [Scientific Computing in Rust 2023 website](https://scientificcomputing.rs).
 
 ## Building the website
 
