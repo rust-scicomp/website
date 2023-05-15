@@ -71,7 +71,7 @@ def markup(content, icons=True):
         elif line == "```python":
             code = not code
             is_python = True
-        elif line.startswith("-"):
+        elif line.startswith("-") or line.startswith("*"):
             if popen:
                 out += "</p>\n"
                 popen = False
