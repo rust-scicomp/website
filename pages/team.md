@@ -10,6 +10,16 @@
 </person>
 
 <person>
+  img: /img/jed-brown.jpg
+  name: Jed Brown
+  about: Jed is a professor of computer science at CU Boulder.
+  github: jedbrown
+  mastodon: jedbrown@hachyderm.io
+  email: jed.brown@colorado.edu
+  website: https://jedbrown.org
+</person>
+
+<person>
   name: Andreas Longva
   about: Andreas is a PhD candidate at the computer animation group at RWTH Aachen University.
   email: longva@cs.rwth-aachen.de
