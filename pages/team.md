@@ -22,7 +22,7 @@
 <person>
   img: /img/andreas-longva.jpg
   name: Andreas Longva
-  about: Andreas is a PhD candidate at the computer animation group at RWTH Aachen University.
+  about: Andreas is a PhD candidate in the computer animation group at RWTH Aachen University.
   email: longva@cs.rwth-aachen.de
   github: Andlon
   twitter: andreas_longva
