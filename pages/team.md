@@ -20,6 +20,7 @@
 </person>
 
 <person>
+  img: /img/andreas-longva.jpg
   name: Andreas Longva
   about: Andreas is a PhD candidate at the computer animation group at RWTH Aachen University.
   email: longva@cs.rwth-aachen.de
