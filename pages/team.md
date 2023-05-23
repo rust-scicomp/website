@@ -14,6 +14,7 @@
   img: /img/jed-brown.jpg
   name: Jed Brown
   about: Jed is a professor of computer science at CU Boulder.
+  rust-about: Jed maintains Rust crates for [MPI](https://docs.rs/mpi), [PETSc](https://petsc.org), and [libCEED](https://docs.rs/libceed/latest/libceed/). He is interested in applying Rust and Enzyme in computational science and engineering, especially computational mechanics.
   github: jedbrown
   mastodon: jedbrown@hachyderm.io
   email: jed.brown@colorado.edu
