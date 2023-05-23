@@ -19,6 +19,7 @@ jobs:
         name: Build website HTML
 
   push-website:
+    name: Push website
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs:

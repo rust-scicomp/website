@@ -292,6 +292,8 @@ def markup_person(details):
         out += f"<div class='imgwrap'><img src='/img/faceholder.png'></div>\n"
     out += "<div class='innertext'>\n"
     out += f"<h3>{info['name']}</h3>\n{info['about']}"
+    if "rust-about" in info:
+        out += f" {info['rust-about']}"
     out += "<ul class='sociallist'>"
     if "email" in info:
         out += f"<li><a href='mailto:{info['email']}'><i class='far fa-envelope'></i>&nbsp;"
