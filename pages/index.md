@@ -44,6 +44,9 @@ by 21 June 2023. Shortly after this date, you will be notified via email whether
 The talks will be complimented by informal discussion sessions where you will have a chance to meet
 and talk to other attendees.
 
+The list of speakers and full timetable for the workshop will be announced on this website
+in the near future.
+
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing coc@scientificcomputing.rs or by contacting any of the [conference organisers](/team.md).
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing coc@scientificcomputing.rs or by contacting any of the [workshop organisers](/team.md).
