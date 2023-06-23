@@ -97,7 +97,7 @@ def get_title_and_speaker(t):
     return tinfo["speaker"]["name"], tinfo["title"]
 
 
-def talk(t, day, session_n, prev=None, next=None):
+def talk(t, day, session_n, times, prev=None, next=None):
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
 
@@ -111,6 +111,12 @@ def talk(t, day, session_n, prev=None, next=None):
     content = ""
     content += f"<h1>{tinfo['title']}</h1>"
     content += f"<div>{authortxt}</div>"
+
+    if day is not None:
+        content += (f"<div style='margin-top:5px'>"
+                    f"<a href='/talklist-{day}.html'>{day}</a>"
+                    f" session {session_n} (Zoom) ({times})</div>")
+
     content += "<div class='abstract'>"
     abstract = []
     if isinstance(tinfo['abstract'], list):
@@ -121,29 +127,28 @@ def talk(t, day, session_n, prev=None, next=None):
     content += markup("\n\n".join(abstract))
     content += "</div>"
 
-    if prev is not None or next is not None:
-        content += "<div class='prevnext'>"
-        if prev is not None:
-            content += "<div class='prevlink'>"
-            if prev[0] is not None:
-                content += f"<a href='/talks/{prev[0]}.html'>&larr; previous talk"
-                if prev[1] is not None:
-                    content += f" ({prev[1]})"
-                content += "</a>"
-            else:
-                content += "<i>this is the first talk</i>"
-            content += "</div>"
-        if next is not None:
-            content += "<div class='nextlink'>"
-            if next[0] is not None:
-                content += f"<a href='/talks/{next[0]}.html'>next talk"
-                if next[1] is not None:
-                    content += f" ({next[1]})"
-                content += " &rarr;</a>"
-            else:
-                content += "<i>this is the final talk</i>"
-            content += "</div>"
+    content += "<div class='prevnext'>"
+    if prev is not None:
+        content += "<div class='prevlink'>"
+        if prev[0] is not None:
+            content += f"<a href='/talks/{prev[0]}.html'>&larr; previous talk"
+            if prev[1] is not None:
+                content += f" ({prev[1]})"
+            content += "</a>"
+        else:
+            content += "<i>this is the first talk</i>"
         content += "</div>"
+    if next is not None:
+        content += "<div class='nextlink'>"
+        if next[0] is not None:
+            content += f"<a href='/talks/{next[0]}.html'>next talk"
+            if next[1] is not None:
+                content += f" ({next[1]})"
+            content += " &rarr;</a>"
+        else:
+            content += "<i>this is the final talk</i>"
+        content += "</div>"
+    content += "</div>"
 
     write_page(f"talks/{t}.html", content, tinfo['title'])
 
@@ -168,6 +173,29 @@ for file in os.listdir(pages_path):
         write_page(f"{fname}.html", content)
 
 # Make timetable pages
+next_and_prev = {}
+prev = None
+for day in timetable.values():
+    first_day = True
+    for session in day:
+        first_session = True
+        if "talks" in session:
+            for t in session["talks"]:
+                next_and_prev[t] = {"prev": (None, None), "next": (None, None)}
+                if prev is not None:
+                    if first_day:
+                        next_and_prev[t]["prev"] = (prev, "on the previous day")
+                        next_and_prev[prev]["next"] = (t, "on the next day")
+                    elif first_session:
+                        next_and_prev[t]["prev"] = (prev, "before a break")
+                        next_and_prev[prev]["next"] = (t, "after a break")
+                    else:
+                        next_and_prev[t]["prev"] = (prev, None)
+                        next_and_prev[prev]["next"] = (t, None)
+                first_session = False
+                first_day = False
+                prev = t
+
 list_content = "<h1>List of talks</h1>"
 tt_content = "<h1>Timetable</h1>"
 
@@ -176,6 +204,7 @@ tt_content += "<h1 style='color:red'>This is a provisional timetable and may be 
 
 list_content += markup("Show times in: <timeselector>")
 tt_content += markup("Show times in: <timeselector>")
+
 
 tt_content += "<div class='timetablegrid'>\n"
 for di, day in enumerate(timetable):
@@ -193,9 +222,8 @@ for di, day in enumerate(timetable):
                    f"{date}</a></div>")
 
     for si, session in enumerate(timetable[day]):
-        dcontent += markup(f"<h3>Session {si + 1} "
-                           f"(<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>"
-                           f", {session['platform']})</h3>", paragraphs=False)
+        session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False)
+        dcontent += f"<h3>Session {si + 1} ({session_time}, {session['platform']})</h3>"
         col = 3 * di + 2
         row = 2 + minutes_after_one(session['start'])
         rowend = 2 + minutes_after_one(session['end'])
@@ -217,7 +245,7 @@ for di, day in enumerate(timetable):
             talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
             start = 0
             for ti, t in enumerate(session["talks"]):
-                dcontent += talk(t, day, si)
+                dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
                 title, speaker = get_title_and_speaker(t)
                 length = 70 if is_long(t) else 20
                 rows = (35 if day == "Thursday" else 30) if is_long(t) else 10
