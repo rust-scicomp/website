@@ -1,0 +1,14 @@
+title: "Portable SIMD tricks for fun and profit"
+abstract: "There's many SIMD options to choose from to optimize your tight kernels. We'll talk about what Portable SIMD has to offer before it's stabilised in main Rust and the \"usual\" (read: standard but niche) tricks for squeezing the most performance, portability and correctness from your codes going forward."
+speaker:
+  name: Miguel Raz Guzm&aacute;n Macedo
+  email: miguelraz@gmail.com
+  affiliation: UNAM / Ferrous Systems GmbH
+  website: https://miguelraz.github.io
+  github: miguelraz
+  twitter: miguelraz_
+  mastodon: miguelraz_t@hachyderm.io
+coauthor:
+  - name: Jubilee Young
+    affiliation: Portable SIMD Group
+duration: short

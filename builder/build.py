@@ -1,5 +1,4 @@
 import os
-import re
 import yaml
 import argparse
 from markup import markup
@@ -28,7 +27,7 @@ os.mkdir(os.path.join(html_path, "talks"))
 os.mkdir(os.path.join(html_path, "slides"))
 
 os.system(f"cp -r {files_path}/* {html_path}")
-#os.system(f"cp -r {slides_path}/* {html_path}/slides")
+# os.system(f"cp -r {slides_path}/* {html_path}/slides")
 
 with open(os.path.join(html_path, "CNAME"), "w") as f:
     f.write("fenics2021.com")
@@ -50,13 +49,7 @@ def write_page(url, content, title=None):
             f.write(f2.read())
 
 
-def get_title_and_speaker(t_id):
-    with open(os.path.join(talks_path, f"{t_id}.yml")) as f:
-        tinfo = yaml.load(f, Loader=yaml.FullLoader)
-    return tinfo["title"], tinfo["speaker"]["name"]
-
-
-def person(p, bold = False):
+def person(p, bold=False):
     info = ""
     if bold:
         info += "<b>"
@@ -66,12 +59,25 @@ def person(p, bold = False):
     if "website" in p:
         info += (f" <a href='{p['website']}' class='falink'>"
                  "<i class='fab fa-internet-explorer'></i></a>")
+    if "email" in p:
+        info += (f" <a href='mailto:{p['email']}' class='falink'>"
+                 "<i class='far fa-envelope'></i></a>")
     if "github" in p:
         info += (f" <a href='https://github.com/{p['github']}' class='falink'>"
                  "<i class='fab fa-github'></i></a>")
+    if "codeberg" in p:
+        info += (f" <a href='https://codeberg.org/{p['codeberg']}' class='falink'>"
+                 "<i class='fa-solid fa-icicles'></i></a>")
+    if "mastodon" in p:
+        username, domain = p['mastodon'].split('@')
+        info += (f" <a href='https://{domain}/@{username}'>"
+                 "<i class='fab fa-mastodon'></i></a>")
     if "twitter" in p:
         info += (f" <a href='https://twitter.com/{p['twitter']}' class='falink'>"
                  "<i class='fab fa-twitter'></i></a>")
+    if "linkedin" in p:
+        info += (f" <a href='https://www.linkedin.com/in/{p['linkedin']}' class='falink'>"
+                 "<i class='fab fa-linkedin'></i></a>")
 
     if "affiliation" in p:
         info += f" ({p['affiliation']}"
@@ -83,6 +89,12 @@ def is_long(t):
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
     return tinfo["duration"] == "long"
+
+
+def get_title_and_speaker(t):
+    with open(os.path.join(talks_path, f"{t}.yml")) as f:
+        tinfo = yaml.load(f, Loader=yaml.FullLoader)
+    return tinfo["speaker"]["name"], tinfo["title"]
 
 
 def talk(t, day, session_n, prev=None, next=None):
@@ -166,29 +178,29 @@ tt_content += "<div class='timetablegrid'>\n"
 for di, day in enumerate(timetable):
     dcontent = ""
     if day == "Thursday":
-        date = f"Thursday 13 July"
+        date = "Thursday 13 July"
     elif day == "Friday":
-        date = f"Friday 14 July"
+        date = "Friday 14 July"
     else:
         raise ValueError(f"Unknown day: {day}")
 
-    list_content += f"<h2><a href='/talklist-{day}.html'>{date}</a></h2>{dcontent}"
+    list_content += f"<h2>{date}</h2>{dcontent}"
     tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
-                   f"{2 * di + 1} / span 2;grid-row: 1 /span 1'><a href='/talklist-{day}.html'>"
+                   f"{3 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/talklist-{day}.html'>"
                    f"{date}</a></div>")
 
     for si, session in enumerate(timetable[day]):
         dcontent += (f"<h3>Session {si + 1} ({session['start']}&ndash;{session['end']} BST"
                      f", {session['platform']})</h3>")
-        col = 2 * di + 2
-        print(session['start'], minutes_after_one(session['start']))
+        col = 3 * di + 2
         row = 2 + minutes_after_one(session['start'])
         rowend = 2 + minutes_after_one(session['end'])
-        tt_content += (f"<div class='gridcell timetableheading rotated' style='"
-                       f"grid-column: {col - 1} / span 1; "
-                       f"grid-row: {row} / "
-                       f"span {minutes_after_one(session['end'])};'>"
-                       f"Session {si + 1} ({session['start']}&ndash;{session['end']} BST, "
+        tt_content += "<div class='gridcell timetableheading rotated' style='"
+        if session["platform"] == "Gather Town":
+            tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row + 1} / span 1"
+        else:
+            tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row}"
+        tt_content += (f"'>Session {si + 1} ({session['start']}&ndash;{session['end']} BST, "
                        f"{session['platform']})</div>")
         if "description" in session:
             dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
@@ -196,31 +208,40 @@ for di, day in enumerate(timetable):
             dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
                          f"Chair: {person(session['chair'])}</div>")
         if "talks" in session:
-            talklen = (rowend - row) // sum(3 if is_long(t) else 1 for t in session["talks"])
+            talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
+            start = 0
             for ti, t in enumerate(session["talks"]):
                 dcontent += talk(t, day, si)
-                title = "title"
-                speaker = "person"
-
-                tt_content += (f"<a class='gridcell timetabletalk' href='/talks/{t}.html' style='"
-                               f"grid-column: {col} / span 1; "
-                               f"grid-row: {row + talklen * ti} / span {talklen}'>"
+                title, speaker = get_title_and_speaker(t)
+                length = 70 if is_long(t) else 20
+                rows = (35 if day == "Thursday" else 30) if is_long(t) else 10
+                tt_content += "<a class='gridcell timetabletalk"
+                if is_long(t):
+                    tt_content += " longtalk"
+                tt_content += (f"' href='/talks/{t}.html' style='"
+                               f"grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
                                f"<div class='timetabletalktitle'>{title}</div>"
                                f"<div class='timetabletalkspeaker'>{speaker}</div>"
                                "</a>")
+                start += rows
+        else:
+            tt_content += (f"<a class='gridcell timetabletalk' href='/gather-town.html' style='"
+                           f"grid-column: {col} / span 1; grid-row: {row + 1} / span 1'>"
+                           "<div class='timetabletalktitle'>Discussions</div>")
+            if "description" in session:
+                tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
+            tt_content += "</a>"
         if si > 0 and session["start"] != timetable[day][si - 1]["end"]:
+            row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
+            row1 = 2 + minutes_after_one(session['start'])
             tt_content += ("<div class='gridcell timetableheading' style='"
                            f"grid-column: {col} / span 1; "
-                           f"grid-row: {minutes_after_one(timetable[day][si - 1]['end'])} / "
-                           f"{minutes_after_one(session['start'])}'>")
+                           f"grid-row: {row0} / span {row1 - row0}; "
+                           "display: flex; justify-content: center; align-items: center;'>")
             tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
             tt_content += "</div>"
     list_content += dcontent
     write_page(f"talklist-{day}.html", f"<h1>{date}</h1>{dcontent}")
-
-    #tt_content += ("<div class='gridcell timetableheading rotated' style='grid-column: 1 / span 1"
-    #               f";grid-row: {} /span 2'>"
-    #               f"{date}</div>")
 
 tt_content += "</div>"
 

@@ -1,0 +1,9 @@
+title: "Radiation transport in cosmological simulations"
+abstract: "Radiative transfer is the process describing how radiation moves through space and interacts with matter in it. I am going to show how the equations describing radiative transfer can be solved numerically and how they are applied in order to gain insight about the formation of structure in the early universe."
+speaker:
+  name: Toni Peter
+  email: mail@tonipeter.de
+  affiliation: University of Heidelberg
+  website: https://tonipeter.de
+  github: tehforsch
+duration: short

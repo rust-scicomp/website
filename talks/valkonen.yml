@@ -1,0 +1,9 @@
+title: "Proximal methods for point source localisation: the implementation"
+abstract:
+  - "I will describe my experiences implementing the algorithms of the manuscript [Proximal methods for point source localisation](https://arxiv.org/abs/2212.02991) in Rust."
+  - "The codes are available at [tuomov.iki.fi/software/pointsource_algs](https://tuomov.iki.fi/software/pointsource_algs)."
+speaker:
+  name: Tuomo Valkonen
+  email: tuomov@iki.fi
+  website: https://tuomov.iki.fi
+duration: short

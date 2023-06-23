@@ -1,0 +1,9 @@
+title: "Rust vs Julia in scientific computing"
+abstract: "When to use Rust or Julia for scientific computing with reasons and examples."
+speaker:
+  name: Mo Bitar
+  email: mo8it@proton.me
+  affiliation: Johannes Gutenberg University Mainz
+  mastodon: mo8it@fosstodon.org
+  codeberg: mo8it
+duration: short

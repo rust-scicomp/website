@@ -1,0 +1,11 @@
+title: "Superpowering simulators with Rust and dynamecs"
+abstract:
+  - "Physics simulators for time-dependent problems are hard to compose, and so most researchers develop their own problem-specific ad-hoc software architecture that is often hard to adapt to changing requirements. Consequently, features like configuration file formats, logging and checkpointing must be re-implemented or adapted for every new project, or abandoned altogether."
+  - "In this talk, we will see how to use the experimental Rust framework `dynamecs` to rapidly build prototype simulators that, from the first line of code, automatically support custom per-scenario configuration, checkpointing through `serde` serialization of the simulation state, advanced logging features built-upon `tracing`, as well as extraction of logged data and performance profiling with tools provided alongside `dynamecs`."
+speaker:
+  name: Andreas Longva
+  email: longva@cs.rwth-aachen.de
+  affiliation: RWTH Aachen University
+  github: Andlon
+  twitter: andreas_longva
+duration: short
