@@ -38,8 +38,7 @@ a:hover {color:#FF8800}
 
 .head, .footer {font-family: Prompt, sans-serif;font-weight:bold}
 
-h2 {margin-top:100px}
-h3 {margin-top:50px}
+h2 {margin-top:50px}
 h1, h2, h3, h4, h5, h6 {font-family: Prompt, sans-serif;font-weight:bold;color:black}
 body, p, li {font-family:sans}
 p {text-align:justify}

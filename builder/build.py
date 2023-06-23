@@ -110,12 +110,17 @@ def talk(t, day, session_n, times, prev=None, next=None):
 
     content = ""
     content += f"<h1>{tinfo['title']}</h1>"
+
     content += f"<div>{authortxt}</div>"
 
     if day is not None:
         content += (f"<div style='margin-top:5px'>"
                     f"<a href='/talklist-{day}.html'>{day}</a>"
-                    f" session {session_n} (Zoom) ({times})</div>")
+                    f" session {session_n} (Zoom) ({times}")
+        # content += markup(times, paragraphs=False)
+        content += ") [<span style='color:red;font-weight:bold'>provisionally</span>]</div>"
+        content += markup("Show times in: <timeselector>")
+
 
     content += "<div class='abstract'>"
     abstract = []
@@ -216,14 +221,17 @@ for di, day in enumerate(timetable):
     else:
         raise ValueError(f"Unknown day: {day}")
 
-    list_content += f"<h2>{date}</h2>{dcontent}"
+    list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
     tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
                    f"{3 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/talklist-{day}.html'>"
                    f"{date}</a></div>")
 
     for si, session in enumerate(timetable[day]):
         session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False)
-        dcontent += f"<h3>Session {si + 1} ({session_time}, {session['platform']})</h3>"
+        dcontent += "<h3"
+        if si != 0:
+            dcontent += " style='margin-top:50px'"
+        dcontent += f">Session {si + 1} ({session_time}, {session['platform']})</h3>"
         col = 3 * di + 2
         row = 2 + minutes_after_one(session['start'])
         rowend = 2 + minutes_after_one(session['end'])
