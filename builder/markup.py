@@ -7,7 +7,7 @@ page_references = []
 ref_map = {}
 
 
-def markup(content, icons=True):
+def markup(content, icons=True, paragraphs=True):
     global page_references
 
     if "{% no markup %}" in content:
@@ -43,71 +43,77 @@ def markup(content, icons=True):
         b, c = b.split("</person>", 1)
         content = a + markup_person(b) + c
 
-    out = ""
-    popen = False
-    ulopen = False
-    code = False
-    is_python = False
-    for line in content.split("\n"):
-        if line.startswith("#"):
-            if popen:
-                out += "</p>\n"
-                popen = False
-            if ulopen:
-                out += "</ul>\n"
-                ulopen = False
-            i = 0
-            while line.startswith("#"):
-                line = line[1:]
-                i += 1
-            out += f"<h{i}>{line.strip()}</h{i}>\n"
-        elif line == "":
-            if popen:
-                out += "</p>\n"
-                popen = False
-        elif line == "```":
-            code = not code
-            is_python = False
-        elif line == "```python":
-            code = not code
-            is_python = True
-        elif line.startswith("-") or line.startswith("*"):
-            if popen:
-                out += "</p>\n"
-                popen = False
-            if not ulopen:
-                out += "<ul>\n"
-                ulopen = True
-            out += f"<li>{line[1:].strip()}</li>\n"
-        else:
-            if ulopen:
-                out += "</ul>\n"
-                ulopen = False
-            if not popen and not line.startswith("<") and not line.startswith("\\["):
-                if code:
-                    out += "<p class='pcode'>"
-                else:
-                    out += "<p>"
-                popen = True
-            if code:
-                if is_python:
-                    out += python_highlight(line.replace(" ", "&nbsp;"))
-                else:
-                    out += line.replace(" ", "&nbsp;")
-                out += "<br />"
-            else:
-                out += line
-                out += " "
-    if popen:
-        out += "</p>\n"
+    if paragraphs:
+        out = ""
         popen = False
-    if ulopen:
-        out += "</ul>\n"
         ulopen = False
+        code = False
+        is_python = False
+        for line in content.split("\n"):
+            if line.startswith("#"):
+                if popen:
+                    out += "</p>\n"
+                    popen = False
+                if ulopen:
+                    out += "</ul>\n"
+                    ulopen = False
+                i = 0
+                while line.startswith("#"):
+                    line = line[1:]
+                    i += 1
+                out += f"<h{i}>{line.strip()}</h{i}>\n"
+            elif line == "":
+                if popen:
+                    out += "</p>\n"
+                    popen = False
+            elif line == "```":
+                code = not code
+                is_python = False
+            elif line == "```python":
+                code = not code
+                is_python = True
+            elif line.startswith("-") or line.startswith("*"):
+                if popen:
+                    out += "</p>\n"
+                    popen = False
+                if not ulopen:
+                    out += "<ul>\n"
+                    ulopen = True
+                out += f"<li>{line[1:].strip()}</li>\n"
+            else:
+                if ulopen:
+                    out += "</ul>\n"
+                    ulopen = False
+                if not popen and not line.startswith("<") and not line.startswith("\\["):
+                    if code:
+                        out += "<p class='pcode'>"
+                    else:
+                        out += "<p>"
+                    popen = True
+                if code:
+                    if is_python:
+                        out += python_highlight(line.replace(" ", "&nbsp;"))
+                    else:
+                        out += line.replace(" ", "&nbsp;")
+                    out += "<br />"
+                else:
+                    out += line
+                    out += " "
+        if popen:
+            out += "</p>\n"
+            popen = False
+        if ulopen:
+            out += "</ul>\n"
+            ulopen = False
+    else:
+        out = content
 
     page_references = []
 
-    out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='13' data-month='7' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time Thursday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='13' data-month='7' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time Friday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='14' data-month='7' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<tzone>", r"<span class='tzone'> BST</span>", out)
     out = out.replace("<timeselector>", "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>")
     out = re.sub(r"<ref ([^>]+)>", add_citation, out)
     out = re.sub(r"<ghostref ([^>]+)>", add_ghost_citation, out)
@@ -160,7 +166,7 @@ def insert_icons(txt):
     for e, url in defelementlist:
         txt = txt.replace(e, f"<a class='icon' href='https://defelement.com/elements/{url}.html'>"
                           f"<img src='/img/defelement.png'>{e}</a>", 1)
-    txt = txt.replace("Gather Town", "<a href='/gather-town.html'>Gather Town</a>", 1)
+    # txt = txt.replace("Gather Town", "<a href='/gather-town.html'>Gather Town</a>", 1)
     return txt
 
 

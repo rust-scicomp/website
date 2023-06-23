@@ -89,17 +89,25 @@ function zeropad(n, digits)
 }
 
 function update_timezones(){
+    es = document.getElementsByClassName("tzone")
+    for (let i = 0; i < es.length; i++){
+        if (zone == "Unix time") {
+            es[i].innerHTML = ""
+        } else {
+            es[i].innerHTML = " " + zone
+        }
+    }
     es = document.getElementsByClassName("bst-time")
     for (let i = 0; i < es.length; i++){
         if (zone == "Unix time")
         {
-            let date = new Date(Date.UTC(2023, 7, 13, es[i].dataset["hour"], es[i].dataset["minute"], 0, 0))
+            let date = new Date(Date.UTC(es[i].dataset["year"], es[i].dataset["month"], es[i].dataset["day"], es[i].dataset["hour"], es[i].dataset["minute"], 0, 0))
             date = new Date(date.getTime() - 1 * 60 * 60 * 1000 + tzdata[zone][1] * 60 * 1000);
             es[i].innerHTML = date.getTime() / 1000;
 
         } else {
 
-            let date = new Date(Date.UTC(2023, 7, 13, es[i].dataset["hour"], es[i].dataset["minute"], 0, 0))
+            let date = new Date(Date.UTC(es[i].dataset["year"], es[i].dataset["month"], es[i].dataset["day"], es[i].dataset["hour"], es[i].dataset["minute"], 0, 0))
 
             date = new Date(date.getTime() + (tzdata[zone][0] - 1) * 60 * 60 * 1000 + tzdata[zone][1] * 60 * 1000);
 
@@ -139,6 +147,9 @@ function update_timezones(){
             time = time.replace(/\{TZ\}/g, zone);
 
             es[i].innerHTML = time;
+            if (date.getUTCDate() != es[i].dataset["day"]) {
+                es[i].innerHTML += " (" + date.getUTCDate() + " July)";
+            }
         }
     }
 }

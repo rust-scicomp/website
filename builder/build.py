@@ -174,6 +174,9 @@ tt_content = "<h1>Timetable</h1>"
 list_content += "<h1 style='color:red'>This is a provisional timetable and may be changed</h1>"
 tt_content += "<h1 style='color:red'>This is a provisional timetable and may be changed</h1>"
 
+list_content += markup("Show times in: <timeselector>")
+tt_content += markup("Show times in: <timeselector>")
+
 tt_content += "<div class='timetablegrid'>\n"
 for di, day in enumerate(timetable):
     dcontent = ""
@@ -190,8 +193,9 @@ for di, day in enumerate(timetable):
                    f"{date}</a></div>")
 
     for si, session in enumerate(timetable[day]):
-        dcontent += (f"<h3>Session {si + 1} ({session['start']}&ndash;{session['end']} BST"
-                     f", {session['platform']})</h3>")
+        dcontent += markup(f"<h3>Session {si + 1} "
+                           f"(<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>"
+                           f", {session['platform']})</h3>", paragraphs=False)
         col = 3 * di + 2
         row = 2 + minutes_after_one(session['start'])
         rowend = 2 + minutes_after_one(session['end'])
@@ -200,8 +204,10 @@ for di, day in enumerate(timetable):
             tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row + 1} / span 1"
         else:
             tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row}"
-        tt_content += (f"'>Session {si + 1} ({session['start']}&ndash;{session['end']} BST, "
-                       f"{session['platform']})</div>")
+        tt_content += "'>"
+        tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
+                             f"{session['platform']})", paragraphs=False)
+        tt_content += "</div>"
         if "description" in session:
             dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
         if "chair" in session:
