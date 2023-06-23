@@ -2,7 +2,7 @@ Thursday:
   - talks:
       - brito
       - elkazdadi
-      - lazear
+      - nougaret
       - zhang
       - vogt
     start: "13:00"
@@ -13,7 +13,7 @@ Thursday:
       - sky
       - dahl
       - friese
-      - nougaret
+      - lazear
       - betcke
     start: "15:00"
     end: "16:00"
@@ -24,23 +24,23 @@ Thursday:
     description: "An interactive session during which participants will be able to talk to the presenters of Thursday's talks, and meet other workshop participants."
 Friday:
   - talks:
-      - drehwald
-      - brown
+      - jordan
       - valkonen
-      - eaves
+      - raz
       - goulart
       - bitar
-      - jordan
+      - boulanger
       - jeggle
+      - drehwald
     start: "13:00"
     end: "14:40"
     platform: Zoom
   - talks:
-      - castelao
-      - raz
+      - brown
+      - eaves
       - lodi
       - peter
-      - boulanger
+      - castelao
       - longva
     start: "15:00"
     end: "16:00"
