@@ -1,0 +1,59 @@
+Thursday:
+  - chair:
+      name: John Placeholder
+      affiliation: University of Nowhere
+      github: example
+    talks:
+      - test1
+      - test2
+    start: "13:00"
+    end: "14:10"
+    platform: Zoom
+  - chair:
+      name: Laura Placeholder
+    talks:
+      - test3
+      - test4
+      - test3
+      - test4
+      - test3
+      - test4
+      - test3
+      - test4
+    start: "14:30"
+    end: "16:00"
+    platform: Zoom
+  - start: "16:00"
+    end: "17:00"
+    platform: Gather Town
+    description: "Time for discussions, etc. Add more info here"
+Friday:
+  - chair:
+      name: Peter Placeholder
+      github: example
+    talks:
+      - test1
+      - test3
+      - test4
+      - test3
+      - test4
+    start: "13:00"
+    end: "14:30"
+    platform: Zoom
+  - chair:
+      name: Clara Placeholder
+    talks:
+      - test3
+      - test4
+      - test3
+      - test4
+      - test3
+      - test4
+    start: "15:00"
+    end: "16:00"
+    platform: Zoom
+  - start: "16:00"
+    end: "17:00"
+    platform: Gather Town
+    info: friday-gather
+    description: "Time for discussions, etc. Add more info here"

@@ -61,7 +61,7 @@ td.heading {font-weight:bold;font-size:80%}
 
 .timetablegrid {
   display:grid;
-  grid-template-columns: auto repeat(5, minmax(0, 1fr));
+  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr);
 }
 .timetableheading {font-weight:bold;font-size:80%}
 .timetablegrid .gridcell {
