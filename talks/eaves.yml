@@ -1,6 +1,6 @@
-title: "lace: Bayesian tabular data analysis for Rust (and Python)"
+title: "Lace: Bayesian tabular data analysis for Rust (and Python)"
 abstract:
-  - "The goal of [lace](https://lace.dev) is to fill the gap between standard machine learning methods like deep learning and random forests, and statistical methods like probabilistic programming languages. We wanted to develop a machine that allows users to experience the joy of discovery, and indeed optimizes for it."
+  - "The goal of [Lace](https://lace.dev) is to fill the gap between standard machine learning methods like deep learning and random forests, and statistical methods like probabilistic programming languages. We wanted to develop a machine that allows users to experience the joy of discovery, and indeed optimizes for it."
   - "Lace accomplishes this with a hierarchical Bayesian non-parametric model that learns a joint distribution over the entire data table. From this joint distribution users can create and query conditional distributions that allow straightforward prediction, simulation, likelihood evaluation, uncertainty computation, structure learning, and more."
   - "In this talk, we will introduce the inference framework underlying lace, and show how users can quickly ask and answer questions about their data."
 speaker:

@@ -137,7 +137,16 @@ def markup(content, icons=True, paragraphs=True):
 
 iconlist = []
 
-defelementlist = []
+defelementlist = [
+    ("Mardal&ndash;Tai&ndash;Winther", "mardal-tai-winther"),
+    ("Arnold&ndash;Winther", "arnold-winther"),
+    ("seredipity", "serendipity"),
+    ("Lagrange", "lagrange"),
+    ("N&eacute;d&eacute;lec", "nedelec1"),
+    ("Raviart&ndash;Thomas", "raviart-thomas"),
+    ("Scott&ndash;Vogelius", "scott-vogelius"),
+    ("Bernstein&ndash;B&eacute;zier", "bernstein"),
+]
 
 
 def enter_icon(matches):

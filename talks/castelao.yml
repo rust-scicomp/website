@@ -1,5 +1,5 @@
 title: "Equation of state for robust oceanographic embedded systems"
-abstract: "To support oceanographic autonomous platforms, Gibbs Sea Water library was implemented in Rust (GSW-rs) and ready for embedded systems. Such library is a fundamental component to make sense of raw sensors measurements on real-time, thus allowing further autonomous decisions."
+abstract: "To support oceanographic autonomous platforms, Gibbs Sea Water library was implemented in Rust ([GSW-rs](https://github.com/castelao/GSW-rs)) and ready for embedded systems. Such library is a fundamental component to make sense of raw sensors measurements on real-time, thus allowing further autonomous decisions."
 speaker:
   name: Guilherme Castelao
   affiliation: Scripps Institution of Oceanography
