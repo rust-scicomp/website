@@ -6,7 +6,7 @@ July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
 <div id='other-timezones' style='display:none; border:2px solid #FF8800;padding:10px'>
 <small><a href='javascript:toggle_times()'>Hide timezone info</a></small>
 
-13:00 to 17:00 BST (British Summer Time / UTC+1) is:
+13:00 to 17:00 BST (British Summer Time / UTC+1) on 13 July is:
 
 - 12:00 to 16:00 GMT [UTC&plusmn;0]
 - 05:00 to 09:00 Pacific time [UTC-7]
