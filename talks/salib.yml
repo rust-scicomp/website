@@ -1,0 +1,8 @@
+title: "Large scale zonal summaries with Rust"
+abstract: "I've designed a system that uses Rust to perform very large scale zonal summary operations of remote sensing data (satellite imagery, weather and soil data sets). We use AWS Batch and Lambda to extract subsets of pixels from our data sources and then summarize them into tabular parquet files. That enables machine learning pipelines and all manner of easy data analysis."
+speaker:
+  name: Michael Salib
+  email: msalib@gmail.com
+  affiliation: Indigo Ag Inc.
+  github: msalib
+duration: short

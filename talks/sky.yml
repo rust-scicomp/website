@@ -1,0 +1,7 @@
+title: "Bernstein&ndash;Bezier finite elements for RMM in Rust"
+abstract: "The relaxed micromorphic model is briefly introduced. The model is well-posed in the spaces \\(H^1(V)\\times H(\\operatorname{curl}, V)\\). We construct Bernstein&ndash;Bezier and N&eacute;d&eacute;lec finite elements for the discretisation. The implementation is carried out in Rust, is vectorised using intrinsics, and parallelised using the Rayon library. An interface to Python is implemented via PyO3."
+speaker:
+  name: Adam Sky
+  affiliation: University of Luxembourg
+  email: adam.sky@uni.lu
+duration: short

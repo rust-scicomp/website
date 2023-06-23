@@ -1,0 +1,9 @@
+title: "Powering transactions with functional data structures"
+abstract: "Serializing is easy in Rust, but it can be expensive. What if we bypassed JSON, and just used raw program data on disk? Combining Rust's mutability control with functional data structures, we propose a transactional system with a pleasant API to create persistent data structure libraries."
+speaker:
+  name: Louis Boulanger
+  email: louis.boulanger@univ-grenoble-alpes.fr
+  affiliation: LIG, Universit&eacute; Grenoble Alpes
+  website: https://louisboulanger.fr
+  github: boulanlo
+duration: short

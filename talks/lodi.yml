@@ -1,0 +1,8 @@
+title: "Roqoqo: a quantum computing toolkit in Rust"
+abstract: "In this short talk we present Roqoqo, an open-sourced quantum computing toolkit written in Rust. The package provides a comprehensive set of features and interfaces for representing, serializing and processing quantum circuits. It is actively used in research (https://arxiv.org/abs/2210.12138 and https://arxiv.org/abs/2210.11371). During the talk we will give a quick introduction to the main functionalities that the package offers as well as present its main design goals."
+speaker:
+  name: Matteo Lodi
+  email: matteo.lodi@quantumsimulations.de
+  affiliation: HQS Quantum Simulations GmbH
+  website: https://quantumsimulations.de/
+duration: short

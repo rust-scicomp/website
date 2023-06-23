@@ -1,0 +1,10 @@
+title: "Sage enables fast proteomics searching and quantification at scale"
+abstract:
+  - Sage is an open-source proteomics search engine that accelerates proteomics workflows by incorporating retention time prediction, label-free and isobaric quantification, peptide-spectrum match rescoring, and false discovery rate control into a single cross-platform application. A fragment indexing strategy enables fast narrow and open searches, while its cloud-native design offers unprecedented speed and scalability for searching DDA, DIA, and PRM datasets. Developed in the Rust programming language and freely available for both academic and for-profit use under the MIT open-source license, Sage serves as a universally accessible, rapid, and robust tool for large-scale proteomics applications. Source code and pre-compiled binaries are available at https://github.com/lazear/sage.
+  - Sage is currently the fastest proteomics engine in the world, in a field dominated by commercial and closed-source software that has been developed for 15+ years.
+speaker:
+  name: Michael Lazear
+  affiliation: Belharra Therapeutics
+  github: lazear
+  twitter: michaellazear
+duration: short

@@ -1,0 +1,13 @@
+title: "Conic optimization using the Clarabel solver"
+abstract:
+  - "This talk will discuss our interior point conic optimization package [Clarabel](https://oxfordcontrol.github.io/ClarabelDocs/stable/)."
+speaker:
+  name: Paul Goulart
+  email: paul.goulart@eng.ox.ac.uk
+  affiliation: University of Oxford
+  website: https://users.ox.ac.uk/~engs1373
+  github: goulart-paul
+coauthor:
+  - name: Yuwen Chen
+    affiliation: University of Oxford
+duration: short

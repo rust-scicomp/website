@@ -1,0 +1,9 @@
+title: "Writing R extensions in Rust"
+abstract: "This paper complements [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html), the official guide for writing R packages, for those who are familiar with Rust and want to write a Rust-based R package. An R package named \"cargo\" is on CRAN to aid development. It provides complete bindings for all of R's API, but idiomatic Rust functions are also available and often avoid the need to directly call R's API. Examples on R packages on CRAN developed using the \"cargo\" package include \"salso\", \"caviarpd\", and \"fangs\"."
+speaker:
+  name: David B. Dahl
+  email: dahl@stat.byu.edu
+  affiliation: Brigham Young University
+  website: https://dahl.byu.edu
+  github: dbdahl
+duration: short

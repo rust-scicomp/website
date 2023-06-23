@@ -38,7 +38,8 @@ a:hover {color:#FF8800}
 
 .head, .footer {font-family: Prompt, sans-serif;font-weight:bold}
 
-h2 {margin-top:50px}
+h2 {margin-top:100px}
+h3 {margin-top:50px}
 h1, h2, h3, h4, h5, h6 {font-family: Prompt, sans-serif;font-weight:bold;color:black}
 body, p, li {font-family:sans}
 p {text-align:justify}
@@ -58,10 +59,14 @@ td.heading {font-weight:bold;font-size:80%}
 .talktitle, .timetabletalktitle {font-family: Prompt, sans-serif;font-weight:bold}
 .timetabletalktitle {font-size:70%}
 .timetabletalkspeaker {font-size:55%;margin-top:5px}
+.longtalk .timetabletalktitle {font-size:84%}
+.longtalk .timetabletalkspeaker {font-size:66%;margin-top:5px}
+.longtalk {padding-top:10px!important}
 
 .timetablegrid {
   display:grid;
-  grid-template-columns: auto repeat(5, minmax(0, 1fr));
+  grid-template-columns: auto 3fr 1fr auto 3fr;
+  grid-template-rows: auto repeat(180, 1fr) 2fr auto;
 }
 .timetableheading {font-weight:bold;font-size:80%}
 .timetablegrid .gridcell {

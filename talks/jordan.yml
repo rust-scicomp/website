@@ -1,0 +1,10 @@
+title: "Using Rust in radio astronomy"
+abstract: "I will discuss the merits of using Rust in low-frequency radio astronomy, as opposed to the usual suspects of C, C++ or Python. Main points include the high reliability, ease of deployment and ease of development, even when using CUDA."
+speaker:
+  name: Christopher Jordan
+  email: christopherjordan87+rust@gmail.com
+  affiliation: Curtin Institute of Radio Astronomy
+  github: cjordan
+coauthor:
+  - name: Dev Null
+duration: short

@@ -1,0 +1,12 @@
+title: "Representing open quantum systems in Rust"
+abstract: "We are pursuing the goal of using near-term quantum computers to simulate open quantum systems using a Rust toolchain. To this end, we need to have a way to represent quantum systems (Hamiltonians and general quantum operators) and open quantum systems (defined by the so called Lindblad equation). To represent and work with open quantum systems in Rust we have created the open-source crate [struqture](https://github.com/HQSquantumsimulations/struqture). It is actively used in research (https://arxiv.org/abs/2210.12138 and https://arxiv.org/abs/2210.11371). In this short talk we give a quick introduction into the functionality struqture offers and present some of the main design goals of the package."
+speaker:
+  name: Nicolas Vogt
+  email: nicolas.vogt@quantumsimualtions.de
+  affiliation: HQS Quantum Simulations GmbH
+  website: https://quantumsimulations.de/
+  github: nfwvogt
+coauthor:
+  - name: Kirsten Bark
+    affiliation: HQS Quantum Simulations GmbH
+duration: short

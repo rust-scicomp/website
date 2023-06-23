@@ -129,65 +129,9 @@ def markup(content, icons=True):
     return out
 
 
-iconlist = [
-    # With icons
-    ("FEniCS", "fenics.png", "https://fenicsproject.org"),
-    ("FEniCSx", "fenics.png", "https://fenicsproject.org"),
-    ("FFCx", "fenics.png", "https://github.com/FEniCS/ffcx"),
-    ("UFL", "fenics.png", "https://github.com/FEniCS/ufl"),
-    ("FIAT", "fenics.png", "https://github.com/FEniCS/fiat"),
-    ("Basix", "fenics.png", "https://github.com/FEniCS/basix"),
-    ("DOLFINx", "fenics.png", "https://github.com/FEniCS/dolfinx"),
-    ("DOLFIN", "fenics.png", "https://bitbucket.org/fenics-project/dolfin"),
-    ("FFC", "fenics.png", "https://bitbucket.org/fenics-project/ffc"),
-    ("Firedrake", "firedrake.png", "https://www.firedrakeproject.org"),
-    ("Bempp-cl", "bempp.png", "https://www.bempp.com"),
-    ("Bempp", "bempp.png", "https://www.bempp.com"),
-    ("PETSc", "petsc.png", "https://www.mcs.anl.gov/petsc/"),
-    ("Guix", "guix.png", "https://guix.gnu.org/"),
-    ("TFEL/Math", "tfel.png", "https://github.com/TfEL/TfEL-Maths-Pedagogy"),
-    ("Trilinos", "trilinos.png", "https://trilinos.github.io/"),
-    ("SLEPc", "slepc.png", "https://slepc.upv.es/"),
-    ("Multiphenics", "multiphenics.png", "https://github.com/mathLab/multiphenics"),
-    ("OpenMDAO", "openmdao.png", "https://openmdao.org/"),
-    ("RBniCS", "rbnics.png", "https://www.rbnicsproject.org/"),
-    ("Gmsh", "gmsh.png", "https://gmsh.info/"),
-    ("Elmer", "elmer.png", "http://www.elmerfem.org/blog/"),
-    ("JAX", "jax.png", "https://github.com/google/jax"),
-    ("PyTorch", "pytorch.png", "https://pytorch.org/"),
-    ("ChainRule.jl", "chainrule.png", "https://github.com/JuliaDiff/ChainRules.jl"),
-    ("Scipy", "scipy.png", "https://www.scipy.org/"),
-    ("Numba", "numba.png", "https://numba.pydata.org/"),
+iconlist = []
 
-    # Without icons
-    ("dolfiny", None, "https://github.com/michalhabera/dolfiny"),
-    ("dolfin-adjoint/pyadjoint", None, "https://www.dolfin-adjoint.org/"),
-    ("FEniCS-EE", None, "https://github.com/rbulle/fenics-error-estimation"),
-    ("hIPPYlib", None, "https://github.com/hippylib/hippylib"),
-    ("hIPPYlib-MUQ", None, "https://hippylib.github.io/muq-hippylib/"),
-    ("tIGAr", None, "https://github.com/david-kamensky/tIGAr"),
-    ("BERNAISE", None, "https://github.com/gautelinga/BERNAISE"),
-    ("FEniCS-preCICE", None, "https://github.com/precice/fenics-adapter"),
-    ("OpenFOAM", None, "https://openfoam.org/"),
-    ("SU2", None, "https://su2code.github.io/"),
-    ("preCICE", None, "https://www.precice.org/"),
-    ("GeoPart", None, "https://bitbucket.org/nate-sime/geopart/"),
-    ("LEoPart", None, "https://bitbucket.org/jakob_maljaars/leopart/"),
-    ("PyMC3", None, "https://docs.pymc.io/"),
-    ("Zygote.jl", None, "https://github.com/FluxML/Zygote.jl"),
-    ("cffi", None, "https://foss.heptapod.net/pypy/cffi/"),
-    ("Irksome", None, "https://github.com/firedrakeproject/Irksome"),
-]
-
-defelementlist = [
-    ("Mardal&ndash;Tai&ndash;Winther", "mardal-tai-winther"),
-    ("Arnold&ndash;Winther", "arnold-winther"),
-    ("seredipity", "serendipity"),
-    ("Lagrange", "lagrange"),
-    ("N&eacute;d&eacute;lec", "nedelec1"),
-    ("Raviart&ndash;Thomas", "raviart-thomas"),
-    ("Scott&ndash;Vogelius", "scott-vogelius"),
-]
+defelementlist = []
 
 
 def enter_icon(matches):
@@ -221,11 +165,11 @@ def insert_icons(txt):
 
 
 def insert_links(txt):
-    txt = re.sub(r"([^\('])(https?:\/\/)([^\s]+)", r"\1<a href='\2\3'>\3</a>", txt)
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\)\{([^\}]+)\}",
                  r"<a class='icon' href='\2'><img src='/img/\3'>\1</a>", txt)
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\.md\)", r"<a href='\2.html'>\1</a>", txt)
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\)", r"<a href='\2'>\1</a>", txt)
+    txt = re.sub(r"([^'])(https?:\/\/)([^\s\)]+)", r"\1<a href='\2\3'>\3</a>", txt)
     return txt
 
 
@@ -289,7 +233,7 @@ def markup_person(details):
     if "img" in info:
         out += f"<div class='imgwrap'><img src='{info['img']}'></div>\n"
     else:
-        out += f"<div class='imgwrap'><img src='/img/faceholder.png'></div>\n"
+        out += "<div class='imgwrap'><img src='/img/faceholder.png'></div>\n"
     out += "<div class='innertext'>\n"
     out += f"<h3>{info['name']}</h3>\n{info['about']}"
     if "rust-about" in info:

@@ -1,0 +1,52 @@
+Thursday:
+  - talks:
+      - brito
+      - elkazdadi
+      - lazear
+      - zhang
+      - vogt
+    start: "13:00"
+    end: "14:40"
+    platform: Zoom
+  - talks:
+      - salib
+      - sky
+      - dahl
+      - friese
+      - nougaret
+      - betcke
+    start: "15:00"
+    end: "16:00"
+    platform: Zoom
+  - start: "16:00"
+    end: "17:00"
+    platform: Gather Town
+    description: "An interactive session during which participants will be able to talk to the presenters of Thursday's talks, and meet other workshop participants."
+Friday:
+  - talks:
+      - drehwald
+      - brown
+      - valkonen
+      - eaves
+      - goulart
+      - bitar
+      - jordan
+      - jeggle
+    start: "13:00"
+    end: "14:40"
+    platform: Zoom
+  - talks:
+      - castelao
+      - raz
+      - lodi
+      - peter
+      - boulanger
+      - longva
+    start: "15:00"
+    end: "16:00"
+    platform: Zoom
+  - start: "16:00"
+    end: "17:00"
+    platform: Gather Town
+    info: friday-gather
+    description: "An interactive session during which participants will be able to talk to the presenters of Friday's talks, and meet other workshop participants."

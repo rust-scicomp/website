@@ -1,0 +1,11 @@
+title: "Insights from making a DNN & CNN library from scratch in Rust"
+abstract: "After spending the last two month making a GPU bound CNN & DNN & data preprocessing library in Rust, I've come to gather insights about using scientific computing libraries in Rust from a ML perspective."
+speaker:
+  name: Anicet Nougaret
+  email: an.nougaret@gmail.com
+  affiliation: INSA Lyon / Onepoint
+  website: https://anicetnougaret.fr
+  github: AnicetNgrt
+  twitter: AniC_dev
+  linkedin: anicet-nougaret-b7846b174
+duration: short
