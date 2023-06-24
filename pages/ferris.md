@@ -1,6 +1,6 @@
 # Science Ferris
 
-<img src='img/ferris-small.png'>
+<center><img src='/img/ferris-small.png'></center>
 
 Science Ferris is the mascot of the Scientific Computing in Rust 2023 workshop.
 Just like [Ferris](https://rustacean.net/), Science Ferris can be reused for free under a
