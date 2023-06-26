@@ -94,7 +94,13 @@ def is_long(t):
 def get_title_and_speaker(t):
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
-    return tinfo["speaker"]["name"], tinfo["title"]
+    return tinfo["title"], tinfo["speaker"]["name"]
+
+
+def recorded(t):
+    with open(os.path.join(talks_path, f"{t}.yml")) as f:
+        tinfo = yaml.load(f, Loader=yaml.FullLoader)
+    return "recorded" not in tinfo or tinfo["recorded"]
 
 
 def talk(t, day, session_n, times, prev=None, next=None):
@@ -116,11 +122,12 @@ def talk(t, day, session_n, times, prev=None, next=None):
     if day is not None:
         content += (f"<div style='margin-top:5px'>"
                     f"<a href='/talklist-{day}.html'>{day}</a>"
-                    f" session {session_n} (Zoom) ({times}")
-        # content += markup(times, paragraphs=False)
-        content += ") [<span style='color:red;font-weight:bold'>provisionally</span>]</div>"
-        content += markup("Show times in: <timeselector>")
-
+                    f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)")
+        content += " [<span style='color:red;font-weight:bold'>provisionally</span>]</div>"
+        content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False)
+    if "recorded" in tinfo and not tinfo["recorded"]:
+        content += ("<div style='margin-top:15px'><i class='fa-solid fa-video-slash'></i> "
+                    "This talk will not be recorded.</div>")
 
     content += "<div class='abstract'>"
     abstract = []
@@ -262,9 +269,10 @@ for di, day in enumerate(timetable):
                     tt_content += " longtalk"
                 tt_content += (f"' href='/talks/{t}.html' style='"
                                f"grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
-                               f"<div class='timetabletalktitle'>{title}</div>"
-                               f"<div class='timetabletalkspeaker'>{speaker}</div>"
-                               "</a>")
+                               f"<div class='timetabletalktitle'>{title}</div>")
+                if not recorded(t):
+                    tt_content += "<div class='timetabletalktitle'><i class='fa-solid fa-video-slash' alt='This talk will not be recorded'></i></div>"
+                tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div></a>"
                 start += rows
         else:
             tt_content += (f"<a class='gridcell timetabletalk' href='/gather-town.html' style='"
