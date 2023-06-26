@@ -1,5 +1,5 @@
 title: "Lamellar: A Rust-based asynchronous tasking and PGAS runtime for high performance computing"
-abstract: "In this talk we will introduce Lamellar, our asynchronous tasking and PGAS runtime for HPC. We will present our various (safe) distributed communication APIs including Active Messages, LamellarArrays, and Darcs (Distributed Arcs). We will conclude by briefly discussing Lamellar performance for selected benchmarks. Lamellar is open-source and available at https://crates.io/crates/lamellar and https://github.com/pnnl/lamellar-runtime."
+abstract: "In this talk we will introduce Lamellar, our asynchronous tasking and PGAS runtime for HPC. We will present our various (safe) distributed communication APIs including Active Messages, LamellarArrays, and Darcs (Distributed Arcs). We will conclude by briefly discussing Lamellar performance for selected benchmarks. Lamellar is open-source and available at https://crates.io/crates/lamellar and [github.com/pnnl/lamellar-runtime](https://github.com/pnnl/lamellar-runtime)."
 speaker:
   name: Ryan D. Friese
   affiliation: Pacific Northwest National Laboratory (PNNL)
