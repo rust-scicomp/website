@@ -38,7 +38,8 @@ please [register using this form](https://forms.gle/anecaSbnmKmi3Ay47).
 ## Timetable
 The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
 speakers and 5-10 minute talks by workshop attendees. Submissions for giving a short talk are now closed.
-People who've submitted a talk will shortly be notified via email whether their talk has been accepted
+People who've submitted a talk have been notified via email whether their talk has been accepted.
+The schedule for the workshop will appear here very soon.
 
 The talks will be complimented by informal discussion sessions where you will have a chance to meet
 and talk to other attendees.
