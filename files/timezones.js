@@ -123,21 +123,33 @@ function update_timezones(){
             else if (dth == 2 ||  dth == 22) {dth += "nd"}
             else {dth += "th"}
 
-            time = time.replace(/\{YEAR\}/g, date.getUTCFullYear());
-            time = time.replace(/\{MONTH\}/g, date.getUTCMonth());
+            if (zone == "BST") {
+                time = time.replace(/\{YEAR\}/g, es[i].dataset["year"]);
+                time = time.replace(/\{MONTH\}/g, es[i].dataset["month"]);
+                time = time.replace(/\{DATE\}/g, es[i].dataset["day"]);
+                time = time.replace(/\{HOUR\}/g, es[i].dataset["hour"]);
+                time = time.replace(/\{0HOUR\}/g, zeropad(es[i].dataset["hour"], 2));
+                time = time.replace(/\{24 HOUR\}/g, es[i].dataset["hour"]);
+                time = time.replace(/\{24 0HOUR\}/g, zeropad(es[i].dataset["hour"], 2));
+                time = time.replace(/\{MINUTE\}/g, zeropad(es[i].dataset["minute"], 2));
+            } else {
+                time = time.replace(/\{YEAR\}/g, date.getUTCFullYear());
+                time = time.replace(/\{MONTH\}/g, date.getUTCMonth());
+                time = time.replace(/\{DATE\}/g, date.getUTCDate());
+                time = time.replace(/\{HOUR\}/g, date.getUTCHours());
+                time = time.replace(/\{0HOUR\}/g, zeropad(date.getUTCHours(), 2));
+                time = time.replace(/\{24 HOUR\}/g, date.getUTCHours());
+                time = time.replace(/\{24 0HOUR\}/g, zeropad(date.getUTCHours(), 2));
+                time = time.replace(/\{MINUTE\}/g, zeropad(date.getUTCMinutes(), 2));
+            }
+
             time = time.replace(/\{MONTHNAME\}/g, months[date.getUTCMonth()]);
-            time = time.replace(/\{DATE\}/g, date.getUTCDate());
             time = time.replace(/\{DATETH\}/g, dth);
             time = time.replace(/\{WEEKDAY\}/g, days[date.getUTCDay()]);
             time = time.replace(/\{AM\/PM\}/g, ampm);
             time = time.replace(/\{am\/pm\}/g, ampm.toLowerCase());
-            time = time.replace(/\{HOUR\}/g, date.getUTCHours());
-            time = time.replace(/\{0HOUR\}/g, zeropad(date.getUTCHours(), 2));
-            time = time.replace(/\{24 HOUR\}/g, date.getUTCHours());
-            time = time.replace(/\{24 0HOUR\}/g, zeropad(date.getUTCHours(), 2));
             time = time.replace(/\{12 HOUR\}/g, h12);
             time = time.replace(/\{12 0HOUR\}/g, zeropad(h12, 2));
-            time = time.replace(/\{MINUTE\}/g, zeropad(date.getUTCMinutes(), 2));
             if (date.getUTCMinutes() == 0)
             {
                 time = time.replace(/\{\?:MINUTE\}/g, "");
