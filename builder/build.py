@@ -291,7 +291,7 @@ for di, day in enumerate(timetable):
             tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
             tt_content += "</div>"
     list_content += dcontent
-    write_page(f"talklist-{day}.html", f"<h1>{date}</h1>{dcontent}")
+    write_page(f"talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>')}{dcontent}")
 
 tt_content += "</div>"
 
