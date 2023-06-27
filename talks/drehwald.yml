@@ -1,5 +1,9 @@
-title: "TBC"
-abstract: TBC
+title: "Automatic differentiation of Rust, with the friendly help of your compiler"
+abstract: "Calculating gradients is necessary for various algorithms such as Backpropagation, Bayesian inference, uncertainty quantification, and probabilistic programming. Enzyme is a tool that can automatically compute gradients and was accepted for experimental (nightly) integration into the Rust compiler. We demonstrate how [rust-enzyme](https://github.com/EnzymeAD/rust) can be used, present the next development steps, and discuss Rust specific challenges for Automatic Differentiation."
 speaker:
   name: Manuel Drehwald
+  email: drehwald@mit.edu
+  github: ZuseZ4
+  linkedin: manuel-drehwald
+  affiliation: MIT Julia lab / University of Toronto
 duration: long
