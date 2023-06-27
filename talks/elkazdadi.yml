@@ -1,5 +1,7 @@
-title: "TBC"
-abstract: TBC
+title: "faer-rs: a linear algebra foundation for the Rust programming language"
+abstract: "This talk presents [faer](https://github.com/sarah-ek/faer-rs), a pure Rust implementation of low level linear algebra algorithms that leverages SIMD instructions, modern cache friendly algorithms and thread parallelism to achieve high performance."
 speaker:
   name: Sarah Elkazdadi
+  github: sarah-ek
+  email: sarah.elkazdadi@gmail.com
 duration: long
