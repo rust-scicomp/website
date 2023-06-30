@@ -1,5 +1,7 @@
-title: TBC
-abstract: TBC
+title: "High-Performance linear algebra for PDEs in Rust"
+abstract:
+  - "Scalable and highly performant linear algebra is at the core of most complex natural sciences and engineering simulations. In the C/C++ world, Trilinos and PETSc are established and highly mature packages that provide efficient distributed data structures and interfaces to external packages for linear algebra at extreme scales. Over the last year we have started developing the [Rust Linear Solver Toolbox (RLST)](https://github.com/linalg-rs/rlst  ). From initial ideas about representing dense matrix operations using Eigen like \"expression templates\", it grew into a collection of efficient data structures for dense and sparse matrix operations, with the latter even supporting MPI on distributed clusters."
+  - "With a first release planned later this year, we discuss some of our design ideas and provide a dive into already existing features of RLST, and give a roadmap of future work to the first official release."
 speaker:
   name: Timo Betcke
   github: tbetcke
