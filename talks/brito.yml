@@ -1,5 +1,6 @@
-title: "TBC"
-abstract: TBC
+title: "A parallel Lattice&ndash;Boltzmann CFD solver using rayon"
+abstract: "This talk demonstrates a parallel Lattice&ndash;Boltzmann solver for computational fluid dynamics written in Rust using the Rust [rayon](https://docs.rs/rayon/latest/rayon/) library. Rayon is a data-parallelism library for Rust that guarantees data-race freedom and makes it easy to convert a sequential computation into a parallel one by using parallel iterators. The talk demonstrates how to use rayon to parallelize scientific PDE solvers, using the Lattice&ndash;Boltzmann method as an example."
 speaker:
   name: Gonzalo Brito
+  affiliation: NVIDIA
 duration: long
