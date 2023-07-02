@@ -23,10 +23,10 @@ a, a:link, a:active, a:visited
 .footer a:hover, .title a:hover,
 a:hover {color:#FF8800}
 
-@media (min-width:850px){
-  .content {width:850px}
+@media (min-width:780px){
+  .content {width:780px}
 }
-@media (max-width:850px){
+@media (max-width:780px){
   .content {width:100%}
 }
 .content {margin:auto;padding:10px}
