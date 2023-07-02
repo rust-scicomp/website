@@ -2,7 +2,6 @@
 colour scheme:
   orange:        #FF8800
   pastel orange: #FFBC6F
-  blue:          #4A98DD
 *****************************/
 
 body {padding:0px;margin:0px; margin-bottom:50px}
@@ -20,15 +19,15 @@ body {padding:0px;margin:0px; margin-bottom:50px}
          text-align:center}
 .footer,
 a, a:link, a:active, a:visited
-        {color:#4A98DD}
+        {color:#0000FF}
 .footer a:hover, .title a:hover,
 a:hover {color:#FF8800}
 
-@media (min-width:1000px){
-  .content {width:740px}
+@media (min-width:850px){
+  .content {width:850px}
 }
-@media (max-width:1000px){
-  .content {width:95%}
+@media (max-width:850px){
+  .content {width:100%}
 }
 .content {margin:auto;padding:10px}
 .head .content {background-color:#000000FF;padding-bottom:0}
@@ -56,15 +55,15 @@ td.rotated span {-ms-writing-mode: tb-rl; -webkit-writing-mode: vertical-rl; wri
 td.heading {font-weight:bold;font-size:80%}
 
 .talktitle, .timetabletalktitle {font-family: Prompt, sans-serif;font-weight:bold}
-.timetabletalktitle {font-size:70%}
-.timetabletalkspeaker {font-size:55%;margin-top:5px}
+.timetabletalktitle {font-size:85%}
+.timetabletalkspeaker {font-size:70%;margin-top:5px}
 .longtalk .timetabletalktitle {font-size:84%}
 .longtalk .timetabletalkspeaker {font-size:66%;margin-top:5px}
 .longtalk {padding-top:10px!important}
 
 .timetablegrid {
   display:grid;
-  grid-template-columns: auto 3fr 1fr auto 3fr;
+  grid-template-columns: auto 3fr 0.1fr 3fr;
   grid-template-rows: auto repeat(180, 1fr) 2fr auto;
 }
 .timetableheading {font-weight:bold;font-size:80%}
