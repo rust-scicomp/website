@@ -122,21 +122,22 @@ def talk(t, day, session_n, times, prev=None, next=None):
     if day is not None:
         content += (f"<div style='margin-top:5px'>"
                     f"<a href='/talklist-{day}.html'>{day}</a>"
-                    f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)")
-        content += " [<span style='color:red;font-weight:bold'>provisionally</span>]</div>"
+                    f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
+                    "</div>")
         content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False)
     if "recorded" in tinfo and not tinfo["recorded"]:
         content += ("<div style='margin-top:15px'><i class='fa-solid fa-video-slash'></i> "
                     "This talk will not be recorded.</div>")
 
     content += "<div class='abstract'>"
-    abstract = []
-    if isinstance(tinfo['abstract'], list):
-        for parag in tinfo['abstract']:
-            abstract.append(parag)
-    else:
-        abstract.append(tinfo['abstract'])
-    content += markup("\n\n".join(abstract))
+    if "abstract" in tinfo:
+        abstract = []
+        if isinstance(tinfo['abstract'], list):
+            for parag in tinfo['abstract']:
+                abstract.append(parag)
+        else:
+            abstract.append(tinfo['abstract'])
+        content += markup("\n\n".join(abstract))
     content += "</div>"
 
     content += "<div class='prevnext'>"
@@ -211,9 +212,6 @@ for day in timetable.values():
 list_content = "<h1>List of talks</h1>"
 tt_content = "<h1>Timetable</h1>"
 
-list_content += "<h1 style='color:red'>This is a provisional timetable and may be changed</h1>"
-tt_content += "<h1 style='color:red'>This is a provisional timetable and may be changed</h1>"
-
 list_content += markup("Show times in: <timeselector>")
 tt_content += markup("Show times in: <timeselector>")
 
@@ -230,7 +228,7 @@ for di, day in enumerate(timetable):
 
     list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
     tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
-                   f"{3 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/talklist-{day}.html'>"
+                   f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/talklist-{day}.html'>"
                    f"{date}</a></div>")
 
     for si, session in enumerate(timetable[day]):
@@ -238,19 +236,25 @@ for di, day in enumerate(timetable):
         dcontent += "<h3"
         if si != 0:
             dcontent += " style='margin-top:50px'"
-        dcontent += f">Session {si + 1} ({session_time}, {session['platform']})</h3>"
-        col = 3 * di + 2
+        dcontent += f">Session {si + 1} ({session_time}, "
+        if session['platform'] == "Gather Town":
+            dcontent += "<a href='/gather-town.html'>Gather Town</a>"
+        else:
+            dcontent += session['platform']
+        dcontent += ")</h3>"
+        col = 2 * di + 2
         row = 2 + minutes_after_one(session['start'])
         rowend = 2 + minutes_after_one(session['end'])
-        tt_content += "<div class='gridcell timetableheading rotated' style='"
-        if session["platform"] == "Gather Town":
-            tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row + 1} / span 1"
-        else:
-            tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row}"
-        tt_content += "'>"
-        tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
-                             f"{session['platform']})", paragraphs=False)
-        tt_content += "</div>"
+        if di == 0:
+            tt_content += "<div class='gridcell timetableheading rotated' style='"
+            if session["platform"] == "Gather Town":
+                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row + 1} / span 1"
+            else:
+                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row}"
+            tt_content += "'>"
+            tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
+                                 f"{session['platform']})", paragraphs=False)
+            tt_content += "</div>"
         if "description" in session:
             dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
         if "chair" in session:
@@ -281,11 +285,11 @@ for di, day in enumerate(timetable):
             if "description" in session:
                 tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
             tt_content += "</a>"
-        if si > 0 and session["start"] != timetable[day][si - 1]["end"]:
+        if di == 0 and si > 0 and session["start"] != timetable[day][si - 1]["end"]:
             row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
             row1 = 2 + minutes_after_one(session['start'])
             tt_content += ("<div class='gridcell timetableheading' style='"
-                           f"grid-column: {col} / span 1; "
+                           f"grid-column: 2 / span 3; "
                            f"grid-row: {row0} / span {row1 - row0}; "
                            "display: flex; justify-content: center; align-items: center;'>")
             tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")

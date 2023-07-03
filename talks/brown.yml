@@ -1,5 +1,6 @@
-title: "TBC"
-abstract: "TBC"
+title: "Scalable computational mechanics with Rust"
+abstract:
+  - "Scalable implicit mechanics simulation requires an extensible, observable library stack including Newton-Krylov-Multigrid solvers and unstructured finite element support. It's important to provide a safe environment for developing model components like return mapping algorithms for plasticity, turbulence models, and boundary conditions, without inhibiting parallel development of data structures and algorithms for solvers. We discuss benefits and challenges to building with [rsmpi](https://docs.rs/mpi), [petsc-rs](https://gitlab.com/petsc/petsc-rs), [libceed](https://docs.rs/libceed/), and [rust-enzyme](https://github.com/EnzymeAD/rust)."
 speaker:
   name: Jed Brown
   github: jedbrown

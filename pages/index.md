@@ -33,20 +33,23 @@ function toggle_times() {
 {% end no markup %}
 
 This workshop will be held virtually and is free to attend. If you want to attend the workshop,
-please [register using this form](https://forms.gle/anecaSbnmKmi3Ay47).
+please [register using this form](https://forms.gle/anecaSbnmKmi3Ay47). Registration will close at
+12:00 BST on Tuesday 11 July, and the links to join the workshop sessions will be sent out shortly
+after this.
 
 ## Timetable
 The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
-speakers and 5-10 minute talks by workshop attendees. Submissions for giving a short talk are now closed.
-People who've submitted a talk have been notified via email whether their talk has been accepted.
-The schedule for the workshop will appear here very soon.
+speakers and 5-10 minute talks by workshop attendees. The full schedule for the workshop can be
+found on [the timetable page](/timetable.html) or [the list of talks page](/talklist.html).
 
-The talks will be complimented by informal discussion sessions where you will have a chance to meet
-and talk to other attendees.
+The talks will be complimented by informal discussion sessions held using
+[Gather Town](/gather-town.md) where you will have a chance to meet and talk to speakers and
+other attendees.
 
-The list of speakers and full timetable for the workshop will be announced on this website
-in the near future.
+The majority of the talks will be recorded and make available on
+[YouTube](https://www.youtube.com/@ScientificComputinginRust) shortly after the workshop.
 
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing coc@scientificcomputing.rs or by contacting any of the [workshop organisers](/team.md).
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing
+[coc@scientificcomputing.rs](mailto:coc@scientificcomputing.rs) or by contacting any of the [workshop organisers](/team.md).
