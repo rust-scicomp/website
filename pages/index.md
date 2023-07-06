@@ -46,7 +46,7 @@ The talks will be complimented by informal discussion sessions held using
 [Gather Town](/gather-town.md) where you will have a chance to meet and talk to speakers and
 other attendees.
 
-The majority of the talks will be recorded and make available on
+The majority of the talks will be recorded and made available on
 [YouTube](https://www.youtube.com/@ScientificComputinginRust) shortly after the workshop.
 
 ## Code of conduct
