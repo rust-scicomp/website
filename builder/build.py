@@ -86,24 +86,36 @@ def person(p, bold=False):
 
 
 def is_long(t):
+    if t == "intro":
+        return False
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
     return tinfo["duration"] == "long"
 
 
 def get_title_and_speaker(t):
+    if t == "intro":
+        return "Welcome and introduction", None
+
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
     return tinfo["title"], tinfo["speaker"]["name"]
 
 
 def recorded(t):
+    if t == "intro":
+        return True
+
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
     return "recorded" not in tinfo or tinfo["recorded"]
 
 
 def talk(t, day, session_n, times, prev=None, next=None):
+    if t == "intro":
+        title, _ = get_title_and_speaker(t)
+        return f"<div class='talktitle'>{title}</div><br />"
+
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
 
@@ -167,8 +179,8 @@ def talk(t, day, session_n, times, prev=None, next=None):
 
     short_content = ""
     short_content += "<div class='talktitle'>"
-    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a></div>"
-    short_content += f"<div class='timetablelistauthor'>{authortxt}</div>"
+    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a>"
+    short_content += f"</div><div class='timetablelistauthor'>{authortxt}</div>"
 
     return short_content
 
@@ -194,20 +206,21 @@ for day in timetable.values():
         first_session = True
         if "talks" in session:
             for t in session["talks"]:
-                next_and_prev[t] = {"prev": (None, None), "next": (None, None)}
-                if prev is not None:
-                    if first_day:
-                        next_and_prev[t]["prev"] = (prev, "on the previous day")
-                        next_and_prev[prev]["next"] = (t, "on the next day")
-                    elif first_session:
-                        next_and_prev[t]["prev"] = (prev, "before a break")
-                        next_and_prev[prev]["next"] = (t, "after a break")
-                    else:
-                        next_and_prev[t]["prev"] = (prev, None)
-                        next_and_prev[prev]["next"] = (t, None)
-                first_session = False
-                first_day = False
-                prev = t
+                if t != "intro":
+                    next_and_prev[t] = {"prev": (None, None), "next": (None, None)}
+                    if prev is not None:
+                        if first_day:
+                            next_and_prev[t]["prev"] = (prev, "on the previous day")
+                            next_and_prev[prev]["next"] = (t, "on the next day")
+                        elif first_session:
+                            next_and_prev[t]["prev"] = (prev, "before a break")
+                            next_and_prev[prev]["next"] = (t, "after a break")
+                        else:
+                            next_and_prev[t]["prev"] = (prev, None)
+                            next_and_prev[prev]["next"] = (t, None)
+                    first_session = False
+                    first_day = False
+                    prev = t
 
 list_content = "<h1>List of talks</h1>"
 tt_content = "<h1>Timetable</h1>"
@@ -264,19 +277,33 @@ for di, day in enumerate(timetable):
             talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
             start = 0
             for ti, t in enumerate(session["talks"]):
-                dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
+                if t == "intro":
+                    dcontent += talk(t, day, si + 1, session_time)
+                else:
+                    dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
                 title, speaker = get_title_and_speaker(t)
                 length = 70 if is_long(t) else 20
-                rows = (35 if day == "Thursday" else 30) if is_long(t) else 10
-                tt_content += "<a class='gridcell timetabletalk"
+                rows = 30 if is_long(t) else 10
+                if t == "intro":
+                    tt_content += "<div"
+                else:
+                    tt_content += "<a"
+                tt_content += " class='gridcell timetabletalk"
                 if is_long(t):
                     tt_content += " longtalk"
-                tt_content += (f"' href='/talks/{t}.html' style='"
-                               f"grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
+                tt_content += "'"
+                if t != "intro":
+                    tt_content += f" href='/talks/{t}.html'"
+                tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
                                f"<div class='timetabletalktitle'>{title}</div>")
                 if not recorded(t):
                     tt_content += "<div class='timetabletalktitle'><i class='fa-solid fa-video-slash' alt='This talk will not be recorded'></i></div>"
-                tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div></a>"
+                if speaker is not None:
+                    tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
+                if t == "intro":
+                    tt_content += "</div>"
+                else:
+                    tt_content += "</a>"
                 start += rows
         else:
             tt_content += (f"<a class='gridcell timetabletalk' href='/gather-town.html' style='"
