@@ -1,4 +1,4 @@
-title: "Towards a Distributed Fast Multipole Method (FMM) with Rust"
+title: "Towards a distributed fast multipole method (FMM) with Rust"
 abstract: "FMM software is difficult to optimise, as well as to generalise over different algorithmic approaches. This talk provides a brief overview of the challenges in the design of a highly parallelised, distributed, fast multipole method solver we are building as a part of [Bempp-rs](https://github.com/bempp/bempp-rs), a crate for applying 'fast algorithms' to solve integral equations."
 speaker:
   name: Srinath Kailasa
