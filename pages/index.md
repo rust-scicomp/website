@@ -34,7 +34,7 @@ function toggle_times() {
 
 This workshop will be held virtually and is free to attend. Registrations for the workshop are now
 closed. If an email containing the links to join the workshop sessions is not in your inbox or spam folder,
-please email Matthew (matthew.scroggs.14@ucl.ac.uk).
+please email <a href='mailto:contact@scientificcomputing.rs'>contact@scientificcomputing.rs</a>.
 
 ## Timetable
 The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
