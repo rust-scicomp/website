@@ -131,9 +131,9 @@ def talk(t, day, session_n, times, prev=None, next=None):
         authornames += [a["name"] for a in tinfo["coauthor"]]
     authortxt = "".join([f"<div class='authors'>{i}</div>" for i in authors])
 
-    content = ""
-    content += f"<h1>{tinfo['title']}</h1>"
-
+    content = f"<h1>{tinfo['title']}</h1>"
+    if is_long(t):
+        content += "<h2 style='margin-top:-15px'>(30 minute invited talk)</h2>"
     content += f"<div>{authortxt}</div>"
 
     if day is not None:
@@ -184,8 +184,10 @@ def talk(t, day, session_n, times, prev=None, next=None):
 
     short_content = ""
     short_content += "<div class='talktitle'>"
-    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a>"
-    short_content += f"</div><div class='timetablelistauthor'>{authortxt}</div>"
+    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a></div>"
+    if is_long(t):
+        short_content += "<div class='talksubtitle'>(30 minute invited talk)</div>"
+    short_content += f"<div class='timetablelistauthor'>{authortxt}</div>"
 
     return short_content
 
