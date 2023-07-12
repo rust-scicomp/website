@@ -53,3 +53,9 @@ The majority of the talks will be recorded and made available on
 We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing
 [coc@scientificcomputing.rs](mailto:coc@scientificcomputing.rs) or by contacting any of the [workshop organisers](/team.md).
+
+## Acknowledgements
+We would like to thank the following organisations for their support.
+
+[<img class='ackn' src='/img/zulip.png' alt='Zulip' title='Zulip is an open-source modern team chat app designed to keep both live and asynchronous conversations organized.'>](https://zulip.com/)
+[<img class='ackn' src='/img/excalibur.png' alt='ExCALIBUR' title='ExCALIBUR is a UK research programme that aims to deliver the next generation of high-performance simulation software for the highest-priority fields in UK research.'>](https://excalibur.ac.uk/)

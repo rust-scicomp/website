@@ -8,6 +8,7 @@
   github: tbetcke
   email: t.betcke@ucl.ac.uk
   website: http://timobetcke.me
+  zulip: Timo Betcke
 </person>
 
 <person>
@@ -19,6 +20,7 @@
   mastodon: jedbrown@hachyderm.io
   email: jed.brown@colorado.edu
   website: https://jedbrown.org
+  zulip: Jed
 </person>
 
 <person>
@@ -29,6 +31,7 @@
   email: longva@cs.rwth-aachen.de
   github: Andlon
   twitter: andreas_longva
+  zulip: Andreas Longva
 </person>
 
 <person>
@@ -41,4 +44,5 @@
   mastodon: mscroggs@mathstodon.xyz
   website: https://mscroggs.co.uk
   email: matthew.scroggs.14@ucl.ac.uk
+  zulip: Matthew Scroggs
 </person>

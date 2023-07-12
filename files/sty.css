@@ -23,6 +23,12 @@ a, a:link, a:active, a:visited
 .footer a:hover, .title a:hover,
 a:hover {color:#FF8800}
 
+a svg.brand-logo .filled, a:link svg.brand-logo .filled, a:active svg.brand-logo .filled, a:visited svg.brand-logo .filled
+        {fill:#0000FF}
+a:hover svg.brand-logo .filled {fill:#FF8800}
+svg.brand-logo {margin-top: 2px; margin-bottom: -2px;}
+
+
 @media (min-width:780px){
   .content {width:780px}
 }
@@ -187,3 +193,5 @@ a.icon {display:inline-block}
 .innertext p {text-align:left}
 
 .abstract {line-height:1.5em;padding-top:15px;}
+
+img.ackn {height:100px;padding:20px}
