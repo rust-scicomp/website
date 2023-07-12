@@ -70,7 +70,7 @@ td.heading {font-weight:bold;font-size:80%}
 .timetablegrid {
   display:grid;
   grid-template-columns: auto 3fr 0.1fr 3fr;
-  grid-template-rows: auto repeat(180, 1fr) 2fr auto;
+  grid-template-rows: auto auto repeat(10, 1fr) 2fr auto repeat(6, 1fr) 10px auto;
 }
 .timetableheading {font-weight:bold;font-size:80%}
 .timetablegrid .gridcell {

@@ -261,14 +261,14 @@ for di, day in enumerate(timetable):
             dcontent += session['platform']
         dcontent += ")</h3>"
         col = 2 * di + 2
-        row = 2 + minutes_after_one(session['start'])
-        rowend = 2 + minutes_after_one(session['end'])
+        row = [3, 15, 23][si]
+        rowend = [13, 21, 23][si]
         if di == 0:
             tt_content += "<div class='gridcell timetableheading rotated' style='"
             if session["platform"] == "Gather Town":
-                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row + 1} / span 1"
+                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span 1"
             else:
-                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row}"
+                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row - 1} / span {rowend - row + 1}"
             tt_content += "'>"
             tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
                                  f"{session['platform']})", paragraphs=False)
@@ -278,6 +278,8 @@ for di, day in enumerate(timetable):
         if "chair" in session:
             dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
                          f"Chair: {person(session['chair'])}</div>")
+            tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {row - 1} / span 1;margin:10px;font-size:80%;text-align:center'>"
+                           f"Chair: {session['chair']['name']}</div>")
         if "talks" in session:
             talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
             start = 0
@@ -288,7 +290,7 @@ for di, day in enumerate(timetable):
                     dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
                 title, speaker = get_title_and_speaker(t)
                 length = 70 if is_long(t) else 20
-                rows = 30 if is_long(t) else 10
+                rows = 3 if is_long(t) else 1
                 if t == "intro":
                     tt_content += "<div"
                 else:
@@ -312,7 +314,7 @@ for di, day in enumerate(timetable):
                 start += rows
         else:
             tt_content += (f"<a class='gridcell timetabletalk' href='/gather-town.html' style='"
-                           f"grid-column: {col} / span 1; grid-row: {row + 1} / span 1'>"
+                           f"grid-column: {col} / span 1; grid-row: {row} / span 1'>"
                            "<div class='timetabletalktitle'>Discussions</div>")
             if "description" in session:
                 tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
@@ -321,8 +323,8 @@ for di, day in enumerate(timetable):
             row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
             row1 = 2 + minutes_after_one(session['start'])
             tt_content += ("<div class='gridcell timetableheading' style='"
-                           f"grid-column: 2 / span 3; "
-                           f"grid-row: {row0} / span {row1 - row0}; "
+                           "grid-column: 2 / span 3; "
+                           "grid-row: 13 / span 1; "
                            "display: flex; justify-content: center; align-items: center;'>")
             tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
             tt_content += "</div>"

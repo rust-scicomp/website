@@ -9,6 +9,14 @@ Thursday:
     start: "13:00"
     end: "14:40"
     platform: Zoom
+    chair:
+      name: Matthew Scroggs
+      github: mscroggs
+      twitter: mscroggs
+      mastodon: mscroggs@mathstodon.xyz
+      website: https://mscroggs.co.uk
+      email: matthew.scroggs.14@ucl.ac.uk
+      zulip: Matthew Scroggs
   - talks:
       - salib
       - sky
@@ -19,6 +27,9 @@ Thursday:
     start: "15:00"
     end: "16:00"
     platform: Zoom
+    chair:
+      name: Luna Arthur
+      twitter: LunaAArthur
   - start: "16:00"
     end: "17:00"
     platform: Gather Town
@@ -36,6 +47,8 @@ Friday:
     start: "13:00"
     end: "14:40"
     platform: Zoom
+    chair:
+      name: Ignacia Fierro-Piccardo
   - talks:
       - brown
       - eaves
@@ -46,6 +59,13 @@ Friday:
     start: "15:00"
     end: "16:00"
     platform: Zoom
+    chair:
+      name: Andreas Longva
+      email: longva@cs.rwth-aachen.de
+      affiliation: RWTH Aachen University
+      github: Andlon
+      twitter: andreas_longva
+      zulip: Andreas Longva
   - start: "16:00"
     end: "17:00"
     platform: Gather Town
