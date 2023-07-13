@@ -8,7 +8,7 @@ let tzdata = {
     "PDT": [-7, 0, "Pacific Time [UTC-7]"],
     "MDT": [-6, 0, "Mountain Time [UTC-6]"],
     "CDT": [-5, 0, "Central Time [UTC-5]"],
-    "EDT": [-5, 0, "Eastern Time [UTC-4]"],
+    "EDT": [-4, 0, "Eastern Time [UTC-4]"],
     "GMT": [0, 0, "GMT [UTC&plusmn;0]"],
     "WEST": [1, 0, "WEST [UTC+1]"],
     "CEST": [2, 0, "CEST [UTC+2]"],
