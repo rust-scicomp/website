@@ -58,3 +58,4 @@ We would like to thank the following organisations for their support.
 
 [<img class='ackn' src='/img/zulip.png' alt='Zulip' title='Zulip is an open-source modern team chat app designed to keep both live and asynchronous conversations organized.'>](https://zulip.com/)
 [<img class='ackn' src='/img/excalibur.png' alt='ExCALIBUR' title='ExCALIBUR is a UK research programme that aims to deliver the next generation of high-performance simulation software for the highest-priority fields in UK research.'>](https://excalibur.ac.uk/)
+[<img class='ackn' src='/img/ucl.png' alt='UCL' title='University College London (UCL) is a university in central London.'>](https://ucl.ac.uk/)
