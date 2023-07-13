@@ -19,11 +19,11 @@ Thursday:
       zulip: Matthew Scroggs
   - talks:
       - salib
-      - sky
       - dahl
       - friese
       - lazear
       - boulanger
+      - sky
     start: "15:00"
     end: "16:00"
     platform: Zoom
