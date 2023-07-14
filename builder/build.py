@@ -187,7 +187,10 @@ def talk(t, day, session_n, times, prev=None, next=None):
 
     short_content = ""
     short_content += "<div class='talktitle'>"
-    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a></div>"
+    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a>"
+    if not recorded(t):
+        short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
+    short_content += "</div>"
     if is_long(t):
         short_content += "<div class='talksubtitle'>(30 minute invited talk)</div>"
     short_content += f"<div class='timetablelistauthor'>{authortxt}</div>"
@@ -309,7 +312,7 @@ for di, day in enumerate(timetable):
                 tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
                                f"<div class='timetabletalktitle'>{title}</div>")
                 if not recorded(t):
-                    tt_content += "<div class='timetabletalktitle'><i class='fa-solid fa-video-slash' alt='This talk will not be recorded'></i></div>"
+                    tt_content += "<div class='timetabletalktitle'><i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i></div>"
                 if speaker is not None:
                     tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
                 if t == "intro":
