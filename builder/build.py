@@ -145,6 +145,9 @@ def talk(t, day, session_n, times, prev=None, next=None):
     if "recorded" in tinfo and not tinfo["recorded"]:
         content += ("<div style='margin-top:15px'><i class='fa-solid fa-video-slash'></i> "
                     "This talk will not be recorded.</div>")
+    if "youtube" in tinfo:
+        content += (f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
+                    "<i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
 
     content += "<div class='abstract'>"
     if "abstract" in tinfo:
