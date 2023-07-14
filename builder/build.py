@@ -116,6 +116,15 @@ def recorded(t):
     return "recorded" not in tinfo or tinfo["recorded"]
 
 
+def has_youtube(t):
+    if t == "intro":
+        return False
+
+    with open(os.path.join(talks_path, f"{t}.yml")) as f:
+        tinfo = yaml.load(f, Loader=yaml.FullLoader)
+    return "youtube" in tinfo
+
+
 def talk(t, day, session_n, times, prev=None, next=None):
     if t == "intro":
         title, _ = get_title_and_speaker(t)
@@ -190,6 +199,9 @@ def talk(t, day, session_n, times, prev=None, next=None):
     short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a>"
     if not recorded(t):
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
+    if has_youtube(t):
+        short_content += (f" <a href='https://youtu.be/{tinfo['youtube']}'>"
+                          "<i class='fab fa-youtube' alt='Watch a recording of this talk on YouTube' name='Watch a recording of this talk on YouTube'></i></a>")
     short_content += "</div>"
     if is_long(t):
         short_content += "<div class='talksubtitle'>(30 minute invited talk)</div>"
@@ -269,8 +281,8 @@ for di, day in enumerate(timetable):
             dcontent += session['platform']
         dcontent += ")</h3>"
         col = 2 * di + 2
-        row = [3, 15, 23][si]
-        rowend = [13, 21, 23][si]
+        row = [3, 15, 24][si]
+        rowend = [13, 21, 24][si]
         if di == 0:
             tt_content += "<div class='gridcell timetableheading rotated' style='"
             if session["platform"] == "Gather Town":
@@ -313,6 +325,8 @@ for di, day in enumerate(timetable):
                                f"<div class='timetabletalktitle'>{title}</div>")
                 if not recorded(t):
                     tt_content += "<div class='timetabletalktitle'><i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i></div>"
+                if has_youtube(t):
+                    tt_content += "<div class='timetabletalktitle'><i class='fab fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i></div>"
                 if speaker is not None:
                     tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
                 if t == "intro":
