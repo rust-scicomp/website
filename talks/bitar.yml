@@ -1,5 +1,9 @@
 title: "Rust vs Julia in scientific computing"
-abstract: "When to use Rust or Julia for scientific computing with reasons and examples."
+abstract:
+  - "One of the main objectives of Julia is solving the two-language problem. This means that by using Julia, you don't have to prototype in a dynamic language like Python for flexibility and later rewrite the code in a compiled language like C/C++ for performance."
+  - "This goal did catch me while picking a programming language for my bachelor's thesis in physics. But after regularly using and even teaching Julia, do I still think that Julia solves that two-language problem?"
+  - "And why do I think that Rust is the actual solution in some cases?"
+  - "This talk is only a trailer for my blog post about \"Rust vs Julia\". The blog post has more details and points that could not fit into the talk: https://mo8it.com/blog/rust-vs-julia"
 speaker:
   name: Mo Bitar
   email: mo8it@proton.me
