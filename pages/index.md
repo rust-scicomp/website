@@ -1,6 +1,6 @@
 # Scientific Computing in Rust 2023
 
-The Scientific Computing in Rust 2023 workshop will take place on Thursday 13 July and Friday 14
+The Scientific Computing in Rust 2023 workshop took place on Thursday 13 July and Friday 14
 July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
 
 <div id='other-timezones' style='display:none; border:2px solid #FF8800;padding:10px'>
@@ -32,21 +32,19 @@ function toggle_times() {
 </script>
 {% end no markup %}
 
-This workshop will be held virtually and is free to attend. Registrations for the workshop are now
-closed. If an email containing the links to join the workshop sessions is not in your inbox or spam folder,
-please email <a href='mailto:contact@scientificcomputing.rs'>contact@scientificcomputing.rs</a>.
+This workshop was held virtually and was free to attend.
 
 ## Timetable
-The Scientific Computing in Rust 2023 workshop will feature a mixture of 30 minute talks by invited
+The Scientific Computing in Rust 2023 workshop featured a mixture of 30 minute talks by invited
 speakers and 5-10 minute talks by workshop attendees. The full schedule for the workshop can be
 found on [the timetable page](/timetable.html) or [the list of talks page](/talklist.html).
 
-The talks will be complimented by informal discussion sessions held using
-[Gather Town](/gather-town.md) where you will have a chance to meet and talk to speakers and
+The talks were be complimented by informal discussion sessions held using
+[Gather Town](/gather-town.md) where there was a chance to meet and talk to speakers and
 other attendees.
 
-The majority of the talks will be recorded and made available on
-[YouTube](https://www.youtube.com/@ScientificComputinginRust) shortly after the workshop.
+The majority of the talks were be recorded and are gradually being made available on
+[YouTube](https://www.youtube.com/@ScientificComputinginRust).
 
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
