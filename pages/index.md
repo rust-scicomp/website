@@ -1,7 +1,8 @@
 # Scientific Computing in Rust 2023
 
 The Scientific Computing in Rust 2023 workshop took place on Thursday 13 July and Friday 14
-July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
+July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>, with
+over 100 people joining the workshop live.
 
 <div id='other-timezones' style='display:none; border:2px solid #FF8800;padding:10px'>
 <small><a href='javascript:toggle_times()'>Hide timezone info</a></small>
@@ -32,7 +33,8 @@ function toggle_times() {
 </script>
 {% end no markup %}
 
-This workshop was held virtually and was free to attend.
+This workshop was held virtually and was free to attend. Recordings of the talks
+from the workshop can be found on [YouTube](https://www.youtube.com/@ScientificComputinginRust).
 
 ## Timetable
 The Scientific Computing in Rust 2023 workshop featured a mixture of 30 minute talks by invited
