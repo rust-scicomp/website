@@ -27,10 +27,7 @@ os.mkdir(os.path.join(html_path, "talks"))
 os.mkdir(os.path.join(html_path, "slides"))
 
 os.system(f"cp -r {files_path}/* {html_path}")
-# os.system(f"cp -r {slides_path}/* {html_path}/slides")
-
-with open(os.path.join(html_path, "CNAME"), "w") as f:
-    f.write("fenics2021.com")
+os.system(f"cp -r {slides_path}/* {html_path}/slides")
 
 with open(os.path.join(talks_path, "_timetable.yml")) as f:
     timetable = yaml.load(f, Loader=yaml.FullLoader)
@@ -125,6 +122,15 @@ def has_youtube(t):
     return "youtube" in tinfo
 
 
+def has_slides(t):
+    if t == "intro":
+        return False
+
+    with open(os.path.join(talks_path, f"{t}.yml")) as f:
+        tinfo = yaml.load(f, Loader=yaml.FullLoader)
+    return "slides" in tinfo
+
+
 def talk(t, day, session_n, times, prev=None, next=None):
     if t == "intro":
         title, _ = get_title_and_speaker(t)
@@ -157,6 +163,9 @@ def talk(t, day, session_n, times, prev=None, next=None):
     if "youtube" in tinfo:
         content += (f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
                     "<i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
+    if "slides" in tinfo:
+        content += (f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
+                    "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>")
 
     content += "<div class='abstract'>"
     if "abstract" in tinfo:
@@ -201,7 +210,9 @@ def talk(t, day, session_n, times, prev=None, next=None):
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
     if has_youtube(t):
         short_content += (f" <a href='https://youtu.be/{tinfo['youtube']}'>"
-                          "<i class='fab fa-youtube' alt='Watch a recording of this talk on YouTube' name='Watch a recording of this talk on YouTube'></i></a>")
+                          "<i class='fab fa-youtube' alt='Watch a recording of this talk on YouTube' title='Watch a recording of this talk on YouTube'></i></a>")
+    if has_slides(t):
+        short_content += " <i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>"
     short_content += "</div>"
     if is_long(t):
         short_content += "<div class='talksubtitle'>(30 minute invited talk)</div>"
@@ -323,10 +334,15 @@ for di, day in enumerate(timetable):
                     tt_content += f" href='/talks/{t}.html'"
                 tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
                                f"<div class='timetabletalktitle'>{title}</div>")
+                icons = []
                 if not recorded(t):
-                    tt_content += "<div class='timetabletalktitle'><i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i></div>"
+                    icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
                 if has_youtube(t):
-                    tt_content += "<div class='timetabletalktitle'><i class='fab fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i></div>"
+                    icons.append("<i class='fab fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>")
+                if has_slides(t):
+                    icons.append("<i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>")
+                if len(icons) > 0:
+                    tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
                 if speaker is not None:
                     tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
                 if t == "intro":
