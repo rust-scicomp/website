@@ -18,6 +18,16 @@ cd _html
 python -m http.server
 ```
 
+The archive of a previous year's website can be created by running (for example for 2023):
+
+```bash
+python builder/build.py --year 2023
+```
+
+The HTML files that this creates are included in the repo, so this needs to be run locally and changes to HTML files
+need to be pushed to edit an archived year.
+
+
 ## Editing the website
 
 To edit the website, you may need to edit files in a range of locations:
