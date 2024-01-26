@@ -1,16 +1,13 @@
-# Scientific Computing in Rust 2024
+# Scientific Computing in Rust 2023
 
-<b>Note: The dates and timings for Scientific Computing in Rust 2024 are still provisional.</b>
-
-The Scientific Computing in Rust 2024 workshop will take place on Wednesday 17 July to Friday 19
-July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
-This will be the second Scientific Computing in Rust workshop; archived information about
-Scientific Computing in Rust 2023 can be found at [scientificcomputing.rs/2023](/2023).
+The Scientific Computing in Rust 2023 workshop took place on Thursday 13 July and Friday 14
+July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>, with
+over 100 people joining the workshop live.
 
 <div id='other-timezones' style='display:none; border:2px solid #FF8800;padding:10px'>
 <small><a href='javascript:toggle_times()'>Hide timezone info</a></small>
 
-13:00 to 17:00 BST (British Summer Time / UTC+1) on 17 July is:
+13:00 to 17:00 BST (British Summer Time / UTC+1) on 13 July is:
 
 - 12:00 to 16:00 GMT [UTC&plusmn;0]
 - 05:00 to 09:00 Pacific time [UTC-7]
@@ -36,18 +33,25 @@ function toggle_times() {
 </script>
 {% end no markup %}
 
-This workshop will be held virtually and will be free to attend. Recordings of the talks
-from the workshop will be made available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
-alongside the talks from 2023.
+This workshop was held virtually and was free to attend. Recordings of the talks
+from the workshop can be found on [YouTube](https://www.youtube.com/@ScientificComputinginRust).
 
 ## Timetable
-The Scientific Computing in Rust 2024 workshop will feature a mixture of 30 minute talks by invited
-speakers and 10 minute talks by workshop attendees, as well as some interactive discussion/tutorial sessions.
+The Scientific Computing in Rust 2023 workshop featured a mixture of 30 minute talks by invited
+speakers and 5-10 minute talks by workshop attendees. The full schedule for the workshop can be
+found on [the timetable page](/2023/timetable.html) or [the list of talks page](/2023/talklist.html).
+
+The talks were be complimented by informal discussion sessions held using
+[Gather Town](/2023/gather-town.md) where there was a chance to meet and talk to speakers and
+other attendees.
+
+The majority of the talks were be recorded and are gradually being made available on
+[YouTube](https://www.youtube.com/@ScientificComputinginRust).
 
 ## Code of conduct
-We expect all attendees of Scientific Computing in Rust to follow the [code of conduct](/code-of-conduct.md).
+We expect all attendees of Scientific Computing in Rust 2023 to follow the [code of conduct](/code-of-conduct.md).
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing
-[coc@scientificcomputing.rs](mailto:coc@scientificcomputing.rs) or by contacting any of the [workshop organisers](/team.md).
+[coc@scientificcomputing.rs](mailto:coc@scientificcomputing.rs) or by contacting any of the [workshop organisers](/2023/team.md).
 
 ## Acknowledgements
 We would like to thank the following organisations for their support.

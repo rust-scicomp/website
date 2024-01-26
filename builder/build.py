@@ -8,17 +8,44 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 parser = argparse.ArgumentParser(description="Build rust-scicomp.github.io")
 
 parser.add_argument(
-    'destination', metavar='destination', nargs="?",
-    default=os.path.join(dir_path, "../_html"),
+    '--destination', metavar='destination', nargs="?",
+    default=None,
     help="Destination of HTML files.")
+parser.add_argument(
+    '--year', metavar='year', nargs="?",
+    default="2024", help="Year")
 
 args = parser.parse_args()
+year = int(args.year)
+archive = year != 2024
 html_path = args.destination
-files_path = os.path.join(dir_path, "../files")
-talks_path = os.path.join(dir_path, "../talks")
-slides_path = os.path.join(dir_path, "../slides")
-pages_path = os.path.join(dir_path, "../pages")
-template_path = os.path.join(dir_path, "../template")
+
+if archive:
+    webroot = f"/{year}"
+    webslides = f"/slides/{year}"
+    if html_path is None:
+        html_path = os.path.join(dir_path, f"../archive/{year}/html")
+    talks_path = os.path.join(dir_path, f"../archive/{year}/talks")
+    template_path = os.path.join(dir_path, f"../archive/{year}/template")
+    pages_path = os.path.join(dir_path, f"../archive/{year}/pages")
+else:
+    webroot = ""
+    webslides = "/slides"
+    if html_path is None:
+        html_path = os.path.join(dir_path, "../_html")
+    talks_path = os.path.join(dir_path, "../talks")
+    template_path = os.path.join(dir_path, "../template")
+    pages_path = os.path.join(dir_path, "../pages")
+main_template_path = os.path.join(dir_path, "../template")
+
+dates_dict = {
+    2023: "13-14 July 2023",
+    2024: "17-19 July 2024",
+}
+if year in dates_dict:
+    dates = dates_dict[year]
+else:
+    dates = f"TBC {year}"
 
 if os.path.isdir(html_path):
     os.system(f"rm -rf {html_path}")
@@ -26,24 +53,39 @@ os.mkdir(html_path)
 os.mkdir(os.path.join(html_path, "talks"))
 os.mkdir(os.path.join(html_path, "slides"))
 
-os.system(f"cp -r {files_path}/* {html_path}")
-os.system(f"cp -r {slides_path}/* {html_path}/slides")
 
-with open(os.path.join(talks_path, "_timetable.yml")) as f:
-    timetable = yaml.load(f, Loader=yaml.FullLoader)
+if not archive:
+    slides_path = os.path.join(dir_path, "../slides")
+    files_path = os.path.join(dir_path, "../files")
+    os.system(f"cp -r {slides_path}/* {html_path}/slides")
+    os.system(f"cp -r {files_path}/* {html_path}")
+    for y in range(2023, year):
+        archive_path = os.path.join(dir_path, f"../archive/{y}/html")
+        os.system(f"cp -r {archive_path} {html_path}/{y}")
+
+
+def load_template(file, title):
+    if os.path.isfile(os.path.join(template_path, file)):
+        with open(os.path.join(template_path, file)) as f:
+            content = f.read()
+    else:
+        with open(os.path.join(main_template_path, file)) as f:
+            content = f.read()
+    content = content.replace("{{pagetitle}}", title)
+    content = content.replace("{{year}}", f"{year}")
+    return content
 
 
 def write_page(url, content, title=None):
     if title is None:
-        title = "Scientific Computing in Rust 2023"
+        title = f"Scientific Computing in Rust {year}"
     else:
-        title = "Scientific Computing in Rust 2023: " + title
+        title = f"Scientific Computing in Rust {year}: {title}"
     with open(os.path.join(html_path, url), "w") as f:
-        with open(os.path.join(template_path, "intro.html")) as f2:
-            f.write(f2.read().replace("{{pagetitle}}", title))
+        f.write(load_template("head.html", title))
+        f.write(load_template("intro.html", title))
         f.write(content)
-        with open(os.path.join(template_path, "outro.html")) as f2:
-            f.write(f2.read())
+        f.write(load_template("outro.html", title))
 
 
 def person(p, bold=False):
@@ -153,7 +195,7 @@ def talk(t, day, session_n, times, prev=None, next=None):
 
     if day is not None:
         content += (f"<div style='margin-top:5px'>"
-                    f"<a href='/talklist-{day}.html'>{day}</a>"
+                    f"<a href='{webroot}/talklist-{day}.html'>{day}</a>"
                     f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
                     "</div>")
         content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False)
@@ -164,7 +206,7 @@ def talk(t, day, session_n, times, prev=None, next=None):
         content += (f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
                     "<i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
     if "slides" in tinfo:
-        content += (f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
+        content += (f"<div style='margin-top:15px'><a href='{webslides}/{tinfo['slides']}'>"
                     "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>")
 
     content += "<div class='abstract'>"
@@ -182,7 +224,7 @@ def talk(t, day, session_n, times, prev=None, next=None):
     if prev is not None:
         content += "<div class='prevlink'>"
         if prev[0] is not None:
-            content += f"<a href='/talks/{prev[0]}.html'>&larr; previous talk"
+            content += f"<a href='{webroot}/talks/{prev[0]}.html'>&larr; previous talk"
             if prev[1] is not None:
                 content += f" ({prev[1]})"
             content += "</a>"
@@ -192,7 +234,7 @@ def talk(t, day, session_n, times, prev=None, next=None):
     if next is not None:
         content += "<div class='nextlink'>"
         if next[0] is not None:
-            content += f"<a href='/talks/{next[0]}.html'>next talk"
+            content += f"<a href='{webroot}/talks/{next[0]}.html'>next talk"
             if next[1] is not None:
                 content += f" ({next[1]})"
             content += " &rarr;</a>"
@@ -205,7 +247,7 @@ def talk(t, day, session_n, times, prev=None, next=None):
 
     short_content = ""
     short_content += "<div class='talktitle'>"
-    short_content += f"<a href='/talks/{t}.html'>{tinfo['title']}</a>"
+    short_content += f"<a href='{webroot}/talks/{t}.html'>{tinfo['title']}</a>"
     if not recorded(t):
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
     if has_youtube(t):
@@ -234,142 +276,146 @@ for file in os.listdir(pages_path):
         write_page(f"{fname}.html", content)
 
 # Make timetable pages
-next_and_prev = {}
-prev = None
-for day in timetable.values():
-    first_day = True
-    for session in day:
-        first_session = True
-        if "talks" in session:
-            for t in session["talks"]:
-                if t != "intro":
-                    next_and_prev[t] = {"prev": (None, None), "next": (None, None)}
-                    if prev is not None:
-                        if first_day:
-                            next_and_prev[t]["prev"] = (prev, "on the previous day")
-                            next_and_prev[prev]["next"] = (t, "on the next day")
-                        elif first_session:
-                            next_and_prev[t]["prev"] = (prev, "before a break")
-                            next_and_prev[prev]["next"] = (t, "after a break")
-                        else:
-                            next_and_prev[t]["prev"] = (prev, None)
-                            next_and_prev[prev]["next"] = (t, None)
-                    first_session = False
-                    first_day = False
-                    prev = t
+if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
+    with open(os.path.join(talks_path, "_timetable.yml")) as f:
+        timetable = yaml.load(f, Loader=yaml.FullLoader)
 
-list_content = "<h1>List of talks</h1>"
-tt_content = "<h1>Timetable</h1>"
+    next_and_prev = {}
+    prev = None
+    for day in timetable.values():
+        first_day = True
+        for session in day:
+            first_session = True
+            if "talks" in session:
+                for t in session["talks"]:
+                    if t != "intro":
+                        next_and_prev[t] = {"prev": (None, None), "next": (None, None)}
+                        if prev is not None:
+                            if first_day:
+                                next_and_prev[t]["prev"] = (prev, "on the previous day")
+                                next_and_prev[prev]["next"] = (t, "on the next day")
+                            elif first_session:
+                                next_and_prev[t]["prev"] = (prev, "before a break")
+                                next_and_prev[prev]["next"] = (t, "after a break")
+                            else:
+                                next_and_prev[t]["prev"] = (prev, None)
+                                next_and_prev[prev]["next"] = (t, None)
+                        first_session = False
+                        first_day = False
+                        prev = t
 
-list_content += markup("Show times in: <timeselector>")
-tt_content += markup("Show times in: <timeselector>")
+    list_content = "<h1>List of talks</h1>"
+    tt_content = "<h1>Timetable</h1>"
+
+    list_content += markup("Show times in: <timeselector>")
+    tt_content += markup("Show times in: <timeselector>")
 
 
-tt_content += "<div class='timetablegrid'>\n"
-for di, day in enumerate(timetable):
-    dcontent = ""
-    if day == "Thursday":
-        date = "Thursday 13 July"
-    elif day == "Friday":
-        date = "Friday 14 July"
-    else:
-        raise ValueError(f"Unknown day: {day}")
-
-    list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
-    tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
-                   f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/talklist-{day}.html'>"
-                   f"{date}</a></div>")
-
-    for si, session in enumerate(timetable[day]):
-        session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False)
-        dcontent += "<h3"
-        if si != 0:
-            dcontent += " style='margin-top:50px'"
-        dcontent += f">Session {si + 1} ({session_time}, "
-        if session['platform'] == "Gather Town":
-            dcontent += "<a href='/gather-town.html'>Gather Town</a>"
+    tt_content += "<div class='timetablegrid'>\n"
+    for di, day in enumerate(timetable):
+        dcontent = ""
+        if day == "Thursday":
+            date = "Thursday 13 July"
+        elif day == "Friday":
+            date = "Friday 14 July"
         else:
-            dcontent += session['platform']
-        dcontent += ")</h3>"
-        col = 2 * di + 2
-        row = [3, 15, 24][si]
-        rowend = [13, 21, 24][si]
-        if di == 0:
-            tt_content += "<div class='gridcell timetableheading rotated' style='"
-            if session["platform"] == "Gather Town":
-                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span 1"
+            raise ValueError(f"Unknown day: {day}")
+
+        list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
+        tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
+                       f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='{webroot}/talklist-{day}.html'>"
+                       f"{date}</a></div>")
+
+        for si, session in enumerate(timetable[day]):
+            session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False)
+            dcontent += "<h3"
+            if si != 0:
+                dcontent += " style='margin-top:50px'"
+            dcontent += f">Session {si + 1} ({session_time}, "
+            if session['platform'] == "Gather Town":
+                dcontent += "<a href='/gather-town.html'>Gather Town</a>"
             else:
-                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row - 1} / span {rowend - row + 1}"
-            tt_content += "'>"
-            tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
-                                 f"{session['platform']})", paragraphs=False)
-            tt_content += "</div>"
-        if "description" in session:
-            dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
-        if "chair" in session:
-            dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
-                         f"Chair: {person(session['chair'])}</div>")
-            tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {row - 1} / span 1;margin:10px;font-size:80%;text-align:center'>"
-                           f"Chair: {session['chair']['name']}</div>")
-        if "talks" in session:
-            talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
-            start = 0
-            for ti, t in enumerate(session["talks"]):
-                if t == "intro":
-                    dcontent += talk(t, day, si + 1, session_time)
+                dcontent += session['platform']
+            dcontent += ")</h3>"
+            col = 2 * di + 2
+            row = [3, 15, 24][si]
+            rowend = [13, 21, 24][si]
+            if di == 0:
+                tt_content += "<div class='gridcell timetableheading rotated' style='"
+                if session["platform"] == "Gather Town":
+                    tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span 1"
                 else:
-                    dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
-                title, speaker = get_title_and_speaker(t)
-                length = 70 if is_long(t) else 20
-                rows = 3 if is_long(t) else 1
-                if t == "intro":
-                    tt_content += "<div"
-                else:
-                    tt_content += "<a"
-                tt_content += " class='gridcell timetabletalk"
-                if is_long(t):
-                    tt_content += " longtalk"
-                tt_content += "'"
-                if t != "intro":
-                    tt_content += f" href='/talks/{t}.html'"
-                tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
-                               f"<div class='timetabletalktitle'>{title}</div>")
-                icons = []
-                if not recorded(t):
-                    icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
-                if has_youtube(t):
-                    icons.append("<i class='fab fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>")
-                if has_slides(t):
-                    icons.append("<i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>")
-                if len(icons) > 0:
-                    tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
-                if speaker is not None:
-                    tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
-                if t == "intro":
-                    tt_content += "</div>"
-                else:
-                    tt_content += "</a>"
-                start += rows
-        else:
-            tt_content += (f"<a class='gridcell timetabletalk' href='/gather-town.html' style='"
-                           f"grid-column: {col} / span 1; grid-row: {row} / span 1'>"
-                           "<div class='timetabletalktitle'>Discussions</div>")
+                    tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row - 1} / span {rowend - row + 1}"
+                tt_content += "'>"
+                tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
+                                     f"{session['platform']})", paragraphs=False)
+                tt_content += "</div>"
             if "description" in session:
-                tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
-            tt_content += "</a>"
-        if di == 0 and si > 0 and session["start"] != timetable[day][si - 1]["end"]:
-            row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
-            row1 = 2 + minutes_after_one(session['start'])
-            tt_content += ("<div class='gridcell timetableheading' style='"
-                           "grid-column: 2 / span 3; "
-                           "grid-row: 13 / span 1; "
-                           "display: flex; justify-content: center; align-items: center;'>")
-            tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
-            tt_content += "</div>"
-    list_content += dcontent
-    write_page(f"talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>')}{dcontent}")
+                dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
+            if "chair" in session:
+                dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
+                             f"Chair: {person(session['chair'])}</div>")
+                tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {row - 1} / span 1;margin:10px;font-size:80%;text-align:center'>"
+                               f"Chair: {session['chair']['name']}</div>")
+            if "talks" in session:
+                talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
+                start = 0
+                for ti, t in enumerate(session["talks"]):
+                    if t == "intro":
+                        dcontent += talk(t, day, si + 1, session_time)
+                    else:
+                        dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
+                    title, speaker = get_title_and_speaker(t)
+                    length = 70 if is_long(t) else 20
+                    rows = 3 if is_long(t) else 1
+                    if t == "intro":
+                        tt_content += "<div"
+                    else:
+                        tt_content += "<a"
+                    tt_content += " class='gridcell timetabletalk"
+                    if is_long(t):
+                        tt_content += " longtalk"
+                    tt_content += "'"
+                    if t != "intro":
+                        tt_content += f" href='{webroot}/talks/{t}.html'"
+                    tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
+                                   f"<div class='timetabletalktitle'>{title}</div>")
+                    icons = []
+                    if not recorded(t):
+                        icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
+                    if has_youtube(t):
+                        icons.append("<i class='fab fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>")
+                    if has_slides(t):
+                        icons.append("<i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>")
+                    if len(icons) > 0:
+                        tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
+                    if speaker is not None:
+                        tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
+                    if t == "intro":
+                        tt_content += "</div>"
+                    else:
+                        tt_content += "</a>"
+                    start += rows
+            else:
+                tt_content += ("<a class='gridcell timetabletalk' href='/gather-town.html' style='"
+                               f"grid-column: {col} / span 1; grid-row: {row} / span 1'>"
+                               "<div class='timetabletalktitle'>Discussions</div>")
+                if "description" in session:
+                    tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
+                tt_content += "</a>"
+            if di == 0 and si > 0 and session["start"] != timetable[day][si - 1]["end"]:
+                row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
+                row1 = 2 + minutes_after_one(session['start'])
+                tt_content += ("<div class='gridcell timetableheading' style='"
+                               "grid-column: 2 / span 3; "
+                               "grid-row: 13 / span 1; "
+                               "display: flex; justify-content: center; align-items: center;'>")
+                tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
+                tt_content += "</div>"
+        list_content += dcontent
+        write_page(f"talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>')}{dcontent}")
 
-tt_content += "</div>"
+    tt_content += "</div>"
 
-write_page("talklist.html", list_content)
-write_page("timetable.html", tt_content)
+    write_page("talklist.html", list_content)
+    write_page("timetable.html", tt_content)

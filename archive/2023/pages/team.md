@@ -24,10 +24,14 @@
 </person>
 
 <person>
-  name: Ignacia Fierro Piccardo
-  about: Ignacia is a postdoctoral researcher at the Department of Mathematics, University College London.
-  github: ignacia-fp
-  zulip: Ignacia Fierro
+  img: /img/andreas-longva.jpg
+  name: Andreas Longva
+  about: Andreas is a PhD candidate in the computer animation group at RWTH Aachen University.
+  rust-about: He has been writing scientific Rust since 2016, and since 2019 has been using Rust as the primary language for his research on finite element methods for deformable objects. As a co-maintainer of the [nalgebra linear algebra library](https://nalgebra.org/), he tries to squeeze in time for advancing the scientific ecosystem whenever he can.
+  email: longva@cs.rwth-aachen.de
+  github: Andlon
+  twitter: andreas_longva
+  zulip: Andreas Longva
 </person>
 
 <person>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name='author' content='Matthew Scroggs'>
+<meta name='description' content='The webpages for the Scientific Computing in Rust 2023 workshop'>
+<meta name='keywords' content='rust,scientific computing'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Computing in Rust 2023: Fearless simulation of many-particle dynamics</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='/sty.css?v=2023-07-13'>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://kit.fontawesome.com/5506de0e1b.js" crossorigin="anonymous"></script>
+<script type='text/javascript' src='/timezones.js?v=2023-07-13'></script>
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class='head'>
+<div class='laptop'>
+<div class='content'>
+<div class='title'><a href='/2023'>Scientific Computing in Rust 2023</a></div>
+<div class='tagline'>13-14 July 2023</div>
+<div class='links'><a href='/2023'>Home</a><a href='/2023/timetable'>Timetable</a><a href='/2023/talklist'>List of talks</a><a href='/2023/team'>Organisers</a></div>
+</div>
+</div>
+</div>
+<div class='body'>
+<div class='content'>
+<div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in 2023. Information about the latest conference can be found <a href='/'>here</a>.</div>
+<h1>Fearless simulation of many-particle dynamics</h1><div><div class='authors'><b>Julian Jeggle</b> <a href='https://www.uni-muenster.de/Physik.TP/en/research/wittkowski' class='falink'><i class='fab fa-internet-explorer'></i></a> <a href='mailto:julian.jeggle@uni-muenster.de' class='falink'><i class='far fa-envelope'></i></a> <a href='https://github.com/jjegg01' class='falink'><i class='fab fa-github'></i></a> (Institute for Theoretical Physics, Center for Soft Nanoscience, University of M&uuml;nster)</div><div class='authors'>Raphael Wittkowski (Institute for Theoretical Physics, Center for Soft Nanoscience, University of Münster)</div></div><div style='margin-top:5px'><a href='/2023/talklist-Friday.html'>Friday</a> session 1 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='14' data-month='7' data-year='2023' data-hour='13' data-minute='00'>13:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='14' data-month='7' data-year='2023' data-hour='14' data-minute='40'>14:40</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/14IO4C_YaVk'><i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div style='margin-top:15px'><a href='/slides/2023/fearless_particle_dynamics.pdf'><i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div><div class='abstract'><p>Direct simulations of particle trajectories in many-particle systems are an essential numerical tool in physics, chemistry, biology and mathematics. Established software packages such as <a href='https://www.lammps.org/'>LAMMPS</a> or <a href='https://www.gromacs.org/'>GROMACS</a> aim to make these calculations more accessible by abstracting away many of the computational complexities of this problem class. However, this abstraction typically comes with a significant loss of generality, which in the last decade led to the creation of more general software packages such as <a href='http://openfpm.mpi-cbg.de/'>OpenFPM</a> or <a href='https://openmm.org/'>OpenMM</a> that typically exhibit compiler-like features. Continuing this trend, we created the Fearlessly Integrating Particle Simulator (FIPS), a novel approach in the form of a domain-specific language and a just-in-time compiler based on the LLVM framework. It is both implemented in Rust and heavily inspired by the design of Rust to mimic its exceptional combination of performance, expressiveness and safety. In this talk, we will give a brief introduction to FIPS as well as an overview of the technical challenges of building an optimizing compiler in Rust. We will also summarize what we consider as the important lessons to learn from the language design of Rust for the next generation of domain-specific languages for scientific computing. </p>
+</div><div class='prevnext'><div class='prevlink'><a href='/2023/talks/betcke.html'>&larr; previous talk</a></div><div class='nextlink'><a href='/2023/talks/drehwald.html'>next talk &rarr;</a></div></div><div style='text-align:center'>
+<img style='width:200px;padding-top:50px' src='/img/ferris.png'>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+page_load_update_timezone();
+</script>
+</body>
+</html>
