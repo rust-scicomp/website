@@ -1,7 +1,5 @@
 # Scientific Computing in Rust 2024
 
-<b>Note: The dates and timings for Scientific Computing in Rust 2024 are still provisional.</b>
-
 The Scientific Computing in Rust 2024 workshop will take place on Wednesday 17 July to Friday 19
 July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
 This will be the second Scientific Computing in Rust workshop; archived information about
@@ -40,9 +38,16 @@ This workshop will be held virtually and will be free to attend. Recordings of t
 from the workshop will be made available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
 alongside the talks from 2023.
 
-## Timetable
+## Registration
+You can register to attend the Scientific Computing in Rust 2024 workshop using [the form on the registration page](/register).
+Registration is free, and the workshop will take place virtually so there is no need to book travel or accomodation.
+
+## Proposing a talk
 The Scientific Computing in Rust 2024 workshop will feature a mixture of 30 minute talks by invited
 speakers and 10 minute talks by workshop attendees, as well as some interactive discussion/tutorial sessions.
+
+If you would like to propose a 10 minute talk, you can do so via [the form on talk proposal page](/submit-talk).
+The deadline for talk submissions is Friday 14 June.
 
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust to follow the [code of conduct](/code-of-conduct.md).
