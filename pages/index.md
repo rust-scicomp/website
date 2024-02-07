@@ -49,6 +49,9 @@ speakers and 10 minute talks by workshop attendees, as well as some interactive 
 If you would like to propose a 10 minute talk, you can do so via [the form on talk proposal page](/submit-talk).
 The deadline for talk submissions is Friday 14 June.
 
+If you have any questions for the organisers (about proposing a talk or anything else), you can email
+[contact@scientificcomputing.rs](mailto:contact@scientificcomputing.rs), or you can ask in the [rust-scicomp Zulip chat](https://rust-scicomp.zulipchat.com/).
+
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust to follow the [code of conduct](/code-of-conduct.md).
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing
