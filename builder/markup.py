@@ -184,7 +184,7 @@ def insert_links(txt):
                  r"<a class='icon' href='\2'><img src='/img/\3'>\1</a>", txt)
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\.md\)", r"<a href='\2.html'>\1</a>", txt)
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\)", r"<a href='\2'>\1</a>", txt)
-    txt = re.sub(r"([^'])(https?:\/\/)([^\s\)]+)", r"\1<a href='\2\3'>\3</a>", txt)
+    txt = re.sub(r"([^'\"])(https?:\/\/)([^\s\)]+)", r"\1<a href='\2\3'>\3</a>", txt)
     return txt
 
 

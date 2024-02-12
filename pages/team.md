@@ -24,8 +24,9 @@
 </person>
 
 <person>
+  img: /img/ignacia-fierro-piccardo.jpg
   name: Ignacia Fierro Piccardo
-  about: Ignacia is a postdoctoral researcher at the Department of Mathematics, University College London.
+  about: Ignacia is a postdoctoral researcher at the Department of Mathematics, University College London. She is currently working on developing [bempp-rs](https://github.com/bempp/bempp-rs), with a focus on matrix methods and electromagnetic applications.
   github: ignacia-fp
   zulip: Ignacia Fierro
 </person>
