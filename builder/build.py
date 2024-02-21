@@ -64,7 +64,7 @@ if not archive:
         os.system(f"cp -r {archive_path} {html_path}/{y}")
 
 
-def load_template(file, title):
+def load_template(file, title, url):
     if os.path.isfile(os.path.join(template_path, file)):
         with open(os.path.join(template_path, file)) as f:
             content = f.read()
@@ -72,6 +72,7 @@ def load_template(file, title):
         with open(os.path.join(main_template_path, file)) as f:
             content = f.read()
     content = content.replace("{{pagetitle}}", title)
+    content = content.replace("{{pagefullurl}}", f"https://scientificcomputing.rs/{url}")
     content = content.replace("{{year}}", f"{year}")
     return content
 
@@ -82,10 +83,10 @@ def write_page(url, content, title=None):
     else:
         title = f"Scientific Computing in Rust {year}: {title}"
     with open(os.path.join(html_path, url), "w") as f:
-        f.write(load_template("head.html", title))
-        f.write(load_template("intro.html", title))
+        f.write(load_template("head.html", title, url))
+        f.write(load_template("intro.html", title, url))
         f.write(content)
-        f.write(load_template("outro.html", title))
+        f.write(load_template("outro.html", title, url))
 
 
 def person(p, bold=False):
