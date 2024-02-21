@@ -1,5 +1,13 @@
 # Scientific Computing in Rust 2024
 
+Scientific Computing in Rust is a virtual workshop focussing on the use of the Rust programming language
+within scientific computing. Topics covered in past workshops have included linear algebra libraries,
+running code on GPUs, and a huge range of application-specific libraries.
+ It was first held in [2023](/2023).
+Recordings of the talks for every workshop are available on the
+[Scientific Computing in Rust YouTube channel](https://www.youtube.com/@ScientificComputinginRust).
+
+
 The Scientific Computing in Rust 2024 workshop will take place on Wednesday 17 July to Friday 19
 July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
 This will be the second Scientific Computing in Rust workshop; archived information about
