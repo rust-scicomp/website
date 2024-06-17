@@ -55,7 +55,7 @@ The Scientific Computing in Rust 2024 workshop will feature a mixture of 30 minu
 speakers and 10 minute talks by workshop attendees, as well as some interactive discussion/tutorial sessions.
 
 If you would like to propose a 10 minute talk, you can do so via [the form on talk proposal page](/submit-talk).
-The deadline for talk submissions is Friday 14 June.
+The deadline for talk submissions is Friday 21 June (extended from 14 June).
 
 If you have any questions for the organisers (about proposing a talk or anything else), you can email
 [contact@scientificcomputing.rs](mailto:contact@scientificcomputing.rs), or you can ask in the [rust-scicomp Zulip chat](https://rust-scicomp.zulipchat.com/).
