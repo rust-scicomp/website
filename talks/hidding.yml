@@ -1,0 +1,11 @@
+title: "Entangled: literate programming and computational notebooks in markdown"
+abstract:
+  - "The discipline of scientific programming is in many ways different from enterprise programming. Teams are small, users and developers are often the same persons, and developers often not professionally trained. With increasing code complexity, we also have an increased burden to communicate our methods, first with collaborators and later also peer scientists, especially when it comes to the reproducibility of our results."
+  - "In recent years, there has been an increasing popularity of live notebooks systems such as Jupyter, RMarkdown and Pluto. In Rust however, the use of notebooks is neither practical nor desirable. I will describe Entangled (https://entangled.github.io), a system for literate programming that is based in Markdown. Entangled works well together with popular Rust documentation frameworks such as RustDoc and MDBook, but also allows for output to journal templates through Pandoc and LaTeX. Also Entangled features methods to hook into a build system (like GNU Make) to generate research output in a reactive manner."
+  - "Due to Rust's support for Web Assembly, an Entangled notebook can also be utilised to create extremely well documented web-based demonstrations. I will show how to get started with Entangled, and conclude with several examples."
+speaker:
+  name: Johan Hidding
+  email: j.hidding@esciencecenter.nls
+  website: https://entangled.github.io/
+  github: jhidding
+duration: short

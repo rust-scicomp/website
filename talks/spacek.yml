@@ -1,0 +1,8 @@
+title: "Rstats: multidimensional data analysis in Rust"
+abstract:
+  - "Describing my crate Rstats and the novel ideas in it."
+speaker:
+  name: Libor Spacek
+  website: https://github.com/liborty
+  github: liborty
+duration: short

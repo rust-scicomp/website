@@ -1,0 +1,9 @@
+title: "Productive and reliable constitutive modeling in Rust"
+abstract:
+  - "Constitutive modeling is at the core of materials science and computational engineering, representing the response of materials to stimuli. The models encode principles such as reference-frame invariance, the second law of thermodynamics, and unit invariance, and new models are constantly being developed for both open and proprietary software. Traditionally, this requires tedious manual derivatives and verification of models. We share recent experience in constitutive modeling using Rust with Enzyme-based autodiff and dimensional analysis from Diman, enabling materials developers to formulate their models at a higher level of abstraction and to guarantee dimensional consistency at compile-time, thereby improving productivity and correctness. We also consider next steps for constitutive modeling in Rust, including needs for implicitly-defined constitutive models such as arise in finite plasticity."
+speaker:
+  name: Jed Brown
+  website: https://jedbrown.org
+  github: jedbrown
+  mastodon: "https://hachyderm.io/@jedbrown"
+duration: short

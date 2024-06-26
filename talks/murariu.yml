@@ -1,0 +1,7 @@
+title: "Raphtory: temporal graphs from Scala to Rust"
+abstract:
+  - "A story about why and how we did a complete rewrite of our temporal graph database (Raphtory) from Scala to Rust, awesome things we didn't expect, pitfals and lessons we learnt"
+speaker:
+  name: Fabian Murariu
+  github: fabianmurariu
+duration: short

@@ -1,0 +1,10 @@
+title: "extendr: frictionless bindings for R and Rust"
+abstract:
+  - "ExtendR is a suite of software packages that brings Rust to the R ecosystem. First, an overview of the various parts of extendR. (1) `libR-sys` which is a sys-crate for R API (2) `extendr` crate that enables calling Rust function in R, data type marshalling, etc. (3) An accompanying R-package `rextendr` that incorporates Rust's tooling `cargo` etc. into R. "
+  - "Lastly, we'll have a look at the internals of extendR and the unique FFI challenges that working with R and its C-API. "
+  - "A note to the organisers: We have submitted a paper on extendR to Journal of Open Source Software (https://joss.theoj.org/papers/6a548b055fc6169052583bcf402cbf38). "
+speaker:
+  name: Mossa Merhi Reimert
+  website: https://extendr.github.io/
+  github: cgmossa
+duration: short

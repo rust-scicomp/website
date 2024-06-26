@@ -1,0 +1,10 @@
+title: "Polars in the factory: when databases trump collections for modeling."
+abstract:
+  - "Rust offers versatile and efficient data structures to represent and process collections of objects. Its crate ecosystem adds even more to this functionality and turns it into a versatile tool for data science applications. On the other hand, data scientists are used to build online analytical pipelines (OLAP) based on databases or dataframes. How can we learn from their approach to build numerical applications? In my talk, I will discuss the benefits of replacing structs with table rows using polars. Polars is a dataframe library implemented in rust with an expressive python API. It maries the ease of processing of application data with the promise of optimized performance. After showing how to use polars to structure your data, I will take this even further by extending it with a custom expression plugin. My talk will use examples both in rust and python."
+speaker:
+  name: Bartosz Telenczuk
+  email: bartosz@telenczuk.pl
+  website: https://datascience.telenczuk.pl
+  github: btel
+  mastodon: "btel@mastodon.social"
+duration: short

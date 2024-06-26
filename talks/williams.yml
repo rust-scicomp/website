@@ -1,0 +1,9 @@
+title: "Back to basics: rebuilding computational biomechancis crate by crate"
+abstract:
+  - "Carl Sagan famously said that \"If you wish to make an apple pie from scratch you must first invent the universe.\" Rust is an appealing language for us to rebuild biomechanics simulation from scratch due to its speed, safety, and ease of distribution. From our own experience in biomechanics research, we believe writing new software from scratch is important to escape technical debt of past solutions. However, inventing the universe is not trivial. In this talk, I will discuss the types of physics simulation and mathematical crates that must be implemented from scratch in order to develop pure Rust biomechanics software. I will also share lessons learned from what we have implemented so far, including interpreting obscure and often misused file specifications, tracking down specialized spline code that has almost been lost to time, and reimplementing what should have been relatively basic digital filtering that has been taken for granted and made obtuse to trace in popular data science languages. This talk will be evenly split between what is needed and what has been done."
+speaker:
+  name: Spencer Williams
+  email: stwilliamsmail@gmail.com
+  website: biomechanicsfoundation.org
+  github: SpencerTWilliams
+duration: short

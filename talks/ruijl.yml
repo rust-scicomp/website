@@ -1,0 +1,8 @@
+title: "Developing a computer algebra system in Rust"
+abstract:
+  - "In this talk I will introduce Symbolica, a novel, blazing-fast computer algebra system (CAS, e.g. sympy, Mathematica) written in Rust. I will go into some design details and will show what makes Rust a suitable language for developing a CAS."
+speaker:
+  name: Ben Ruijl
+  website: https://symbolica.io/
+  github: benruijl
+duration: short

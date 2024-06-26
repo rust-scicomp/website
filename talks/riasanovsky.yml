@@ -1,0 +1,8 @@
+title: "Efficient 1-bit matrix approximations"
+abstract:
+  - "In this talk, we introduce the signed cut decomposition of an arbitrary matrix or tensor and our efficient implementation in Rust. Our work is inspired by Szemerédi’s Regularity Lemma and greatly simplifies the algorithms from the 1999 paper of Frieze and Kannan which spawned the field of combinatorial limit theory. We demonstrate improvements in performance and accuracy against traditional matrix approximations on both avx512 and avx2 architectures."
+speaker:
+  name: Alex W. N. Riasanovsky
+  website: https://riasanovsky.me/
+  github: ariasanovsky
+duration: short

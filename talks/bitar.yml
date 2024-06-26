@@ -1,0 +1,11 @@
+title: "Physics simulations in Bevy"
+abstract:
+  - "Bevy is the most popular game engine in Rust. Because of its flexibility, it can be used not only for games but also for (scientific) physics simulations."
+  - "In this talk, I will share my experience using Bevy for physics simulations from scratch as part of my master's thesis."
+speaker:
+  name: Mo Bitar
+  email: mo8it@proton.me
+  website: https://mo8it.com
+  github: mo8it
+  mastodon: "mo8it@fosstodon.org"
+duration: short

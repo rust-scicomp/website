@@ -1,0 +1,10 @@
+title: "Perpetaul: a hyperparameter-free gradient boosting machine"
+abstract:
+  - "I want to talk about a gradient boosting algorithm which I developed in Rust. It is different from other GBM algorithms because it doesn't need hyperparameter tuning. 
+https://github.com/perpetual-ml/perpetual"
+speaker:
+  name: Mutlu Simsek
+  email: mutlusims3k@gmail.com
+  website: https://perpetual-ml.com/
+  github: deadsoul44
+duration: short

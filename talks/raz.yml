@@ -1,0 +1,10 @@
+title: "Building a compile-time SIMD optimized smoothing filter"
+abstract:
+  - "I built a Savitzky-Golay filter (fancy name for a dot product with some known constants on a rolling window) and tried to optimize the crap out of it. It's fast, it was fun, and I want to share the tools that helped me see where I was missing perf like `cargo show asm`, `cargo remark` and `divan`."
+speaker:
+  name: Miguel Raz
+  email: miguelraz@gmail.com
+  website: miguelraz.github.io
+  github: miguelraz
+  mastodon: "https://hachyderm.io/@miguelraz_t"
+duration: short

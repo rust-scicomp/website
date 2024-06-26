@@ -1,0 +1,7 @@
+title: "Rootfinders for Rust"
+abstract:
+  - "Rootfinding (solving systems of nonlinear algebraic equations) is a key ingredient in scientific computing. Argmin, a native Rust crate, has a trait-based interface that enforces at compile-time that all the necessary information is available, but the user must choose the solution algorithm statically. We depict the usability tradeoff between this and a dynamic alternative and share improvements to the linear algebra in its implementation of Newton's method, including use of faer. PETSc is a widely-used C library with rootfinders and sophisticated linear algebra support, and has been recently released in a Rust crate. We discuss interoperability, interfaces, capability, and performance between these rootfinders."
+speaker:
+  name: Owen White
+  email: owwh3041@colorado.edu
+duration: short
