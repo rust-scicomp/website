@@ -3,6 +3,7 @@ abstract:
   - "The Smoothed Particle Hydrodynamics (SPH) algorithm has proven to be a successful method for simulating astrophysical systems. However, due to its computational cost, codes are usually written using low-level programming languages, such as Fortran, C or C++, to achieve high performance in terms of both speed and resource management. In recent years, the Rust programming language has gained popularity among the scientific community due to its memory safety, performance, and concurrency features. This work explores the advantages and challenges of implementing Rusph, a 3D SPH code in Rust. We employed the Rayon library for parallelisation, ensuring thread synchronisation. Efficiency and safety were assessed by a series of standard tests, yielding favourable results such as a good agreement with semianalytical solutions and conservation laws. Additionally, performance gains were evidenced in the speedup for evaluations of up to 40 processors."
 speaker:
   name: Jacksen Narvaez Coral
+  affiliation: Universidad Nacional de Colombia
   email: janarvaez@unal.edu.co
   website: https://github.com/JackNarvaez
   github: JackNarvaez

@@ -5,6 +5,7 @@ abstract:
   - "Due to Rust's support for Web Assembly, an Entangled notebook can also be utilised to create extremely well documented web-based demonstrations. I will show how to get started with Entangled, and conclude with several examples."
 speaker:
   name: Johan Hidding
+  affiliation: Netherlands eScience Center
   email: j.hidding@esciencecenter.nls
   website: https://entangled.github.io/
   github: jhidding

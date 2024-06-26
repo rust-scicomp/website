@@ -4,6 +4,7 @@ abstract:
   - "In this talk, I will share my experience using Bevy for physics simulations from scratch as part of my master's thesis."
 speaker:
   name: Mo Bitar
+  affiliation: Johannes Gutenberg University Mainz, Germany
   email: mo8it@proton.me
   website: https://mo8it.com
   github: mo8it

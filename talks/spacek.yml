@@ -3,6 +3,7 @@ abstract:
   - "Describing my crate Rstats and the novel ideas in it."
 speaker:
   name: Libor Spacek
+  affiliation: retired
   website: https://github.com/liborty
   github: liborty
 duration: short

@@ -4,6 +4,7 @@ abstract:
   - "After writing logic algorithms in C and C++ for over 20 years, I decided to implement a new group theory algorithm I was working on in Rust, in a new program called 'Vole'. This tool implements high-performance group algorithms, and integrates with GAP, a mathematical language written in C."
 speaker:
   name: Christopher Jefferson
+  affiliation: University of Dundee
   email: cjefferson001@dundee.ac.uk
   website: https://heather.cafe
   github: chrisjefferson

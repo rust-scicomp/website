@@ -5,6 +5,7 @@ abstract:
   - "A note to the organisers: We have submitted a paper on extendR to Journal of Open Source Software (https://joss.theoj.org/papers/6a548b055fc6169052583bcf402cbf38). "
 speaker:
   name: Mossa Merhi Reimert
+  affiliation: University of Copenhagen
   website: https://extendr.github.io/
   github: cgmossa
 duration: short

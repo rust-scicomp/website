@@ -5,6 +5,7 @@ abstract:
   - "This talk will review the library's API, benchmarks, performance engineering details, and example applications. Most functions' throughput is ~10^8 elements / second on one core of an Apple M1 Pro, within a factor of a few of fully utilizing the FLOPS capacity. The library is easy to use from python, and is fast enough for applications like design sweeps, iterative solvers, and interactive visualizations. Within Commonwealth Fusion Systems, it is a component of internal tools that advance our design and understanding of superconducting magnets and tokamaks."
 speaker:
   name: Matt Vernacchia
+  affiliation: Commonwealth Fusion Systems
   email: mvernacchia@cfs.energy
   website: https://cfs.energy
 duration: short

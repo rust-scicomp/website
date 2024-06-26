@@ -6,6 +6,7 @@ abstract:
   - "There is a lot of potential topics, but I'd like would spend most focus on efficient a non-linear least squares optimization - since this is closest to wider applications and more high-level, while being build on top of there concepts in the library (lie groups, dual numbers, camera models etc.)."
 speaker:
   name: Hauke Strasdat
+  affiliation: farm-ng
   email: strasdat@gmail.com
   website: https://github.com/sophus-vision/
   github: strasdat

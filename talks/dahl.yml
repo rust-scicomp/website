@@ -3,6 +3,7 @@ abstract:
   - "R is a programming language for statistical computing and data visualization. This talk introduces the roxido framework, a simply idiomatic Rust-based API which wraps commonly used parts of R's API with minimal overhead and allows a programmer to easily add additional wrappers. The creation of a new package using the roxido framework can be facilitated through the roxido executable. Comparisons are made to two other available frameworks, extendr and savvy, which both also wrap R's API to allow the development of R extensions in Rust. The benefits of roxido over these other frameworks are discussed, and benchmarks are provided to compare the overhead of roxido, extendr, and savvy."
 speaker:
   name: David B. Dahl
+  affiliation: Brigham Young University
   email: dahl@stat.byu.edu
   website: https://dahl.byu.edu
   github: dbdahl

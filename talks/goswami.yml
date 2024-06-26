@@ -3,6 +3,7 @@ abstract:
   - "We introduce bless, a tool geared towards multiple runs of codes in flux. The key idea is to use Rust's logging libraries to transparently annotate outputs and additionally use a MongoDB database to store the output and metadata. We find this raises interesting problems while handling the outputs of MPI commands asynchronously. Additionally we provide alternatives to `(PROG 2>&1) | tee blah.out`, with the ability to use a configuration file and prepare a tar.gz of outputs and inputs. This is invaluable when working with minor changes to multiple codebases, as is typical in the early stages of a scientific project."
 speaker:
   name: Rohit Goswami
+  affiliation: University of Iceland / Quansight Labs
   email: rgoswami@ieee.org
   website: https://rgoswami.me
   github: HaoZeke

@@ -3,6 +3,7 @@ abstract:
   - "In this talk I would like to talk about the fluid dynamics software AcoDyn, which I have been developing for the past two years, first for my Master thesis, and now for my PhD. By tapping into the potential of GPUs for massively parallel workloads I was able to increase the performance of the software over previous solutions by a significant margin. The talk will focus on how Rust as the main programming language for the project contributed greatly to the design process and the state of GPU programming with Rust."
 speaker:
   name: Adrian Paskert
+  affiliation: Universität Münster
   email: a.paskert@uni-muenster.de
   website: acodyn.com
   github: https://github.com/LateinCecer
