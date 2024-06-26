@@ -308,6 +308,9 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     list_content = "<h1>List of talks</h1>"
     tt_content = "<h1>Timetable</h1>"
 
+    tt_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
+    list_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
+
     list_content += markup("Show times in: <timeselector>")
     tt_content += markup("Show times in: <timeselector>")
 
