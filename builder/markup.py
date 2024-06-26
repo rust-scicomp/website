@@ -110,9 +110,10 @@ def markup(content, icons=True, paragraphs=True):
 
     page_references = []
 
-    out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='13' data-month='7' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
-    out = re.sub(r"<time Thursday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='13' data-month='7' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
-    out = re.sub(r"<time Friday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='14' data-month='7' data-year='2023' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='17' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time Wednesday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='17' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time Thursday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='18' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
+    out = re.sub(r"<time Friday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='19' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
     out = re.sub(r"<tzone>", r"<span class='tzone'> BST</span>", out)
     out = out.replace("<timeselector>", "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>")
     out = re.sub(r"<ref ([^>]+)>", add_citation, out)

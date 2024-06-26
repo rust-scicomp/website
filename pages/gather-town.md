@@ -7,9 +7,9 @@ talks, just like you would at an in-person conference.
 
 We will be using Gather Town for the final hour each day to host the open discussion sessions.
 
-## The Scientific Computing in Rust 2023 Gather Town space
+## The Scientific Computing in Rust Gather Town space
 When you first join Gather Town, you will be taken to the Gather Town tutorial island. Once you completed the tutorial,
-you found yourself in the Scientific Computing in Rust 2023 welcome room.
+you found yourself in the Scientific Computing in Rust welcome room.
 
 <center>
 <img src='/img/gather_welcome.png' style='max-width:80%'>
@@ -45,7 +45,7 @@ In addition to these rooms, there is also a hidden room somewhere in the space. 
 There are a few features of Gather Town that are worth knowing about.
 
 ### Private spaces
-In various places throughout the Scientific Computing in Rust 2023 Gather Town space, there are 'private spaces' that surround tables. If you
+In various places throughout the Scientific Computing in Rust Gather Town space, there are 'private spaces' that surround tables. If you
 enter one of these spaces you were able to see and hear everyone in that private space and no-one outside the space.
 Entering one of these spaces is a little bit like sitting down at the table to join the conversation. To leave a private
 space, you can simply get up and walk away.
@@ -71,5 +71,5 @@ You can press "Z" to make your character dance and show a heart above your head.
 The heart disappears once you move your character.
 
 ### Interacting with objects.
-You can press "X" to interact with some objects in the space. The most useful interactive objects in the Scientific Computing in Rust 2023 space are probably
+You can press "X" to interact with some objects in the space. The most useful interactive objects in the Scientific Computing in Rust space are probably
 the collaborative whiteboards in the discussion room.
