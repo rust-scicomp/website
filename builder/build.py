@@ -344,8 +344,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 dcontent += session['platform']
             dcontent += ")</h3>"
             col = 2 * di + 2
-            row = [3, 15, 24][si]
-            rowend = [13, 21, 24][si]
+            row = [3, 11, 17][si]
+            rowend = [9, 16, 17][si]
             if di == 0:
                 tt_content += "<div class='gridcell timetableheading rotated' style='"
                 if session["platform"] == "Gather Town":
@@ -403,9 +403,31 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += "</a>"
                     start += rows
             else:
-                tt_content += ("<a class='gridcell timetabletalk' href='/gather-town.html' style='"
-                               f"grid-column: {col} / span 1; grid-row: {row} / span 1'>"
-                               "<div class='timetabletalktitle'>Discussions</div>")
+                tt_content += "<a class='gridcell timetabletalk' href='"
+                if "link" in session:
+                    tt_content += session["link"]
+                else:
+                    tt_content += "/gather-town.html"
+                tt_content += "' style='"
+                tt_content += f"grid-column: {col} / span 1; grid-row: "
+                if "rowstart" in session:
+                    tt_content += f"{session['rowstart']}"
+                else:
+                    tt_content += f"{row}"
+                tt_content += " / span "
+                if "rows" in session:
+                    tt_content += f"{session['rows']}"
+                else:
+                    tt_content += f"{row}"
+                tt_content += "'>"
+
+
+                tt_content += "<div class='timetabletalktitle'>"
+                if "title" in session:
+                    tt_content += session["title"]
+                else:
+                    tt_content += "Discussions"
+                tt_content += "</div>"
                 if "description" in session:
                     tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
                 tt_content += "</a>"
@@ -413,8 +435,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
                 row1 = 2 + minutes_after_one(session['start'])
                 tt_content += ("<div class='gridcell timetableheading' style='"
-                               "grid-column: 2 / span 3; "
-                               "grid-row: 13 / span 1; "
+                               "grid-column: 2 / span 5; "
+                               "grid-row: 10 / span 1; "
                                "display: flex; justify-content: center; align-items: center;'>")
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"

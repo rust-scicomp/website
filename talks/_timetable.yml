@@ -21,7 +21,8 @@ Wednesday:
   - start: "16:00"
     end: "17:00"
     platform: Gather Town
-    description: "An interactive session during which participants will be able to talk to the presenters of Thursday's talks, and meet other workshop participants."
+    title: Discussions
+    description: "An interactive session during which participants will be able to talk to the presenters of Wednesday's talks, and meet other workshop participants."
 Thursday:
   - talks:
       - spacek
@@ -33,10 +34,19 @@ Thursday:
     start: "13:00"
     end: "14:40"
     platform: Zoom
+  - start: "15:00"
+    end: "15:30"
+    platform: Gather Town
+    title: Discussions
+    rows: 3
+    description: "An interactive session during which participants will be able to talk to the presenters of Thursday's talks, and meet other workshop participants."
   - start: "15:30"
     end: "17:00"
     platform: Gather Town
-    info: friday-gather
+    title: Tutorial
+    rowstart: 14
+    rows: 4
+    link: "/tutorial.html"
     description: "An interactive tutorial session during which participants can choose which of a range of tutorials to attend. To be followed by discussion time."
 Friday:
   - talks:
@@ -62,5 +72,5 @@ Friday:
   - start: "16:00"
     end: "17:00"
     platform: Gather Town
-    info: friday-gather
+    title: Discussions
     description: "An interactive session during which participants will be able to talk to the presenters of Friday's talks, and meet other workshop participants."

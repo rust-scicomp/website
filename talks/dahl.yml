@@ -7,4 +7,7 @@ speaker:
   email: dahl@stat.byu.edu
   website: https://dahl.byu.edu
   github: dbdahl
+coauthor:
+  - name: John Whetten
+    affiliation: Pentara
 duration: short

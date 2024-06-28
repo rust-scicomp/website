@@ -6,4 +6,9 @@ speaker:
   affiliation: Université Grenoble Alpes, LIG, CNRS, Inria
   email: louis.boulanger@univ-grenoble-alpes.fr
   github: boulanlo
+coauthor:
+  - name: Fr&eacute;d&eacute;ric Wagner
+    affiliation: LIG
+  - name: Yves Denneulin
+    affiliation: LIG
 duration: short

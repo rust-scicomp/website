@@ -8,4 +8,9 @@ speaker:
   affiliation: Commonwealth Fusion Systems
   email: mvernacchia@cfs.energy
   website: https://cfs.energy
+coauthor:
+  - name: James Logan
+    affiliation: Commonwealth Fusion Systems
+  - name: Matt Vernacchia
+    affiliation: Commonwealth Fusion Systems
 duration: short
