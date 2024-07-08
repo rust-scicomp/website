@@ -1,6 +1,6 @@
-title: "TBC"
+title: "Writing a grid library for finite and boundary element methods"
 abstract:
-  - "TBC"
+  - "In the last few years, we've been working on rewriting our boundary element method library [Bempp](https://bempp.com) in Rust (\"Bempp-rs\"). Recently, we've been undertaking some work to spin the grid management out from Bempp-rs into its own library, and generalise it so that it can be used for other methods based on grids. In this talk, I will present some details and highlights of our grid implementation."
 speaker:
   name: Matthew Scroggs
   website: https://mscroggs.co.uk
