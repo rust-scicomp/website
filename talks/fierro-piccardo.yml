@@ -1,6 +1,7 @@
-title: "TBC"
+title: "Rusting RSRS"
 abstract:
-  - "TBC"
+  - "According to Yesypenko and Martinsson <ref title='Randomized strong recursive skeletonization: simultaneous compression and factorization of H-matrices in the black-box setting' author='Anna Yesypenko, Per-Gunnar Martinsson' year='2023' arxiv='2311.01451'>, we can use the RSRS algorithm as a black box to efficiently compress and factor Hierarchical matrices that are in most cases related to Partial Differential Equations problems. This can also be applied to other types of problems, as long as we know a hierarchical partition of our data (i.e. if we know which data points are strongly related and which are not), and we count with a matrix-vector product."
+  - "Our final interest in this algorithm relies on designing preconditioners for Maxwell's boundary integral equations, but to do this, we need to boost the performance of the existent RSRS Python codes. In this talk we discuss how Rust can help us to improve the performance of our current implementations.<ghostref title='Software frameworks for integral equations in electromagnetic scattering based on Calder&oacute;n identities' author=\"Matthew W. Scroggs, Timo Betcke, Erik Burman, Wojciech &Sacute;migaj, Elwin van 't Wout\" journal='Computers & Mathematics with Applications' volume='74' issue='11' pagestart='2897' pageend='2914' doi='10.1145/3368618'>"
 speaker:
   name: Iganacia Fierro Piccardo
   affiliation: University College London
