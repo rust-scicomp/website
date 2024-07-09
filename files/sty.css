@@ -1,14 +1,14 @@
 /*****************************
 colour scheme:
-  orange:        #FF8800
-  pastel orange: #FFBC6F
+  orange:        #F77237
+  pastel orange: #F7AF90
 *****************************/
 
 body {padding:0px;margin:0px; margin-bottom:50px}
 
 .head, .body, .footer {width:100%;}
 
-.head {background-color:#FF8800}
+.head {background-color:#F77237}
 .head .laptop {width:100%;background-image:url("/img/cogs.png");
                background-repeat: repeat;}
 
@@ -21,11 +21,11 @@ body {padding:0px;margin:0px; margin-bottom:50px}
 a, a:link, a:active, a:visited
         {color:#0000FF}
 .footer a:hover, .title a:hover,
-a:hover {color:#FF8800}
+a:hover {color:#F77237}
 
 a svg.brand-logo .filled, a:link svg.brand-logo .filled, a:active svg.brand-logo .filled, a:visited svg.brand-logo .filled
         {fill:#0000FF}
-a:hover svg.brand-logo .filled {fill:#FF8800}
+a:hover svg.brand-logo .filled {fill:#F77237}
 svg.brand-logo {margin-top: 2px; margin-bottom: -2px;}
 
 
@@ -87,12 +87,12 @@ td.heading {font-weight:bold;font-size:80%}
 a.gridcell, a.gridcell:link, a.gridcell:active, a.gridcell:visited,
 a.gridcell:hover
   {color:black;text-decoration:none;}
-a.gridcell:hover {background-color:#FFBC6F}
+a.gridcell:hover {background-color:#F7AF90}
 
 a.falink, a.falink:link, a.falink:active, a.falink:visited,
 a.falink:hover
   {text-decoration:none;}
-a.timetabletalk:hover {border:1px solid #FF8800}
+a.timetabletalk:hover {border:1px solid #F77237}
 
 
 .socialicons a,
@@ -174,7 +174,7 @@ a.timetabletalk:hover {border:1px solid #FF8800}
 .head .links a, .head .links a:link, .head .links a:active, .head .links a:visited
  {color:black;background-color:white;padding:10px 20px;font-size:18px;
   border-radius:10px;margin-right:10px;margin-bottom:10px;display:inline-block}
-.head .links a:hover {background-color:#FF8800;color:black}
+.head .links a:hover {background-color:#F77237;color:black}
 
 .authors {padding-left:40px;text-align:initial;padding-bottom:0.5em}
 
@@ -186,7 +186,7 @@ a.timetabletalk:hover {border:1px solid #FF8800}
 .nextlink {text-align:right}
 
 a.refid, a.refid:visited, a.refid:link, a.refid:active, a.refid:hover {color:black}
-a.refid:target {font-weight:bold; color:#FF8800}
+a.refid:target {font-weight:bold; color:#F77237}
 
 a.icon img {height:1em;vertical-align:middle}
 a.icon {display:inline-block}

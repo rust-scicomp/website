@@ -223,7 +223,7 @@ def python_highlight(txt):
         if "#" in line:
             lsp = line.split("#", 1)
             line = lsp[0]
-            comment = f"<span style='color:#FF8800'>#{lsp[1]}</span>"
+            comment = f"<span style='color:#F77237'>#{lsp[1]}</span>"
 
         lsp = line.split("\"")
         line = lsp[0]
