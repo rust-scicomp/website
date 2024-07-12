@@ -9,7 +9,8 @@ from.
 We are currently still finalising the list of available tutorials, but a provisional list is
 available below.
 
-## A beginner's gude to Rust
+<h2 style='margin-bottom:0px'>A beginner's gude to Rust</h2>
+<h3 style='margin-top:0px'>Ignacia Fierro Piccardo and Matthew Scroggs</h3>
 
 This session is aimed at people who don't use Rust yet, but are attending the workshop as they
 are interested in starting to use it. We will cover basic syntax in Rust and a few of the language's
