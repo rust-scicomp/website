@@ -314,6 +314,24 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     list_content += markup("Show times in: <timeselector>")
     tt_content += markup("Show times in: <timeselector>")
 
+    rows = [(3, 8), (10, 14), (16, 16)]
+
+    tt_content += "<style type='text/css'>\n"
+    tt_content += ".timetablegrid {\n"
+    tt_content += "  grid-template-columns: auto"
+    for di, _ in enumerate(timetable):
+        if di > 0:
+            tt_content += " 0.1fr"
+        tt_content += " 3fr"
+    tt_content += ";\n"
+    tt_content += "  grid-template-rows: auto 10px"
+    for i, (row, rowend) in enumerate(rows[:-1]):
+        if i > 0:
+            tt_content += " 2fr"
+        tt_content += f" repeat({rowend + 1 - row}, 1fr)"
+    tt_content += "10px auto;\n"
+    tt_content += "}\n"
+    tt_content += "</style>\n"
 
     tt_content += "<div class='timetablegrid'>\n"
     for di, day in enumerate(timetable):
@@ -337,24 +355,25 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             dcontent += "<h3"
             if si != 0:
                 dcontent += " style='margin-top:50px'"
-            dcontent += f">Session {si + 1} ({session_time}, "
-            if session['platform'] == "Gather Town":
-                dcontent += "<a href='/gather-town.html'>Gather Town</a>"
-            else:
-                dcontent += session['platform']
+            dcontent += f">Session {si + 1} ({session_time}"
+            if "platform" in session:
+                dcontent += ", "
+                if session['platform'] == "Gather Town":
+                    dcontent += "<a href='/gather-town.html'>Gather Town</a>"
+                else:
+                    dcontent += session['platform']
             dcontent += ")</h3>"
             col = 2 * di + 2
-            row = [3, 11, 17][si]
-            rowend = [9, 16, 17][si]
+            row, rowend = rows[si]
             if di == 0:
                 tt_content += "<div class='gridcell timetableheading rotated' style='"
-                if session["platform"] == "Gather Town":
-                    tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span 1"
-                else:
-                    tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row - 1} / span {rowend - row + 1}"
+                tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row + 1}"
                 tt_content += "'>"
-                tt_content += markup(f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>, "
-                                     f"{session['platform']})", paragraphs=False)
+                inner_content = f"Session {si + 1} (<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>"
+                if "platform" in session:
+                    inner_content += f", {session['platform']}"
+                inner_content += ")"
+                tt_content += markup(inner_content, paragraphs=False)
                 tt_content += "</div>"
             if "description" in session:
                 dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
@@ -373,7 +392,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
                     title, speaker = get_title_and_speaker(t)
                     length = 70 if is_long(t) else 20
-                    rows = 3 if is_long(t) else 1
+                    nrows = 3 if is_long(t) else 1
                     if t == "intro":
                         tt_content += "<div"
                     else:
@@ -384,7 +403,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     tt_content += "'"
                     if t != "intro":
                         tt_content += f" href='{webroot}/talks/{t}.html'"
-                    tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {rows}'>"
+                    tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
                                    f"<div class='timetabletalktitle'>{title}</div>")
                     icons = []
                     if not recorded(t):
@@ -401,7 +420,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += "</div>"
                     else:
                         tt_content += "</a>"
-                    start += rows
+                    start += nrows
             else:
                 tt_content += "<a class='gridcell timetabletalk' href='"
                 if "link" in session:
@@ -436,7 +455,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 row1 = 2 + minutes_after_one(session['start'])
                 tt_content += ("<div class='gridcell timetableheading' style='"
                                "grid-column: 2 / span 5; "
-                               "grid-row: 10 / span 1; "
+                               "grid-row: 9 / span 1; "
                                "display: flex; justify-content: center; align-items: center;'>")
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"

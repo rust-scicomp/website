@@ -8,7 +8,6 @@ Wednesday:
       - murariu
     start: "13:00"
     end: "14:40"
-    platform: Zoom
   - talks:
       - zhang
       - vernacchia
@@ -17,10 +16,8 @@ Wednesday:
       - white
     start: "15:00"
     end: "16:00"
-    platform: Zoom
   - start: "16:00"
     end: "17:00"
-    platform: Gather Town
     title: Discussions
     description: "An interactive session during which participants will be able to talk to the presenters of Wednesday's talks, and meet other workshop participants."
 Thursday:
@@ -33,16 +30,13 @@ Thursday:
       - fierro-piccardo
     start: "13:00"
     end: "14:40"
-    platform: Zoom
   - start: "15:00"
     end: "15:30"
-    platform: Gather Town
     title: Discussions
     rows: 3
     description: "An interactive session during which participants will be able to talk to the presenters of Thursday's talks, and meet other workshop participants."
   - start: "15:30"
     end: "17:00"
-    platform: Gather Town
     title: Tutorial
     rowstart: 14
     rows: 4
@@ -58,7 +52,6 @@ Friday:
       - riasanovsky
     start: "13:00"
     end: "14:40"
-    platform: Zoom
   - talks:
       - dahl
       - coral
@@ -67,9 +60,7 @@ Friday:
       - brown
     start: "15:00"
     end: "16:00"
-    platform: Zoom
   - start: "16:00"
     end: "17:00"
-    platform: Gather Town
     title: Discussions
     description: "An interactive session during which participants will be able to talk to the presenters of Friday's talks, and meet other workshop participants."
