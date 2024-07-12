@@ -13,7 +13,7 @@ July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
 This will be the second Scientific Computing in Rust workshop; archived information about
 Scientific Computing in Rust 2023 can be found at [scientificcomputing.rs/2023](/2023).
 
-<div id='other-timezones' style='display:none; border:2px solid #FF8800;padding:10px'>
+<div id='other-timezones' style='display:none; border:2px solid #F77237;padding:10px'>
 <small><a href='javascript:toggle_times()'>Hide timezone info</a></small>
 
 13:00 to 17:00 BST (British Summer Time / UTC+1) on 17 July is:

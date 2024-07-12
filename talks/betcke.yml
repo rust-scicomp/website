@@ -1,8 +1,16 @@
-title: "TBC"
+title: "RLST: linear algebra frameworks in Rust for the solution of partial differential equations"
 abstract:
-  - "TBC"
+  - "Over the last year we have developed RLST, the Rust Linear Solver Toolbox. It contains a number of data-structures, algorithms, and interfaces to external solvers to support the discretisation and solution of partial differential equations in Rust. Some of its features include heap and stack based n-dimensional array objects, a compile-time lazy expression arithmetic, SIMD acceleration, Lapack interfaces, sparse data structures and linear solves via Umfpack, and a generic operator algebra for iterative solver frameworks."
+  - "In this talk we discuss the underlying principles and Rust specific features that were used in the design of this library. Several examples will be shown how RLST is being used in our Rust based boundary element and fast multipole codes."
 speaker:
   name: Timo Betcke
   affiliation: University College London
+coauthor:
+  - name: Jed Brown
+    affiliation: University of Colorado Boulder
+  - name: Srinath Kailasa
+    affiliation: University College London
+  - name: Matthew Scroggs
+    affiliation: University College London
 duration: short
 record: no

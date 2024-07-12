@@ -1,6 +1,6 @@
-title: "TBC"
+title: "Cargo +GPU build: An early outlook"
 abstract:
-  - "TBC"
+  - "This is a talk about my latest, highly WIP project. I want to show a new rustc feature called `#[offload]`, which allows running almost arbitrary Rust code on co-processors like a GPU, TPU, or IPU. I will show the current design which separates the Kernel writing from the Scheduling and allows a safe interface, unlike e.g. Rust-CUDA. I will also show simple examples that I managed to compile till then."
 speaker:
   name: Manuel Drehwald
   affiliation: LLNL
