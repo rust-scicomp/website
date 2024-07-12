@@ -9,7 +9,7 @@ body {padding:0px;margin:0px; margin-bottom:50px}
 .head, .body, .footer {width:100%;}
 
 .head {background-color:#F77237}
-.head .laptop {width:100%;background-image:url("/img/cogs.png");
+.head .laptop {width:100%;background-image:url("https://scientificcomputing.rs/img/cogs.png");
                background-repeat: repeat;}
 
 .title a, .title a:link, .title a:active, .title a:visited
