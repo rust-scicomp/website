@@ -6,7 +6,7 @@ Wednesday:
       - paskert
       - betcke
     start: "13:00"
-    end: "14:40"
+    end: "14:30"
     platform: Zoom
   - talks:
       - zhang
@@ -31,7 +31,7 @@ Thursday:
       - reimert
       - fierro-piccardo
     start: "13:00"
-    end: "14:40"
+    end: "14:30"
     platform: Zoom
   - start: "15:00"
     end: "15:30"
@@ -57,7 +57,7 @@ Friday:
       - murariu
       - riasanovsky
     start: "13:00"
-    end: "14:40"
+    end: "14:30"
     platform: Zoom
   - talks:
       - dahl
