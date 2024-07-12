@@ -7,4 +7,11 @@ speaker:
   email: rust@mscroggs.co.uk
   affiliation: University College London
   mastodon: mscroggs@mathstodon.xyz
+coauthor:
+  - name: Timo Betcke
+    affiliation: University College London
+  - name: Ignacia Fierro Piccardo
+    affiliation: University College London
+  - name: Srinath Kailasa
+    affiliation: University College London
 duration: short
