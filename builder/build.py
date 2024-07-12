@@ -308,8 +308,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     list_content = "<h1>List of talks</h1>"
     tt_content = "<h1>Timetable</h1>"
 
-    tt_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
-    list_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
+    # tt_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
+    # list_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
 
     list_content += markup("Show times in: <timeselector>")
     tt_content += markup("Show times in: <timeselector>")
@@ -422,12 +422,12 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += "</a>"
                     start += nrows
             else:
-                tt_content += "<a class='gridcell timetabletalk' href='"
                 if "link" in session:
-                    tt_content += session["link"]
+                    tt_content += f"<a href='{session['link']}'"
                 else:
-                    tt_content += "/gather-town.html"
-                tt_content += "' style='"
+                    tt_content += "<div"
+                tt_content += " class='gridcell timetabletalk'"
+                tt_content += " style='"
                 tt_content += f"grid-column: {col} / span 1; grid-row: "
                 if "rowstart" in session:
                     tt_content += f"{session['rowstart']}"
@@ -449,7 +449,10 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 tt_content += "</div>"
                 if "description" in session:
                     tt_content += f"<div class='timetabletalkspeaker'>{session['description']}</div>"
-                tt_content += "</a>"
+                if "link" in session:
+                    tt_content += "</a>"
+                else:
+                    tt_content += "</div>"
             if di == 0 and si > 0 and session["start"] != timetable[day][si - 1]["end"]:
                 row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
                 row1 = 2 + minutes_after_one(session['start'])
