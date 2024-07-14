@@ -1,4 +1,5 @@
 import os
+import typing
 import yaml
 import argparse
 from markup import markup
@@ -64,7 +65,7 @@ if not archive:
         os.system(f"cp -r {archive_path} {html_path}/{y}")
 
 
-def load_template(file, title, url):
+def load_template(file: str, title: str, url: str) -> str:
     if os.path.isfile(os.path.join(template_path, file)):
         with open(os.path.join(template_path, file)) as f:
             content = f.read()
@@ -77,7 +78,7 @@ def load_template(file, title, url):
     return content
 
 
-def write_page(url, content, title=None):
+def write_page(url: str, content: str, title: typing.Optional[str] = None):
     if title is None:
         title = f"Scientific Computing in Rust {year}"
     else:
@@ -89,7 +90,7 @@ def write_page(url, content, title=None):
         f.write(load_template("outro.html", title, url))
 
 
-def person(p, bold=False):
+def person(p: typing.Dict, bold: bool = False) -> str:
     info = ""
     if bold:
         info += "<b>"
@@ -130,7 +131,7 @@ def person(p, bold=False):
     return info
 
 
-def is_long(t):
+def is_long(t: str) -> bool:
     if t == "intro":
         return False
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
@@ -138,7 +139,7 @@ def is_long(t):
     return tinfo["duration"] == "long"
 
 
-def get_title_and_speaker(t):
+def get_title_and_speaker(t: str) -> typing.Tuple[str, typing.Optional[str]]:
     if t == "intro":
         return "Welcome and introduction", None
 
@@ -147,7 +148,7 @@ def get_title_and_speaker(t):
     return tinfo["title"], tinfo["speaker"]["name"]
 
 
-def recorded(t):
+def recorded(t: str) -> bool:
     if t == "intro":
         return True
 
@@ -156,7 +157,7 @@ def recorded(t):
     return "recorded" not in tinfo or tinfo["recorded"]
 
 
-def has_youtube(t):
+def has_youtube(t: str) -> bool:
     if t == "intro":
         return False
 
@@ -165,7 +166,7 @@ def has_youtube(t):
     return "youtube" in tinfo
 
 
-def has_slides(t):
+def has_slides(t: str) -> bool:
     if t == "intro":
         return False
 
@@ -174,7 +175,10 @@ def has_slides(t):
     return "slides" in tinfo
 
 
-def talk(t, day, session_n, times, prev=None, next=None):
+def talk(
+    t: str, day: str, session_n: int, times: str,
+    prev: typing.Optional[str] = None, next: typing.Optional[str] = None
+) -> str:
     if t == "intro":
         title, _ = get_title_and_speaker(t)
         return f"<div class='talktitle'>{title}</div><br />"
@@ -264,17 +268,34 @@ def talk(t, day, session_n, times, prev=None, next=None):
     return short_content
 
 
-def minutes_after_one(time):
+def minutes_after_one(time: str) -> int:
     h, m = time.split(":")
     return int(m) + 60 * (int(h) - 13)
 
 
-for file in os.listdir(pages_path):
-    if file.endswith(".md"):
-        fname = file[:-3]
-        with open(os.path.join(pages_path, file)) as f:
-            content = markup(f.read(), False)
-        write_page(f"{fname}.html", content)
+def find_md_files(path: str, subpath: str = "") -> typing.List[typing.Tuple[str, str]]:
+    out = []
+    if subpath == "":
+        full_path = path
+    else:
+        full_path = os.path.join(path, subpath)
+    for file in os.listdir(full_path):
+        file_with_path = os.path.join(full_path, file)
+        if file.endswith(".md") and not file.startswith("."):
+            out.append((subpath, file))
+        if os.path.isdir(file_with_path):
+            out += find_md_files(path, os.path.join(path, file))
+    return out
+
+
+for subpath, file in find_md_files(pages_path):
+    fname = file[:-3]
+    if subpath != "" and not os.path.isdir(os.path.join(html_path, subpath)):
+        os.mkdir(os.path.join(html_path, subpath))
+        file = os.path.join(subpath, file)
+    with open(os.path.join(pages_path, file)) as f:
+        content = markup(f.read(), False)
+    write_page(f"{fname}.html", content)
 
 # Make timetable pages
 if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
