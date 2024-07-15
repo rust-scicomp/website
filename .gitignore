@@ -4,4 +4,4 @@ _html
 *.pyc
 
 emails/
-monthly/
+/monthly/
