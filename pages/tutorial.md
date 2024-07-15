@@ -19,13 +19,8 @@ nicest features.
 Before this session, please install Rust on your computer. There are instructions for doing
 this at https://www.rust-lang.org/tools/install.
 
-## RLST: Matrices and linear algebra in Rust
-
-## How to achieve efficient SIMD in Rust
-
-## When unsafe code is slow: automatic differentiation in Rust
-
-## RSMPI: using MPI for parallel Rust
+<h2 style='margin-bottom:0px'>RLST: Matrices and linear algebra in Rust</h2>
+<h3 style='margin-top:0px'>Timo Betcke</h3>
 
 <h2 style='margin-bottom:0px'>Symbolica: Symbolic algebra in Rust</h2>
 <h3 style='margin-top:0px'>Ben Ruijl</h3>
@@ -33,3 +28,10 @@ this at https://www.rust-lang.org/tools/install.
 In this tutorial we will explore the main features of the computer algebra crate [Symbolica](https://crates.io/crates/symbolica), which
 include manipulating mathematical expressions, pattern matching, polynomial arithmetic, numerical evaluations and numerical
 integration.
+
+## How to achieve efficient SIMD in Rust
+
+## When unsafe code is slow: automatic differentiation in Rust
+
+## RSMPI: using MPI for parallel Rust
+
