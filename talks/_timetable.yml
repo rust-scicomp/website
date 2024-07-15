@@ -1,7 +1,7 @@
 Wednesday:
   - talks:
       - intro
-      - goswami
+      - zhang
       - hidding
       - paskert
       - betcke
@@ -9,7 +9,7 @@ Wednesday:
     start: "13:00"
     end: "14:30"
   - talks:
-      - zhang
+      - goswami
       - vernacchia
       - strasdat
       - raz
