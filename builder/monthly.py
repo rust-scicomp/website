@@ -26,7 +26,7 @@ def monthly_list():
                         break
             issues.append((file[:-3], number, date))
     issues.sort(key=lambda i: -i[1])
-    return "\n".join(f"* [#{i[1]} ({i[2]})](monthly/{i[0]})" for i in issues)
+    return "\n".join(f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](monthly/{i[0]})" for i in issues)
 
 
 def pull_monthly():
