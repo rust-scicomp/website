@@ -8,6 +8,14 @@ Wednesday:
       - murariu
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Matthew Scroggs
+      github: mscroggs
+      twitter: mscroggs
+      mastodon: mscroggs@mathstodon.xyz
+      website: https://mscroggs.co.uk
+      email: matthew.scroggs.14@ucl.ac.uk
+      zulip: Matthew Scroggs
   - talks:
       - goswami
       - vernacchia
@@ -16,6 +24,10 @@ Wednesday:
       - white
     start: "15:00"
     end: "16:00"
+    chair:
+      name: Srinath Kailasa
+      github: skailasa
+      zulip: Srinath Kailasa
   - start: "16:00"
     end: "17:00"
     title: Discussions
@@ -30,6 +42,8 @@ Thursday:
       - fierro-piccardo
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Chamundeshwari Vadamalai
   - start: "15:00"
     end: "15:30"
     title: Discussions
@@ -52,12 +66,18 @@ Friday:
       - riasanovsky
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Timo Betcke
+      zulip: Timo Betcke
   - talks:
       - dahl
       - coral
       - williams
       - drehwald
       - brown
+    chair:
+      name: Iganacia Fierro Piccardo
+      zulip: Iganacia Fierro
     start: "15:00"
     end: "16:00"
   - start: "16:00"

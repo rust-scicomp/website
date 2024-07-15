@@ -5,6 +5,7 @@ abstract:
 speaker:
   name: Timo Betcke
   affiliation: University College London
+  zulip: Timo Betcke
 coauthor:
   - name: Jed Brown
     affiliation: University of Colorado Boulder
