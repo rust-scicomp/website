@@ -350,7 +350,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     list_content += markup("Show times in: <timeselector>")
     tt_content += markup("Show times in: <timeselector>")
 
-    rows = [(3, 8), (10, 14), (16, 16)]
+    rows = [(4, 9), (12, 16), (18, 18)]
 
     tt_content += "<style type='text/css'>\n"
     tt_content += ".timetablegrid {\n"
@@ -360,10 +360,10 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             tt_content += " 0.1fr"
         tt_content += " 3fr"
     tt_content += ";\n"
-    tt_content += "  grid-template-rows: auto 10px"
+    tt_content += "  grid-template-rows: auto 10px auto"
     for i, (row, rowend) in enumerate(rows[:-1]):
         if i > 0:
-            tt_content += " 2fr"
+            tt_content += " 2fr auto"
         tt_content += f" repeat({rowend + 1 - row}, 1fr)"
     tt_content += "10px auto;\n"
     tt_content += "}\n"
@@ -493,7 +493,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 row1 = 2 + minutes_after_one(session['start'])
                 tt_content += ("<div class='gridcell timetableheading' style='"
                                "grid-column: 2 / span 5; "
-                               "grid-row: 9 / span 1; "
+                               "grid-row: 10 / span 1; "
                                "display: flex; justify-content: center; align-items: center;'>")
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
