@@ -26,3 +26,5 @@ this at https://www.rust-lang.org/tools/install.
 ## When unsafe code is slow: automatic differentiation in Rust
 
 ## RSMPI: using MPI for parallel Rust
+
+## Symbolica: Symbolic algebra in Rust
