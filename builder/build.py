@@ -476,7 +476,6 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     tt_content += f"{row}"
                 tt_content += "'>"
 
-
                 tt_content += "<div class='timetabletalktitle'>"
                 if "title" in session:
                     tt_content += session["title"]
