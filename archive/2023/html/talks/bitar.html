@@ -2,14 +2,14 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='author' content='Matthew Scroggs'>
-<meta name='description' content='The webpages for the Scientific Computing in Rust 2023 workshop'>
+<meta name='description' content='Online workshop, 17-19 July 2024'>
 <meta name='keywords' content='rust,scientific computing'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scientific Computing in Rust 2023: Rust vs Julia in scientific computing</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
-<link rel='stylesheet' type='text/css' href='/sty.css?v=2023-07-13'>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<link rel='stylesheet' type='text/css' href='/sty.css?v=2024-06-26'>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
@@ -27,6 +27,21 @@
 <link rel="manifest" href="/icons/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:site' content='@mscroggs' />
+<meta name='twitter:creator' content='@mscroggs' />
+<meta name='twitter:title' content='Scientific Computing in Rust 2023: Rust vs Julia in scientific computing' />
+<meta name='twitter:description' content="Online workshop, 17-19 July 2024" />
+<meta name='twitter:image' content='https://scientificcomputing.rs/img/card.png' />
+
+<meta name='og:title' content='Scientific Computing in Rust 2023: Rust vs Julia in scientific computing' />
+<meta name='og:url' content='https://scientificcomputing.rs/talks/bitar.html' />
+<meta name='og:image' content='https://scientificcomputing.rs/img/card.png' />
+<meta name='og:type' content='website' />
+<meta name='og:description' content='Online workshop, 17-19 July 2024' />
+<meta name='og:locale' content="en_gb" />
+
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://kit.fontawesome.com/5506de0e1b.js" crossorigin="anonymous"></script>
 <script type='text/javascript' src='/timezones.js?v=2023-07-13'></script>
@@ -45,7 +60,7 @@
 <div class='body'>
 <div class='content'>
 <div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in 2023. Information about the latest conference can be found <a href='/'>here</a>.</div>
-<h1>Rust vs Julia in scientific computing</h1><div><div class='authors'><b>Mo Bitar</b> <a href='https://mo8it.com' class='falink'><i class='fab fa-internet-explorer'></i></a> <a href='mailto:mo8it@proton.me' class='falink'><i class='far fa-envelope'></i></a> <a href='https://codeberg.org/mo8it' class='falink'><i class='fa-solid fa-icicles'></i></a> <a href='https://fosstodon.org/@mo8it'><i class='fab fa-mastodon'></i></a> (Johannes Gutenberg University Mainz)</div></div><div style='margin-top:5px'><a href='/2023/talklist-Friday.html'>Friday</a> session 1 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='14' data-month='7' data-year='2023' data-hour='13' data-minute='00'>13:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='14' data-month='7' data-year='2023' data-hour='14' data-minute='40'>14:40</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/0JkbNFpXlXc'><i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>One of the main objectives of Julia is solving the two-language problem. This means that by using Julia, you don't have to prototype in a dynamic language like Python for flexibility and later rewrite the code in a compiled language like C/C++ for performance. </p>
+<h1>Rust vs Julia in scientific computing</h1><div><div class='authors'><b>Mo Bitar</b> <a href='https://mo8it.com' class='falink'><i class='fab fa-internet-explorer'></i></a> <a href='mailto:mo8it@proton.me' class='falink'><i class='far fa-envelope'></i></a> <a href='https://codeberg.org/mo8it' class='falink'><i class='fa-solid fa-icicles'></i></a> <a href='https://fosstodon.org/@mo8it'><i class='fab fa-mastodon'></i></a> (Johannes Gutenberg University Mainz)</div></div><div style='margin-top:5px'><a href='/2023/talklist-Friday.html'>Friday</a> session 1 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='19' data-month='7' data-year='2024' data-hour='13' data-minute='00'>13:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='19' data-month='7' data-year='2024' data-hour='14' data-minute='40'>14:40</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/0JkbNFpXlXc'><i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>One of the main objectives of Julia is solving the two-language problem. This means that by using Julia, you don't have to prototype in a dynamic language like Python for flexibility and later rewrite the code in a compiled language like C/C++ for performance. </p>
 <p>This goal did catch me while picking a programming language for my bachelor's thesis in physics. But after regularly using and even teaching Julia, do I still think that Julia solves that two-language problem? </p>
 <p>And why do I think that Rust is the actual solution in some cases? </p>
 <p>This talk is only a trailer for my blog post about "Rust vs Julia". The blog post has more details and points that could not fit into the talk: <a href='https://mo8it.com/blog/rust-vs-julia'>mo8it.com/blog/rust-vs-julia</a> </p>
