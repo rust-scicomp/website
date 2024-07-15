@@ -27,4 +27,9 @@ this at https://www.rust-lang.org/tools/install.
 
 ## RSMPI: using MPI for parallel Rust
 
-## Symbolica: Symbolic algebra in Rust
+<h2 style='margin-bottom:0px'>Symbolica: Symbolic algebra in Rust</h2>
+<h3 style='margin-top:0px'>Ben Ruijl</h3>
+
+In this tutorial we will explore the main features of the computer algebra crate [Symbolica](https://crates.io/crates/symbolica), which
+include manipulating mathematical expressions, pattern matching, polynomial arithmetic, numerical evaluations and numerical
+integration.
