@@ -3,6 +3,7 @@ import typing
 import yaml
 import argparse
 from markup import markup
+from monthly import pull_monthly, issues_path
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -63,6 +64,8 @@ if not archive:
     for y in range(2023, year):
         archive_path = os.path.join(dir_path, f"../archive/{y}/html")
         os.system(f"cp -r {archive_path} {html_path}/{y}")
+
+    pull_monthly()
 
 
 def load_template(file: str, title: str, url: str) -> str:
@@ -284,7 +287,7 @@ def find_md_files(path: str, subpath: str = "") -> typing.List[typing.Tuple[str,
         if file.endswith(".md") and not file.startswith("."):
             out.append((subpath, file))
         if os.path.isdir(file_with_path):
-            out += find_md_files(path, os.path.join(path, file))
+            out += find_md_files(path, file)
     return out
 
 
@@ -295,7 +298,19 @@ for subpath, file in find_md_files(pages_path):
         file = os.path.join(subpath, file)
     with open(os.path.join(pages_path, file)) as f:
         content = markup(f.read(), False)
-    write_page(f"{fname}.html", content)
+    if subpath == "":
+        write_page(f"{fname}.html", content)
+    else:
+        write_page(f"{subpath}/{fname}.html", content)
+
+if not archive:
+    for subpath, file in find_md_files(issues_path):
+        fname = file[:-3]
+        assert subpath == ""
+        with open(os.path.join(issues_path, file)) as f:
+            content = markup(f.read(), False)
+        write_page(f"monthly/{fname}.html", content)
+
 
 # Make timetable pages
 if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):

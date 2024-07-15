@@ -2,6 +2,7 @@ import shlex
 import re
 from datetime import datetime
 from citations import markup_citation
+from monthly import monthly_list
 
 page_references = []
 ref_map = {}
@@ -9,6 +10,15 @@ ref_map = {}
 
 def markup(content, icons=True, paragraphs=True):
     global page_references
+
+    while "<!--" in content:
+        a, b = content.split("<!--", 1)
+        content = a
+        if "-->" in b:
+            content += b.split("-->", 1)[1]
+
+    if "{{monthly_list}}" in content:
+        content = content.replace("{{monthly_list}}", monthly_list())
 
     if "{% no markup %}" in content:
         before, after = content.split("{% no markup %}", 1)
