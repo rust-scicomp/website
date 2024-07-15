@@ -1,3 +1,4 @@
+from markdown import markdown
 import shlex
 import re
 from datetime import datetime
@@ -53,70 +54,17 @@ def markup(content, icons=True, paragraphs=True):
         b, c = b.split("</person>", 1)
         content = a + markup_person(b) + c
 
-    if paragraphs:
-        out = ""
-        popen = False
-        ulopen = False
-        code = False
-        is_python = False
-        for line in content.split("\n"):
-            if line.startswith("#"):
-                if popen:
-                    out += "</p>\n"
-                    popen = False
-                if ulopen:
-                    out += "</ul>\n"
-                    ulopen = False
-                i = 0
-                while line.startswith("#"):
-                    line = line[1:]
-                    i += 1
-                out += f"<h{i}>{line.strip()}</h{i}>\n"
-            elif line == "":
-                if popen:
-                    out += "</p>\n"
-                    popen = False
-            elif line == "```":
-                code = not code
-                is_python = False
-            elif line == "```python":
-                code = not code
-                is_python = True
-            elif line.startswith("-") or line.startswith("*"):
-                if popen:
-                    out += "</p>\n"
-                    popen = False
-                if not ulopen:
-                    out += "<ul>\n"
-                    ulopen = True
-                out += f"<li>{line[1:].strip()}</li>\n"
-            else:
-                if ulopen:
-                    out += "</ul>\n"
-                    ulopen = False
-                if not popen and not line.startswith("<") and not line.startswith("\\["):
-                    if code:
-                        out += "<p class='pcode'>"
-                    else:
-                        out += "<p>"
-                    popen = True
-                if code:
-                    if is_python:
-                        out += python_highlight(line.replace(" ", "&nbsp;"))
-                    else:
-                        out += line.replace(" ", "&nbsp;")
-                    out += "<br />"
-                else:
-                    out += line
-                    out += " "
-        if popen:
-            out += "</p>\n"
-            popen = False
-        if ulopen:
-            out += "</ul>\n"
-            ulopen = False
-    else:
-        out = content
+    if "```" in content:
+        content0, code, content1 = content.split("```", 2)
+        if code.startswith("python"):
+            code = python_highlight(code)
+        else:
+            code = code.strip().replace(" ", "&nbsp;")
+        return f"{markup(content0)}<p class='pcode'>{code}</p>{markup(content1)}"
+
+    out = markdown(content)
+    if not paragraphs:
+        out = out.replace("<p>", "").replace("</p>", "")
 
     page_references = []
 
