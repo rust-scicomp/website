@@ -308,7 +308,10 @@ if not archive:
         fname = file[:-3]
         assert subpath == ""
         with open(os.path.join(issues_path, file)) as f:
-            content = markup(f.read(), False)
+            content = f.read()
+        if "\n---\n" in f.read():
+            content = content.split("\n---\n", 1)[1]
+        content = markup(content, False)
         write_page(f"monthly/{fname}.html", content)
 
 
