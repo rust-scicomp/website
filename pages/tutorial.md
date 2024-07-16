@@ -17,7 +17,7 @@ are interested in starting to use it. We will cover basic syntax in Rust and a f
 nicest features.
 
 Before this session, please install Rust on your computer. There are instructions for doing
-this at https://www.rust-lang.org/tools/install.
+this at [rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 
 <h2 style='margin-bottom:0px'>RLST: Matrices and linear algebra in Rust</h2>
 <h3 style='margin-top:0px'>Timo Betcke</h3>
