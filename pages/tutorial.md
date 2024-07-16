@@ -22,6 +22,11 @@ this at https://www.rust-lang.org/tools/install.
 <h2 style='margin-bottom:0px'>RLST: Matrices and linear algebra in Rust</h2>
 <h3 style='margin-top:0px'>Timo Betcke</h3>
 
+Over the last year we have developed RLST, the Rust Linear Solver Toolbox. It contains a number of data-structures, algorithms, and interfaces
+to external solvers to support the discretisation and solution of partial differential equations in Rust.
+
+In this tutorial, we will learn how to use many of the features of RLST
+
 <h2 style='margin-bottom:0px'>Symbolica: Symbolic algebra in Rust</h2>
 <h3 style='margin-top:0px'>Ben Ruijl</h3>
 
