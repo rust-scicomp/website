@@ -29,8 +29,6 @@ In this tutorial we will explore the main features of the computer algebra crate
 include manipulating mathematical expressions, pattern matching, polynomial arithmetic, numerical evaluations and numerical
 integration.
 
-## How to achieve efficient SIMD in Rust
-
 ## When unsafe code is slow: automatic differentiation in Rust
 
 ## RSMPI: using MPI for parallel Rust
