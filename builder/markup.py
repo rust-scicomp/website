@@ -62,6 +62,8 @@ def markup(content, icons=True, paragraphs=True):
             code = code.strip().replace(" ", "&nbsp;")
         return f"{markup(content0)}<p class='pcode'>{code}</p>{markup(content1)}"
 
+    content = content.replace(".md)", ".html)")
+
     out = markdown(content)
     if not paragraphs:
         out = out.replace("<p>", "").replace("</p>", "")
