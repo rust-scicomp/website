@@ -1,8 +1,7 @@
 title: "Modernization of DICOM workflows"
 abstract:
   - "For better or for worse, the DICOM protocol has been standard and ubiquitous across medical imaging since its conception 40 years ago. Interfacing with legacy DICOM services is an obstacle to research and the adoption of research technologies in clinical practice. We present ChRIS, an open-source platform for medical compute for hybrid-cloud cyberinfrastructure. The CHRIS DICOM receiver component, called oxidicom, is a Rust application built upon tokio, sqlx, and dicom-rs. The upgrade from Python code to Rust completely resolved our performance bottlenecks and reliability issues. In this talk, we explore the advantages and challenges of using Rust for scientific, medical, and cloud-native application development."
-  - "https://chrisproject.org
-https://github.com/FNNDSC/oxidicom"
+  - "[chrisproject.org](https://chrisproject.org) [github.com/FNNDSC/oxidicom](https://github.com/FNNDSC/oxidicom)"
 speaker:
   name: Jennings Zhang
   affiliation: Boston Children's Hospital
