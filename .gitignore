@@ -5,3 +5,7 @@ _html
 
 emails/
 /monthly/
+
+for-youtube/videos/*
+for-youtube/output/*
+for-youtube/pngs/*
