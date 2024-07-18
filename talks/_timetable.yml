@@ -35,11 +35,11 @@ Wednesday:
 Thursday:
   - talks:
       - spacek
-      - bitar
       - ruijl
       - kailasa
       - reimert
       - fierro-piccardo
+      - bitar
     start: "13:00"
     end: "14:30"
     chair:
