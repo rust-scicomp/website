@@ -112,8 +112,6 @@ def load_template(
             content = pre + inner + rest
         else:
             content = pre + rest
-    if monthly:
-        content = content.replace("{{latest}}", latest_issue())
     return content
 
 
@@ -348,6 +346,7 @@ if os.path.isdir(pages_path):
             except ValueError:
                 write_page(f"{subpath}/{fname}.html", content, monthly=(subpath == "monthly"))
 
+# Monthly pages
 if not archive:
     for subpath, file in find_md_files(issues_path):
         fname = file[:-3]
@@ -358,6 +357,19 @@ if not archive:
             content = content.split("\n---\n", 1)[1]
         content = markup(content, False)
         write_page(f"monthly/{fname}.html", content, monthly=True)
+
+    # Monthly/latest.html
+    latest = latest_issue()
+    with open(os.path.join(html_path, "monthly/latest.html"), "w") as f:
+        f.write("<html>\n")
+        f.write("<head>\n")
+        f.write(f"<meta http-equiv='refresh' content='0; url=https://scientificcomputing.rs/monthly/{latest}' />\n")
+        f.write("</head>\n")
+        f.write("<body>\n")
+        f.write(f"<a href='https://scientificcomputing.rs/monthly/{latest}'>If this page does not refresh, please click here.</a>\n")
+        f.write("</body>\n")
+        f.write("</html>")
+
 
 
 # Make timetable pages
