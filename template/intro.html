@@ -2,11 +2,22 @@
 <div class='head'>
 <div class='laptop'>
 <div class='content'>
-<div class='title'><a href='/'>Scientific Computing in Rust 2024</a></div>
-<div class='tagline'>17-19 July 2024</div>
-<div class='links'><a href='/'>Home</a><a href='/timetable'>Timetable</a><a href='/talklist'>List of talks</a><a href='/team'>Organisers</a></div>
+<div class='title'><a href='/'>Scientific Computing in Rust</a></div>
+<div class='links'><a href='/'>Home</a><a href='/2024'{{if workshop}} class='viewing-now'{{fi}}>Annual workshop</a><a href='/monthly'{{if monthly}} class='viewing-now'{{fi}}>Monthly newsletter</a></div>
+{{if workshop}}
+<div class='tagline'>{{workshop-dates}}</div>
+{{fi}}
+{{if workshop}}
+<div class='links'><a href='/{{workshop-year}}'>{{workshop-year}} home</a><a href='/{{workshop-year}}/timetable'>Timetable</a><a href='/{{workshop-year}}/talklist'>List of talks</a><a href='/{{workshop-year}}/team'>Organisers</a></div>
+{{fi}}
+{{if monthly}}
+<div class='links'><a href='/monthly/latest'>Latest issue</a><a href='/monthly'>All issues</a><a href='https://mailinglist.scientificcomputing.rs'>Subscribe</a></div>
+{{fi}}
 </div>
 </div>
 </div>
 <div class='body'>
 <div class='content'>
+{{if workshop old}}
+<div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in {{workshop-year}}. Information about the latest conference can be found <a href='/{{latest-year}}'>here</a>.</div>
+{{fi}}

@@ -3,11 +3,17 @@ import typing
 import yaml
 import argparse
 from markup import markup
-from monthly import pull_monthly, issues_path
+from monthly import pull_monthly, issues_path, latest_issue
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 parser = argparse.ArgumentParser(description="Build rust-scicomp.github.io")
+
+dates_dict = {
+    2023: "13-14 July 2023",
+    2024: "17-19 July 2024",
+}
+latest_year = max(dates_dict.keys())
 
 parser.add_argument(
     '--destination', metavar='destination', nargs="?",
@@ -15,7 +21,7 @@ parser.add_argument(
     help="Destination of HTML files.")
 parser.add_argument(
     '--year', metavar='year', nargs="?",
-    default="2024", help="Year")
+    default=f"{latest_year}", help="Year")
 
 args = parser.parse_args()
 year = int(args.year)
@@ -40,10 +46,6 @@ else:
     pages_path = os.path.join(dir_path, "../pages")
 main_template_path = os.path.join(dir_path, "../template")
 
-dates_dict = {
-    2023: "13-14 July 2023",
-    2024: "17-19 July 2024",
-}
 if year in dates_dict:
     dates = dates_dict[year]
 else:
@@ -52,7 +54,8 @@ else:
 if os.path.isdir(html_path):
     os.system(f"rm -rf {html_path}")
 os.mkdir(html_path)
-os.mkdir(os.path.join(html_path, "talks"))
+os.mkdir(os.path.join(html_path, f"{year}"))
+os.mkdir(os.path.join(html_path, os.path.join(f"{year}", "talks")))
 os.mkdir(os.path.join(html_path, "slides"))
 
 
@@ -63,12 +66,16 @@ if not archive:
     os.system(f"cp -r {files_path}/* {html_path}")
     for y in range(2023, year):
         archive_path = os.path.join(dir_path, f"../archive/{y}/html")
-        os.system(f"cp -r {archive_path} {html_path}/{y}")
+        os.system(f"ls {archive_path}")
+        os.system(f"cp -r {archive_path}/* {html_path}")
 
     pull_monthly()
 
 
-def load_template(file: str, title: str, url: str) -> str:
+def load_template(
+    file: str, title: str, url: str, workshop: typing.Optional[int] = None,
+    monthly: bool = False,
+) -> str:
     if os.path.isfile(os.path.join(template_path, file)):
         with open(os.path.join(template_path, file)) as f:
             content = f.read()
@@ -78,19 +85,49 @@ def load_template(file: str, title: str, url: str) -> str:
     content = content.replace("{{pagetitle}}", title)
     content = content.replace("{{pagefullurl}}", f"https://scientificcomputing.rs/{url}")
     content = content.replace("{{year}}", f"{year}")
+    while "{{if workshop" in content:
+        pre, rest = content.split("{{if workshop", 1)
+        ifyear, rest = rest.split("}}", 1)
+        if ifyear == "":
+            ifyear = "all"
+        elif ifyear.strip() == "old":
+            ifyear = "old"
+        else:
+            ifyear = int(ifyear)
+        inner, rest = rest.split("{{fi}}", 1)
+        if workshop is not None and (ifyear == "all" or ifyear == workshop or (ifyear == "old" and workshop < latest_year)):
+            content = pre + inner + rest
+        else:
+            content = pre + rest
+    if workshop is not None:
+        if "{{year}}" in content:
+            print(workshop)
+        content = content.replace("{{workshop-year}}", f"{workshop}")
+        content = content.replace("{{workshop-dates}}", dates_dict[workshop])
+        content = content.replace("{{latest-year}}", f"{latest_year}")
+    while "{{if monthly}}" in content:
+        pre, rest = content.split("{{if monthly}}", 1)
+        inner, rest = rest.split("{{fi}}", 1)
+        if monthly:
+            content = pre + inner + rest
+        else:
+            content = pre + rest
     return content
 
 
-def write_page(url: str, content: str, title: typing.Optional[str] = None):
+def write_page(
+    url: str, content: str, title: typing.Optional[str] = None,
+    workshop: typing.Optional[int] = None, monthly: bool = False,
+):
     if title is None:
         title = f"Scientific Computing in Rust {year}"
     else:
         title = f"Scientific Computing in Rust {year}: {title}"
     with open(os.path.join(html_path, url), "w") as f:
-        f.write(load_template("head.html", title, url))
-        f.write(load_template("intro.html", title, url))
+        f.write(load_template("head.html", title, url, workshop, monthly))
+        f.write(load_template("intro.html", title, url, workshop, monthly))
         f.write(content)
-        f.write(load_template("outro.html", title, url))
+        f.write(load_template("outro.html", title, url, workshop, monthly))
 
 
 def person(p: typing.Dict, bold: bool = False) -> str:
@@ -203,7 +240,7 @@ def talk(
 
     if day is not None:
         content += (f"<div style='margin-top:5px'>"
-                    f"<a href='{webroot}/talklist-{day}.html'>{day}</a>"
+                    f"<a href='{webroot}/{year}/talklist-{day}.html'>{day}</a>"
                     f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
                     "</div>")
         content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False)
@@ -232,7 +269,7 @@ def talk(
     if prev is not None:
         content += "<div class='prevlink'>"
         if prev[0] is not None:
-            content += f"<a href='{webroot}/talks/{prev[0]}.html'>&larr; previous talk"
+            content += f"<a href='{webroot}/{year}/talks/{prev[0]}.html'>&larr; previous talk"
             if prev[1] is not None:
                 content += f" ({prev[1]})"
             content += "</a>"
@@ -242,7 +279,7 @@ def talk(
     if next is not None:
         content += "<div class='nextlink'>"
         if next[0] is not None:
-            content += f"<a href='{webroot}/talks/{next[0]}.html'>next talk"
+            content += f"<a href='{webroot}/{year}/talks/{next[0]}.html'>next talk"
             if next[1] is not None:
                 content += f" ({next[1]})"
             content += " &rarr;</a>"
@@ -251,11 +288,11 @@ def talk(
         content += "</div>"
     content += "</div>"
 
-    write_page(f"talks/{t}.html", content, tinfo['title'])
+    write_page(f"{year}/talks/{t}.html", content, tinfo['title'], workshop=year)
 
     short_content = ""
     short_content += "<div class='talktitle'>"
-    short_content += f"<a href='{webroot}/talks/{t}.html'>{tinfo['title']}</a>"
+    short_content += f"<a href='{webroot}/{year}/talks/{t}.html'>{tinfo['title']}</a>"
     if not recorded(t):
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
     if has_youtube(t):
@@ -291,18 +328,25 @@ def find_md_files(path: str, subpath: str = "") -> typing.List[typing.Tuple[str,
     return out
 
 
-for subpath, file in find_md_files(pages_path):
-    fname = file[:-3]
-    if subpath != "" and not os.path.isdir(os.path.join(html_path, subpath)):
-        os.mkdir(os.path.join(html_path, subpath))
-        file = os.path.join(subpath, file)
-    with open(os.path.join(pages_path, file)) as f:
-        content = markup(f.read(), False)
-    if subpath == "":
-        write_page(f"{fname}.html", content)
-    else:
-        write_page(f"{subpath}/{fname}.html", content)
+if os.path.isdir(pages_path):
+    for subpath, file in find_md_files(pages_path):
+        fname = file[:-3]
+        if subpath != "":
+            if not os.path.isdir(os.path.join(html_path, subpath)):
+                os.mkdir(os.path.join(html_path, subpath))
+            file = os.path.join(subpath, file)
+        with open(os.path.join(pages_path, file)) as f:
+            content = markup(f.read(), False)
+        if subpath == "":
+            write_page(f"{fname}.html", content)
+        else:
+            try:
+                write_page(f"{subpath}/{fname}.html", content, workshop=int(subpath),
+                           monthly=(subpath == "monthly"))
+            except ValueError:
+                write_page(f"{subpath}/{fname}.html", content, monthly=(subpath == "monthly"))
 
+# Monthly pages
 if not archive:
     for subpath, file in find_md_files(issues_path):
         fname = file[:-3]
@@ -312,7 +356,20 @@ if not archive:
         if "\n---\n" in content:
             content = content.split("\n---\n", 1)[1]
         content = markup(content, False)
-        write_page(f"monthly/{fname}.html", content)
+        write_page(f"monthly/{fname}.html", content, monthly=True)
+
+    # Monthly/latest.html
+    latest = latest_issue()
+    with open(os.path.join(html_path, "monthly/latest.html"), "w") as f:
+        f.write("<html>\n")
+        f.write("<head>\n")
+        f.write(f"<meta http-equiv='refresh' content='0; url=https://scientificcomputing.rs/monthly/{latest}' />\n")
+        f.write("</head>\n")
+        f.write("<body>\n")
+        f.write(f"<a href='https://scientificcomputing.rs/monthly/{latest}'>If this page does not refresh, please click here.</a>\n")
+        f.write("</body>\n")
+        f.write("</html>")
+
 
 
 # Make timetable pages
@@ -386,7 +443,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
 
         list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
         tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
-                       f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='{webroot}/talklist-{day}.html'>"
+                       f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='{webroot}/{year}/talklist-{day}.html'>"
                        f"{date}</a></div>")
 
         for si, session in enumerate(timetable[day]):
@@ -441,7 +498,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += " longtalk"
                     tt_content += "'"
                     if t != "intro":
-                        tt_content += f" href='{webroot}/talks/{t}.html'"
+                        tt_content += f" href='{webroot}/{year}/talks/{t}.html'"
                     tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
                                    f"<div class='timetabletalktitle'>{title}</div>")
                     icons = []
@@ -501,9 +558,9 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
         list_content += dcontent
-        write_page(f"talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>')}{dcontent}")
+        write_page(f"{year}/talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>')}{dcontent}", workshop=year)
 
     tt_content += "</div>"
 
-    write_page("talklist.html", list_content)
-    write_page("timetable.html", tt_content)
+    write_page(f"{year}/talklist.html", list_content, workshop=year)
+    write_page(f"{year}/timetable.html", tt_content, workshop=year)

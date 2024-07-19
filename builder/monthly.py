@@ -34,3 +34,27 @@ def pull_monthly():
         os.system("git clone https://github.com/rust-scicomp/"
                   f"scientific-computing-in-rust-monthly.git {monthly_path}")
     os.system(f"cd {monthly_path} && git pull")
+
+
+def latest_issue():
+    issues = []
+    for file in os.listdir(issues_path):
+        if file.endswith(".md") and not file.startswith("."):
+            date = None
+            number = None
+            with open(os.path.join(issues_path, file)) as f:
+                first = True
+                for line in f:
+                    line = line.strip()
+                    if first:
+                        assert line == "---"
+                        first = False
+                    elif line.startswith("number:"):
+                        number = int(line[7:])
+                    elif line.startswith("date:"):
+                        date = line[5:].strip()
+                    elif line == "---":
+                        break
+            issues.append((file[:-3], number, date))
+    issues.sort(key=lambda i: -i[1])
+    return issues[0][0]
