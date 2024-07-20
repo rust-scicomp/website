@@ -58,7 +58,6 @@ os.mkdir(os.path.join(html_path, f"{year}"))
 os.mkdir(os.path.join(html_path, os.path.join(f"{year}", "talks")))
 os.mkdir(os.path.join(html_path, "slides"))
 
-
 if not archive:
     slides_path = os.path.join(dir_path, "../slides")
     files_path = os.path.join(dir_path, "../files")
@@ -66,7 +65,6 @@ if not archive:
     os.system(f"cp -r {files_path}/* {html_path}")
     for y in range(2023, year):
         archive_path = os.path.join(dir_path, f"../archive/{y}/html")
-        os.system(f"ls {archive_path}")
         os.system(f"cp -r {archive_path}/* {html_path}")
 
     pull_monthly()
@@ -100,8 +98,6 @@ def load_template(
         else:
             content = pre + rest
     if workshop is not None:
-        if "{{year}}" in content:
-            print(workshop)
         content = content.replace("{{workshop-year}}", f"{workshop}")
         content = content.replace("{{workshop-dates}}", dates_dict[workshop])
         content = content.replace("{{latest-year}}", f"{latest_year}")
