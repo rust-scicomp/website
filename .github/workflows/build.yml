@@ -1,7 +1,9 @@
 name: Build website
 
 on:
-  push
+  push:
+    branches:
+      - "**"
   schedule:
     - cron: "0 0 * * *"
 
