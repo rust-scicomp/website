@@ -117,7 +117,7 @@ def write_page(
 ):
     pagetitle = "Scientific Computing in Rust"
     if workshop is not None:
-        pagetitle += " {workshop}"
+        pagetitle += f" {workshop}"
     if title is not None:
         pagetitle += f": {title}"
     with open(os.path.join(html_path, url), "w") as f:
