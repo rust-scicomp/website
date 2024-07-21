@@ -115,10 +115,11 @@ def write_page(
     url: str, content: str, title: typing.Optional[str] = None,
     workshop: typing.Optional[int] = None, monthly: bool = False,
 ):
-    if title is None:
-        title = f"Scientific Computing in Rust {year}"
-    else:
-        title = f"Scientific Computing in Rust {year}: {title}"
+    pagetitle = "Scientific Computing in Rust"
+    if workshop is not None:
+        pagetitle += " {workshop}"
+    if title is not None:
+        pagetitle += f": {title}"
     with open(os.path.join(html_path, url), "w") as f:
         f.write(load_template("head.html", title, url, workshop, monthly))
         f.write(load_template("intro.html", title, url, workshop, monthly))
