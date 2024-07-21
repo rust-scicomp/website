@@ -64,6 +64,7 @@ def rss():
     from markup import markup
     out = (
         "<?xml version='1.0'?>\n"
+        "<?xml-stylesheet href='/monthly/sty.xsl' type='text/xsl'?>\n"
         "<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>\n"
         "<channel>\n"
         "<atom:link href='https://www.scientificcomputing.rs/monthly/rss.xml' rel='self' type='application/rss+xml' />\n"
@@ -97,13 +98,15 @@ def rss():
 
     for i in issues[:12]:
         with open(os.path.join(issues_path, f"{i[0]}.md")) as f:
-            content = markup(f.read().split("---", 2)[-1])
-        content = content.replace("<", "&lt;")
-        content = content.replace(">", "&gt;")
+            content = f.read()
+        content = content.split("---", 2)[-1]
+        content = content.strip().split("\n", 1)[-1]
+        content = markup(content)
         out += (
             "<item>\n"
-            f"<title>Scientific Computing in Rust #{i[1]}</title>\n"
-            f"<description>{content}</description>\n"
+            f"<title>Scientific Computing in Rust Monthly #{i[1]}</title>\n"
+            f"<description><![CDATA[{content}]]></description>\n"
+            f"<description-html>{content}</description-html>\n"
             f"<link>https://www.scientificcomputing.rs/monthly/{i[0]}</link>\n"
             f"<guid>https://www.scientificcomputing.rs/monthly/{i[0]}</guid>\n"
             f"<pubDate>{i[3]} {i[2][:3]} {i[2][-4:]} 12:00:00 GMT</pubDate>\n"

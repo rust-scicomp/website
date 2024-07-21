@@ -115,15 +115,16 @@ def write_page(
     url: str, content: str, title: typing.Optional[str] = None,
     workshop: typing.Optional[int] = None, monthly: bool = False,
 ):
-    if title is None:
-        title = f"Scientific Computing in Rust {year}"
-    else:
-        title = f"Scientific Computing in Rust {year}: {title}"
+    pagetitle = "Scientific Computing in Rust"
+    if workshop is not None:
+        pagetitle += " {workshop}"
+    if title is not None:
+        pagetitle += f": {title}"
     with open(os.path.join(html_path, url), "w") as f:
-        f.write(load_template("head.html", title, url, workshop, monthly))
-        f.write(load_template("intro.html", title, url, workshop, monthly))
+        f.write(load_template("head.html", pagetitle, url, workshop, monthly))
+        f.write(load_template("intro.html", pagetitle, url, workshop, monthly))
         f.write(content)
-        f.write(load_template("outro.html", title, url, workshop, monthly))
+        f.write(load_template("outro.html", pagetitle, url, workshop, monthly))
 
 
 def person(p: typing.Dict, bold: bool = False) -> str:
@@ -354,7 +355,6 @@ if not archive:
         content = markup(content, False)
         write_page(f"monthly/{fname}.html", content, monthly=True)
 
-
     # monthly/rss.xml
     with open(os.path.join(html_path, "monthly/rss.xml"), "w") as f:
         f.write(rss())
@@ -370,8 +370,6 @@ if not archive:
         f.write(f"<a href='https://scientificcomputing.rs/monthly/{latest}'>If this page does not refresh, please click here.</a>\n")
         f.write("</body>\n")
         f.write("</html>")
-
-
 
 # Make timetable pages
 if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
