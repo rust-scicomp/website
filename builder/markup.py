@@ -130,8 +130,7 @@ def insert_icons(txt):
         else:
             txt = re.sub(
                 r"(^|[>\s.!?\(\/])" + t + r"([\s.!?\)\/,']|(?:-based))",
-                r"\1<a href='" + url + "' class='icon'><img src='/img/" + icon + "'>"
-                + t + r"</a>\2",
+                r"\1<a href='" + url + "' class='icon'><img src='/img/" + icon + "'>" + t + r"</a>\2",
                 txt, 1)
     for e, url in defelementlist:
         txt = txt.replace(e, f"<a class='icon' href='https://defelement.com/elements/{url}.html'>"

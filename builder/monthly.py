@@ -102,8 +102,6 @@ def rss():
         content = content.split("---", 2)[-1]
         content = content.strip().split("\n", 1)[-1]
         content = markup(content)
-        #content = content.replace("<", "&lt;")
-        #content = content.replace(">", "&gt;")
         out += (
             "<item>\n"
             f"<title>Scientific Computing in Rust Monthly #{i[1]}</title>\n"
