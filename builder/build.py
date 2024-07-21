@@ -108,8 +108,9 @@ def load_template(
             content = pre + inner + rest
         else:
             content = pre + rest
-    content = content.replace("'/monthly/latest'", f"'/monthly/{latest_issue()}'")
-    content = content.replace('"/monthly/latest"', f'"/monthly/{latest_issue()}"')
+    if monthly:
+        content = content.replace("'/monthly/latest'", f"'/monthly/{latest_issue()}'")
+        content = content.replace('"/monthly/latest"', f'"/monthly/{latest_issue()}"')
     return content
 
 
