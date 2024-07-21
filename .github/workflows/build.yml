@@ -2,31 +2,10 @@ name: Build website
 
 on:
   push
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
-  check-archive:
-    name: Check archive is up-to-date
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-      - uses: actions/checkout@v2
-      - run: pip3 install -r requirements.txt
-        name: Install requirements
-      - run: |
-          for ((i = 2023 ; i < $(date +%Y) ; i++ ))
-            do python3 builder/build.py --year $i
-          done
-        name: Build archive HTML
-      - run: |
-          if [[ $(git diff) ]]
-            then exit 1
-            else exit 0
-          fi
-        name: Check if archive HTML is outdated
-
   build-website:
     name: Build website
     runs-on: ubuntu-latest
