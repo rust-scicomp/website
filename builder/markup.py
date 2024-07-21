@@ -216,16 +216,16 @@ def markup_person(details):
         out += f" {info['rust-about']}"
     out += "<ul class='sociallist'>"
     if "email" in info:
-        out += f"<li><a href='mailto:{info['email']}'><i class='far fa-envelope'></i>&nbsp;"
+        out += f"<li><a href='mailto:{info['email']}'><i class='fa-solid fa-envelope'></i>&nbsp;"
         out += info["email"]
         out += "</a></li>"
     if "website" in info:
-        out += f"<li><a href='{info['website']}'><i class='fab fa-internet-explorer'></i>&nbsp;"
+        out += f"<li><a href='{info['website']}'><i class='fa-brands fa-internet-explorer'></i>&nbsp;"
         out += info["website"].split("://")[1]
         out += "</a></li>"
     if "github" in info:
         out += f"<li><a href='https://github.com/{info['github']}'>"
-        out += "<i class='fab fa-github'></i>&nbsp;"
+        out += "<i class='fa-brands fa-github'></i>&nbsp;"
         out += info["github"]
         out += "</a></li>"
     if "zulip" in info:
@@ -238,12 +238,12 @@ def markup_person(details):
     if "mastodon" in info:
         username, domain = info['mastodon'].split('@')
         out += f"<li><a href='https://{domain}/@{username}'>"
-        out += "<i class='fab fa-mastodon'></i>&nbsp;"
+        out += "<i class='fa-brands fa-mastodon'></i>&nbsp;"
         out += "@" + info["mastodon"]
         out += "</a></li>"
     if "twitter" in info:
         out += f"<li><a href='https://twitter.com/{info['twitter']}'>"
-        out += "<i class='fab fa-twitter'></i>&nbsp;"
+        out += "<i class='fa-brands fa-twitter'></i>&nbsp;"
         out += "@" + info["twitter"]
         out += "</a></li>"
 
