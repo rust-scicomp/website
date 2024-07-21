@@ -19,12 +19,13 @@ jobs:
           for ((i = 2023 ; i < $(date +%Y) ; i++ ))
             do python3 builder/build.py --year $i
           done
-        name: Build website HTML
+        name: Build archive HTML
       - run: |
           if [[ $(git diff) ]]
             then exit 1
             else exit 0
           fi
+        name: Check if archive HTML is outdated
 
   build-website:
     name: Build website
