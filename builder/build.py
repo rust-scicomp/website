@@ -478,7 +478,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             if "platform" in session:
                 dcontent += ", "
                 if session['platform'] == "Gather Town":
-                    dcontent += "<a href='/gather-town.html'>Gather Town</a>"
+                    dcontent += f"<a href='/{year}/gather-town.html'>Gather Town</a>"
                 else:
                     dcontent += session['platform']
             dcontent += ")</h3>"

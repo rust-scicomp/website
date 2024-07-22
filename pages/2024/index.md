@@ -17,16 +17,17 @@ Scientific Computing in Rust 2023 can be found at [scientificcomputing.rs/2023](
 
 13:00 to 17:00 BST (British Summer Time / UTC+1) on 17 July is:
 
-- 12:00 to 16:00 GMT [UTC&plusmn;0]
-- 05:00 to 09:00 Pacific time [UTC-7]
-- 06:00 to 10:00 Mountain time [UTC-6]
-- 07:00 to 11:00 Central time [UTC-5]
-- 08:00 to 12:00 Eastern time [UTC-4]
-- 13:00 to 17:00 Western European time [UTC+1]
-- 14:00 to 18:00 Central European time [UTC+2]
-- 15:00 to 19:00 Eastern European time [UTC+3]
-- <time 13:00> to <time 17:00> <timeselector>
-
+<ul>
+<li>12:00 to 16:00 GMT [UTC&plusmn;0]</li>
+<li>05:00 to 09:00 Pacific time [UTC-7]</li>
+<li>06:00 to 10:00 Mountain time [UTC-6]</li>
+<li>07:00 to 11:00 Central time [UTC-5]</li>
+<li>08:00 to 12:00 Eastern time [UTC-4]</li>
+<li>13:00 to 17:00 Western European time [UTC+1]</li>
+<li>14:00 to 18:00 Central European time [UTC+2]</li>
+<li>15:00 to 19:00 Eastern European time [UTC+3]</li>
+<li><time 13:00> to <time 17:00> <timeselector></li>
+</ul>
 
 </div>
 {% no markup %}
@@ -48,7 +49,7 @@ alongside the talks from 2023.
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust to follow the [code of conduct](/code-of-conduct.md).
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing
-[coc@scientificcomputing.rs](mailto:coc@scientificcomputing.rs) or by contacting any of the [workshop organisers](/team.md).
+[coc@scientificcomputing.rs](mailto:coc@scientificcomputing.rs) or by contacting any of the [workshop organisers](/2024/team.md).
 
 ## Acknowledgements
 We would like to thank the following organisations for their support.
