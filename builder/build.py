@@ -25,7 +25,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 year = int(args.year)
-archive = year != 2024
+archive = year != latest_year
 html_path = args.destination
 
 if archive:
@@ -399,6 +399,38 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         first_day = False
                         prev = t
 
+    start = 4
+    end = None
+    rows = []
+    for session in zip(*timetable.values()):
+        count = 1
+        stime = None
+        etime = None
+        for i in session:
+            if "rows" not in i and "rowstart" not in i:
+                if stime is None:
+                    stime = i["start"]
+                    etime = i["end"]
+                assert i["start"] == stime
+                assert i["end"] == etime
+            if "talks" in i:
+                count = max(count, sum(3 if is_long(j) else 1 for j in i["talks"]))
+
+        if end is not None:
+            if prev_etime == stime:
+                start = end + 2
+            else:
+                start = end + 3
+
+        end = start + count - 1
+        print(start, count, 1)
+        rows.append((start, end))
+        prev_etime = etime
+
+
+    print([(4, 9), (12, 16), (18, 18)])
+    print(rows)
+
     list_content = "<h1>List of talks</h1>"
     tt_content = "<h1>Timetable</h1>"
 
@@ -407,8 +439,6 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
 
     list_content += markup("Show times in: <timeselector>")
     tt_content += markup("Show times in: <timeselector>")
-
-    rows = [(4, 9), (12, 16), (18, 18)]
 
     tt_content += "<style type='text/css'>\n"
     tt_content += ".timetablegrid {\n"
@@ -551,7 +581,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 row1 = 2 + minutes_after_one(session['start'])
                 tt_content += ("<div class='gridcell timetableheading' style='"
                                "grid-column: 2 / span 5; "
-                               "grid-row: 10 / span 1; "
+                               f"grid-row: {row - 2} / span 1; "
                                "display: flex; justify-content: center; align-items: center;'>")
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
