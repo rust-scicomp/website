@@ -29,16 +29,12 @@ archive = year != 2024
 html_path = args.destination
 
 if archive:
-    webroot = f"/{year}"
-    webslides = f"/slides/{year}"
     if html_path is None:
         html_path = os.path.join(dir_path, f"../archive/{year}/html")
     talks_path = os.path.join(dir_path, f"../archive/{year}/talks")
     template_path = os.path.join(dir_path, f"../archive/{year}/template")
     pages_path = os.path.join(dir_path, f"../archive/{year}/pages")
 else:
-    webroot = ""
-    webslides = "/slides"
     if html_path is None:
         html_path = os.path.join(dir_path, "../_html")
     talks_path = os.path.join(dir_path, "../talks")
@@ -236,7 +232,7 @@ def talk(
 
     if day is not None:
         content += (f"<div style='margin-top:5px'>"
-                    f"<a href='{webroot}/{year}/talklist-{day}.html'>{day}</a>"
+                    f"<a href='/{year}/talklist-{day}.html'>{day}</a>"
                     f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
                     "</div>")
         content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False)
@@ -247,7 +243,7 @@ def talk(
         content += (f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
                     "<i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
     if "slides" in tinfo:
-        content += (f"<div style='margin-top:15px'><a href='{webslides}/{tinfo['slides']}'>"
+        content += (f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
                     "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>")
 
     content += "<div class='abstract'>"
@@ -265,7 +261,7 @@ def talk(
     if prev is not None:
         content += "<div class='prevlink'>"
         if prev[0] is not None:
-            content += f"<a href='{webroot}/{year}/talks/{prev[0]}.html'>&larr; previous talk"
+            content += f"<a href='/{year}/talks/{prev[0]}.html'>&larr; previous talk"
             if prev[1] is not None:
                 content += f" ({prev[1]})"
             content += "</a>"
@@ -275,7 +271,7 @@ def talk(
     if next is not None:
         content += "<div class='nextlink'>"
         if next[0] is not None:
-            content += f"<a href='{webroot}/{year}/talks/{next[0]}.html'>next talk"
+            content += f"<a href='/{year}/talks/{next[0]}.html'>next talk"
             if next[1] is not None:
                 content += f" ({next[1]})"
             content += " &rarr;</a>"
@@ -288,7 +284,7 @@ def talk(
 
     short_content = ""
     short_content += "<div class='talktitle'>"
-    short_content += f"<a href='{webroot}/{year}/talks/{t}.html'>{tinfo['title']}</a>"
+    short_content += f"<a href='/{year}/talks/{t}.html'>{tinfo['title']}</a>"
     if not recorded(t):
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
     if has_youtube(t):
@@ -439,7 +435,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
 
         list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
         tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
-                       f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='{webroot}/{year}/talklist-{day}.html'>"
+                       f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/{year}/talklist-{day}.html'>"
                        f"{date}</a></div>")
 
         for si, session in enumerate(timetable[day]):
@@ -494,7 +490,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += " longtalk"
                     tt_content += "'"
                     if t != "intro":
-                        tt_content += f" href='{webroot}/{year}/talks/{t}.html'"
+                        tt_content += f" href='/{year}/talks/{t}.html'"
                     tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
                                    f"<div class='timetabletalktitle'>{title}</div>")
                     icons = []
