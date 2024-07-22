@@ -4,6 +4,9 @@ colour scheme:
   pastel orange: #F7AF90
 *****************************/
 
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500&display=swap');
+
+
 body {padding:0px;margin:0px; margin-bottom:50px}
 
 .head, .body, .footer {width:100%;}
@@ -41,10 +44,10 @@ svg.brand-logo {margin-top: 2px; margin-bottom: -2px;}
 .title {text-align:center;font-size:35px}
 .tagline {text-align:center;font-size:25px;color:white}
 
-.head, .footer {font-family: Prompt, sans-serif;font-weight:bold}
+.head, .footer {font-family: Prompt, sans-serif;font-weight:500;font-style:normal}
 
 h2 {margin-top:50px}
-h1, h2, h3, h4, h5, h6 {font-family: Prompt, sans-serif;font-weight:bold;color:black}
+h1, h2, h3, h4, h5, h6 {font-family: Prompt, sans-serif;font-weight:500;font-style:normal;color:black}
 body, p, li {font-family:sans}
 p {text-align:justify}
 
@@ -60,7 +63,7 @@ td.rotated {vertical-align: middle; text-align: center; width:20px}
 td.rotated span {-ms-writing-mode: tb-rl; -webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;}
 td.heading {font-weight:bold;font-size:80%}
 
-.talktitle, .talksubtitle, .timetabletalktitle {font-family: Prompt, sans-serif;font-weight:bold}
+.talktitle, .talksubtitle, .timetabletalktitle {font-family: Prompt, sans-serif;font-weight:500;font-style:normal}
 .talksubtitle {font-size:85%}
 .timetabletalktitle {font-size:85%}
 .timetabletalkspeaker {font-size:70%;margin-top:5px}
@@ -171,7 +174,15 @@ a.timetabletalk:hover {border:1px solid #F77237}
 
 .head .links a, .head .links a:link, .head .links a:active, .head .links a:visited
  {color:black;background-color:white;padding:10px 20px;font-size:18px;
-  border-radius:10px;margin-right:10px;margin-bottom:10px;display:inline-block}
+  border-radius:10px;margin-right:10px;margin-bottom:10px;display:inline-block;
+  vertical-align:middle}
+.head .links a.rss {
+    padding:10px 12px;
+}
+.head .links a.rss svg {
+    height:28px;vertical-align:middle;
+}
+
 .head .links a.viewing-now, .head .links a:hover
  {background-color:#F77237;color:black}
 

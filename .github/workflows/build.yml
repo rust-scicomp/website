@@ -1,0 +1,58 @@
+name: Build website
+
+on:
+  push:
+    branches:
+      - "**"
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build-website:
+    name: Build website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - uses: actions/checkout@v2
+      - run: pip3 install -r requirements.txt
+        name: Install requirements
+      - run: python3 builder/build.py
+        name: Build website HTML
+
+  push-website:
+    name: Push website
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs:
+    - build-website
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - uses: actions/checkout@v2
+      - run: pip3 install -r requirements.txt
+        name: Install requirements
+      - run: python3 builder/build.py --destination _html
+        name: Build website HTML
+
+      # Push to GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '_html'
+        if: github.ref == 'refs/heads/main'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        if: github.ref == 'refs/heads/main'

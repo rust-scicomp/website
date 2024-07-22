@@ -3,15 +3,29 @@
 <div class='laptop'>
 <div class='content'>
 <div class='title'><a href='/'>Scientific Computing in Rust</a></div>
-<div class='links'><a href='/'>Home</a><a href='/2024'{{if workshop}} class='viewing-now'{{fi}}>Annual workshop</a><a href='/monthly'{{if monthly}} class='viewing-now'{{fi}}>Monthly newsletter</a></div>
+<div class='links'>
+<a href='/'>Home</a>
+<a href='/2024'{{if workshop}} class='viewing-now'{{fi}}>Annual workshop</a>
+<a href='/monthly'{{if monthly}} class='viewing-now'{{fi}}>Monthly newsletter</a>
+</div>
 {{if workshop}}
 <div class='tagline'>{{workshop-dates}}</div>
 {{fi}}
 {{if workshop}}
-<div class='links'><a href='/{{workshop-year}}'>{{workshop-year}} home</a><a href='/{{workshop-year}}/timetable'>Timetable</a><a href='/{{workshop-year}}/talklist'>List of talks</a><a href='/{{workshop-year}}/team'>Organisers</a></div>
+<div class='links'>
+<a href='/{{workshop-year}}'>{{workshop-year}} home</a>
+<a href='/{{workshop-year}}/timetable'>Timetable</a>
+<a href='/{{workshop-year}}/talklist'>List of talks</a>
+<a href='/{{workshop-year}}/team'>Organisers</a>
+</div>
 {{fi}}
 {{if monthly}}
-<div class='links'><a href='/monthly'>All issues</a><a href='/monthly/latest'>Latest issue</a><a href='https://mailinglist.scientificcomputing.rs'>Subscribe</a></div>
+<div class='links'>
+<a href='/monthly'>All issues</a>
+<a href='/monthly/latest'>Latest issue</a>
+<a href='https://mailinglist.scientificcomputing.rs'>Subscribe</a>
+<a href='/monthly/rss.xml' class='rss'><i class="fa-solid fa-rss"></i></a>
+</div>
 {{fi}}
 </div>
 </div>

@@ -2,13 +2,12 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='author' content='Matthew Scroggs'>
-<meta name='description' content='Online workshop, 17-19 July 2024'>
+<meta name='description' content='The Scientific Computing in Rust annual workshop and monthly newsletter.'>
 <meta name='keywords' content='rust,scientific computing'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scientific Computing in Rust 2023: Powering transactions with functional data structures</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
-<link rel='stylesheet' type='text/css' href='/sty.css?v=2024-06-26'>
+<link rel='stylesheet' type='text/css' href='/sty.css?v=2024-07-21'>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
@@ -32,18 +31,21 @@
 <meta name='twitter:site' content='@mscroggs' />
 <meta name='twitter:creator' content='@mscroggs' />
 <meta name='twitter:title' content='Scientific Computing in Rust 2023: Powering transactions with functional data structures' />
-<meta name='twitter:description' content="Online workshop, 17-19 July 2024" />
+<meta name='twitter:description' content="the Scientific Computing in Rust annual workshop and monthly newsletter." />
 <meta name='twitter:image' content='https://scientificcomputing.rs/img/card.png' />
 
 <meta name='og:title' content='Scientific Computing in Rust 2023: Powering transactions with functional data structures' />
 <meta name='og:url' content='https://scientificcomputing.rs/2023/talks/boulanger.html' />
 <meta name='og:image' content='https://scientificcomputing.rs/img/card.png' />
 <meta name='og:type' content='website' />
-<meta name='og:description' content='Online workshop, 17-19 July 2024' />
+<meta name='og:description' content='the Scientific Computing in Rust annual workshop and monthly newsletter.' />
 <meta name='og:locale' content="en_gb" />
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="https://kit.fontawesome.com/5506de0e1b.js" crossorigin="anonymous"></script>
+
+<script src="/fontawesome/js/fontawesome.js"></script>
+<script src="/fontawesome/js/brands.js"></script>
+<script src="/fontawesome/js/solid.js"></script>
 <script type='text/javascript' src='/timezones.js?v=2023-07-13'></script>
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -52,12 +54,21 @@
 <div class='laptop'>
 <div class='content'>
 <div class='title'><a href='/'>Scientific Computing in Rust</a></div>
-<div class='links'><a href='/'>Home</a><a href='/2024' class='viewing-now'>Annual workshop</a><a href='/monthly'>Monthly newsletter</a></div>
+<div class='links'>
+<a href='/'>Home</a>
+<a href='/2024' class='viewing-now'>Annual workshop</a>
+<a href='/monthly'>Monthly newsletter</a>
+</div>
 
 <div class='tagline'>13-14 July 2023</div>
 
 
-<div class='links'><a href='/2023'>2023 home</a><a href='/2023/timetable'>Timetable</a><a href='/2023/talklist'>List of talks</a><a href='/2023/team'>Organisers</a></div>
+<div class='links'>
+<a href='/2023'>2023 home</a>
+<a href='/2023/timetable'>Timetable</a>
+<a href='/2023/talklist'>List of talks</a>
+<a href='/2023/team'>Organisers</a>
+</div>
 
 
 </div>
@@ -68,7 +79,7 @@
 
 <div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in 2023. Information about the latest workshop can be found <a href='/2024'>here</a>.</div>
 
-<h1>Powering transactions with functional data structures</h1><div><div class='authors'><b>Louis Boulanger</b> <a href='https://louisboulanger.fr' class='falink'><i class='fab fa-internet-explorer'></i></a> <a href='mailto:louis.boulanger@univ-grenoble-alpes.fr' class='falink'><i class='far fa-envelope'></i></a> <a href='https://github.com/boulanlo' class='falink'><i class='fab fa-github'></i></a> (LIG, Universit&eacute; Grenoble Alpes)</div></div><div style='margin-top:5px'><a href='/2023/talklist-Thursday.html'>Thursday</a> session 2 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='18' data-month='7' data-year='2024' data-hour='15' data-minute='00'>15:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='18' data-month='7' data-year='2024' data-hour='16' data-minute='00'>16:00</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/_onc-Zqss40'><i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>Serializing is easy in Rust, but it can be expensive. What if we bypassed JSON, and just used raw program data on disk? Combining Rust's mutability control with functional data structures, we propose a transactional system with a pleasant API to create persistent data structure libraries.</p></div><div class='prevnext'><div class='prevlink'><a href='/2023/talks/lazear.html'>&larr; previous talk</a></div><div class='nextlink'><a href='/2023/talks/sky.html'>next talk &rarr;</a></div></div><div style='text-align:center'>
+<h1>Powering transactions with functional data structures</h1><div><div class='authors'><b>Louis Boulanger</b> <a href='https://louisboulanger.fr' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='mailto:louis.boulanger@univ-grenoble-alpes.fr' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/boulanlo' class='falink'><i class='fa-brands fa-github'></i></a> (LIG, Universit&eacute; Grenoble Alpes)</div></div><div style='margin-top:5px'><a href='/2023/talklist-Thursday.html'>Thursday</a> session 2 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='18' data-month='7' data-year='2024' data-hour='15' data-minute='00'>15:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='18' data-month='7' data-year='2024' data-hour='16' data-minute='00'>16:00</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/_onc-Zqss40'><i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>Serializing is easy in Rust, but it can be expensive. What if we bypassed JSON, and just used raw program data on disk? Combining Rust's mutability control with functional data structures, we propose a transactional system with a pleasant API to create persistent data structure libraries.</p></div><div class='prevnext'><div class='prevlink'><a href='/2023/talks/lazear.html'>&larr; previous talk</a></div><div class='nextlink'><a href='/2023/talks/sky.html'>next talk &rarr;</a></div></div><div style='text-align:center'>
 <img style='width:200px;padding-top:50px' src='/img/ferris.png'>
 </div>
 </div>

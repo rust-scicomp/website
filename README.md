@@ -39,3 +39,13 @@ To edit the website, you may need to edit files in a range of locations:
   become `filename.html` when the website is built.
 - The `talks` folder contains yaml files for the talks and the talk timetable.
 - The `template` folder contains html files that form the template for each html page.
+
+## License
+
+The code to generate the Scientific Computing in Rust website is released under an
+[MIT license](LICENSE).
+This project additionally redistributes the following third-party software, which
+is licensed under its own license:
+
+- [Font Awesome](https://fontawesome.com/) [Font Awesome Free License](https://fontawesome.com/license/free)
+

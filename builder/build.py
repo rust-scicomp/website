@@ -3,7 +3,7 @@ import typing
 import yaml
 import argparse
 from markup import markup
-from monthly import pull_monthly, issues_path, latest_issue
+from monthly import pull_monthly, issues_path, latest_issue, rss
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -104,6 +104,9 @@ def load_template(
             content = pre + inner + rest
         else:
             content = pre + rest
+    if monthly:
+        content = content.replace("'/monthly/latest'", f"'/monthly/{latest_issue()}'")
+        content = content.replace('"/monthly/latest"', f'"/monthly/{latest_issue()}"')
     return content
 
 
@@ -111,15 +114,16 @@ def write_page(
     url: str, content: str, title: typing.Optional[str] = None,
     workshop: typing.Optional[int] = None, monthly: bool = False,
 ):
-    if title is None:
-        title = f"Scientific Computing in Rust {year}"
-    else:
-        title = f"Scientific Computing in Rust {year}: {title}"
+    pagetitle = "Scientific Computing in Rust"
+    if workshop is not None:
+        pagetitle += f" {workshop}"
+    if title is not None:
+        pagetitle += f": {title}"
     with open(os.path.join(html_path, url), "w") as f:
-        f.write(load_template("head.html", title, url, workshop, monthly))
-        f.write(load_template("intro.html", title, url, workshop, monthly))
+        f.write(load_template("head.html", pagetitle, url, workshop, monthly))
+        f.write(load_template("intro.html", pagetitle, url, workshop, monthly))
         f.write(content)
-        f.write(load_template("outro.html", title, url, workshop, monthly))
+        f.write(load_template("outro.html", pagetitle, url, workshop, monthly))
 
 
 def person(p: typing.Dict, bold: bool = False) -> str:
@@ -131,13 +135,13 @@ def person(p: typing.Dict, bold: bool = False) -> str:
         info += "</b>"
     if "website" in p:
         info += (f" <a href='{p['website']}' class='falink'>"
-                 "<i class='fab fa-internet-explorer'></i></a>")
+                 "<i class='fa-brands fa-internet-explorer'></i></a>")
     if "email" in p:
         info += (f" <a href='mailto:{p['email']}' class='falink'>"
-                 "<i class='far fa-envelope'></i></a>")
+                 "<i class='fa-solid fa-envelope'></i></a>")
     if "github" in p:
         info += (f" <a href='https://github.com/{p['github']}' class='falink'>"
-                 "<i class='fab fa-github'></i></a>")
+                 "<i class='fa-brands fa-github'></i></a>")
     if "codeberg" in p:
         info += (f" <a href='https://codeberg.org/{p['codeberg']}' class='falink'>"
                  "<i class='fa-solid fa-icicles'></i></a>")
@@ -149,13 +153,13 @@ def person(p: typing.Dict, bold: bool = False) -> str:
     if "mastodon" in p:
         username, domain = p['mastodon'].split('@')
         info += (f" <a href='https://{domain}/@{username}'>"
-                 "<i class='fab fa-mastodon'></i></a>")
+                 "<i class='fa-brands fa-mastodon'></i></a>")
     if "twitter" in p:
         info += (f" <a href='https://twitter.com/{p['twitter']}' class='falink'>"
-                 "<i class='fab fa-twitter'></i></a>")
+                 "<i class='fa-brands fa-twitter'></i></a>")
     if "linkedin" in p:
         info += (f" <a href='https://www.linkedin.com/in/{p['linkedin']}' class='falink'>"
-                 "<i class='fab fa-linkedin'></i></a>")
+                 "<i class='fa-brands fa-linkedin'></i></a>")
 
     if "affiliation" in p:
         info += f" ({p['affiliation']}"
@@ -241,7 +245,7 @@ def talk(
                     "This talk will not be recorded.</div>")
     if "youtube" in tinfo:
         content += (f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
-                    "<i class='fab fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
+                    "<i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
     if "slides" in tinfo:
         content += (f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
                     "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>")
@@ -289,7 +293,7 @@ def talk(
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
     if has_youtube(t):
         short_content += (f" <a href='https://youtu.be/{tinfo['youtube']}'>"
-                          "<i class='fab fa-youtube' alt='Watch a recording of this talk on YouTube' title='Watch a recording of this talk on YouTube'></i></a>")
+                          "<i class='fa-brands fa-youtube' alt='Watch a recording of this talk on YouTube' title='Watch a recording of this talk on YouTube'></i></a>")
     if has_slides(t):
         short_content += " <i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>"
     short_content += "</div>"
@@ -350,7 +354,11 @@ if not archive:
         content = markup(content, False)
         write_page(f"monthly/{fname}.html", content, monthly=True)
 
-    # Monthly/latest.html
+    # monthly/rss.xml
+    with open(os.path.join(html_path, "monthly/rss.xml"), "w") as f:
+        f.write(rss())
+
+    # monthly/latest.html
     latest = latest_issue()
     with open(os.path.join(html_path, "monthly/latest.html"), "w") as f:
         f.write("<html>\n")
@@ -361,8 +369,6 @@ if not archive:
         f.write(f"<a href='https://scientificcomputing.rs/monthly/{latest}'>If this page does not refresh, please click here.</a>\n")
         f.write("</body>\n")
         f.write("</html>")
-
-
 
 # Make timetable pages
 if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
@@ -497,7 +503,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     if not recorded(t):
                         icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
                     if has_youtube(t):
-                        icons.append("<i class='fab fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>")
+                        icons.append("<i class='fa-brands fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>")
                     if has_slides(t):
                         icons.append("<i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>")
                     if len(icons) > 0:
