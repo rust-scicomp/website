@@ -423,13 +423,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 start = end + 3
 
         end = start + count - 1
-        print(start, count, 1)
         rows.append((start, end))
         prev_etime = etime
-
-
-    print([(4, 9), (12, 16), (18, 18)])
-    print(rows)
 
     list_content = "<h1>List of talks</h1>"
     tt_content = "<h1>Timetable</h1>"
