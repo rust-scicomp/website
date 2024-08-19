@@ -9,10 +9,10 @@ colour scheme:
 
 body {padding:0px;margin:0px; margin-bottom:50px}
 
-.head, .body, .footer {width:100%;}
+.head, .body, .footer {max-width:100%;}
 
 .head {background-color:#F77237}
-.head .laptop {width:100%;background-image:url("https://scientificcomputing.rs/img/cogs.png");
+.head .laptop {max-width:100%;background-image:url("https://scientificcomputing.rs/img/cogs.png");
                background-repeat: repeat;}
 
 .title a, .title a:link, .title a:active, .title a:visited
@@ -36,7 +36,7 @@ svg.brand-logo {margin-top: 2px; margin-bottom: -2px;}
   .content {width:780px}
 }
 @media (max-width:780px){
-  .content {width:100%}
+  .content {max-width:100%}
 }
 .content {margin:auto;padding:10px}
 .head .content {background-color:#000000FF;padding-bottom:0}
