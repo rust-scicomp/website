@@ -5,13 +5,21 @@
 <div class='title'><a href='/'>Scientific Computing in Rust</a></div>
 <div class='links'>
 <a href='/'>Home</a>
-<a href='/2024'{{if workshop}} class='viewing-now'{{fi}}>Annual workshop</a>
+<a href='/{{latest-workshop}}'{{if workshop}} class='viewing-now'{{fi}}>Annual workshop</a>
 <a href='/monthly'{{if monthly}} class='viewing-now'{{fi}}>Monthly newsletter</a>
 </div>
 {{if workshop}}
 <div class='tagline'>{{workshop-dates}}</div>
 {{fi}}
-{{if workshop}}
+{{if workshop 2025}}
+<div class='links'>
+<a href='/{{workshop-year}}'>{{workshop-year}} home</a>
+<a href='/{{workshop-year}}/register'>Register</a>
+<a href='/{{workshop-year}}/submit-talk'>Propose talk</a>
+<a href='/{{workshop-year}}/team'>Organisers</a>
+</div>
+{{fi}}
+{{if workshop old}}
 <div class='links'>
 <a href='/{{workshop-year}}'>{{workshop-year}} home</a>
 <a href='/{{workshop-year}}/timetable'>Timetable</a>

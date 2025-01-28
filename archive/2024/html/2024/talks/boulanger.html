@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name='author' content='Matthew Scroggs'>
+<meta name='description' content='The Scientific Computing in Rust annual workshop and monthly newsletter.'>
+<meta name='keywords' content='rust,scientific computing'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Computing in Rust 2024: An embedded memory cache for persistent memory access</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel='stylesheet' type='text/css' href='/sty.css?v=2024-08-19'>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:site' content='@mscroggs' />
+<meta name='twitter:creator' content='@mscroggs' />
+<meta name='twitter:title' content='Scientific Computing in Rust 2024: An embedded memory cache for persistent memory access' />
+<meta name='twitter:description' content="the Scientific Computing in Rust annual workshop and monthly newsletter." />
+<meta name='twitter:image' content='https://scientificcomputing.rs/img/card.png' />
+
+<meta name='og:title' content='Scientific Computing in Rust 2024: An embedded memory cache for persistent memory access' />
+<meta name='og:url' content='https://scientificcomputing.rs/2024/talks/boulanger.html' />
+<meta name='og:image' content='https://scientificcomputing.rs/img/card.png' />
+<meta name='og:type' content='website' />
+<meta name='og:description' content='the Scientific Computing in Rust annual workshop and monthly newsletter.' />
+<meta name='og:locale' content="en_gb" />
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script src="/fontawesome/js/fontawesome.js"></script>
+<script src="/fontawesome/js/brands.js"></script>
+<script src="/fontawesome/js/solid.js"></script>
+<script type='text/javascript' src='/timezones.js?v=2023-07-13'></script>
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class='head'>
+<div class='laptop'>
+<div class='content'>
+<div class='title'><a href='/'>Scientific Computing in Rust</a></div>
+<div class='links'>
+<a href='/'>Home</a>
+<a href='/2024' class='viewing-now'>Annual workshop</a>
+<a href='/monthly'>Monthly newsletter</a>
+</div>
+
+<div class='tagline'>17-19 July 2024</div>
+
+
+<div class='links'>
+<a href='/2024'>2024 home</a>
+<a href='/2024/timetable'>Timetable</a>
+<a href='/2024/talklist'>List of talks</a>
+<a href='/2024/team'>Organisers</a>
+</div>
+
+
+</div>
+</div>
+</div>
+<div class='body'>
+<div class='content'>
+
+<div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in 2024. Information about the latest workshop can be found <a href='/2025'>here</a>.</div>
+
+<h1>An embedded memory cache for persistent memory access</h1><div><div class='authors'><b>Louis Boulanger</b> <a href='mailto:louis.boulanger@univ-grenoble-alpes.fr' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/boulanlo' class='falink'><i class='fa-brands fa-github'></i></a> (Université Grenoble Alpes, LIG, CNRS, Inria)</div><div class='authors'>Fr&eacute;d&eacute;ric Wagner (LIG)</div><div class='authors'>Yves Denneulin (LIG)</div></div><div style='margin-top:5px'><a href='/2024/talklist-Friday.html'>Friday</a> session 1 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='19' data-month='7' data-year='2024' data-hour='13' data-minute='00'>13:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='19' data-month='7' data-year='2024' data-hour='14' data-minute='30'>14:30</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/7dLTBCCwO3Y'><i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>As part of my thesis on persistent memory programming, I am exploring the use of my library on embedded systems. This library is a "persistent-style standard library" that allows users to manipulate any kind of non-volatile memory (SSD, NVRAM, ...) as actual memory, through normal data structures. The goal of this exploration is to be able to make use of the same concepts on limited hardware, and hereby allowing a very limited chip to make use of a larger amount of memory. During the development of a proof of concept, I created a "software cache" that sits in-between my library and the hardware, so that the chip is able to effectively access more memory than actually available, using a SD card. The result is a Raspberry Pi Pico, originally with 264KB of RAM, being able to use the entirety of a 32GB SD card as persistent memory, for a user to program with, through my original library. The design and concept of this cache opens up interesting perspectives, both in embedded contexts and outside.</p></div><div class='prevnext'><div class='prevlink'><a href='/2024/talks/bitar.html'>&larr; previous talk (on the previous day)</a></div><div class='nextlink'><a href='/2024/talks/telenczuk.html'>next talk &rarr;</a></div></div><div style='text-align:center'>
+<img style='width:200px;padding-top:50px' src='/img/ferris.png'>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+page_load_update_timezone();
+</script>
+</body>
+</html>

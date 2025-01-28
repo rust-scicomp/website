@@ -12,6 +12,7 @@ parser = argparse.ArgumentParser(description="Build rust-scicomp.github.io")
 dates_dict = {
     2023: "13-14 July 2023",
     2024: "17-19 July 2024",
+    2025: "4-6 June 2025",
 }
 latest_year = max(dates_dict.keys())
 
@@ -77,6 +78,7 @@ def load_template(
         with open(os.path.join(main_template_path, file)) as f:
             content = f.read()
     content = content.replace("{{pagetitle}}", title)
+    content = content.replace("{{latest-workshop}}", f"{latest_year}")
     content = content.replace("{{pagefullurl}}", f"https://scientificcomputing.rs/{url}")
     content = content.replace("{{year}}", f"{year}")
     while "{{if workshop" in content:
@@ -333,6 +335,7 @@ if os.path.isdir(pages_path):
             file = os.path.join(subpath, file)
         with open(os.path.join(pages_path, file)) as f:
             content = markup(f.read(), False)
+            content = content.replace("{{latest-workshop}}", f"{latest_year}")
         if subpath == "":
             write_page(f"{fname}.html", content)
         else:
