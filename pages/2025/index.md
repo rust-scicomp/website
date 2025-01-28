@@ -48,6 +48,20 @@ The workshop will be held virtually and will be free to attend. Recordings of th
 from the workshop will be made available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
 alongside the talks from 2023 and 2024.
 
+## Registration
+You can register to attend the Scientific Computing in Rust 2025 workshop using [the form on the registration page](/2025/register).
+Registration is free, and the workshop will take place virtually so there is no need to book travel or accommodation.
+
+## Proposing a talk
+The Scientific Computing in Rust 2024 workshop will feature a mixture of 30 minute talks by invited
+speakers, 10 minute talks by workshop attendees, and interactive discussion/tutorial sessions.
+
+If you would like to propose a 10 minute talk or an interactive tutorial, you can do so via [the forms on talk proposal page](/2025/submit-talk).
+The deadline for talk submissions is Friday 2 May.
+
+If you have any questions for the organisers (about proposing a talk or anything else), you can email
+[contact@scientificcomputing.rs](mailto:contact@scientificcomputing.rs), or you can ask in the [rust-scicomp Zulip chat](https://rust-scicomp.zulipchat.com/).
+
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust to follow the [code of conduct](/code-of-conduct.md).
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing
@@ -57,4 +71,4 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 We would like to thank the following organisations for their support.
 
 [<img class='ackn' src='/img/zulip.png' alt='Zulip' title='Zulip is an open-source modern team chat app designed to keep both live and asynchronous conversations organized.'>](https://zulip.com/)
-[<img class='ackn' src='/img/ucl.png' alt='UCL' title='University College London (UCL) is a university in central London.'>](https://ucl.ac.uk/)
+[<img class='ackn' src='/img/ucl-arc.png' alt='UCL ARC' title="ARC is University College London's research, innovation and service centre for the tools, practices and systems that enable computational science and digital scholarship.">](https://www.ucl.ac.uk/advanced-research-computing/)
