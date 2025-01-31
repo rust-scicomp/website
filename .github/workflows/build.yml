@@ -16,44 +16,34 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
-      - uses: actions/checkout@v2
-      - run: pip3 install -r requirements.txt
-        name: Install requirements
-      - run: python3 builder/build.py
-        name: Build website HTML
-
-  push-website:
-    name: Push website
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    needs:
-    - build-website
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
+          python-version: "3.13"
       - uses: actions/checkout@v2
       - run: pip3 install -r requirements.txt
         name: Install requirements
       - run: python3 builder/build.py --destination _html
         name: Build website HTML
 
-      # Push to GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v3
+        if: github.ref == 'refs/heads/main'
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: '_html'
         if: github.ref == 'refs/heads/main'
+
+  deploy-website:
+    name: Deploy defelement
+    runs-on: ubuntu-22.04
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - build-website
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-        if: github.ref == 'refs/heads/main'
+        uses: actions/deploy-pages@v4
