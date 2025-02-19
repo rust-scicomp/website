@@ -5,15 +5,22 @@ import argparse
 from markup import markup
 from monthly import pull_monthly, issues_path, latest_issue, rss
 
+
+def join(*parts: str) -> str:
+    """Join two or more parts of a file path."""
+    if len(parts) == 1:
+        return parts[0]
+    return join(os.path.join(*parts[:2]), *parts[2:])
+
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 parser = argparse.ArgumentParser(description="Build rust-scicomp.github.io")
 
-dates_dict = {
-    2023: "13-14 July 2023",
-    2024: "17-19 July 2024",
-    2025: "4-6 June 2025",
-}
+with open(join(dir_path, "..", "info.yml")) as f:
+    info_yaml = yaml.load(f, Loader=yaml.FullLoader)
+
+dates_dict = info_yaml["dates"]
 latest_year = max(dates_dict.keys())
 
 parser.add_argument(
@@ -86,6 +93,8 @@ def load_template(
         ifyear, rest = rest.split("}}", 1)
         if ifyear == "":
             ifyear = "all"
+        elif ifyear.strip() == "latest":
+            ifyear = latest_year
         elif ifyear.strip() == "old":
             ifyear = "old"
         else:
