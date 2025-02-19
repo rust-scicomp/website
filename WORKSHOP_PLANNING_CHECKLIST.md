@@ -15,6 +15,7 @@ This checklist can be used when planning the annual workshop.
   - [ ] Slacks
   - [ ] Zulip
   - [ ] Reddit r/rust
+  - [ ] [This Week in Rust](https://github.com/rust-lang/this-week-in-rust)
   - [ ] Post on other social media: 
     - [ ] Bluesky
     - [ ] Mastodon
