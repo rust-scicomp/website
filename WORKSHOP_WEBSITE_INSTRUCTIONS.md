@@ -6,22 +6,25 @@ details about the next workshop.
 ## Adding a new workshop
 This should be done in ~January every year.
 
-- [ ] Add dates to builder/build.py [TODO: move this to a json/yaml]
-- [ ] Make a directory pages/{YEAR}
-- [ ] Make pages/{YEAR}/index.md
-- [ ] Make pages/{YEAR}/register.md
-- [ ] Make pages/{YEAR}/submit-talk.md
-- [ ] Make pages/{YEAR}/team.md
+- [ ] Add dates to [info.yml](info.yml)
+- [ ] Make a directory pages/{YEAR} containing:
+    - [ ] index.md
+    - [ ] register.md
+    - [ ] submit-talk.md
+    - [ ] team.md
 - [ ] Update pages/index.md to link to latest year
-- [ ] Update year in template/intro.html [TODO: make this unneeded]
-- [ ] Update archive [TODO: how?]
+- [ ] Update archive by running `python builder/build.py --year {YEAR - 1}`. You
+      May also need to update the years before this.
 
 ## Adding workshop timetable
 This should be done around 4 weeks before the workshop
 
-TODO
+TODO: Write this while updating website for 2025
 
 ### Adding chairs
-TODO
+
+TODO: Write this while updating website for 2025
 
 ## Changing to post-event website
+
+TODO: Write this while updating website for 2025
