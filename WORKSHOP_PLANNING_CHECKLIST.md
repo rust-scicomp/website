@@ -6,7 +6,7 @@ This checklist can be used when planning the annual workshop.
 - [ ] Pick dates for conference
   - [ ] Check that organisers are available on dates
   - [ ] Post on Zulip to check for major clashes
-- [ ] Update website to add new workshop
+- [ ] [Update website to add new workshop](WORKSHOP_WEBSITE_INSTRUCTIONS.md)
 - [ ] Make forms for registration, talk submission and tutorial submission
 
 ## February
@@ -33,6 +33,7 @@ This checklist can be used when planning the annual workshop.
 - [ ] Talk submissions close
 - [ ] Review submissions
 - [ ] Make talk schedule
+- [ ] [Put talk schedule on website](WORKSHOP_WEBSITE_INSTRUCTIONS.md)
 - [ ] Email speakers with accept/reject decision and proposed times for talks/tutorials
 
 ## 3 weeks before workshop
@@ -42,7 +43,7 @@ This checklist can be used when planning the annual workshop.
 
 ## 2 weeks before workshop
 - [ ] Email speakers with link and info about tech test
-- [ ] Put chairs on website
+- [ ] [Put chairs on website](WORKSHOP_WEBSITE_INSTRUCTIONS.md)
 - [ ] Request Zoom Webinar license from UCL [request cannot be made more than 3 weeks before event]
 
 ## 1 week before workshop
@@ -64,4 +65,4 @@ This checklist can be used when planning the annual workshop.
   - YouTube link
   - Join the mailing list
   - Feedback form
-- [ ] Move to post event website
+- [ ] [Move to post event website](WORKSHOP_WEBSITE_INSTRUCTIONS.md)

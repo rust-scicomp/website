@@ -2,6 +2,13 @@
 
 This repo runs the [Scientific Computing in Rust website](https://scientificcomputing.rs).
 
+The Scientific Computing in Rust website is use for both the
+Scientific Computing in Rust annual workshop and the
+Scientific Computing in Rust monthly newsletter.
+There is [a checklist for organising the annual workshop](WORKSHOP_PLANNING_CHECKLIST.md).
+Information about the monthly newsletter can be found in the
+[monthly newsletter's repository](https://github.com/rust-scicomp/scientific-computing-in-rust-monthly).
+
 ## Building the website
 
 To build the website run:
