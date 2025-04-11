@@ -54,6 +54,6 @@ The code to generate the Scientific Computing in Rust website is released under 
 This project additionally redistributes the following third-party software, which
 is licensed under its own license:
 
-- [Font Awesome](https://fontawesome.com/) [Font Awesome Free License](https://fontawesome.com/license/free)
+- [Font Awesome](https://fontawesome.com/): [Font Awesome Free License](https://fontawesome.com/license/free)
 
 
