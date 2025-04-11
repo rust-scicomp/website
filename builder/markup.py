@@ -244,6 +244,11 @@ def markup_person(details):
         out += "<i class='fa-brands fa-twitter'></i>&nbsp;"
         out += "@" + info["twitter"]
         out += "</a></li>"
+    if "bluesky" in info:
+        out += f"<li><a href='https://bsky.app/profile//{info['bluesky']}'>"
+        out += "<i class='fa-brands fa-bluesky'></i>&nbsp;"
+        out += "@" + info["bluesky"]
+        out += "</a></li>"
 
     out += "</ul></div></div>"
     return out
