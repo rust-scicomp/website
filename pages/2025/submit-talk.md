@@ -18,4 +18,4 @@ The deadline for submissions is Friday 9 May, and we will let you know shortly a
 
 If you would like to give a longer interactive tutorial session at Scientific Computing in Rust 2025, please fill out the form at
 <a href="https://forms.gle/XZMErWgmxxep51vaA">forms.gle/XZMErWgmxxep51vaA</a>.
-The deadline for submissions is Friday 9 May, and we will let you know shortly after that if your tutorial has been accepted.
+Submissions of tutorials will remain open until 30 May, with submissions being accepted periodically.
