@@ -4,7 +4,7 @@ The Scientific Computing in Rust 2025 workshop will feature a mixture of 30 minu
 speakers, 10 minute talks by workshop attendees, and interactive discussion/tutorial sessions.
 
 You can use the forms below to propose a 10 minute talk or a tutorial session.
-The deadline for submissions is Friday 9 May.
+The deadline for submissions of talks is Friday 9 May. Submissions of tutorials will remain open until 30 May, with submissions being accepted periodically.
 
 Each attendee may only give one 10 minute talk, but attendees may give a 10 minute talk and run a tutorial if they wish to.
 
