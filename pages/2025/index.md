@@ -52,15 +52,22 @@ alongside the talks from 2023 and 2024.
 You can register to attend the Scientific Computing in Rust 2025 workshop using [the form on the registration page](/2025/register).
 Registration is free, and the workshop will take place virtually so there is no need to book travel or accommodation.
 
-## Proposing a talk
+## Schedule
 The Scientific Computing in Rust 2024 workshop will feature a mixture of 30 minute talks by invited
 speakers, 10 minute talks by workshop attendees, and interactive discussion/tutorial sessions.
 
-Talk submissions are now closed. You can use the form below to a tutorial session.
-If you would like to propose interactive tutorial, you can do so via [the forms on talk proposal page](/2025/submit-talk).
-Submissions of tutorials will remain open until 30 May, with submissions being accepted periodically.
+We are very happy to announce that the invited speakers for Scientific Computing in Rust 2025 will be:
 
-If you have any questions for the organisers (about proposing a talk or anything else), you can email
+- Alice Cecile, an ecologist-turned-game-dev and developer of the Bevy game engine, who'll be talking about [what science can learn from game development](/2025/talks/cecile.html).
+- Nathaniel Simard, CEO of Tracel AI and developer of the deep learning framework Burn, who'll be talking about [Rust for accelerated computing](/2025/talks/simard.html).
+
+The full workshop schedule can be found on the [timetable](/2025/timetable) page.
+
+## Proposing a tutorial
+Talk submissions are now closed, but submissions for interactive tutorial session remain open until 30 May, with submissions being accepted periodically.
+If you would like to propose interactive tutorial, you can do so via [the forms on talk proposal page](/2025/submit-talk).
+
+If you have any questions for the organisers (about proposing a tutorial or anything else), you can email
 [contact@scientificcomputing.rs](mailto:contact@scientificcomputing.rs), or you can ask in the [rust-scicomp Zulip chat](https://rust-scicomp.zulipchat.com/).
 
 ## Code of conduct

@@ -15,6 +15,11 @@ This should be done in ~January every year.
 - [ ] Update pages/index.md to link to latest year
 - [ ] Update archive by running `python builder/build.py --year {YEAR - 1}`. You
       May also need to update the years before this.
+- [ ] Update tamplate/intro.html to make the latest workshop have links:
+    - {{workshop-year}} home
+    - Register
+    - Propose talk
+    - Organisers
 
 ## Adding workshop timetable
 This should be done around 4 weeks before the workshop.
@@ -27,6 +32,14 @@ This should be done around 4 weeks before the workshop.
         - [ ] coauthor (optional)
         - [ ] duration (short or long)
     - [ ] _timetable.yml
+- [ ] Update tamplate/intro.html to make the latest workshop have links:
+    - {{workshop-year}} home
+    - Register
+    - Timetable
+    - List of talks
+    - Propose tutorial
+    - Organisers
+- [ ] Update index.html to link to workshop schedule
 
 ### Adding chairs
 
