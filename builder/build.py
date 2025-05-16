@@ -475,14 +475,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     tt_content += "<div class='timetablegrid'>\n"
     for di, day in enumerate(timetable):
         dcontent = ""
-        if day == "Wednesday":
-            date = "Wednesday 17 July"
-        elif day == "Thursday":
-            date = "Thursday 18 July"
-        elif day == "Friday":
-            date = "Friday 19 July"
-        else:
-            raise ValueError(f"Unknown day: {day}")
+        date = info_yaml["days"][year][day]
 
         list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
         tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
