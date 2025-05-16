@@ -1,0 +1,10 @@
+title: "ninterp: numerical interpolation in N-dimensions"
+abstract:
+  - "ninterp is a new crate providing multivariate interpolation in Rust. With hardcoded lower-dimensionality interpolators, as well as N-dimensional interpolation utilizing ndarray, ninterp is performant and dead simple."
+speaker:
+  name: Kyle Carow
+  github: kylecarow
+  email: Kyle.Carow@nrel.gov
+  website: https://github.com/NREL/ninterp/
+  affiliation: National Renewable Energy Laboratory (NREL)
+duration: short

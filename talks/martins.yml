@@ -1,0 +1,18 @@
+title: "NPB-Rust: NAS parallel benchmarks in Rust"
+abstract:
+  - "The NAS Parallel Benchmarks (NPB) is a suite of programs developed by NASA’s Numerical Aerodynamic Simulation Program to provide an objective standard for evaluating the performance of highly parallel supercomputers. Initially written in Fortran, the suite includes both sequential and parallel versions, with support for OpenMP and MPI. Over time, several independent adaptations have been proposed, including versions targeting C++ and GPU platforms. We have ported the NPB suite to Rust, with two main goals: (1) to develop NPB-Rust as a benchmark that enables other developers to test and validate their Rust-based HPC solutions; and (2) to evaluate the performance of Rust and the Rayon framework in comparison with established HPC languages such as C++ and Fortran with OpenMP. In this talk, we will present NPB-Rust, share the performance results obtained so far, and discuss the current state and future directions of the project. We have a pre-print paper at: https://arxiv.org/abs/2502.15536"
+speaker:
+  name: Eduardo M. Martins
+  github: Eduardo-M-Martins
+  email: e.martins01@edu.pucrs.br
+  affiliation: Pontifical Catholic University of Rio Grande do Sul (PUCRS)
+coauthor:
+  - name: Leonardo Gibrowski Fa&eacute;
+    affiliation: PUCRS
+  - name: Renato B. Hoffmann
+    affiliation: PUCRS
+  - name: Lucas S. Bianchessi
+    affiliation: PUCRS
+  - name: Dalvan Griebler
+    affiliation: PUCRS
+duration: short

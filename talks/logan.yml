@@ -1,0 +1,15 @@
+title: "Deimos: open-source scientific data acquisition & laboratory aontrols"
+abstract:
+  - "Deimos is the open-source platform for scientific data acquisition and laboratory controls with both software and firmware written in Rust. It combines precision measurement hardware (also open-source!), sub-microsecond time synchronization, adaptive filtering, data pipeline plugins, and a realtime calc engine to deliver performant, reliable, and transparent results ready for science and engineering development."
+  - "This talk will give a very brief overview of the platform, focusing on the effect of time synchronization and measurement accuracy on scientific calculations and support for doing high-speed calculations in-the-loop. The rest of the talk will discuss parts of the software stack that are dual-use with application-side scientific computing: `interpn` and `flaw`."
+  - "InterpN is a Rust library for high-speed N-dimensional interpolation using a novel evaluation pattern that eliminates heap allocation completely and allows use in both application and no-std embedded contexts."
+  - "Flaw provides adaptive IIR signal filtering in Rust, capitalizing on InterpN to interpolate stored filter coefficients on-the-fly. It performs roundoff accuracy corrections that allow the use of 32-bit floats across a tested range of validity without excessive gain error."
+  - "InterpN and flaw are used to provide high-speed no-std adaptive filtering capability in no-std no-alloc firmware on microcontrollers to produce high-quality scientific data independent of the choice of sample reporting rate."
+speaker:
+  name: James Logan
+  github: jlogan03
+  email: jlogan@deimoscontrols.com
+  website: https://github.com/deimoscontrols/deimos
+  affiliation: Deimos Controls LLC
+  mastodon: ponderingpothos@hachyderm.io
+duration: short

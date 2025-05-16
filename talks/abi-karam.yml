@@ -1,0 +1,10 @@
+title: "Rust for chip design algorithms and EDA software"
+abstract:
+  - "This talk explores the use of Rust for implementing chip design algorithms and highlights its potential in electronic design automation (EDA) software. It includes a concise overview of why Rust is well-suited for EDA challenges&mdash;offering safe and efficient parallelism, fast and optimized data structures, simple serialization/deserialization, portable SIMD, and effective numerical optimization. Beyond performance, Rust also presents an opportunity to modernize and democratize open-source EDA tools, offering several advantages over C++, the current industry standard. To illustrate these benefits, the talk will showcase a toy open-source FPGA placer and FPGA legalizer written in Rust, serving as a proof-of-concept for a broader modular ecosystem for Rust-based FPGA synthesis and implementation tools."
+speaker:
+  name: Stefan Abi-Karam
+  github: stefanpie
+  email: stefanabikaram@gatech.edu
+  website: https://stefanabikaram.com
+  affiliation: Georgia Institute of Technology
+duration: short

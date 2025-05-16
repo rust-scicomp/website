@@ -1,0 +1,20 @@
+title: "Nine rules for scientific libraries in Rust: lessons from bed-reader about Python extensions, API design, and async cloud support"
+short-title: "Nine rules for scientific libraries in Rust"
+abstract:
+  - "The bed-reader crate provides fast, memory-efficient access to genomic data in PLINK Bed format, widely used in genome-wide association studies (GWAS). It originates from the FaST-LMM and PySnpTools projects, which have supported published research in Nature Methods, Scientific Reports, and PNAS."
+  - "Five years ago, we replaced PySnpTools' C++-based Bed file reader (built with OpenMP) with a Rust implementation using Rayon for parallelism. Later, at the request of another project, we separated the reader into its own Rust crate (bed-reader) and Python package."
+  - "Our goals included designing a Rust API that felt almost as convenient as the original Python API, while offering Rust's performance, safety, and concurrency. Recently, responding to user needs, we extended the Rust version with async support and cloud file reading (HTTP, AWS S3, Azure, Google Cloud), enabling genomic workflows that scale to terabyte-size datasets."
+  - "This talk will cover practical lessons about:"
+  - "- Writing Rust extensions for Python (and trade-offs between async and synchronous APIs)"
+  - "- Designing scientific Rust APIs that are (almost) as ergonomic as Python's"
+  - "- Adding async capabilities and cloud file support without overwhelming the core library"
+  - "- Balancing performance, usability, and resource footprint in scientific software"
+  - "I'll share what worked, what didn't, and how real-world scientific needs shaped the evolution of the library."
+speaker:
+  name: Carl M. Kadie
+  github: CarlKCarlK
+  email: carlk@msn.com
+  website: https://medium.com/@carlmkadie
+  affiliation: FaST-LMM Open-Source Project (Retired from Microsoft Research)
+  mastodon: carlk@mastodon.social
+duration: short

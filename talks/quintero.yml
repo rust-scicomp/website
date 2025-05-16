@@ -1,0 +1,10 @@
+title: "An introduction to vector programming with portable SIMD"
+abstract:
+  - "This talk is a brief introduction to vector programming with SIMD. You will learn what SIMD is and immediately start using it by taking a deep dive into 3 real world examples."
+speaker:
+  name: Andr&eacute;s Quintero
+  github: andyquinterom
+  email: andres@ixpantia.com
+  website: https://www.ixpantia.com/en/
+  affiliation: ixpantia
+duration: short

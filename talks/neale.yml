@@ -1,0 +1,10 @@
+title: "The pleasure and pain of developing cross plaform CPU vector code in Rust"
+abstract:
+  - "Lessons learned from targeting AVX2, AVX512, Neon and RVV in a single Rust codebase."
+speaker:
+  name: Richard Neale
+  github: mathsDOTearth
+  email: rich@maths.earth
+  website: https://maths.earth
+  affiliation: Student EPCC Edinburgh
+duration: short

@@ -1,0 +1,15 @@
+title: "Rust is RAD and this is why"
+abstract:
+  - "As a scientist and a writer at Oak Ridge National Laboratory, we joined forces to create ACORN, Accessible Content Optimization for Research Needs, a command line multitool built in Rust to create analysis-ready research activity data. ACORN employs a set of automated processes for informing and/or enforcing defined content schemas to create standardized research activity data (RAD). Our goal is to use ACORN to help answer the question, \"What science are we doing at ORNL?\""
+  - "In this session, we will discuss how Rust has enabled us to create a portable command line application to structure and standardize RAD. Doing this creates analysis-ready data intended to be used for knowledge graphs, scientific querying, and streamlining activities at a federally funded research and development center."
+speaker:
+  name: Jason Wohlgemuth
+  github: jhwohlgemuth
+  email: wohlgemuthjh@ornl.gov
+  website: https://acorn.ornl.gov
+  affiliation: Oak Ridge National Laboratory
+  rad-index: https://research.ornl.gov
+coauthor:
+  - name: Audrey Carson
+    affiliation: Oak Ridge National Laboratory
+duration: short

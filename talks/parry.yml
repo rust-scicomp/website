@@ -1,0 +1,14 @@
+title: "Arrow, Rust, and cross-language data science tooling"
+abstract:
+  - "The rapid growth of Apache Arrow and Rust has fostered an ecosystem ideal for building high-performance, cross-language scientific computing tools. Rust's robust FFI support enables seamless integration across languages like R (extendr), Julia (jlrs), and Python (PyO3), while Apache Arrow's standardized memory layout eliminates costly (de)serialization overhead. This talk demonstrates how a single Rust library can power diverse scientific communities, using the anime crate for network science as a case study."
+speaker:
+  name: Josiah Parry
+  github: josiahparry
+  email: josiah.parry@gmail.com
+  website: https://josiahparry.com/
+  affiliation: Environmental Systems Research Institute, Inc. (Esri)
+  mastodon: josi@fosstodon.org
+coauthor:
+  - name: Robin Lovelace
+    affiliation: University of Leeds Institute for Transport Studies (ITS)
+duration: short

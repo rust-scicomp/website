@@ -1,0 +1,10 @@
+title: "Using Rust to mitigate breaking changes in scientific software"
+abstract:
+  - "While Rust is well suited to develop scientific software, many scientists using the software are not familiar with Rust and rather use Python based workflows, often relying on Jupyter notebooks being reusable over many versions of the software. This presents some challenges, especially when implementing necessary breaking changes in the scientific software. In this presentation we will show some of these challenges and how they can be addressed with the Rust ecosystem using the example of the 2.0 update of struqture, an open-source library used to represent open quantum systems. We discuss the motivations behind the 2.0 update, as well as the different challenges encountered in minimizing disruption for users and ensuring Python interoperability across different versions."
+speaker:
+  name: Dimitri Berthault
+  github: dberthault
+  email: dimitri.berthault@quantumsimulations.de
+  website: https://quantumsimulations.de/
+  affiliation: HQS Quantum Simulations
+duration: short

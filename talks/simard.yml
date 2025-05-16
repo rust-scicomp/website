@@ -1,0 +1,9 @@
+title: "Rust for accelerated computing"
+abstract:
+  - "This talk highlights how accelerated computing powers AI and explores the design of Burn and CubeCL, leveraging Rust's type system and ownership rules to create flexible, high-performance, and portable solutions."
+speaker:
+  name: Nathaniel Simard
+  github: nathanielsimard
+  website: https://tracel.ai/
+  affiliation: Tracel AI
+duration: long

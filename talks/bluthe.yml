@@ -1,0 +1,9 @@
+title: "Efficient point location with ploc"
+abstract:
+  - "Efficient algorithms for point location are useful in many different applications of scientific computing (eg field interpolation in FEM, plotting on triangulations, spatial statistical distributions in Lagrangian simulations). In 2D, the trapezoidal map is a sophisticated data structure that enables point location queries on arbitrary planar subdivisions in logarithmic time. Its implementation in Rust presents some challenges specific to the language (like implementing a directed acyclic graph), and this talk outlines some of them as well as a few performance improvements that have been done after the first naive implementation."
+speaker:
+  name: Joffrey Bluth&eacute;
+  github: bluthej
+  email: joffrey.bluthe@dotblocks.fr
+  affiliation: DotBlocks
+duration: short

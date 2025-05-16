@@ -17,9 +17,16 @@ This should be done in ~January every year.
       May also need to update the years before this.
 
 ## Adding workshop timetable
-This should be done around 4 weeks before the workshop
+This should be done around 4 weeks before the workshop.
 
-TODO: Write this while updating website for 2025
+- [ ] Make a directory talks containing:
+    - [ ] a .yml file for every talk, containing the fields:
+        - [ ] title
+        - [ ] abstract
+        - [ ] speaker (with name, affiliation, github, email, website, etc)
+        - [ ] coauthor (optional)
+        - [ ] duration (short or long)
+    - [ ] _timetable.yml
 
 ### Adding chairs
 

@@ -186,13 +186,16 @@ def is_long(t: str) -> bool:
     return tinfo["duration"] == "long"
 
 
-def get_title_and_speaker(t: str) -> typing.Tuple[str, typing.Optional[str]]:
+def get_title_and_speaker(t: str, short=False) -> typing.Tuple[str, typing.Optional[str]]:
     if t == "intro":
         return "Welcome and introduction", None
 
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
-    return tinfo["title"], tinfo["speaker"]["name"]
+    if short and "short-title" in tinfo:
+        return tinfo["short-title"], tinfo["speaker"]["name"]
+    else:
+        return tinfo["title"], tinfo["speaker"]["name"]
 
 
 def recorded(t: str) -> bool:
@@ -426,7 +429,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 assert i["start"] == stime
                 assert i["end"] == etime
             if "talks" in i:
-                count = max(count, sum(3 if is_long(j) else 1 for j in i["talks"]))
+                count = max(count, sum(info_yaml["long-length"][year] if is_long(j) else 1 for j in i["talks"]))
 
         if end is not None:
             if prev_etime == stime:
@@ -460,7 +463,12 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
         if i > 0:
             tt_content += " 2fr auto"
         tt_content += f" repeat({rowend + 1 - row}, 1fr)"
-    tt_content += "10px auto;\n"
+    tt_content += "10px "
+    if year < 2025:
+        tt_content += "auto"
+    else:
+        tt_content += "repeat(4, 1fr)"
+    tt_content += ";\n"
     tt_content += "}\n"
     tt_content += "</style>\n"
 
@@ -514,16 +522,16 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {row - 1} / span 1;margin:10px;font-size:80%;text-align:center'>"
                                f"Chair: {session['chair']['name']}</div>")
             if "talks" in session:
-                talklen = (rowend - row) / sum(3 if is_long(t) else 1 for t in session["talks"])
+                talklen = (rowend - row) / sum(info_yaml["long-length"][year] if is_long(t) else 1 for t in session["talks"])
                 start = 0
                 for ti, t in enumerate(session["talks"]):
                     if t == "intro":
                         dcontent += talk(t, day, si + 1, session_time)
                     else:
                         dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
-                    title, speaker = get_title_and_speaker(t)
+                    title, speaker = get_title_and_speaker(t, True)
                     length = 70 if is_long(t) else 20
-                    nrows = 3 if is_long(t) else 1
+                    nrows = info_yaml["long-length"][year] if is_long(t) else 1
                     if t == "intro":
                         tt_content += "<div"
                     else:

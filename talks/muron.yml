@@ -1,0 +1,16 @@
+title: "Honeycomb: combinatorial maps implementation for meshing applications"
+abstract:
+  - "In the context of my PhD, I am developing a library named *Honeycomb*, implementing concurrency-friendly data structures for hybrid mesh representation in (re)meshing applications. Such data structures and mesh generation algorithms are mandatory for any numerical simulation code based on the Finite Element Method (FEM) or the Finite Volume Method (FVM)."
+  - "*Honeycomb* is a Rust crate providing combinatorial-maps-based data structures for 2D and 3D mesh representations. Our implementation contains deliberate design choices regarding the API and synchronization mechanisms related to our constraints and objectives. In addition to core structures, we also implement benchmarks, (re)meshing operations and kernels, as well as a simple visual debugging tool."
+  - "This talk will briefly contextualize the problem leading to the library’s development before going over its features and small usage examples. We will finish with a quick overview of encouraging early results."
+speaker:
+  name: Isa&iuml;e Muron
+  github: imrn99
+  email: isaie.muron@cea.fr
+  affiliation: CEA, DAM, DIF, F-91297 Arpajon, France
+coauthor:
+  - name: Franck Ledoux
+    affiliation: CEA, DAM, DIF, F-91297 Arpajon, France
+  - name: C&eacute;dric Chevalier
+    affiliation: CEA, DAM, DIF, F-91297 Arpajon, France
+duration: short

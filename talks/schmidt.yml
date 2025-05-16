@@ -1,0 +1,13 @@
+title: "Robotics with Rust: a case study in RoboCup soccer"
+abstract:
+  - "In this talk, we’ll present how Rust is being used to program humanoid robots competing in the RoboCup Standard Platform League (SPL), an international autonomous robot soccer competition. We’ll walk through the architecture of our robot control software, how Rust’s safety and performance features benefit real-time robotics, and the challenges of integrating it into an ecosystem traditionally dominated by C++ and Python."
+speaker:
+  name: Maximilian Schmidt
+  github: schmidma
+  email: maximilian.schmidt@tuhh.de
+  website: https://hulks.de
+  affiliation: Hamburg University of Technology (TUHH)
+coauthor:
+  - name: Ole Felber
+    affiliation: TUHH
+duration: short

@@ -1,0 +1,10 @@
+title: "Pixi: the missing companion to cargo"
+abstract:
+  - "With cargo, package management becomes easy until you depend on Fortran, C or C++ libraries. In this talk I will present pixi a package manager written in Rust which utilizes the conda ecosystem. Using pixi we will manage our binary dependencies and even cargo itself."
+speaker:
+  name: Julian Hofer
+  github: Hofer-Julian
+  website: https://julianhofer.eu
+  affiliation: prefix.dev
+  mastodon: ju@chaos.social
+duration: short

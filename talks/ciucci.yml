@@ -1,0 +1,16 @@
+title: "High-performance computing for quantum field theory: a case for Rust in Monte Carlo simulations"
+abstract:
+  - "Monte Carlo methods, particularly Markov chain Monte Carlo (MCMC), play a fundamental role in numerical simulations of quantum field theory (QFT), especially in lattice quantum chromodynamics (Lattice QCD). These simulations require high-performance computing (HPC) techniques due to their extreme computational complexity. However, traditional implementations often rely on legacy languages like C and Fortran, leading to challenges in extensibility, maintainability, safety, and performance optimization."
+  - "In this talk, I will explore how Rust, with its modern idioms, strong concurrency model, and a still immature but growing numerical computing ecosystem, can be a compelling alternative for high-performance QFT simulations. I will discuss the advantages Rust offers over traditional approaches, the challenges of integrating it into existing scientific computing workflows, and its potential for Rust-based HPC in theoretical physics."
+speaker:
+  name: Luca Ciucci
+  github: LucaCiucci
+  email: l.ciucci3@studenti.unipi.it
+  website: https://lucaciucci.github.io/
+  affiliation: University of Pisa
+  mastodon: lucacorbucci@mastodon.cloud
+  matrix: lucaciucci:matrix.org
+coauthor:
+  - name: Serena Bruzzesi
+    affiliation: University of Pisa
+duration: short

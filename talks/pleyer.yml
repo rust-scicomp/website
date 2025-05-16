@@ -1,0 +1,10 @@
+title: "cellular_raza: cellular agent-based modeling from a clean slate"
+abstract:
+  - "I will introduce the concept of Agent-Based Modeling in the context of biological systems and highlight some advancements and applications of our crate [`cellular_raza`](https://cellular-raza.com). Finally, I want to present some of my recent work in which I apply `cellular_raza` to the problem of Growth of Rod-Shaped bacteria such as E.Coli and Bacillus Subtilis."
+speaker:
+  name: Jonas Pleyer
+  github: jonaspleyer
+  email: jonas.pleyer@fdm.uni-freiburg.de
+  website: https://jonas.pleyer.org
+  affiliation: Freiburg Center for Data Analysis, Modeling and AI
+duration: short

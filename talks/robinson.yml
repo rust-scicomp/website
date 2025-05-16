@@ -1,0 +1,11 @@
+title: "Diffsol: a crate for solving differential equations"
+abstract:
+  - "Diffsol is a crate for solving ordinary differential equations (ODEs) or semi-explicit differential algebraic equations (DAEs). The equations can be provided by the user either using rust code, or a custom Domain Specific Language (DSL) called DiffSL which is JIT compiled at run-time. Diffsol features both dense and sparse matrix support using the nalgebra or faer crates, and uses a trait-based approach to allow other linear algebra libraries to be added at a later date."
+  - "This talk will discuss some of the motivation behind diffsol, give an overview of its features, provide some examples of use and benchmarks against similar packages. Please see the repo at https://github.com/martinjrobins/diffsol for more information about the crate."
+speaker:
+  name: Martin Robinson
+  github: martinjrobins
+  email: martin.robinson@dtc.ox.ac.uk
+  website: https://www.rse.ox.ac.uk
+  affiliation: University of Oxford
+duration: short

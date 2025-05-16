@@ -1,0 +1,15 @@
+title: "Juice your simulations: what science can learn from game development"
+abstract:
+  - "Simulation is a critical scientific tool, helping scientists understand the behavior of complex systems, test hypotheses and communicate their results. By learning from the best practices of game development and applying the craft of game design, you can make faster, more flexible simulations that delight your audience and reveal key insights about the way your models work."
+  - "As an ecologist-turned-game-dev, I'll go over:"
+  - "- why you should consider using a game engine for your simulations"
+  - "- key architectural considerations and best practices for rapid experimentation"
+  - "- breaking your simulation into \"levels\" to gradually build up a reader's intuition and persuade them"
+  - "- why polishing your simulation matters and how to add the \"juice\" needed to make it delightful"
+speaker:
+  name: Alice Cecile
+  github: alice-i-cecile
+  website: https://bevyengine.org/
+  affiliation: Bevy Foundation
+  mastodon: alice_i_cecile@mastodon.gamedev.place
+duration: long

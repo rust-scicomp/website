@@ -1,0 +1,12 @@
+title: "Exponential time integration for stiff systems in Rust"
+abstract:
+  - "Exponential time integration methods offer competitive performance vs implicit integrators for some classes of stiff, linear-dominate systems.  Examples and benchmarks from the Rust-based exponential integrators implemented in the new [Oak Ridge Matrix Exponential toolkit (ORMATEX)](https://github.com/ORNL/ORMATEX) package will be shown. The ORMATEX software library contains methods to compute the matrix exponential and the action of the matrix exponential on a vector. Additionally, this package contains the related methods for the phi-functions which commonly appear in a wide class of exponential time integration methods. Krylov methods are provided to evaluate the matrix exponential-vector and phi-vector products for cases where the matrix is large and sparse. Utilizing these methods, ORMATEX implements exponential integrators for large systems of coupled ordinary differential equations (ODEs). Additionally, interoperability of the ORMATEX ODE integrators with python via PyO3 will be highlighted."
+speaker:
+  name: William Gurecky
+  github: wgurecky
+  email: william.gurecky@utexas.edu
+  affiliation: Oak Ridge National Laboratory
+coauthor:
+  - name: Konstantin Pieper
+    affiliation: Oak Ridge National Laboratory
+duration: short

@@ -1,0 +1,11 @@
+title: "Stochastic calculus in Rust"
+abstract:
+  - "Generating a large amount of data to train NNs for time series analysis."
+speaker:
+  name: Daniel Boros
+  github: rust-dd
+  email: dancixx@gmail.com
+  affiliation: Kadasolutions Gmbh.
+  website: https://rust-dd.com
+  linkedin: daniel-boros-b86a5373
+duration: short
