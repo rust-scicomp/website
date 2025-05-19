@@ -33,7 +33,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
   deploy-website:
-    name: Deploy defelement
+    name: Deploy website
     runs-on: ubuntu-22.04
     if: github.ref == 'refs/heads/main'
     needs:
