@@ -74,6 +74,12 @@ if not archive:
     pull_monthly()
 
 
+special = {
+    "intro": {"title": "Welcome and introduction"},
+    "outro": {"title": "Closing remarks"},
+}
+
+
 def load_template(
     file: str, title: str, url: str, workshop: typing.Optional[int] = None,
     monthly: bool = False,
@@ -179,7 +185,7 @@ def person(p: typing.Dict, bold: bool = False) -> str:
 
 
 def is_long(t: str) -> bool:
-    if t == "intro":
+    if t in special:
         return False
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
@@ -187,8 +193,8 @@ def is_long(t: str) -> bool:
 
 
 def get_title_and_speaker(t: str, short=False) -> typing.Tuple[str, typing.Optional[str]]:
-    if t == "intro":
-        return "Welcome and introduction", None
+    if t in special:
+        return special[t]["title"], None
 
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
@@ -199,7 +205,7 @@ def get_title_and_speaker(t: str, short=False) -> typing.Tuple[str, typing.Optio
 
 
 def recorded(t: str) -> bool:
-    if t == "intro":
+    if t in special:
         return True
 
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
@@ -208,7 +214,7 @@ def recorded(t: str) -> bool:
 
 
 def has_youtube(t: str) -> bool:
-    if t == "intro":
+    if t in special:
         return False
 
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
@@ -217,7 +223,7 @@ def has_youtube(t: str) -> bool:
 
 
 def has_slides(t: str) -> bool:
-    if t == "intro":
+    if t in special:
         return False
 
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
@@ -229,7 +235,7 @@ def talk(
     t: str, day: str, session_n: int, times: str,
     prev: typing.Optional[str] = None, next: typing.Optional[str] = None
 ) -> str:
-    if t == "intro":
+    if t in special:
         title, _ = get_title_and_speaker(t)
         return f"<div class='talktitle'>{title}</div><br />"
 
@@ -398,7 +404,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             first_session = True
             if "talks" in session:
                 for t in session["talks"]:
-                    if t != "intro":
+                    if t not in special:
                         next_and_prev[t] = {"prev": (None, None), "next": (None, None)}
                         if prev is not None:
                             if first_day:
@@ -518,14 +524,14 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 talklen = (rowend - row) / sum(info_yaml["long-length"][year] if is_long(t) else 1 for t in session["talks"])
                 start = 0
                 for ti, t in enumerate(session["talks"]):
-                    if t == "intro":
+                    if t in special:
                         dcontent += talk(t, day, si + 1, session_time)
                     else:
                         dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
                     title, speaker = get_title_and_speaker(t, True)
                     length = 70 if is_long(t) else 20
                     nrows = info_yaml["long-length"][year] if is_long(t) else 1
-                    if t == "intro":
+                    if t in special:
                         tt_content += "<div"
                     else:
                         tt_content += "<a"
@@ -533,7 +539,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     if is_long(t):
                         tt_content += " longtalk"
                     tt_content += "'"
-                    if t != "intro":
+                    if t not in special:
                         tt_content += f" href='/{year}/talks/{t}.html'"
                     tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
                                    f"<div class='timetabletalktitle'>{title}</div>")
@@ -548,7 +554,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
                     if speaker is not None:
                         tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
-                    if t == "intro":
+                    if t in special:
                         tt_content += "</div>"
                     else:
                         tt_content += "</a>"
