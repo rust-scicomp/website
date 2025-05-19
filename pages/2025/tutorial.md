@@ -2,9 +2,10 @@
 
 Show times in: <timeselector>
 
-From <time Thursday 15:30> on Thursday 18 July, there will be a tutorial session.
+From <time Thursday 15:30> on Thursday 5 June, there will be a tutorial session.
 During this session, there will be a number of tutorials running in parallel for you to choose
-from. The list of available tutorials is given below.
+from. The list of currently available tutorials is given below, with more tutorials expected to be added
+in the coming weeks.
 
 <h2 style='margin-bottom:0px'>A beginner's guide to Rust</h2>
 <h3 style='margin-top:0px'>Ignacia Fierro Piccardo and Matthew Scroggs</h3>
