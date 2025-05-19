@@ -13,6 +13,7 @@ Wednesday:
     description: "A set of discussions on a range of topics taking place in parallel."
     rowstart: 12
     rows: 3
+    link: "/2025/discussions.html"
   - talks:
       - quintero
       - carow
