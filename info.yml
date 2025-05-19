@@ -5,3 +5,15 @@ dates: # The dates each year's workshop will take / took place
 long-length:
   2023: 3
   2025: 2
+days:
+  2023:
+    Thursday: Thursday 13 July
+    Friday: Friday 14 July
+  2024:
+    Wednesday: Wednesday 17 July
+    Thursday: Thursday 18 July
+    Friday: Friday 19 July
+  2025:
+    Wednesday: Wednesday 4 June
+    Thursday: Thursday 5 June
+    Friday: Friday 6 June
