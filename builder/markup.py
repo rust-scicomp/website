@@ -1,6 +1,8 @@
 from markdown import markdown
-import shlex
+import os
 import re
+import shlex
+import yaml
 from datetime import datetime
 from citations import markup_citation
 from monthly import monthly_list
@@ -9,7 +11,14 @@ page_references = []
 ref_map = {}
 
 
-def markup(content, icons=True, paragraphs=True):
+def join(*parts: str) -> str:
+    """Join two or more parts of a file path."""
+    if len(parts) == 1:
+        return parts[0]
+    return join(os.path.join(*parts[:2]), *parts[2:])
+
+
+def markup(content, icons=True, paragraphs=True, year=None):
     global page_references
 
     while "<!--" in content:
@@ -24,7 +33,7 @@ def markup(content, icons=True, paragraphs=True):
     if "{% no markup %}" in content:
         before, after = content.split("{% no markup %}", 1)
         middle, after = after.split("{% end no markup %}", 1)
-        return markup(before, icons) + middle + markup(after, icons)
+        return markup(before, icons, paragraphs, year) + middle + markup(after, icons, paragraphs, year)
 
     while "{{if " in content:
         pre, rest = content.split("{{if ", 1)
@@ -60,7 +69,7 @@ def markup(content, icons=True, paragraphs=True):
             code = python_highlight(code)
         else:
             code = code.strip().replace(" ", "&nbsp;")
-        return f"{markup(content0)}<p class='pcode'>{code}</p>{markup(content1)}"
+        return f"{markup(content0, icons, paragraphs, year)}<p class='pcode'>{code}</p>{markup(content1, icons, paragraphs, year)}"
 
     content = content.replace(".md)", ".html)")
 
@@ -70,12 +79,35 @@ def markup(content, icons=True, paragraphs=True):
 
     page_references = []
 
-    out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='17' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
-    out = re.sub(r"<time Wednesday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='17' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
-    out = re.sub(r"<time Thursday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='18' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
-    out = re.sub(r"<time Friday ([0-2][0-9]):([0-6][0-9])>", r"<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='19' data-month='7' data-year='2024' data-hour='\1' data-minute='\2'>\1:\2</span>", out)
-    out = re.sub(r"<tzone>", r"<span class='tzone'> BST</span>", out)
-    out = out.replace("<timeselector>", "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>")
+    if year is not None:
+        months = ["January", "February", "March", "April", "May", "June", "July",
+                  "August", "September", "October", "November", "December"]
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        with open(join(dir_path, "..", "info.yml")) as f:
+            info_yaml = yaml.load(f, Loader=yaml.FullLoader)
+        days = info_yaml["days"][year]
+        day1 = list(days.values())[0]
+
+        def _fmt(m1, m2, day):
+            _, d, m = day.split(" ")
+            out = "<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' "
+            out += f"data-day='{d}' data-month='{months.index(m)}' data-year='{year}' "
+            out += f"data-hour='{m1}' data-minute='{m2}'>{m1}:{m2}</span>"
+            return out
+
+        def dayless_time_format(matches):
+            return _fmt(matches[1], matches[2], day1)
+
+        def time_format(matches):
+            return _fmt(matches[2], matches[3], days[matches[1]])
+
+        out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", dayless_time_format, out)
+        out = re.sub(r"<time ([A-Za-z]+) ([0-2][0-9]):([0-6][0-9])>", time_format, out)
+        out = re.sub(r"<tzone>", r"<span class='tzone'> BST</span>", out)
+        out = out.replace("<timeselector>", "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>")
+    else:
+        assert "<time" not in out
+
     out = re.sub(r"<ref ([^>]+)>", add_citation, out)
     out = re.sub(r"<ghostref ([^>]+)>", add_ghost_citation, out)
     out = insert_links(out)

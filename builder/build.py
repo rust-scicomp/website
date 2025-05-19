@@ -253,7 +253,7 @@ def talk(
                     f"<a href='/{year}/talklist-{day}.html'>{day}</a>"
                     f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
                     "</div>")
-        content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False)
+        content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False, year=year)
     if "recorded" in tinfo and not tinfo["recorded"]:
         content += ("<div style='margin-top:15px'><i class='fa-solid fa-video-slash'></i> "
                     "This talk will not be recorded.</div>")
@@ -272,7 +272,7 @@ def talk(
                 abstract.append(parag)
         else:
             abstract.append(tinfo['abstract'])
-        content += markup("\n\n".join(abstract))
+        content += markup("\n\n".join(abstract), year=year)
     content += "</div>"
 
     content += "<div class='prevnext'>"
@@ -346,7 +346,7 @@ if os.path.isdir(pages_path):
                 os.mkdir(os.path.join(html_path, subpath))
             file = os.path.join(subpath, file)
         with open(os.path.join(pages_path, file)) as f:
-            content = markup(f.read(), False)
+            content = markup(f.read(), False, year=year)
             content = content.replace("{{latest-workshop}}", f"{latest_year}")
         if subpath == "":
             write_page(f"{fname}.html", content)
@@ -366,7 +366,7 @@ if not archive:
             content = f.read()
         if "\n---\n" in content:
             content = content.split("\n---\n", 1)[1]
-        content = markup(content, False)
+        content = markup(content, False, year=year)
         write_page(f"monthly/{fname}.html", content, monthly=True)
 
     # monthly/rss.xml
@@ -447,8 +447,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     # tt_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
     # list_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
 
-    list_content += markup("Show times in: <timeselector>")
-    tt_content += markup("Show times in: <timeselector>")
+    list_content += markup("Show times in: <timeselector>", year=year)
+    tt_content += markup("Show times in: <timeselector>", year=year)
 
     tt_content += "<style type='text/css'>\n"
     tt_content += ".timetablegrid {\n"
@@ -483,7 +483,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                        f"{date}</a></div>")
 
         for si, session in enumerate(timetable[day]):
-            session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False)
+            session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False, year=year)
             dcontent += "<h3"
             if si != 0:
                 dcontent += " style='margin-top:50px'"
@@ -505,7 +505,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 if "platform" in session:
                     inner_content += f", {session['platform']}"
                 inner_content += ")"
-                tt_content += markup(inner_content, paragraphs=False)
+                tt_content += markup(inner_content, paragraphs=False, year=year)
                 tt_content += "</div>"
             if "description" in session:
                 dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
@@ -594,7 +594,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
         list_content += dcontent
-        write_page(f"{year}/talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>')}{dcontent}", workshop=year)
+        write_page(f"{year}/talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>', year=year)}{dcontent}", workshop=year)
 
     tt_content += "</div>"
 
