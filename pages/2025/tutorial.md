@@ -2,7 +2,7 @@
 
 Show times in: <timeselector>
 
-From <time Thursday 15:30> on Thursday 5 June, there will be a tutorial session.
+From <time Thursday 15:00> on Thursday 5 June, there will be a tutorial session.
 During this session, there will be a number of tutorials running in parallel for you to choose
 from. The list of currently available tutorials is given below, with more tutorials expected to be added
 in the coming weeks.

@@ -446,7 +446,6 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
         end = start + count - 1
         rows.append((start, end))
         prev_etime = etime
-
     list_content = "<h1>List of talks</h1>"
     tt_content = "<h1>Timetable</h1>"
 
@@ -488,6 +487,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                        f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/{year}/talklist-{day}.html'>"
                        f"{date}</a></div>")
 
+        subtract = 0
         for si, session in enumerate(timetable[day]):
             session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False, year=year)
             dcontent += "<h3"
@@ -502,7 +502,9 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     dcontent += session['platform']
             dcontent += ")</h3>"
             col = 2 * di + 2
-            row, rowend = rows[si]
+            row, rowend = rows[si - subtract]
+            if "extra" in session and session["extra"]:
+                subtract += 1
             if di == 0:
                 tt_content += "<div class='gridcell timetableheading rotated' style='"
                 tt_content += f"grid-column: {col - 1} / span 1; grid-row: {row} / span {rowend - row + 1}"
@@ -523,6 +525,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             if "talks" in session:
                 talklen = (rowend - row) / sum(info_yaml["long-length"][year] if is_long(t) else 1 for t in session["talks"])
                 start = 0
+                if "rowstart" in session:
+                    row = session["rowstart"]
                 for ti, t in enumerate(session["talks"]):
                     if t in special:
                         dcontent += talk(t, day, si + 1, session_time)
@@ -531,6 +535,9 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     title, speaker = get_title_and_speaker(t, True)
                     length = 70 if is_long(t) else 20
                     nrows = info_yaml["long-length"][year] if is_long(t) else 1
+                    if "rows" in session:
+                        assert session["rows"] % len(session["talks"]) == 0
+                        nrows = session["rows"] // len(session["talks"])
                     if t in special:
                         tt_content += "<div"
                     else:

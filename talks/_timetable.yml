@@ -4,7 +4,8 @@ Wednesday:
       - boros
       - martins
       - pleyer
-      - cecile
+      - gurecky
+      - abi-karam
     start: "13:00"
     end: "14:30"
   - start: "15:00"
@@ -27,22 +28,28 @@ Thursday:
       - neale
       - sablok
       - schmidt
-      - gurecky
-      - abi-karam
     start: "13:00"
     end: "14:30"
-  - start: "15:00"
-    end: "15:30"
+  - start: "14:00"
+    end: "14:30"
     title: Discussions
+    rowstart: 8
     rows: 2
     description: "An interactive session during which participants will be able to talk to the presenters of Wednesday's and Thursday's talks, and meet other workshop participants."
-  - start: "15:30"
-    end: "17:00"
+    extra: true
+  - start: "15:00"
+    end: "16:15"
     title: Tutorial
-    rowstart: 14
-    rows: 7
+    rowstart: 12
+    rows: 6
     link: "/2025/tutorial.html"
     description: "An interactive tutorial session during which participants can choose which of a range of tutorials to attend. To be followed by discussion time."
+  - start: "16:15"
+    end: "17:00"
+    talks:
+      - cecile
+    rowstart: 18
+    rows: 3
 Friday:
   - talks:
       - robinson
