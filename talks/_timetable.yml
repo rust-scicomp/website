@@ -43,7 +43,7 @@ Thursday:
     rowstart: 12
     rows: 6
     link: "/2025/tutorial.html"
-    description: "An interactive tutorial session during which participants can choose which of a range of tutorials to attend. To be followed by discussion time."
+    description: "An interactive tutorial session during which participants can choose which of a range of tutorials to attend."
   - start: "16:15"
     end: "17:00"
     talks:
