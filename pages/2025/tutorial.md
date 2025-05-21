@@ -25,7 +25,6 @@ this at [rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 <div class='authors'><b>Brett Eiffert</b> <a href='mailto:eiffertbc@ornl.gov' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/bretteiffert' class='falink'><i class='fa-brands fa-github'></i></a> (Oak Ridge National Laboratory)</div>
 <div class='authors'><b>Jeffrey S Vetter</b> (Oak Ridge National Laboratory)</div>
 </div>
-<h3 style='margin-top:0px'>Brett Eiffert and Jeffrey S Vetter (Oak Ridge National Laboratory)</h3>
 
 This session will walk you through the steps of using Rust to offload to accelerators using NVIDIA and AMD GPUs.
 This includes using cargo to integrate cmake or other C build systems into the build process. The end goal will
