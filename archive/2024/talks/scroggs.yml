@@ -7,6 +7,7 @@ speaker:
   email: rust@mscroggs.co.uk
   affiliation: University College London
   mastodon: mscroggs@mathstodon.xyz
+  github: mscroggs
 coauthor:
   - name: Timo Betcke
     affiliation: University College London

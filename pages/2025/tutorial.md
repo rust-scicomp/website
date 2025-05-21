@@ -8,7 +8,10 @@ from. The list of currently available tutorials is given below, with more tutori
 in the coming weeks.
 
 <h2 style='margin-bottom:0px'>A beginner's guide to Rust</h2>
-<h3 style='margin-top:0px'>Ignacia Fierro Piccardo and Matthew Scroggs (University College London)</h3>
+<div>
+<div class='authors'><b>Ignacia Fierro Piccardo</b> (University College London)</div>
+<div class='authors'><b>Matthew Scroggs</b> <a href='https://mscroggs.co.uk' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='mailto:rust@mscroggs.co.uk' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/mscroggs' class='falink'><i class='fa-brands fa-github'></i></a> <a href='https://mathstodon.xyz/@mscroggs'><i class='fa-brands fa-mastodon'></i></a> (University College London)</div>
+</div>
 
 This session is aimed at people who don't use Rust yet, but are attending the workshop as they
 are interested in starting to use it. We will cover basic syntax in Rust and a few of the language's
@@ -18,6 +21,10 @@ Before this session, please install Rust on your computer. There are instruction
 this at [rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 
 <h2 style='margin-bottom:0px'>Integrating GPUs into Rust</h2>
+<div>
+<div class='authors'><b>Brett Eiffert</b> <a href='mailto:eiffertbc@ornl.gov' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/bretteiffert' class='falink'><i class='fa-brands fa-github'></i></a> (Oak Ridge National Laboratory)</div>
+<div class='authors'><b>Jeffrey S Vetter</b> (Oak Ridge National Laboratory)</div>
+</div>
 <h3 style='margin-top:0px'>Brett Eiffert and Jeffrey S Vetter (Oak Ridge National Laboratory)</h3>
 
 This session will walk you through the steps of using Rust to offload to accelerators using NVIDIA and AMD GPUs.
