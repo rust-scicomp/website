@@ -1,4 +1,4 @@
-title: "Deimos: open-source scientific data acquisition & laboratory aontrols"
+title: "Deimos: open-source scientific data acquisition & laboratory controls"
 abstract:
   - "Deimos is the open-source platform for scientific data acquisition and laboratory controls with both software and firmware written in Rust. It combines precision measurement hardware (also open-source!), sub-microsecond time synchronization, adaptive filtering, data pipeline plugins, and a realtime calc engine to deliver performant, reliable, and transparent results ready for science and engineering development."
   - "This talk will give a very brief overview of the platform, focusing on the effect of time synchronization and measurement accuracy on scientific calculations and support for doing high-speed calculations in-the-loop. The rest of the talk will discuss parts of the software stack that are dual-use with application-side scientific computing: `interpn` and `flaw`."
