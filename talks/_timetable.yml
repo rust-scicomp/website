@@ -6,6 +6,9 @@ Wednesday:
       - pleyer
       - gurecky
       - abi-karam
+    chair:
+      name: Ignacia Fierro Piccardo
+      zulip: Ignacia Fierro
     start: "13:00"
     end: "14:30"
   - start: "15:00"
@@ -22,6 +25,10 @@ Wednesday:
       - parry
     start: "16:00"
     end: "17:00"
+    chair:
+      name: Srinath Kailasa
+      github: skailasa
+      zulip: Srinath Kailasa
 Thursday:
   - talks:
       - berthault
@@ -30,6 +37,9 @@ Thursday:
       - schmidt
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Ignacia Fierro Piccardo
+      zulip: Ignacia Fierro
   - start: "14:00"
     end: "14:30"
     title: Discussions
@@ -50,6 +60,14 @@ Thursday:
       - cecile
     rowstart: 18
     rows: 3
+    chair:
+      name: Matthew Scroggs
+      github: mscroggs
+      twitter: mscroggs
+      mastodon: mscroggs@mathstodon.xyz
+      website: https://mscroggs.co.uk
+      email: matthew.scroggs.14@ucl.ac.uk
+      zulip: Matthew Scroggs
 Friday:
   - talks:
       - robinson
@@ -59,6 +77,9 @@ Friday:
       - simard
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Ignacia Fierro Piccardo
+      zulip: Ignacia Fierro
   - talks:
       - bluthe
       - wohlgemuth
@@ -66,6 +87,14 @@ Friday:
       - outro
     start: "15:00"
     end: "16:00"
+    chair:
+      name: Matthew Scroggs
+      github: mscroggs
+      twitter: mscroggs
+      mastodon: mscroggs@mathstodon.xyz
+      website: https://mscroggs.co.uk
+      email: matthew.scroggs.14@ucl.ac.uk
+      zulip: Matthew Scroggs
   - start: "16:00"
     end: "17:00"
     title: Discussions

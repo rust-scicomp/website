@@ -42,8 +42,9 @@ This should be done around 4 weeks before the workshop.
 - [ ] Update index.html to link to workshop schedule
 
 ### Adding chairs
+This should be done 1-2 weeks before the workshop.
 
-TODO: Write this while updating website for 2025
+- [ ] Add `chair` field to each session in the timetable (with name, github, email, website, etc)
 
 ## Changing to post-event website
 
