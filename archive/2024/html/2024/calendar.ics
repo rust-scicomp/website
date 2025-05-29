@@ -12,7 +12,7 @@ DTEND:20240717T143000
 DTSTAMP:20240719T180000
 UID:w2024-Wednesday-0@scientificcomputing.rs
 CREATED:20240501T000000
-DESCRIPTION:Welcome and introduction\n\nModernization of DICOM workflows\nJennings Zhang\n\nEntangled: literate programming and computational notebooks in markdown\nJohan Hidding\n\nAcoDyn: fluid dynamics on the GPU powered by Rust\nAdrian Paskert\n\nRLST: linear algebra frameworks in Rust for the solution of partial differential equations\nTimo Betcke\n\nRaphtory: temporal graphs from Scala to Rust\nFabian Murariu\n\n
+DESCRIPTION:Welcome and introduction\n\nModernization of DICOM workflows\nJennings Zhang\n\nEntangled: literate programming and computational notebooks in markdown\nJohan Hidding\n\nAcoDyn: fluid dynamics on the GPU powered by Rust\nAdrian Paskert\n\nRLST: linear algebra frameworks in Rust for the solution of partial differential equations\nTimo Betcke\n\nRaphtory: temporal graphs from Scala to Rust\nFabian Murariu
 LAST-MODIFIED:20240719T180000
 SEQUENCE:0
 STATUS:CONFIRMED
@@ -25,7 +25,7 @@ DTEND:20240717T160000
 DTSTAMP:20240719T180000
 UID:w2024-Wednesday-1@scientificcomputing.rs
 CREATED:20240501T000000
-DESCRIPTION:Bless: transparently logging program outputs\nRohit Goswami\n\nA fast electromagnetics library with Rust and Python\nJames Logan\n\nsophus-rs\nHauke Strasdat\n\nBuilding a compile-time SIMD optimized smoothing filter\nMiguel Raz\n\nRootfinders for Rust\nOwen White\n\n
+DESCRIPTION:Bless: transparently logging program outputs\nRohit Goswami\n\nA fast electromagnetics library with Rust and Python\nJames Logan\n\nsophus-rs\nHauke Strasdat\n\nBuilding a compile-time SIMD optimized smoothing filter\nMiguel Raz\n\nRootfinders for Rust\nOwen White
 LAST-MODIFIED:20240719T180000
 SEQUENCE:0
 STATUS:CONFIRMED
@@ -51,7 +51,7 @@ DTEND:20240718T143000
 DTSTAMP:20240719T180000
 UID:w2024-Thursday-0@scientificcomputing.rs
 CREATED:20240501T000000
-DESCRIPTION:Rstats: multidimensional data analysis in Rust\nLibor Spacek\n\nDeveloping a computer algebra system in Rust\nBen Ruijl\n\nData oriented design with traits\nSrinath Kailasa\n\nextendr: frictionless bindings for R and Rust\nMossa Merhi Reimert\n\nRusting RSRS\nIgnacia Fierro Piccardo\n\nPhysics simulations in Bevy\nMo Bitar\n\n
+DESCRIPTION:Rstats: multidimensional data analysis in Rust\nLibor Spacek\n\nDeveloping a computer algebra system in Rust\nBen Ruijl\n\nData oriented design with traits\nSrinath Kailasa\n\nextendr: frictionless bindings for R and Rust\nMossa Merhi Reimert\n\nRusting RSRS\nIgnacia Fierro Piccardo\n\nPhysics simulations in Bevy\nMo Bitar
 LAST-MODIFIED:20240719T180000
 SEQUENCE:0
 STATUS:CONFIRMED
@@ -90,7 +90,7 @@ DTEND:20240719T143000
 DTSTAMP:20240719T180000
 UID:w2024-Friday-0@scientificcomputing.rs
 CREATED:20240501T000000
-DESCRIPTION:An embedded memory cache for persistent memory access\nLouis Boulanger\n\nPolars in the factory: when databases trump collections for modeling\nBartosz Telenczuk\n\nPerpetaul: a hyperparameter-free gradient boosting machine\nMutlu Simsek\n\nWriting maths software in Rust after 20 years of C++: graph isomorphism and groups\nChristopher Jefferson\n\nProductive and reliable constitutive modeling in Rust\nJed Brown\n\nEfficient 1-bit matrix approximations\nAlex W. N. Riasanovsky\n\n
+DESCRIPTION:An embedded memory cache for persistent memory access\nLouis Boulanger\n\nPolars in the factory: when databases trump collections for modeling\nBartosz Telenczuk\n\nPerpetaul: a hyperparameter-free gradient boosting machine\nMutlu Simsek\n\nWriting maths software in Rust after 20 years of C++: graph isomorphism and groups\nChristopher Jefferson\n\nProductive and reliable constitutive modeling in Rust\nJed Brown\n\nEfficient 1-bit matrix approximations\nAlex W. N. Riasanovsky
 LAST-MODIFIED:20240719T180000
 SEQUENCE:0
 STATUS:CONFIRMED
@@ -103,7 +103,7 @@ DTEND:20240719T160000
 DTSTAMP:20240719T180000
 UID:w2024-Friday-1@scientificcomputing.rs
 CREATED:20240501T000000
-DESCRIPTION:Developing Rust-based R packages using the Roxido framework\nDavid B. Dahl\n\nRusph: a SPH astrophysical simulation code in the Rust programming language\nJacksen Narvaez Coral\n\nBack to basics: rebuilding computational biomechanics crate by crate\nSpencer Williams\n\nCargo +GPU build: An early outlook\nManuel Drehwald\n\nWriting a grid library for finite and boundary element methods\nMatthew Scroggs\n\n
+DESCRIPTION:Developing Rust-based R packages using the Roxido framework\nDavid B. Dahl\n\nRusph: a SPH astrophysical simulation code in the Rust programming language\nJacksen Narvaez Coral\n\nBack to basics: rebuilding computational biomechanics crate by crate\nSpencer Williams\n\nCargo +GPU build: An early outlook\nManuel Drehwald\n\nWriting a grid library for finite and boundary element methods\nMatthew Scroggs
 LAST-MODIFIED:20240719T180000
 SEQUENCE:0
 STATUS:CONFIRMED

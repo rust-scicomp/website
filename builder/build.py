@@ -553,6 +553,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             if "talks" in session:
                 talklen = (rowend - row) / sum(info_yaml["long-length"][year] if is_long(t) else 1 for t in session["talks"])
                 start = 0
+                ics_talks = []
                 if "rowstart" in session:
                     row = session["rowstart"]
                 for ti, t in enumerate(session["talks"]):
@@ -578,7 +579,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += f" href='/{year}/talks/{t}.html'"
                     tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
                                    f"<div class='timetabletalktitle'>{title}</div>")
-                    ics_desc += f"{title}\\n"
+                    ics_talks.append(title)
                     icons = []
                     if not recorded(t):
                         icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
@@ -590,13 +591,13 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
                     if speaker is not None:
                         tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
-                        ics_desc += f"{speaker}\\n"
-                    ics_desc += "\\n"
+                        ics_talks[-1] += f"\\n{speaker}"
                     if t in special:
                         tt_content += "</div>"
                     else:
                         tt_content += "</a>"
                     start += nrows
+                ics_desc += "\\n\\n".join(ics_talks)
             else:
                 if "link" in session:
                     tt_content += f"<a href='{session['link']}'"
