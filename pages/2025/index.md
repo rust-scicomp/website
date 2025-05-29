@@ -61,7 +61,8 @@ We are very happy to announce that the invited speakers for Scientific Computing
 - Alice Cecile, an ecologist-turned-game-dev and developer of the Bevy game engine, who'll be talking about [what science can learn from game development](/2025/talks/cecile.html).
 - Nathaniel Simard, CEO of Tracel AI and developer of the deep learning framework Burn, who'll be talking about [Rust for accelerated computing](/2025/talks/simard.html).
 
-The full workshop schedule can be found on the [timetable](/2025/timetable) page.
+The full workshop schedule can be found on the [timetable](/2025/timetable) page. You add the workshop to your
+calendar using the ics feed at [scientificcomputing.rs/2025/calendar.ics](/2025/calendar.ics).
 
 ## Proposing a tutorial
 Talk submissions are now closed, but submissions for interactive tutorial session remain open until 30 May, with submissions being accepted periodically.

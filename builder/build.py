@@ -2,8 +2,12 @@ import os
 import typing
 import yaml
 import argparse
+from datetime import datetime
 from markup import markup
 from monthly import pull_monthly, issues_path, latest_issue, rss
+
+months = ["Nilember", "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"]
 
 
 def join(*parts: str) -> str:
@@ -449,6 +453,17 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     list_content = "<h1>List of talks</h1>"
     tt_content = "<h1>Timetable</h1>"
 
+    ics = (
+        "BEGIN:VCALENDAR\n"
+        "PRODID:=//Scientific Computing in Rust//Scientific Computing in Rust//EN\n"
+        "VERSION:2.0\n"
+        "CALSCALE:GREGORIAN\n"
+        "METHOD:REQUEST\n"
+        f"X-WR-CALNAME:Scientific Computing in Rust {year}\n"
+        "X-WR-TIMEZONE:Europe/London\n"
+        f"X-WR-CALDESC:The schedule for Scientific Computing in Rust {year}\n"
+    )
+
     # tt_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
     # list_content += "<div style='font-weight:bold;font-size:120%;color:red'>The information on this page is not finalised</div>"
 
@@ -489,6 +504,9 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     for di, day in enumerate(timetable):
         dcontent = ""
         date = info_yaml["days"][year][day]
+        ics_day = f"{year}"
+        ics_day += ('00' + str(months.index(date.split(" ")[-1])))[-2:]
+        ics_day += ('00' + date.split(" ")[1])[-2:]
 
         list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
         tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
@@ -497,6 +515,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
 
         subtract = 0
         for si, session in enumerate(timetable[day]):
+            ics_desc = ""
             session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False, year=year)
             dcontent += "<h3"
             if si != 0:
@@ -525,6 +544,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 tt_content += "</div>"
             if "description" in session:
                 dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
+                ics_desc = session["description"]
             if "chair" in session:
                 dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
                              f"Chair: {person(session['chair'])}</div>")
@@ -558,6 +578,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += f" href='/{year}/talks/{t}.html'"
                     tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
                                    f"<div class='timetabletalktitle'>{title}</div>")
+                    ics_desc += f"{title}\\n"
                     icons = []
                     if not recorded(t):
                         icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
@@ -569,6 +590,8 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                         tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
                     if speaker is not None:
                         tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
+                        ics_desc += f"{speaker}\\n"
+                    ics_desc += "\\n"
                     if t in special:
                         tt_content += "</div>"
                     else:
@@ -614,10 +637,32 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                                "display: flex; justify-content: center; align-items: center;'>")
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
+            ics += (
+                "BEGIN:VEVENT\n"
+                f"DTSTART:{ics_day}T{session['start'].replace(':', '')}00Z\n"
+                f"DTEND:{ics_day}T{session['end'].replace(':', '')}00Z\n"
+                f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M00Z')}\n"
+                f"UID:w{year}-{day}-{si}@scientificcomputing.rs\n"
+                f"CREATED:{year}0501T000000Z\n"
+                f"DESCRIPTION:"
+            )
+            ics += ics_desc.replace(',', '\\,')
+            ics += (
+                "\n"
+                f"LAST-MODIFIED:{datetime.now().strftime('%Y%m%dT%H%M00Z')}\n"
+                "SEQUENCE:0\n"
+                "STATUS:CONFIRMED\n"
+                f"SUMMARY:{session['title'] if 'title' in session else 'Talks'}\n"
+                "TRANSP:OPAQUE\n"
+                "END:VEVENT\n"
+            )
         list_content += dcontent
         write_page(f"{year}/talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>', year=year)}{dcontent}", workshop=year)
 
     tt_content += "</div>"
+    ics += "END:VCALENDAR\n"
 
     write_page(f"{year}/talklist.html", list_content, workshop=year)
     write_page(f"{year}/timetable.html", tt_content, workshop=year)
+    with open(os.path.join(html_path, f"{year}/calendar.ics"), "w") as f:
+        f.write(ics)

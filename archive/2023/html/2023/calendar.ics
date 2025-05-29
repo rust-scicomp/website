@@ -1,0 +1,87 @@
+BEGIN:VCALENDAR
+PRODID:=//Scientific Computing in Rust//Scientific Computing in Rust//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+X-WR-CALNAME:Scientific Computing in Rust 2023
+X-WR-TIMEZONE:Europe/London
+X-WR-CALDESC:The schedule for Scientific Computing in Rust 2023
+BEGIN:VEVENT
+DTSTART:20230713T130000Z
+DTEND:20230713T144000Z
+DTSTAMP:20250529T151600Z
+UID:w2023-Thursday-0@scientificcomputing.rs
+CREATED:20230501T000000Z
+DESCRIPTION:Welcome and introduction\n\nA parallel Lattice&ndash;Boltzmann CFD solver using rayon\nGonzalo Brito\n\nfaer-rs: a linear algebra foundation for the Rust programming language\nSarah El Kazdadi\n\nInsights from making a DNN & CNN library from scratch in Rust\nAnicet Nougaret\n\nAnother Python developer gone rogue: improving productivity of medical research with Rust CLI tools\nJennings Zhang\n\nRepresenting open quantum systems in Rust\nNicolas Vogt\n\n
+LAST-MODIFIED:20250529T151600Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230713T150000Z
+DTEND:20230713T160000Z
+DTSTAMP:20250529T151600Z
+UID:w2023-Thursday-1@scientificcomputing.rs
+CREATED:20230501T000000Z
+DESCRIPTION:Large scale zonal summaries with Rust\nMichael Salib\n\nWriting R extensions in Rust\nDavid B. Dahl\n\nLamellar: A Rust-based asynchronous tasking and PGAS runtime for high performance computing\nRyan D. Friese\n\nSage enables fast proteomics searching and quantification at scale\nMichael Lazear\n\nPowering transactions with functional data structures\nLouis Boulanger\n\nBernstein&ndash;B&eacute;zier finite elements for RMM in Rust\nAdam Sky\n\n
+LAST-MODIFIED:20250529T151600Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230713T160000Z
+DTEND:20230713T170000Z
+DTSTAMP:20250529T151600Z
+UID:w2023-Thursday-2@scientificcomputing.rs
+CREATED:20230501T000000Z
+DESCRIPTION:An interactive session during which participants will be able to talk to the presenters of Thursday's talks\, and meet other workshop participants.
+LAST-MODIFIED:20250529T151600Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230714T130000Z
+DTEND:20230714T144000Z
+DTSTAMP:20250529T151600Z
+UID:w2023-Friday-0@scientificcomputing.rs
+CREATED:20230501T000000Z
+DESCRIPTION:Using Rust in radio astronomy\nChristopher Jordan\n\nProximal methods for point source localisation: the implementation\nTuomo Valkonen\n\nConic optimization using the Clarabel solver\nPaul Goulart\n\nRust vs Julia in scientific computing\nMo Bitar\n\nHigh-Performance linear algebra for PDEs in Rust\nTimo Betcke\n\nFearless simulation of many-particle dynamics\nJulian Jeggle\n\nAutomatic differentiation of Rust\, with the friendly help of your compiler\nManuel Drehwald\n\n
+LAST-MODIFIED:20250529T151600Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230714T150000Z
+DTEND:20230714T160000Z
+DTSTAMP:20250529T151600Z
+UID:w2023-Friday-1@scientificcomputing.rs
+CREATED:20230501T000000Z
+DESCRIPTION:Portable SIMD tricks for fun and profit\nMiguel Raz Guzm&aacute;n Macedo\n\nScalable computational mechanics with Rust\nJed Brown\n\nLace: Bayesian tabular data analysis for Rust (and Python)\nBaxter Eaves\n\nRoqoqo: a quantum computing toolkit in Rust\nMatteo Lodi\n\nRadiation transport in cosmological simulations\nToni Peter\n\nEquation of state for robust oceanographic embedded systems\nGuilherme Castel&atilde;o\n\nTowards a distributed fast multipole method (FMM) with Rust\nSrinath Kailasa\n\n
+LAST-MODIFIED:20250529T151600Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230714T160000Z
+DTEND:20230714T170000Z
+DTSTAMP:20250529T151600Z
+UID:w2023-Friday-2@scientificcomputing.rs
+CREATED:20230501T000000Z
+DESCRIPTION:An interactive session during which participants will be able to talk to the presenters of Friday's talks\, and meet other workshop participants.
+LAST-MODIFIED:20250529T151600Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
