@@ -464,10 +464,13 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
         tt_content += " 3fr"
     tt_content += ";\n"
     tt_content += "  grid-template-rows: auto 10px auto"
+    after_break = None
     for i, (row, rowend) in enumerate(rows[:-1]):
         if i > 0:
             tt_content += " 2fr auto"
         tt_content += f" repeat({rowend + 1 - row}, 1fr)"
+        if after_break is None:
+            after_break = rowend + 2
     tt_content += "10px "
     if year < 2025:
         tt_content += "auto"
@@ -476,6 +479,11 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
     tt_content += ";\n"
     tt_content += "}\n"
     tt_content += "</style>\n"
+
+    def chair_row(start):
+        if int(start.split(":")[0]) < 15:
+            return 3
+        return after_break
 
     tt_content += "<div class='timetablegrid'>\n"
     for di, day in enumerate(timetable):
@@ -520,7 +528,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
             if "chair" in session:
                 dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
                              f"Chair: {person(session['chair'])}</div>")
-                tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {row - 1} / span 1;margin:10px;font-size:80%;text-align:center'>"
+                tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {chair_row(session['start'])} / span 1;margin:10px;font-size:80%;text-align:center'>"
                                f"Chair: {session['chair']['name']}</div>")
             if "talks" in session:
                 talklen = (rowend - row) / sum(info_yaml["long-length"][year] if is_long(t) else 1 for t in session["talks"])
