@@ -44,16 +44,20 @@ This checklist can be used when planning the annual workshop.
 - [ ] Invite people to be session chairs
 
 ## 2 weeks before workshop
-- [ ] Email speakers with link and info about tech test
 - [ ] [Put chairs on website](WORKSHOP_WEBSITE_INSTRUCTIONS.md)
 - [ ] Request Zoom Webinar license from UCL [request cannot be made more than 3 weeks before event]
 
 ## 1 week before workshop
-- [ ] Run tech test session for any speaker who wants to test their setup (2-3 sessions at times that are good for various timezones)
 - [ ] Email all attendees with:
   - zoom links
   - information about tutorials (eg install Rust before coming to intro to rust)
-  - Reminder to encourage colleagues to register
+  - reminder to encourage colleagues to register
+  - Zulip link
+  - code of conduct
+- [ ] Email speakers with:
+  - info about speaking
+  - info about tech test time before/after each day's talks
+  - code of conduct
 - [ ] Make slides for opening and closing talks
 - [ ] Make feedback form
 
