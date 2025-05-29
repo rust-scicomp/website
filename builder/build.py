@@ -637,19 +637,27 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                                "display: flex; justify-content: center; align-items: center;'>")
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
+            if archive:
+                final_day = list(info_yaml["days"][year].values())[-1]
+                modified = f"{year}"
+                modified += ('00' + str(months.index(final_day.split(" ")[-1])))[-2:]
+                modified += ('00' + final_day.split(" ")[1])[-2:]
+                modified += "T180000"
+            else:
+                modified = datetime.now().strftime('%Y%m%dT%H%M00')
             ics += (
                 "BEGIN:VEVENT\n"
-                f"DTSTART:{ics_day}T{session['start'].replace(':', '')}00Z\n"
-                f"DTEND:{ics_day}T{session['end'].replace(':', '')}00Z\n"
-                f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M00Z')}\n"
+                f"DTSTART:{ics_day}T{session['start'].replace(':', '')}00\n"
+                f"DTEND:{ics_day}T{session['end'].replace(':', '')}00\n"
+                f"DTSTAMP:{modified}\n"
                 f"UID:w{year}-{day}-{si}@scientificcomputing.rs\n"
-                f"CREATED:{year}0501T000000Z\n"
+                f"CREATED:{year}0501T000000\n"
                 f"DESCRIPTION:"
             )
             ics += ics_desc.replace(',', '\\,')
             ics += (
                 "\n"
-                f"LAST-MODIFIED:{datetime.now().strftime('%Y%m%dT%H%M00Z')}\n"
+                f"LAST-MODIFIED:{modified}\n"
                 "SEQUENCE:0\n"
                 "STATUS:CONFIRMED\n"
                 f"SUMMARY:{session['title'] if 'title' in session else 'Talks'}\n"
