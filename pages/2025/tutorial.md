@@ -31,3 +31,14 @@ This includes using cargo to integrate cmake or other C build systems into the b
 be to run a core benchmark commonly used in HPC and compare it to native C/CUDA/HIP performance.
 
 In order to join in with the practical parts of this tutorial, you will need access to a machine with NVIDIA and/or AMD GPUs.
+
+<h2 style='margin-bottom:0px'>Bubbaloop 101: Turn Your Phone into a Security Camera in 10 Minutes</h2>
+<div>
+<div class='authors'><b>Jian Shi</b> <a href='https://kornia.gitbook.io/bubbaloop' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='https://github.com/shijianjian' class='falink'><i class='fa-brands fa-github'></i></a> <a href='https://www.linkedin.com/in/jian-shi-1ba543110' class='falink'><i class='fa-brands fa-linkedin'></i></a> (Kornia.AI)</div>
+<div class='authors'><b>Edgar Riba</b> (Kornia.AI)</div>
+<div class='authors'><b>Christie Jacob</b> (Kornia.AI)</div>
+</div>
+
+Learn how to repurpose any smartphone into an AI-powered security camera in just 10 minutes using Bubbaloop.
+This beginner-friendly tutorial walks you through setting up real-time RTSP streams—all without needing extra
+hardware. Follow the step-by-step guide on the official and enhance your "security" with ease.
