@@ -13,8 +13,10 @@ def html2tex(a):
     a = a.replace("&eacute;", "\\'e")
     a = a.replace("&atilde;", "\\~a")
     a = a.replace("&uuml;", "\\\"u")
+    a = a.replace("&iuml;", "\\\"i")
     a = a.replace("&ndash;", "--")
     a = a.replace(" & ", " \\& ")
+    a = a.replace("_", "\\_")
     return a
 
 with open("output/end.tex", "w") as f:
@@ -29,7 +31,7 @@ with open("output/end.tex", "w") as f:
     f.write("\\begin{document}\n")
     f.write("\\begin{tikzpicture}[x=0.5pt,y=0.5pt]\n")
     f.write("\\fill[rusto] (0,0) rectangle (1920,1080);")
-    f.write("\\node at (960,920) {\scalebox{1.66}{Scientific Computing in Rust 2024}};")
+    f.write("\\node at (960,920) {\scalebox{1.66}{Scientific Computing in Rust 2025}};")
     f.write("\\node at (960,120) {\scalebox{0.866}{scientificcomputing.rs}};")
     f.write("\\node at (960,540) {\includegraphics[width=300pt]{../../files/img/science-ferris-transparent.png}};")
     f.write("\\end{tikzpicture}\n")
@@ -55,7 +57,7 @@ for file in os.listdir("../talks"):
         f.write("\\begin{document}\n")
         f.write("\\begin{tikzpicture}[x=0.5pt,y=0.5pt]\n")
         f.write("\\fill[rusto] (0,0) rectangle (1920,1080);")
-        f.write("\\node at (960,920) {\scalebox{1.66}{Scientific Computing in Rust 2024}};")
+        f.write("\\node at (960,920) {\scalebox{1.66}{Scientific Computing in Rust 2025}};")
         f.write("\\node at (960,120) {\scalebox{0.866}{scientificcomputing.rs}};")
         f.write("\\node[anchor=east] at (1850,540) {\includegraphics[width=300pt]{../../files/img/science-ferris-transparent.png}};")
         f.write(f"\\node[anchor=west,align=left,text width=450pt, execute at begin node=\\setlength{{\\baselineskip}}{{2.2ex}}] at (250,540) {{{html2tex(t['title'])}")
