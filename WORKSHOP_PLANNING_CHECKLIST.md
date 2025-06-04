@@ -60,6 +60,8 @@ This checklist can be used when planning the annual workshop.
   - code of conduct
 - [ ] Make slides for opening and closing talks
 - [ ] Make feedback form
+- [ ] Make screensaver slides to put up between sessions
+- [ ] Write introductions for invited speakers
 
 ## Date in June/July of workshop
 - [ ] Run workshop
