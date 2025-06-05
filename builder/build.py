@@ -232,7 +232,7 @@ def has_slides(t: str) -> bool:
 
     with open(os.path.join(talks_path, f"{t}.yml")) as f:
         tinfo = yaml.load(f, Loader=yaml.FullLoader)
-    return "slides" in tinfo
+    return "slides" in tinfo or "slides_link" in tinfo
 
 
 def talk(
@@ -273,6 +273,9 @@ def talk(
     if "slides" in tinfo:
         content += (f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
                     "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>")
+    if "slides_link" in tinfo:
+        content += (f"<div style='margin-top:15px'><a href='{tinfo['slides_link']}'>"
+                    "<i class='fa-solid fa-file-powerpoint'></i> View this talk's slides</a></div>")
 
     content += "<div class='abstract'>"
     if "abstract" in tinfo:
