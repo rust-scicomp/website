@@ -11,7 +11,7 @@ running code on GPUs, and a huge range of application-specific libraries.
 It was first held in [2023](/2023). Recordings of the talks for every workshop are available on the
 [Scientific Computing in Rust YouTube channel](https://www.youtube.com/@ScientificComputinginRust).
 
-Information and registration links for the upcoming 2025 workshop can be found on the
+Information and registration links for the most recent 2025 workshop can be found on the
 <a href='/2025'>Scientific Computing in Rust 2025 workshop page</a>.
 
 ## Monthly newsletter
