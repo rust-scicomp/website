@@ -52,5 +52,3 @@ This should be done 0-1 weeks after the workshop.
 - [ ] Add `youtube` field to the .yml file for each talk that was recorded with the YouTube id of the recording.
 - [ ] Remove registration link.
 - [ ] Change text on all pages to past tense.
-
-TODO: Write this while updating website for 2025
