@@ -2,10 +2,9 @@
 
 Show times in: <timeselector>
 
-From <time Thursday 15:00> on Thursday 5 June, there will be a tutorial session.
-During this session, there will be a number of tutorials running in parallel for you to choose
-from. The list of currently available tutorials is given below, with more tutorials expected to be added
-in the coming weeks.
+From <time Thursday 15:00> on Thursday 5 June, there was a tutorial session.
+During this session, there were a number of tutorials running in parallel for you to choose
+from. The list of tutorials is given below.
 
 <h2 style='margin-bottom:0px'>A beginner's guide to Rust</h2>
 <div>
@@ -14,7 +13,7 @@ in the coming weeks.
 </div>
 
 This session is aimed at people who don't use Rust yet, but are attending the workshop as they
-are interested in starting to use it. We will cover basic syntax in Rust and a few of the language's
+are interested in starting to use it. We covered basic syntax in Rust and a few of the language's
 nicest features.
 
 Before this session, please install Rust on your computer. There are instructions for doing
@@ -26,9 +25,9 @@ this at [rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 <div class='authors'><b>Jeffrey S Vetter</b> (Oak Ridge National Laboratory)</div>
 </div>
 
-This session will walk you through the steps of using Rust to offload to accelerators using NVIDIA and AMD GPUs.
-This includes using cargo to integrate cmake or other C build systems into the build process. The end goal will
-be to run a core benchmark commonly used in HPC and compare it to native C/CUDA/HIP performance.
+This session walked you through the steps of using Rust to offload to accelerators using NVIDIA and AMD GPUs.
+This includes using cargo to integrate cmake or other C build systems into the build process. The end goal was
+to run a core benchmark commonly used in HPC and compare it to native C/CUDA/HIP performance.
 
 In order to join in with the practical parts of this tutorial, you will need access to a machine with NVIDIA and/or AMD GPUs.
 
@@ -40,5 +39,5 @@ In order to join in with the practical parts of this tutorial, you will need acc
 </div>
 
 Learn how to repurpose any smartphone into an AI-powered security camera in just 10 minutes using Bubbaloop.
-This beginner-friendly tutorial walks you through setting up real-time RTSP streams—all without needing extra
+This beginner-friendly tutorial walks you through setting up real-time RTSP streams&mdash;all without needing extra
 hardware. Follow the step-by-step guide on the official and enhance your "security" with ease.

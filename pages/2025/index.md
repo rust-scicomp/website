@@ -7,9 +7,9 @@ It was first held in [2023](/2023).
 Recordings of the talks for every workshop are available on the
 [Scientific Computing in Rust YouTube channel](https://www.youtube.com/@ScientificComputinginRust).
 
-The Scientific Computing in Rust 2025 workshop will take place on Wednesday 4 June to Friday 6
+The Scientific Computing in Rust 2025 workshop took place on Wednesday 4 June to Friday 6
 June between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
-This will the third Scientific Computing in Rust workshop; archived information about
+This was the third Scientific Computing in Rust workshop; archived information about
 Scientific Computing in Rust 2023 and 2024 can be found at
 [scientificcomputing.rs/2023](/2023) and
 [scientificcomputing.rs/2024](/2024).
@@ -44,15 +44,15 @@ function toggle_times() {
 </script>
 {% end no markup %}
 
-The workshop will be held virtually and will be free to attend. Recordings of the talks
-from the workshop will be made available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
+The workshop was held virtually and was free to attend. Recordings of the talks
+from the workshop are made available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
 alongside the talks from 2023 and 2024.
 
 ## Schedule
-The Scientific Computing in Rust 2024 workshop will feature a mixture of 30 minute talks by invited
+The Scientific Computing in Rust 2024 workshop featured a mixture of 30 minute talks by invited
 speakers, 10 minute talks by workshop attendees, and interactive discussion/tutorial sessions.
 
-We are very happy to announce that the invited speakers for Scientific Computing in Rust 2025 will be:
+The invited speakers for Scientific Computing in Rust 2025 were:
 
 - Alice Cecile, an ecologist-turned-game-dev and developer of the Bevy game engine, who'll be talking about [what science can learn from game development](/2025/talks/cecile.html).
 - Nathaniel Simard, CEO of Tracel AI and developer of the deep learning framework Burn, who'll be talking about [Rust for accelerated computing](/2025/talks/simard.html).

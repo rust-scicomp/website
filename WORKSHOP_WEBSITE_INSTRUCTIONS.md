@@ -47,5 +47,8 @@ This should be done 1-2 weeks before the workshop.
 - [ ] Add `chair` field to each session in the timetable (with name, github, email, website, etc)
 
 ## Changing to post-event website
+This should be done 0-1 weeks after the workshop.
 
-TODO: Write this while updating website for 2025
+- [ ] Add `youtube` field to the .yml file for each talk that was recorded with the YouTube id of the recording.
+- [ ] Remove registration link.
+- [ ] Change text on all pages to past tense.
