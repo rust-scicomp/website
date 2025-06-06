@@ -1,3 +1,0 @@
-# Scientific Computing in Rust 2026
-
-You're early...
