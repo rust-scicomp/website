@@ -17,7 +17,7 @@ jobs:
         name: Install requirements
       - run: |
           for ((i = 2023 ; i < $(date +%Y) ; i++ ))
-            do python3 builder/build.py --year $i
+            do python3 builder --year $i
           done
         name: Build archive HTML
       - run: |

@@ -14,7 +14,7 @@ Information about the monthly newsletter can be found in the
 To build the website run:
 
 ```bash
-python builder/build.py
+python builder
 ```
 
 The HTML website will be created in a new folder called `_html`. To locally view the build website,
@@ -28,7 +28,7 @@ python -m http.server
 The archive of a previous year's website can be created by running (for example for 2023):
 
 ```bash
-python builder/build.py --year 2023
+python builder --year 2023
 ```
 
 The HTML files that this creates are included in the repo, so this needs to be run locally and changes to HTML files
