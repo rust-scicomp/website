@@ -38,7 +38,7 @@ svg.brand-logo {margin-top: 2px; margin-bottom: -2px;}
 @media (max-width:780px){
   .content {max-width:100%}
 }
-.content {margin:auto;padding:10px}
+.content {margin:auto;padding:10px;hyphens:auto}
 .head .content {background-color:#000000FF;padding-bottom:0}
 
 .title {text-align:center;font-size:35px}
