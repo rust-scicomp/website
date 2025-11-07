@@ -29,6 +29,10 @@ def markup(content, icons=True, paragraphs=True, year=None):
 
     if "{{monthly_list}}" in content:
         content = content.replace("{{monthly_list}}", monthly_list())
+    while "{{monthly_list::" in content:
+        pre, post = content.split("{{monthly_list::", 1)
+        n, post = post.split("}}", 1)
+        content = pre + monthly_list(int(n)) + post
 
     if "{% no markup %}" in content:
         before, after = content.split("{% no markup %}", 1)

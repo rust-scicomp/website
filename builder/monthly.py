@@ -5,7 +5,7 @@ monthly_path = os.path.join(dir_path, "../monthly")
 issues_path = os.path.join(monthly_path, "issues")
 
 
-def monthly_list():
+def monthly_list(count=None):
     issues = []
     for file in os.listdir(issues_path):
         if file.endswith(".md") and not file.startswith("."):
@@ -26,7 +26,10 @@ def monthly_list():
                         break
             issues.append((file[:-3], number, date))
     issues.sort(key=lambda i: -i[1])
-    return "\n".join(f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})" for i in issues)
+    if count is None or count >= len(issues):
+        return "\n".join(f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})" for i in issues)
+    else:
+        return "\n".join(f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})" for i in issues[:count]) + "\n\n[Older issues](/monthly/all)"
 
 
 def pull_monthly():

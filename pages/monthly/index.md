@@ -14,4 +14,4 @@ You can find more information about adding items
 
 ## Issues
 
-{{monthly_list}}
+{{monthly_list::6}}
