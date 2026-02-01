@@ -165,7 +165,7 @@ def person(p: typing.Dict, bold: bool = False) -> str:
                  "<i class='fa-brands fa-github'></i></a>")
     if "codeberg" in p:
         info += (f" <a href='https://codeberg.org/{p['codeberg']}' class='falink'>"
-                 "<i class='fa-solid fa-icicles'></i></a>")
+                 "<i class='fa-solid fa-code-pull-request'></i></a>")
     if "zulip" in p:
         info += (f" <a href='https://rust-scicomp.zulipchat.com' title='{p['zulip']} on Rust-SciComp Zulip'>"
                  "<svg class='brand-logo' role='img' aria-label='Zulip' xmlns='http://www.w3.org/2000/svg' viewBox='68.96 55.62 450 450.43' height='16'>"
