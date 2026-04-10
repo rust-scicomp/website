@@ -4,8 +4,8 @@ import re
 import shlex
 import yaml
 from datetime import datetime
-from citations import markup_citation
-from monthly import monthly_list
+from builder.citations import markup_citation
+from builder.monthly import monthly_list
 
 page_references = []
 ref_map = {}

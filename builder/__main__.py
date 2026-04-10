@@ -3,8 +3,8 @@ import typing
 import yaml
 import argparse
 from datetime import datetime
-from markup import markup
-from monthly import pull_monthly, issues_path, latest_issue, rss
+from builder.markup import markup
+from builder.monthly import pull_monthly, issues_path, latest_issue, rss
 
 months = ["Nilember", "January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
@@ -61,6 +61,7 @@ else:
 
 if os.path.isdir(html_path):
     os.system(f"rm -rf {html_path}")
+os.mkdir(os.path.dirname(html_path))
 os.mkdir(html_path)
 os.mkdir(os.path.join(html_path, f"{year}"))
 os.mkdir(os.path.join(html_path, os.path.join(f"{year}", "talks")))
