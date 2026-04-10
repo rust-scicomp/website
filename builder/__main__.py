@@ -3,8 +3,8 @@ import typing
 import yaml
 import argparse
 from datetime import datetime
-from builder.markup import markup
-from builder.monthly import pull_monthly, issues_path, latest_issue, rss
+from markup import markup
+from monthly import pull_monthly, issues_path, latest_issue, rss
 
 months = ["Nilember", "January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]

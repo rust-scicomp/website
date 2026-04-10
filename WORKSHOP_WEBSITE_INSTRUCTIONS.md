@@ -13,7 +13,7 @@ This should be done in ~January every year.
     - [ ] submit-talk.md
     - [ ] team.md
 - [ ] Update pages/index.md to link to latest year
-- [ ] Update archive by running `python -m builder --year {YEAR - 1}`. You
+- [ ] Update archive by running `python builder --year {YEAR - 1}`. You
       may also need to update the years before this.
 - [ ] Update template/intro.html to make the latest workshop have links:
     - {{workshop-year}} home
