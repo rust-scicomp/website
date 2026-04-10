@@ -64,7 +64,7 @@ def latest_issue():
 
 
 def rss():
-    from markup import markup
+    from builder.markup import markup
     out = (
         "<?xml version='1.0'?>\n"
         "<?xml-stylesheet href='/monthly/sty.xsl' type='text/xsl'?>\n"
