@@ -14,7 +14,7 @@
 <person>
   img: /img/ignacia-fierro-piccardo.jpg
   name: Ignacia Fierro Piccardo
-  about: Ignacia is a postdoctoral researcher at the Department of Mathematics, University College London. She is currently working on developing [bempp-rs](https://github.com/bempp/bempp-rs), with a focus on matrix methods and electromagnetic applications.
+  about: Ignacia is a postdoctoral researcher at the Department of Mathematical Sciences, University of Bath.
   github: ignacia-fp
   zulip: Ignacia Fierro
 </person>
@@ -22,9 +22,10 @@
 <person>
   img: /img/matthew-scroggs.jpg
   name: Matthew Scroggs
-  about: Matthew is a postdoctoral researcher at the Department of Mathematics, University College London.
-  rust-about: He is currently working on developing [bempp-rs](https://github.com/bempp/bempp-rs), a Rust-based boundary element method library.
+  about: Matthew is a research software engineer in the Advanced Research Computing centre (ARC) at University College London.
+  rust-about: He is currently working on developing the collection of numerical discretisation libraries [nd](https://codeberg.org/nd-project/nd).
   github: mscroggs
+  codeberg: mscroggs
   bluesky: mscroggs.co.uk
   mastodon: mscroggs@mathstodon.xyz
   website: https://mscroggs.co.uk
