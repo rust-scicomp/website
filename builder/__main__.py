@@ -61,7 +61,7 @@ else:
 
 if os.path.isdir(html_path):
     os.system(f"rm -rf {html_path}")
-if not os.path.isdir(os.path.dirname(html_path)):
+if os.path.dirname(html_path) != "" and not os.path.isdir(os.path.dirname(html_path)):
     os.mkdir(os.path.dirname(html_path))
 os.mkdir(html_path)
 os.mkdir(os.path.join(html_path, f"{year}"))
