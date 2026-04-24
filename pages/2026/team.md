@@ -12,6 +12,18 @@
 </person>
 
 <person>
+  img: /img/jed-brown.jpg
+  name: Jed Brown
+  about: Jed is a professor of computer science at CU Boulder.
+  rust-about: Jed maintains Rust crates for [MPI](https://docs.rs/mpi), [PETSc](https://petsc.org), and [libCEED](https://docs.rs/libceed/latest/libceed/). He is interested in applying Rust and Enzyme in c>
+  github: jedbrown
+  mastodon: jedbrown@hachyderm.io
+  email: jed.brown@colorado.edu
+  website: https://jedbrown.org
+  zulip: Jed
+</person>
+
+<person>
   img: /img/ignacia-fierro-piccardo.jpg
   name: Ignacia Fierro Piccardo
   about: Ignacia is a postdoctoral researcher at the Department of Mathematics, University College London. She is currently working on developing [bempp-rs](https://github.com/bempp/bempp-rs), with a focus on matrix methods and electromagnetic applications.
