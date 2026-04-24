@@ -20,6 +20,13 @@
 </person>
 
 <person>
+  img: /img/shany-neeman.jpg
+  name: Shany Neeman
+  about: Shany is a PhD student in the Department of Mathematics at University College London.
+  github: shanyn8
+</person>
+
+<person>
   img: /img/matthew-scroggs.jpg
   name: Matthew Scroggs
   about: Matthew is a research software engineer in the Advanced Research Computing centre (ARC) at University College London.
