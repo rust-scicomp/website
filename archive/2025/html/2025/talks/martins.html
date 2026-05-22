@@ -1,0 +1,93 @@
+<html lang="en-GB">
+<head>
+<meta charset='UTF-8'>
+<meta name='author' content='Matthew Scroggs'>
+<meta name='description' content='The Scientific Computing in Rust annual workshop and monthly newsletter.'>
+<meta name='keywords' content='rust,scientific computing'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Computing in Rust 2025: NPB-Rust: NAS parallel benchmarks in Rust</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel='stylesheet' type='text/css' href='/sty.css?v=2024-08-19'>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:site' content='@mscroggs' />
+<meta name='twitter:creator' content='@mscroggs' />
+<meta name='twitter:title' content='Scientific Computing in Rust 2025: NPB-Rust: NAS parallel benchmarks in Rust' />
+<meta name='twitter:description' content="the Scientific Computing in Rust annual workshop and monthly newsletter." />
+<meta name='twitter:image' content='https://scientificcomputing.rs/img/card.png' />
+
+<meta name='og:title' content='Scientific Computing in Rust 2025: NPB-Rust: NAS parallel benchmarks in Rust' />
+<meta name='og:url' content='https://scientificcomputing.rs/2025/talks/martins.html' />
+<meta name='og:image' content='https://scientificcomputing.rs/img/card.png' />
+<meta name='og:type' content='website' />
+<meta name='og:description' content='the Scientific Computing in Rust annual workshop and monthly newsletter.' />
+<meta name='og:locale' content="en_gb" />
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/fontawesome.css">
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/brands.css">
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/solid.css">
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/regular.css">
+<script type='text/javascript' src='/timezones.js?v=2023-07-13'></script>
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class='head'>
+<div class='laptop'>
+<div class='content'>
+<div class='title'><a href='/'>Scientific Computing in Rust</a></div>
+<div class='links'>
+<a href='/'>Home</a>
+<a href='/2026' class='viewing-now'>Annual workshop</a>
+<a href='/monthly'>Monthly newsletter</a>
+</div>
+
+<div class='tagline'>4-6 June 2025</div>
+
+
+
+<div class='links'>
+<a href='/2025'>2025 home</a>
+<a href='/2025/timetable'>Timetable</a>
+<a href='/2025/talklist'>List of talks</a>
+<a href='/2025/team'>Organisers</a>
+</div>
+
+
+</div>
+</div>
+</div>
+<div class='body'>
+<div class='content'>
+
+<div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in 2025. Information about the latest workshop can be found <a href='/2026'>here</a>.</div>
+
+<h1>NPB-Rust: NAS parallel benchmarks in Rust</h1><div><div class='authors'><b>Eduardo M. Martins</b> <a href='mailto:e.martins01@edu.pucrs.br' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/Eduardo-M-Martins' class='falink'><i class='fa-brands fa-github'></i></a> (Pontifical Catholic University of Rio Grande do Sul (PUCRS))</div><div class='authors'>Leonardo Gibrowski Fa&eacute; (PUCRS)</div><div class='authors'>Renato B. Hoffmann (PUCRS)</div><div class='authors'>Lucas S. Bianchessi (PUCRS)</div><div class='authors'>Dalvan Griebler (PUCRS)</div></div><div style='margin-top:5px'><a href='/2025/talklist-Wednesday.html'>Wednesday</a> session 1 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='4' data-month='5' data-year='2025' data-hour='13' data-minute='00'>13:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='4' data-month='5' data-year='2025' data-hour='14' data-minute='30'>14:30</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/CMPXZI4Wae4'><i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>The NAS Parallel Benchmarks (NPB) is a suite of programs developed by NASA’s Numerical Aerodynamic Simulation Program to provide an objective standard for evaluating the performance of highly parallel supercomputers. Initially written in Fortran, the suite includes both sequential and parallel versions, with support for OpenMP and MPI. Over time, several independent adaptations have been proposed, including versions targeting C++ and GPU platforms. We have ported the NPB suite to Rust, with two main goals: (1) to develop NPB-Rust as a benchmark that enables other developers to test and validate their Rust-based HPC solutions; and (2) to evaluate the performance of Rust and the Rayon framework in comparison with established HPC languages such as C++ and Fortran with OpenMP. In this talk, we will present NPB-Rust, share the performance results obtained so far, and discuss the current state and future directions of the project. We have a pre-print paper at: <a href="https://arxiv.org/abs/2502.15536">arxiv.org/abs/2502.15536</a></p></div><div class='prevnext'><div class='prevlink'><a href='/2025/talks/boros.html'>&larr; previous talk</a></div><div class='nextlink'><a href='/2025/talks/pleyer.html'>next talk &rarr;</a></div></div><div style='text-align:center'>
+<img style='width:200px;padding-top:50px' src='/img/ferris.png'>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+page_load_update_timezone();
+</script>
+</body>
+</html>

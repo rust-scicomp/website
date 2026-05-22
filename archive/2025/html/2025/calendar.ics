@@ -1,0 +1,139 @@
+BEGIN:VCALENDAR
+PRODID:=//Scientific Computing in Rust//Scientific Computing in Rust//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+X-WR-CALNAME:Scientific Computing in Rust 2025
+X-WR-TIMEZONE:Europe/London
+X-WR-CALDESC:The schedule for Scientific Computing in Rust 2025
+BEGIN:VEVENT
+DTSTART:20250604T130000
+DTEND:20250604T143000
+DTSTAMP:20250606T180000
+UID:w2025-Wednesday-0@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:Welcome and introduction\n\nStochastic calculus in Rust\nDaniel Boros\n\nNPB-Rust: NAS parallel benchmarks in Rust\nEduardo M. Martins\n\ncellular_raza: cellular agent-based modeling from a clean slate\nJonas Pleyer\n\nExponential time integration for stiff systems in Rust\nWilliam Gurecky\n\nRust for chip design algorithms and EDA software\nStefan Abi-Karam
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250604T150000
+DTEND:20250604T160000
+DTSTAMP:20250606T180000
+UID:w2025-Wednesday-1@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:A set of discussions on a range of topics taking place in parallel.
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Topical discussions
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250604T160000
+DTEND:20250604T170000
+DTSTAMP:20250606T180000
+UID:w2025-Wednesday-2@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:An introduction to vector programming with portable SIMD\nAndr&eacute;s Quintero\n\nninterp: numerical interpolation in N-dimensions\nKyle Carow\n\nNine rules for scientific libraries in Rust\nCarl M. Kadie\n\nArrow\, Rust\, and cross-language data science tooling\nJosiah Parry
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250605T130000
+DTEND:20250605T143000
+DTSTAMP:20250606T180000
+UID:w2025-Thursday-0@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:Using Rust to mitigate breaking changes in scientific software\nDimitri Berthault\n\nThe pleasure and pain of developing cross plaform CPU vector code in Rust\nRichard Neale\n\neVaiutilities: research data management post eVai\nGaurav Sablok\n\nHoneycomb: combinatorial maps implementation for meshing applications\nIsa&iuml;e Muron
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250605T140000
+DTEND:20250605T143000
+DTSTAMP:20250606T180000
+UID:w2025-Thursday-1@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:An interactive session during which participants will be able to talk to the presenters of Wednesday's and Thursday's talks\, and meet other workshop participants.
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Discussions
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250605T150000
+DTEND:20250605T161500
+DTSTAMP:20250606T180000
+UID:w2025-Thursday-2@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:An interactive tutorial session during which participants can choose which of a range of tutorials to attend.
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Tutorial
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250605T161500
+DTEND:20250605T170000
+DTSTAMP:20250606T180000
+UID:w2025-Thursday-3@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:Juice your simulations: what science can learn from game development\nAlice Cecile
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250606T130000
+DTEND:20250606T143000
+DTSTAMP:20250606T180000
+UID:w2025-Friday-0@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:Diffsol: a crate for solving differential equations\nMartin Robinson\n\nPixi: the missing companion to cargo\nJulian Hofer\n\nHigh-performance computing for quantum field theory: a case for Rust in Monte Carlo simulations\nLuca Ciucci\n\nRobotics with Rust: a case study in RoboCup soccer\nMaximilian Schmidt\n\nRust for accelerated computing\nNathaniel Simard
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250606T150000
+DTEND:20250606T160000
+DTSTAMP:20250606T180000
+UID:w2025-Friday-1@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:Efficient point location with ploc\nJoffrey Bluth&eacute;\n\nRust is RAD and this is why\nJason Wohlgemuth\n\nDeimos: open-source scientific data acquisition & laboratory controls\nJames Logan\n\nClosing remarks
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Talks
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250606T160000
+DTEND:20250606T170000
+DTSTAMP:20250606T180000
+UID:w2025-Friday-2@scientificcomputing.rs
+CREATED:20250501T000000
+DESCRIPTION:An interactive session during which participants will be able to talk to the presenters of Friday's talks\, and meet other workshop participants.
+LAST-MODIFIED:20250606T180000
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Discussions
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

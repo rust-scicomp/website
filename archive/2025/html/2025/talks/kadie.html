@@ -1,0 +1,111 @@
+<html lang="en-GB">
+<head>
+<meta charset='UTF-8'>
+<meta name='author' content='Matthew Scroggs'>
+<meta name='description' content='The Scientific Computing in Rust annual workshop and monthly newsletter.'>
+<meta name='keywords' content='rust,scientific computing'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Computing in Rust 2025: Nine rules for scientific libraries in Rust: lessons from bed-reader about Python extensions, API design, and async cloud support</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel='stylesheet' type='text/css' href='/sty.css?v=2024-08-19'>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:site' content='@mscroggs' />
+<meta name='twitter:creator' content='@mscroggs' />
+<meta name='twitter:title' content='Scientific Computing in Rust 2025: Nine rules for scientific libraries in Rust: lessons from bed-reader about Python extensions, API design, and async cloud support' />
+<meta name='twitter:description' content="the Scientific Computing in Rust annual workshop and monthly newsletter." />
+<meta name='twitter:image' content='https://scientificcomputing.rs/img/card.png' />
+
+<meta name='og:title' content='Scientific Computing in Rust 2025: Nine rules for scientific libraries in Rust: lessons from bed-reader about Python extensions, API design, and async cloud support' />
+<meta name='og:url' content='https://scientificcomputing.rs/2025/talks/kadie.html' />
+<meta name='og:image' content='https://scientificcomputing.rs/img/card.png' />
+<meta name='og:type' content='website' />
+<meta name='og:description' content='the Scientific Computing in Rust annual workshop and monthly newsletter.' />
+<meta name='og:locale' content="en_gb" />
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/fontawesome.css">
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/brands.css">
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/solid.css">
+<link rel='stylesheet' type='text/css' href="/fontawesome/css/regular.css">
+<script type='text/javascript' src='/timezones.js?v=2023-07-13'></script>
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class='head'>
+<div class='laptop'>
+<div class='content'>
+<div class='title'><a href='/'>Scientific Computing in Rust</a></div>
+<div class='links'>
+<a href='/'>Home</a>
+<a href='/2026' class='viewing-now'>Annual workshop</a>
+<a href='/monthly'>Monthly newsletter</a>
+</div>
+
+<div class='tagline'>4-6 June 2025</div>
+
+
+
+<div class='links'>
+<a href='/2025'>2025 home</a>
+<a href='/2025/timetable'>Timetable</a>
+<a href='/2025/talklist'>List of talks</a>
+<a href='/2025/team'>Organisers</a>
+</div>
+
+
+</div>
+</div>
+</div>
+<div class='body'>
+<div class='content'>
+
+<div style='font-weight:bold;font-size:120%;color:red'>Note: you are viewing archived information about the workshop held in 2025. Information about the latest workshop can be found <a href='/2026'>here</a>.</div>
+
+<h1>Nine rules for scientific libraries in Rust: lessons from bed-reader about Python extensions, API design, and async cloud support</h1><div><div class='authors'><b>Carl M. Kadie</b> <a href='https://medium.com/@carlmkadie' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='mailto:carlk@msn.com' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/CarlKCarlK' class='falink'><i class='fa-brands fa-github'></i></a> <a href='https://mastodon.social/@carlk'><i class='fa-brands fa-mastodon'></i></a> (FaST-LMM Open-Source Project (Retired from Microsoft Research))</div></div><div style='margin-top:5px'><a href='/2025/talklist-Wednesday.html'>Wednesday</a> session 3 (Zoom) (<a href='javascript:show_tz_change()'><span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='4' data-month='5' data-year='2025' data-hour='16' data-minute='00'>16:00</span>&ndash;<span class='bst-time' data-format='{24 0HOUR}:{MINUTE}' data-day='4' data-month='5' data-year='2025' data-hour='17' data-minute='00'>17:00</span><span class='tzone'> BST</span></a>)</div><div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select></div><div style='margin-top:15px'><a href='https://youtu.be/o9qheBJAFsk'><i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div><div class='abstract'><p>The bed-reader crate provides fast, memory-efficient access to genomic data in PLINK Bed format, widely used in genome-wide association studies (GWAS). It originates from the FaST-LMM and PySnpTools projects, which have supported published research in Nature Methods, Scientific Reports, and PNAS.</p>
+<p>Five years ago, we replaced PySnpTools' C++-based Bed file reader (built with OpenMP) with a Rust implementation using Rayon for parallelism. Later, at the request of another project, we separated the reader into its own Rust crate (bed-reader) and Python package.</p>
+<p>Our goals included designing a Rust API that felt almost as convenient as the original Python API, while offering Rust's performance, safety, and concurrency. Recently, responding to user needs, we extended the Rust version with async support and cloud file reading (HTTP, AWS S3, Azure, Google Cloud), enabling genomic workflows that scale to terabyte-size datasets.</p>
+<p>This talk will cover practical lessons about:</p>
+<ul>
+<li>
+<p>Writing Rust extensions for Python (and trade-offs between async and synchronous APIs)</p>
+</li>
+<li>
+<p>Designing scientific Rust APIs that are (almost) as ergonomic as Python's</p>
+</li>
+<li>
+<p>Adding async capabilities and cloud file support without overwhelming the core library</p>
+</li>
+<li>
+<p>Balancing performance, usability, and resource footprint in scientific software</p>
+</li>
+</ul>
+<p>I'll share what worked, what didn't, and how real-world scientific needs shaped the evolution of the library.</p></div><div class='prevnext'><div class='prevlink'><a href='/2025/talks/carow.html'>&larr; previous talk</a></div><div class='nextlink'><a href='/2025/talks/parry.html'>next talk &rarr;</a></div></div><div style='text-align:center'>
+<img style='width:200px;padding-top:50px' src='/img/ferris.png'>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+page_load_update_timezone();
+</script>
+</body>
+</html>
