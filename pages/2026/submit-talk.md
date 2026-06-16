@@ -10,9 +10,7 @@ Each attendee may only give one 10 minute talk, but attendees may give a 10 minu
 
 ## Propose a 10 minute talk
 
-If you would like to give a 10 minute talk at Scientific Computing in Rust 2026, please fill out the form at
-<a href="https://forms.gle/DxZ4YciLub9CnZRJ9">forms.gle/DxZ4YciLub9CnZRJ9</a>.
-The deadline for submissions is Wednesday 10 June, and we will let you know shortly after that if your talk has been accepted.
+Submissions for 10 minute talks are now closed.
 
 ## Propose a tutorial session
 

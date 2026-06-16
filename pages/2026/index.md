@@ -57,9 +57,8 @@ Registration is free, and the workshop will take place virtually so there is no 
 The Scientific Computing in Rust 2026 workshop will feature a mixture of 30 minute talks by invited
 speakers, 10 minute talks by workshop attendees, and interactive discussion/tutorial sessions.
 
-If you would like to propose a 10 minute talk or an interactive tutorial, you can do so via [the forms on talk proposal page](/2026/submit-talk).
-The deadline for talk submissions has been extended to Wednesday 10 June.
-The deadline for tutotial submissions is Monday 29 June.
+Submissions for 10 minute talks are now closed, but you can still submit longer interactive tutorials via [the form on talk proposal page](/2026/submit-talk).
+The deadline for tutorial submissions is Monday 29 June.
 
 If you have any questions for the organisers (about proposing a talk or anything else), you can email
 [contact@scientificcomputing.rs](mailto:contact@scientificcomputing.rs), or you can ask in the [rust-scicomp Zulip chat](https://rust-scicomp.zulipchat.com/).
