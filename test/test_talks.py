@@ -39,6 +39,7 @@ person_template = {
     "custom": ("LIST", {
         "url": "STRING",
         "icon": "STRING",
+        "caption": "STRING",
         "*REQUIRED": ["url", "icon"],
     }),
     "*REQUIRED": ["name"],

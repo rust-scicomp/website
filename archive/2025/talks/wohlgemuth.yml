@@ -11,6 +11,7 @@ speaker:
   custom:
     - url: https://research.ornl.gov
       icon: "fa-brands fa-internet-explorer"
+      caption: "RAD index"
 coauthor:
   - name: <b>Audrey Carson</b>
     affiliation: Oak Ridge National Laboratory
