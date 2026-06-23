@@ -8,7 +8,9 @@ speaker:
   email: wohlgemuthjh@ornl.gov
   website: https://acorn.ornl.gov
   affiliation: Oak Ridge National Laboratory
-  rad-index: https://research.ornl.gov
+  custom:
+    - url: https://research.ornl.gov
+      icon: "fa-brands fa-internet-explorer"
 coauthor:
   - name: <b>Audrey Carson</b>
     affiliation: Oak Ridge National Laboratory

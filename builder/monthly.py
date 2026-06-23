@@ -36,7 +36,7 @@ def pull_monthly():
     if not os.path.isdir(monthly_path):
         os.system("git clone https://github.com/rust-scicomp/"
                   f"scientific-computing-in-rust-monthly.git {monthly_path}")
-    os.system(f"cd {monthly_path} && git pull")
+    # os.system(f"cd {monthly_path} && git pull")
 
 
 def latest_issue():

@@ -19,7 +19,7 @@ def join(*parts: str) -> str:
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-parser = argparse.ArgumentParser(description="Build rust-scicomp.github.io")
+parser = argparse.ArgumentParser(description="Build scientificcomputing.rs")
 
 with open(join(dir_path, "..", "info.yml")) as f:
     info_yaml = yaml.load(f, Loader=yaml.FullLoader)
