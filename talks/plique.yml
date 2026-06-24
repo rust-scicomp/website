@@ -1,0 +1,10 @@
+title: "Implementing the ForceAtlas2 graph layout algorithm in Rust"
+abstract:
+  - "I will show the steps I took to implement a performant and parallel version of the ForceAtlas2 graph layout algorithm in Rust to be used in a social sciences context, the issues I faced and how I add to develop a terminal renderer for graphs to be able to debug my code."
+speaker:
+  name: Guillaume Plique
+  affiliation: m&eacute;dialab SciencesPo Paris
+  website: https://yomguithereal.github.io
+  github: Yomguithereal
+  mastodon: Yomguithereal@mastodon.social
+duration: short

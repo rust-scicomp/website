@@ -1,0 +1,14 @@
+title: "Audio Made Simple: ndarray, Traits, and Zero-Cost Audio"
+abstract:
+  - "In Rust today (cpal, hound, rodio, Symphonia, dasp), audio is a Vec of samples plus a separate struct of metadata the user threads by hand. Sample rate, channel layout, and format live outside the data, and the compiler cannot help when they drift apart."
+  - "audio_samples treats audio as a domain type. Properties belong to the data and are preserved across operations; conversions that change semantics are explicit. The core is backed by ndarray with owned and view variants, and capabilities (statistics, transforms, filtering, decomposition, I/O) compose through Rust's trait system as zero-cost extensions on a single canonical type. Invalid audio will not compile."
+  - "This talk covers the design decisions: why ndarray was the right backbone, how trait-based capabilities stay zero-cost, and how ownership-constrained buffers and deferred layout commitment turn type discipline into measurable performance. Against hound, audio_samples_io reads 2-5x faster cold and an order of magnitude or more warm, with substantially tighter tail latency."
+  - "The broader argument is that domain-driven design is a particularly good fit for scientific computing in Rust, and not cheap to replicate elsewhere: Python and Julia pay runtime cost or rely on discipline; C and C++ leak lifetimes through their interfaces. Rust's combination of traits and ownership lets the domain be encoded explicitly, checked statically, and kept zero-cost."
+  - "The design was published at ACM MMSys 2026; this talk reframes it for a Rust audience who are interested in the detail, not the pitch. It closes with a tour of the ecosystem: audio_samples (core), audio_samples_io (I/O), audio_samples_streaming, spectrograms (spectral analysis), audio_samples_ml (TTS/STT, CPU/GPU, real-time and offline), and audio_samples_python (downstream bindings). All repositories at https://github.com/jmg049/."
+speaker:
+  name: Jack Geraghty
+  affiliation: LoopDL
+  website: https://jmgsoftware.org/
+  email: jgeraghty049@gmail.com
+  github: jmg049
+duration: short

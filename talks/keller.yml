@@ -1,0 +1,12 @@
+title: "Pluot: interoperable static and interactive visualization"
+abstract:
+  - "We present Pluot, a software architecture that bridges divides between static/interactive, web/desktop, and vector/bitmap data visualizations, enabling code reuse and interoperability across computing environments. With Pluot, a developer implements a given visualization rendering function once, using the Rust programming language. Bindings to the Rust program enable reproducible execution of the rendering function from other languages, such as Python or JavaScript. The Pluot API is declarative and layer-based such that layers (e.g., PointLayer, TextLayer) can be composed together to implement more complex charts. Pluot supports GPU acceleration, using WebGPU for bitmap rendering and compute operations. In sum, Pluot resolves prior tensions between interactive performance and publication-quality figure creation, with an eye toward scientific use cases such as rendering large-scale spatial omics datasets."
+speaker:
+  name: Mark S. Keller
+  affiliation: Harvard Medical School
+  website: https://markk.co
+  github: keller-mark
+coauthor:
+  - name: Nils Gehlenborg
+    affiliation: Harvard Medical School
+duration: short

@@ -1,0 +1,9 @@
+title: "Particle Swarm Optimization with Rust"
+abstract:
+  - "I describe using Particle Swarm Optimization with Rust by extending the pso-rs library."
+speaker:
+  name: Muthiah Annamalai
+  website: https://www.panmo.cloud
+  affiliation: Panmo LLC
+  github: ai-mannamlaai
+duration: short

@@ -1,0 +1,12 @@
+title: "oximo: Mathematical Optimization Modeling in Rust"
+abstract:
+  - "oximo (https://github.com/oximo-rs/oximo) is a mathematical optimization modeling framework that brings high-level algebraic modeling to the Rust ecosystem, similar to tools such as Pyomo (Python), JuMP (Julia), and GAMS. It allows users to formulate optimization problems in an expressive, type-safe API while taking advantage of Rust's memory safety, and deployment capabilities."
+  - "This talk will introduce the design philosophy behind oximo, show a simple example of Rust code, and discuss the challenges of building a modern optimization stack in a systems programming language."
+  - "The presentation will also cover the project's architecture, solver integrations, and roadmap."
+speaker:
+  name: Germ&aacute;n Martín Heim
+  affiliation: Universidad Nacional del Sur / Dow
+  email: german.martin.heim@gmail.com
+  website: https://www.germanheim.com
+  github: GermanHeim
+duration: short

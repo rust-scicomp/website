@@ -1,0 +1,22 @@
+title: "Icechunk: A database for large N-dim arrays"
+abstract:
+  - "Much of today's scientific data is naturally modeled as multi-dimensional arrays. A few examples from across the sciences:"
+  - "- Climate & weather: `[forecast_time, lead_time, latitude, longitude, altitude]`"
+  - "- Satellite & remote sensing: `[time, band, y, x]`"
+  - "- Bioimaging: `[time, position, channel, z, y, x]`"
+  - "- Astronomy: `[ascension, declination, wavelength]`"
+  - "Scientific arrays are, in most cases, vastly larger than available memory. Any of the examples above can easily reach petabytes per dataset, so they must usually be stored and queried directly from cloud object storage. At this scale there are challenges:"
+  - "- Correctness: concurrent readers and writers."
+  - "- Performance: scale with the size of the operation, not the size of the dataset."
+  - "- Cost: storage, bandwidth, and request counts."
+  - "HDF5, the de-facto standard, predates the cloud: its index is scattered throughout the file, so reading a small slice means many slow, latency-bound requests, plus no transactions and no concurrent writers."
+  - "Icechunk is our answer to these challenges: an open storage format and an open-source database, written in Rust, for storing and querying large multi-dimensional arrays in the cloud. It comes with batteries included: compression, ACID transactions, time travel, git-like branches, and bandwidth-saturating performance."
+  - "Icechunk is already being adopted by private and public institutions as the format of choice for their largest internal and publicly accessible datasets."
+speaker:
+  name: Sebastian Galkin
+  affiliation: Earthmover
+  github: paraseba
+  mastodon: paraseba@mathstodon.xyz
+duration: short
+
+

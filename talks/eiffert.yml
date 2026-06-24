@@ -1,0 +1,12 @@
+title: "The State of Heterogeneous Computing in Rust"
+abstract:
+  - "We will discuss the strengths and tradeoffs of a subset of GPU-focused crates and frameworks along with insights from evaluating scientific computing benchmarks."
+speaker:
+  name: Brett Eiffert
+  affiliation: Oak Ridge National Laboratory
+  email: eiffertbc@ornl.gov
+  linkedin: brett-eiffert
+coauthor:
+  - name: Keita Teranishi
+    affiliation: Oak Ridge National Laboratory
+duration: short

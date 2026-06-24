@@ -1,0 +1,10 @@
+title: "Porting a C library to idiomatic rust"
+abstract:
+  - "Lessons learned from porting a C library to Rust, initially as just a straight C translation before embracing idiomatic Rust."
+speaker:
+  name: Rich Neale
+  affiliation: EPCC
+  email: rich@maths.earth
+  website: https://maths.earth
+  github: mathsDOTearth
+duration: short

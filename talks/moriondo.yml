@@ -1,0 +1,9 @@
+title: "arrowspace-rs: Spectral Vector Search"
+abstract:
+  - "Introducing Spectral Indexing, a novel way for achieving better semantic search in for vector search. Leveraging spectral information via graph Laplacian."
+speaker:
+  name: Lorenzo Moriondo
+  website: https://www.tuned.org.uk
+  affiliation: genefold.ai
+  github: Mec-iS
+duration: short

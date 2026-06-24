@@ -1,0 +1,9 @@
+title: "Optimised Fermion Encodings for Quantum Simulation"
+abstract:
+  - "Quantum computers are expected to excel at chemistry and materials simulation, however qubits can not natively represent the physics of Fermions like electrons. To make this possible, encodings are used to translate from fermionic operators to qubit operators. While these can be mathematically equivalent, the choice can significantly effect the run time and accuracy of simulations. In this presentation, I'll introduce some of the features of ferrmion, a software package for optimising fermion-qubit encodings for specific problems and hardware."
+speaker:
+  name: Michael Williams de la Bastida
+  affiliation: University College London
+  email: michael.williams.20@ucl.ac.uk
+  github: MIWdlB
+duration: short
