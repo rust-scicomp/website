@@ -3,11 +3,24 @@ import typing
 import yaml
 import argparse
 from datetime import datetime
-from markup import markup
+from markup import markup, person
 from monthly import pull_monthly, issues_path, latest_issue, rss
 
-months = ["Nilember", "January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"]
+months = [
+    "Nilember",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
 
 
 def join(*parts: str) -> str:
@@ -28,12 +41,15 @@ dates_dict = info_yaml["dates"]
 latest_year = max(dates_dict.keys())
 
 parser.add_argument(
-    '--destination', metavar='destination', nargs="?",
+    "--destination",
+    metavar="destination",
+    nargs="?",
     default=None,
-    help="Destination of HTML files.")
+    help="Destination of HTML files.",
+)
 parser.add_argument(
-    '--year', metavar='year', nargs="?",
-    default=f"{latest_year}", help="Year")
+    "--year", metavar="year", nargs="?", default=f"{latest_year}", help="Year"
+)
 
 args = parser.parse_args()
 year = int(args.year)
@@ -87,7 +103,10 @@ special = {
 
 
 def load_template(
-    file: str, title: str, url: str, workshop: typing.Optional[int] = None,
+    file: str,
+    title: str,
+    url: str,
+    workshop: typing.Optional[int] = None,
     monthly: bool = False,
 ) -> str:
     if os.path.isfile(os.path.join(template_path, file)):
@@ -98,7 +117,9 @@ def load_template(
             content = f.read()
     content = content.replace("{{pagetitle}}", title)
     content = content.replace("{{latest-workshop}}", f"{latest_year}")
-    content = content.replace("{{pagefullurl}}", f"https://scientificcomputing.rs/{url}")
+    content = content.replace(
+        "{{pagefullurl}}", f"https://scientificcomputing.rs/{url}"
+    )
     content = content.replace("{{year}}", f"{year}")
     while "{{if workshop" in content:
         pre, rest = content.split("{{if workshop", 1)
@@ -112,7 +133,11 @@ def load_template(
         else:
             ifyear = int(ifyear)
         inner, rest = rest.split("{{fi}}", 1)
-        if workshop is not None and (ifyear == "all" or ifyear == workshop or (ifyear == "old" and workshop < latest_year)):
+        if workshop is not None and (
+            ifyear == "all"
+            or ifyear == workshop
+            or (ifyear == "old" and workshop < latest_year)
+        ):
             content = pre + inner + rest
         else:
             content = pre + rest
@@ -134,8 +159,11 @@ def load_template(
 
 
 def write_page(
-    url: str, content: str, title: typing.Optional[str] = None,
-    workshop: typing.Optional[int] = None, monthly: bool = False,
+    url: str,
+    content: str,
+    title: typing.Optional[str] = None,
+    workshop: typing.Optional[int] = None,
+    monthly: bool = False,
 ):
     pagetitle = "Scientific Computing in Rust"
     if workshop is not None:
@@ -149,47 +177,6 @@ def write_page(
         f.write(load_template("outro.html", pagetitle, url, workshop, monthly))
 
 
-def person(p: typing.Dict, bold: bool = False) -> str:
-    info = ""
-    if bold:
-        info += "<b>"
-    info += p["name"]
-    if bold:
-        info += "</b>"
-    if "website" in p:
-        info += (f" <a href='{p['website']}' class='falink'>"
-                 "<i class='fa-brands fa-internet-explorer'></i></a>")
-    if "email" in p:
-        info += (f" <a href='mailto:{p['email']}' class='falink'>"
-                 "<i class='fa-solid fa-envelope'></i></a>")
-    if "github" in p:
-        info += (f" <a href='https://github.com/{p['github']}' class='falink'>"
-                 "<i class='fa-brands fa-github'></i></a>")
-    if "codeberg" in p:
-        info += (f" <a href='https://codeberg.org/{p['codeberg']}' class='falink'>"
-                 "<i class='fa-solid fa-code-pull-request'></i></a>")
-    if "zulip" in p:
-        info += (f" <a href='https://rust-scicomp.zulipchat.com' title='{p['zulip']} on Rust-SciComp Zulip'>"
-                 "<svg class='brand-logo' role='img' aria-label='Zulip' xmlns='http://www.w3.org/2000/svg' viewBox='68.96 55.62 450 450.43' height='16'>"
-                 "<path class='filled' d='M473.09 122.97c0 22.69-10.19 42.85-25.72 55.08L296.61 312.69c-2.8 2.4-6.44-1.47-4.42-4.7l55.3-110.72c1.55-3.1-.46-6.91-3.64-6.91H129.36c-33.22 0-60.4-30.32-60.4-67.37 0-37.06 27.18-67.37 60.4-67.37h283.33c33.22-.02 60.4 30.3 60.4 67.35zM129.36 506.05h283.33c33.22 0 60.4-30.32 60.4-67.37 0-37.06-27.18-67.37-60.4-67.37H198.2c-3.18 0-5.19-3.81-3.64-6.91l55.3-110.72c2.02-3.23-1.62-7.1-4.42-4.7L94.68 383.6c-15.53 12.22-25.72 32.39-25.72 55.08 0 37.05 27.18 67.37 60.4 67.37zm522.5-124.15l124.78-179.6v-1.56H663.52v-48.98h190.09v34.21L731.55 363.24v1.56h124.01v48.98h-203.7V381.9zm338.98-230.14V302.6c0 45.09 17.1 68.03 47.43 68.03 31.1 0 48.2-21.77 48.2-68.03V151.76h59.09V298.7c0 80.86-40.82 119.34-109.24 119.34-66.09 0-104.96-36.54-104.96-120.12V151.76h59.48zm244.91 0h59.48v212.25h104.18v49.76h-163.66V151.76zm297 0v262.01h-59.48V151.76h59.48zm90.18 3.5c18.27-3.11 43.93-5.44 80.08-5.44 36.54 0 62.59 7 80.08 20.99 16.72 13.22 27.99 34.99 27.99 60.64 0 25.66-8.55 47.43-24.1 62.2-20.21 19.05-50.15 27.6-85.13 27.6-7.77 0-14.77-.39-20.21-1.17v93.69h-58.7V155.26zm58.7 118.96c5.05 1.17 11.27 1.55 19.83 1.55 31.49 0 50.92-15.94 50.92-42.76 0-24.1-16.72-38.49-46.26-38.49-12.05 0-20.21 1.17-24.49 2.33v77.37z'></path>"
-                 "</svg></a>")
-    if "mastodon" in p:
-        username, domain = p['mastodon'].split('@')
-        info += (f" <a href='https://{domain}/@{username}'>"
-                 "<i class='fa-brands fa-mastodon'></i></a>")
-    if "twitter" in p:
-        info += (f" <a href='https://twitter.com/{p['twitter']}' class='falink'>"
-                 "<i class='fa-brands fa-twitter'></i></a>")
-    if "linkedin" in p:
-        info += (f" <a href='https://www.linkedin.com/in/{p['linkedin']}' class='falink'>"
-                 "<i class='fa-brands fa-linkedin'></i></a>")
-
-    if "affiliation" in p:
-        info += f" ({p['affiliation']}"
-        info += ")"
-    return info
-
-
 def is_long(t: str) -> bool:
     if t in special:
         return False
@@ -198,7 +185,9 @@ def is_long(t: str) -> bool:
     return tinfo["duration"] == "long"
 
 
-def get_title_and_speaker(t: str, short=False) -> typing.Tuple[str, typing.Optional[str]]:
+def get_title_and_speaker(
+    t: str, short=False
+) -> typing.Tuple[str, typing.Optional[str]]:
     if t in special:
         return special[t]["title"], None
 
@@ -238,8 +227,12 @@ def has_slides(t: str) -> bool:
 
 
 def talk(
-    t: str, day: str, session_n: int, times: str,
-    prev: typing.Optional[str] = None, next: typing.Optional[str] = None
+    t: str,
+    day: str,
+    session_n: int,
+    times: str,
+    prev: typing.Optional[str] = None,
+    next: typing.Optional[str] = None,
 ) -> str:
     if t in special:
         title, _ = get_title_and_speaker(t)
@@ -261,32 +254,46 @@ def talk(
     content += f"<div>{authortxt}</div>"
 
     if day is not None:
-        content += (f"<div style='margin-top:5px'>"
-                    f"<a href='/{year}/talklist-{day}.html'>{day}</a>"
-                    f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
-                    "</div>")
-        content += markup("<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>", paragraphs=False, year=year)
+        content += (
+            f"<div style='margin-top:5px'>"
+            f"<a href='/{year}/talklist-{day}.html'>{day}</a>"
+            f" session {session_n} (Zoom) (<a href='javascript:show_tz_change()'>{times}</a>)"
+            "</div>"
+        )
+        content += markup(
+            "<div id='tzonechange' style='display:none;margin-top:15px;text-align:center'>Show times in: <timeselector></div>",
+            paragraphs=False,
+            year=year,
+        )
     if "recorded" in tinfo and not tinfo["recorded"]:
-        content += ("<div style='margin-top:15px'><i class='fa-solid fa-video-slash'></i> "
-                    "This talk will not be recorded.</div>")
+        content += (
+            "<div style='margin-top:15px'><i class='fa-solid fa-video-slash'></i> "
+            "This talk will not be recorded.</div>"
+        )
     if "youtube" in tinfo:
-        content += (f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
-                    "<i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>")
+        content += (
+            f"<div style='margin-top:15px'><a href='https://youtu.be/{tinfo['youtube']}'>"
+            "<i class='fa-brands fa-youtube'></i> Watch a recording of this talk on YouTube</a></div>"
+        )
     if "slides" in tinfo:
-        content += (f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
-                    "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>")
+        content += (
+            f"<div style='margin-top:15px'><a href='/slides/{tinfo['slides']}'>"
+            "<i class='fa-solid fa-file-powerpoint'></i> Download this talk's slides</a></div>"
+        )
     if "slides_link" in tinfo:
-        content += (f"<div style='margin-top:15px'><a href='{tinfo['slides_link']}'>"
-                    "<i class='fa-solid fa-file-powerpoint'></i> View this talk's slides</a></div>")
+        content += (
+            f"<div style='margin-top:15px'><a href='{tinfo['slides_link']}'>"
+            "<i class='fa-solid fa-file-powerpoint'></i> View this talk's slides</a></div>"
+        )
 
     content += "<div class='abstract'>"
     if "abstract" in tinfo:
         abstract = []
-        if isinstance(tinfo['abstract'], list):
-            for parag in tinfo['abstract']:
+        if isinstance(tinfo["abstract"], list):
+            for parag in tinfo["abstract"]:
                 abstract.append(parag)
         else:
-            abstract.append(tinfo['abstract'])
+            abstract.append(tinfo["abstract"])
         content += markup("\n\n".join(abstract), year=year)
     content += "</div>"
 
@@ -313,7 +320,7 @@ def talk(
         content += "</div>"
     content += "</div>"
 
-    write_page(f"{year}/talks/{t}.html", content, tinfo['title'], workshop=year)
+    write_page(f"{year}/talks/{t}.html", content, tinfo["title"], workshop=year)
 
     short_content = ""
     short_content += "<div class='talktitle'>"
@@ -321,8 +328,10 @@ def talk(
     if not recorded(t):
         short_content += " <i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
     if has_youtube(t):
-        short_content += (f" <a href='https://youtu.be/{tinfo['youtube']}'>"
-                          "<i class='fa-brands fa-youtube' alt='Watch a recording of this talk on YouTube' title='Watch a recording of this talk on YouTube'></i></a>")
+        short_content += (
+            f" <a href='https://youtu.be/{tinfo['youtube']}'>"
+            "<i class='fa-brands fa-youtube' alt='Watch a recording of this talk on YouTube' title='Watch a recording of this talk on YouTube'></i></a>"
+        )
     if has_slides(t):
         short_content += " <i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>"
     short_content += "</div>"
@@ -367,10 +376,16 @@ if os.path.isdir(pages_path):
             write_page(f"{fname}.html", content)
         else:
             try:
-                write_page(f"{subpath}/{fname}.html", content, workshop=int(subpath),
-                           monthly=(subpath == "monthly"))
+                write_page(
+                    f"{subpath}/{fname}.html",
+                    content,
+                    workshop=int(subpath),
+                    monthly=(subpath == "monthly"),
+                )
             except ValueError:
-                write_page(f"{subpath}/{fname}.html", content, monthly=(subpath == "monthly"))
+                write_page(
+                    f"{subpath}/{fname}.html", content, monthly=(subpath == "monthly")
+                )
 
 # Monthly pages
 if not archive:
@@ -393,10 +408,14 @@ if not archive:
     with open(os.path.join(html_path, "monthly/latest.html"), "w") as f:
         f.write("<html>\n")
         f.write("<head>\n")
-        f.write(f"<meta http-equiv='refresh' content='0; url=https://scientificcomputing.rs/monthly/{latest}' />\n")
+        f.write(
+            f"<meta http-equiv='refresh' content='0; url=https://scientificcomputing.rs/monthly/{latest}' />\n"
+        )
         f.write("</head>\n")
         f.write("<body>\n")
-        f.write(f"<a href='https://scientificcomputing.rs/monthly/{latest}'>If this page does not refresh, please click here.</a>\n")
+        f.write(
+            f"<a href='https://scientificcomputing.rs/monthly/{latest}'>If this page does not refresh, please click here.</a>\n"
+        )
         f.write("</body>\n")
         f.write("</html>")
 
@@ -444,7 +463,13 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 assert i["start"] == stime
                 assert i["end"] == etime
             if "talks" in i:
-                count = max(count, sum(info_yaml["long-length"][year] if is_long(j) else 1 for j in i["talks"]))
+                count = max(
+                    count,
+                    sum(
+                        info_yaml["long-length"][year] if is_long(j) else 1
+                        for j in i["talks"]
+                    ),
+                )
 
         if end is not None:
             if prev_etime == stime:
@@ -510,28 +535,34 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
         dcontent = ""
         date = info_yaml["days"][year][day]
         ics_day = f"{year}"
-        ics_day += ('00' + str(months.index(date.split(" ")[-1])))[-2:]
-        ics_day += ('00' + date.split(" ")[1])[-2:]
+        ics_day += ("00" + str(months.index(date.split(" ")[-1])))[-2:]
+        ics_day += ("00" + date.split(" ")[1])[-2:]
 
         list_content += f"<h2 style='margin-top:100px'>{date}</h2>{dcontent}"
-        tt_content += ("<div class='gridcell timetableheading' style='grid-column: "
-                       f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/{year}/talklist-{day}.html'>"
-                       f"{date}</a></div>")
+        tt_content += (
+            "<div class='gridcell timetableheading' style='grid-column: "
+            f"{2 * di + 2} / span 1;grid-row: 1 /span 1'><a href='/{year}/talklist-{day}.html'>"
+            f"{date}</a></div>"
+        )
 
         subtract = 0
         for si, session in enumerate(timetable[day]):
             ics_desc = ""
-            session_time = markup(f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>", paragraphs=False, year=year)
+            session_time = markup(
+                f"<time {day} {session['start']}>&ndash;<time {day} {session['end']}><tzone>",
+                paragraphs=False,
+                year=year,
+            )
             dcontent += "<h3"
             if si != 0:
                 dcontent += " style='margin-top:50px'"
             dcontent += f">Session {si + 1} ({session_time}"
             if "platform" in session:
                 dcontent += ", "
-                if session['platform'] == "Gather Town":
+                if session["platform"] == "Gather Town":
                     dcontent += f"<a href='/{year}/gather-town.html'>Gather Town</a>"
                 else:
-                    dcontent += session['platform']
+                    dcontent += session["platform"]
             dcontent += ")</h3>"
             col = 2 * di + 2
             row, rowend = rows[si - subtract]
@@ -548,15 +579,24 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 tt_content += markup(inner_content, paragraphs=False, year=year)
                 tt_content += "</div>"
             if "description" in session:
-                dcontent += f"<div class='timetablelisttalk'>{session['description']}</div>"
+                dcontent += (
+                    f"<div class='timetablelisttalk'>{session['description']}</div>"
+                )
                 ics_desc = session["description"]
             if "chair" in session:
-                dcontent += (f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
-                             f"Chair: {person(session['chair'])}</div>")
-                tt_content += (f"<div style='grid-column: {col} / span 1; grid-row: {chair_row(session['start'])} / span 1;margin:10px;font-size:80%;text-align:center'>"
-                               f"Chair: {session['chair']['name']}</div>")
+                dcontent += (
+                    f"<div class='authors' style='margin-top:-10px;margin-bottom:10px'>"
+                    f"Chair: {person(session['chair'])}</div>"
+                )
+                tt_content += (
+                    f"<div style='grid-column: {col} / span 1; grid-row: {chair_row(session['start'])} / span 1;margin:10px;font-size:80%;text-align:center'>"
+                    f"Chair: {session['chair']['name']}</div>"
+                )
             if "talks" in session:
-                talklen = (rowend - row) / sum(info_yaml["long-length"][year] if is_long(t) else 1 for t in session["talks"])
+                talklen = (rowend - row) / sum(
+                    info_yaml["long-length"][year] if is_long(t) else 1
+                    for t in session["talks"]
+                )
                 start = 0
                 ics_talks = []
                 if "rowstart" in session:
@@ -565,7 +605,14 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     if t in special:
                         dcontent += talk(t, day, si + 1, session_time)
                     else:
-                        dcontent += talk(t, day, si + 1, session_time, next_and_prev[t]["prev"], next_and_prev[t]["next"])
+                        dcontent += talk(
+                            t,
+                            day,
+                            si + 1,
+                            session_time,
+                            next_and_prev[t]["prev"],
+                            next_and_prev[t]["next"],
+                        )
                     title, speaker = get_title_and_speaker(t, True)
                     length = 70 if is_long(t) else 20
                     nrows = info_yaml["long-length"][year] if is_long(t) else 1
@@ -582,20 +629,32 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                     tt_content += "'"
                     if t not in special:
                         tt_content += f" href='/{year}/talks/{t}.html'"
-                    tt_content += (f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
-                                   f"<div class='timetabletalktitle'>{title}</div>")
+                    tt_content += (
+                        f" style='grid-column: {col} / span 1; grid-row: {row + start} / span {nrows}'>"
+                        f"<div class='timetabletalktitle'>{title}</div>"
+                    )
                     ics_talks.append(title)
                     icons = []
                     if not recorded(t):
-                        icons.append("<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>")
+                        icons.append(
+                            "<i class='fa-solid fa-video-slash' alt='This talk will not be recorded' title='This talk will not be recorded'></i>"
+                        )
                     if has_youtube(t):
-                        icons.append("<i class='fa-brands fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>")
+                        icons.append(
+                            "<i class='fa-brands fa-youtube' alt='A recording of this talk is available on YouTube' title='A recording of this talk is available on YouTube'></i>"
+                        )
                     if has_slides(t):
-                        icons.append("<i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>")
+                        icons.append(
+                            "<i class='fa-solid fa-file-powerpoint' alt='Slides for this talk are available' title='Slides for this talk are available'></i>"
+                        )
                     if len(icons) > 0:
-                        tt_content += f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
+                        tt_content += (
+                            f"<div class='timetabletalktitle'>{' '.join(icons)}</div>"
+                        )
                     if speaker is not None:
-                        tt_content += f"<div class='timetabletalkspeaker'>{speaker}</div>"
+                        tt_content += (
+                            f"<div class='timetabletalkspeaker'>{speaker}</div>"
+                        )
                         ics_talks[-1] += f"\\n{speaker}"
                     if t in special:
                         tt_content += "</div>"
@@ -635,22 +694,24 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 else:
                     tt_content += "</div>"
             if di == 0 and si > 0 and session["start"] != timetable[day][si - 1]["end"]:
-                row0 = 2 + minutes_after_one(timetable[day][si - 1]['end'])
-                row1 = 2 + minutes_after_one(session['start'])
-                tt_content += ("<div class='gridcell timetableheading' style='"
-                               "grid-column: 2 / span 5; "
-                               f"grid-row: {row - 2} / span 1; "
-                               "display: flex; justify-content: center; align-items: center;'>")
+                row0 = 2 + minutes_after_one(timetable[day][si - 1]["end"])
+                row1 = 2 + minutes_after_one(session["start"])
+                tt_content += (
+                    "<div class='gridcell timetableheading' style='"
+                    "grid-column: 2 / span 5; "
+                    f"grid-row: {row - 2} / span 1; "
+                    "display: flex; justify-content: center; align-items: center;'>"
+                )
                 tt_content += " &nbsp; &nbsp; &nbsp; ".join("BREAK")
                 tt_content += "</div>"
             if archive:
                 final_day = list(info_yaml["days"][year].values())[-1]
                 modified = f"{year}"
-                modified += ('00' + str(months.index(final_day.split(" ")[-1])))[-2:]
-                modified += ('00' + final_day.split(" ")[1])[-2:]
+                modified += ("00" + str(months.index(final_day.split(" ")[-1])))[-2:]
+                modified += ("00" + final_day.split(" ")[1])[-2:]
                 modified += "T180000"
             else:
-                modified = datetime.now().strftime('%Y%m%dT%H%M00')
+                modified = datetime.now().strftime("%Y%m%dT%H%M00")
             ics += (
                 "BEGIN:VEVENT\n"
                 f"DTSTART:{ics_day}T{session['start'].replace(':', '')}00\n"
@@ -660,7 +721,7 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 f"CREATED:{year}0501T000000\n"
                 f"DESCRIPTION:"
             )
-            ics += ics_desc.replace(',', '\\,')
+            ics += ics_desc.replace(",", "\\,")
             ics += (
                 "\n"
                 f"LAST-MODIFIED:{modified}\n"
@@ -671,7 +732,11 @@ if os.path.isfile(os.path.join(talks_path, "_timetable.yml")):
                 "END:VEVENT\n"
             )
         list_content += dcontent
-        write_page(f"{year}/talklist-{day}.html", f"<h1>{date}</h1>{markup('Show times in: <timeselector>', year=year)}{dcontent}", workshop=year)
+        write_page(
+            f"{year}/talklist-{day}.html",
+            f"<h1>{date}</h1>{markup('Show times in: <timeselector>', year=year)}{dcontent}",
+            workshop=year,
+        )
 
     tt_content += "</div>"
     ics += "END:VCALENDAR\n"

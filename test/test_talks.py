@@ -2,10 +2,12 @@ import pytest
 import yaml
 import os
 
+
 def join(*args):
     if len(args) == 1:
         return args[0]
     return os.path.join(args[0], join(*args[1:]))
+
 
 root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
@@ -25,23 +27,26 @@ while os.path.isdir(join(root, "archive", f"{year}", "talks")):
 
 person_template = {
     "name": "STRING",
-    "affiliation": "STRING",
-    "zulip": "STRING",
+    "website": "STRING",
+    "email": "STRING",
     "github": "STRING",
     "codeberg": "STRING",
-    "email": "STRING",
-    "website": "STRING",
+    "zulip": "STRING",
+    "mastodon": "STRING",
+    "bluesky": "STRING",
     "twitter": "STRING",
     "linkedin": "STRING",
-    "bluesky": "STRING",
-    "mastodon": "STRING",
     "matrix": "STRING",
-    "custom": ("LIST", {
-        "url": "STRING",
-        "icon": "STRING",
-        "caption": "STRING",
-        "*REQUIRED": ["url", "icon"],
-    }),
+    "custom": (
+        "LIST",
+        {
+            "url": "STRING",
+            "icon": "STRING",
+            "caption": "STRING",
+            "*REQUIRED": ["url", "icon"],
+        },
+    ),
+    "affiliation": "STRING",
     "*REQUIRED": ["name"],
 }
 yaml_talk_template = {
@@ -87,7 +92,9 @@ def validate_yaml(data, template):
                 except BaseException:
                     pass
             else:
-                raise TypeError(f"Incorrect type (expected one of {template[1]}): {data}")
+                raise TypeError(
+                    f"Incorrect type (expected one of {template[1]}): {data}"
+                )
         else:
             raise ValueError(f"Unexpected type: {template[0]}")
     elif template == "STRING":
