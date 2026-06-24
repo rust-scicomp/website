@@ -339,7 +339,7 @@ def extract_social_links(info):
     if "linkedin" in info:
         links.append(
             (
-                f"https://www.linkedin.com/in/{info['linkedin']}"
+                f"https://www.linkedin.com/in/{info['linkedin']}",
                 "<i class='fa-brands fa-linkedin'></i>",
                 info["linkedin"],
             )
