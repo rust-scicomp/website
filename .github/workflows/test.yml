@@ -26,3 +26,7 @@ jobs:
             else exit 0
           fi
         name: Check if archive HTML is outdated
+      - run: |
+          python3 -m pip install pytest
+          python3 -m pytest test/
+        name: Run tests

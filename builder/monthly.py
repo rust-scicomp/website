@@ -27,15 +27,26 @@ def monthly_list(count=None):
             issues.append((file[:-3], number, date))
     issues.sort(key=lambda i: -i[1])
     if count is None or count >= len(issues):
-        return "\n".join(f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})" for i in issues)
+        return "\n".join(
+            f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})"
+            for i in issues
+        )
     else:
-        return "\n".join(f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})" for i in issues[:count]) + "\n\n[Older issues](/monthly/all)"
+        return (
+            "\n".join(
+                f"* [Scientific Computing in Rust Monthly #{i[1]} ({i[2]})](/monthly/{i[0]})"
+                for i in issues[:count]
+            )
+            + "\n\n[Older issues](/monthly/all)"
+        )
 
 
 def pull_monthly():
     if not os.path.isdir(monthly_path):
-        os.system("git clone https://github.com/rust-scicomp/"
-                  f"scientific-computing-in-rust-monthly.git {monthly_path}")
+        os.system(
+            "git clone https://github.com/rust-scicomp/"
+            f"scientific-computing-in-rust-monthly.git {monthly_path}"
+        )
     os.system(f"cd {monthly_path} && git pull")
 
 
@@ -65,6 +76,7 @@ def latest_issue():
 
 def rss():
     from markup import markup
+
     out = (
         "<?xml version='1.0'?>\n"
         "<?xml-stylesheet href='/monthly/sty.xsl' type='text/xsl'?>\n"
@@ -73,7 +85,8 @@ def rss():
         "<atom:link href='https://www.scientificcomputing.rs/monthly/rss.xml' rel='self' type='application/rss+xml' />\n"
         "<title>Scientific Compting in Rust Monthly</title>\n"
         "<description>A monthly newsletter containing the latest information about scientific computing in the Rust programming language.</description>\n"
-        "<link>https://www.scientificcomputing.rs/monthly/</link>\n")
+        "<link>https://www.scientificcomputing.rs/monthly/</link>\n"
+    )
 
     issues = []
     for file in os.listdir(issues_path):
@@ -113,6 +126,7 @@ def rss():
             f"<link>https://www.scientificcomputing.rs/monthly/{i[0]}</link>\n"
             f"<guid>https://www.scientificcomputing.rs/monthly/{i[0]}</guid>\n"
             f"<pubDate>{i[3]} {i[2][:3]} {i[2][-4:]} 12:00:00 GMT</pubDate>\n"
-            "</item>\n")
+            "</item>\n"
+        )
     out += "</channel>\n</rss>\n"
     return out

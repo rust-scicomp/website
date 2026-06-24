@@ -1,0 +1,10 @@
+title: "ModPPL: Probabilistic Programming in Rust"
+abstract:
+  - "Maintaining explicit probability distributions over uncertain beliefs is a core requirement of robust AI systems, yet Rust lacks the composable probabilistic programming infrastructure that Python ecosystems take for granted. ModPPL is a probabilistic programming library for Rust built around a generative function abstraction — a typed interface between models and inference algorithms. We present the design of ModPPL, its support for importance sampling, MCMC, and sequential Monte Carlo, and discuss future directions for bringing principled probabilistic inference to the Rust ecosystem."
+speaker:
+  name: Austin Garrett
+  email: ajg@purdue.edu
+  website: https://austingarrett.dev
+  affiliation: Purdue University
+  github: agarret7
+duration: short

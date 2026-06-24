@@ -1,0 +1,10 @@
+title: "approx - How to do floating point comparisons in Rust"
+abstract:
+  - "I will introduce the approx crate and ecosystem and give a few examples where approx is used. Furthermore I will provide a short user-focused guide on how to get started with approx."
+speaker:
+  name: Jonas Pleyer
+  website: https://jonas.pleyer.org
+  affiliation: University of Freiburg
+  email: jonas.dev@pleyer.org
+  github: jonaspleyer
+duration: short

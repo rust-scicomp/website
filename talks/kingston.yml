@@ -1,0 +1,15 @@
+title: "Building a Fast 2D Finite-Element Solver in Rust"
+abstract:
+  - "Presenting design and applications of a fast 2D axisymmetric finite-element structural solver written in Rust as part of cfsem (https://docs.rs/cfsem), an open-source scientific computing library developed at Commonwealth Fusion Systems. The talk focuses on achieving fast solve times in the Rust implementation, rather than the underlying structural mechanics. We walk through how mesh connectivity and reference data are threaded through the assembly routines to keep the inner element kernel allocation-free, how faer (https://docs.rs/faer/latest/faer/) is used to compress and factor the sparse stiffness matrix, and the memory-layout choices that drive element-loop performance. A brief application to a composite-overwrap pressure vessel grounds the techniques in a specific example. The intended takeaway is a set of transferable patterns for anyone building their own fast numerical solver in Rust."
+speaker:
+  name: Elliott Kingston
+  affiliation: Commonwealth Fusion Systems (CFS)
+  email: ekingston@cfs.energy
+  linkedin: elliott-kingston
+coauthor:
+  - name: James Logan
+    affiliation: CFS
+  - name: Matthew Vernacchia
+    affiliation: CFS
+duration: short
+

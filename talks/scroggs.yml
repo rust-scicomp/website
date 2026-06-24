@@ -1,0 +1,13 @@
+title: "cargo-templated-examples"
+abstract:
+  - "In my scientific crates, I often find I have example scripts that need various options or features passing to them when they are run and have some examples that I want to run with `cargo run` and others that I want to run with `cargo mpirun`. In order to simplify my testing workflow, I created cargo-templated-example. This tool allows you to run a single command (`cargo templated-examples`) to run everything in your examples folder with the correct options, features and cargo command."
+speaker:
+  name: Matthew Scroggs
+  website: https://mscroggs.co.uk
+  email: rust@mscroggs.co.uk
+  affiliation: University College London
+  mastodon: mscroggs@mathstodon.xyz
+  github: mscroggs
+  codeberg: mscroggs
+  bluesky: mscroggs.co.uk
+duration: short

@@ -1,0 +1,11 @@
+title: "Jaali: A Deterministic Point-in-Cell Locator Across CPU and GPU in Rust"
+abstract:
+  - "Point-in-cell queries &ndash; determining which mesh element contains a given point — are a fundamental operation in particle tracking, immersed boundary methods, and finite-element assembly. Existing tools like CGAL and SciPy handle this well on the CPU, but break down on modern heterogeneous hardware: they are serial or at best multi-core, and produce non-deterministic results when points land on shared mesh boundaries, a problem that gets worse across CPU and GPU backends."
+  - "This talk presents Jaali, a Rust library that solves both problems. Rather than forcing a single cell decision during BVH traversal, Jaali collects all geometrically valid candidate cells per query point and resolves ownership in a separate, order-independent step — selecting the cell with the minimum global index. Because the same BVH is used on every backend, and because the ownership rule is insensitive to traversal order, results are bitwise-identical across serial CPU, multi-core CPU, and GPU. On a mesh of 410,758 tetrahedra, a single-point query runs in 0.07 ms versus 1710 ms for brute force — a 22,969× speedup — while a batch of 200,000 points completes in 15 ms on GPU versus 674 ms on serial CPU, a 44× speedup. Python bindings and a Cargo-based build make Jaali easy to drop into existing workflows."
+speaker:
+  name: Dinesh Adepu
+  email: adepu.dinesh.a@gmail.com
+  affiliation: DWI-RWTH Aachen
+  website: https://dineshadepu.github.io/
+  github: dineshadepu
+duration: short

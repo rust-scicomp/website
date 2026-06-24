@@ -32,7 +32,7 @@ This should be done around 4 weeks before the workshop.
         - [ ] coauthor (optional)
         - [ ] duration (short or long)
     - [ ] _timetable.yml
-- [ ] Update tamplate/intro.html to make the latest workshop have links:
+- [ ] Update template/intro.html to make the latest workshop have links:
     - {{workshop-year}} home
     - Register
     - Timetable

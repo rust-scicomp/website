@@ -1,0 +1,16 @@
+title: "Oxidizing cryogenic sample storage in ultra-high vacuum"
+abstract:
+  - "To store frozen research sample after sample preparation and prior to analysis, a storage chamber that keeps them at 120 K temperature and in ultra-high vacuum (~1e-9 mbar) is required. In this talk I will discuss the development and integration of the control electronics, firmware, and host software with user-interface that now controls our home-built cryostorage solution."
+  - "Controlling the chamber requires (a) control of certain parts via digital I/O lines, (b) communication with several existing instruments via established protocols (e.g., via RS-232), (c) reading, updating, and displaying the current status of the chamber and attached instruments, and (d) interfacing with the user. Electronics for task (a) was designed in-house and uses a RaspberryPi Pico2 board as the controlling MCU. Firmware for this MCU was written in Rust using `embassy`. This firmware communicates with our Rust-based host software (which takes care of tasks (c) and (d)) using `postcard` and `postcard-rpc`. Finally, we also developed Rust crates to communicate with various instruments via RS-232, RS-485, and OPCUA. The host software and touch-driven user interface runs on a Seeedstudio ReTerminal DM, a RaspberryPi compute module 4 based Linux computer with a 10\" touch screen. The user interface was developed using Slint."
+  - "In summary: Our brand-new cryostorage chamber is already Rusty all over."
+speaker:
+  name: Reto Trappitsch
+  affiliation: EPFL
+  email: reto.trappitsch@epfl.ch
+  website: https://galactic-forensics.space/
+  github: trappitsch
+  bluesky: galactic-forensics.space
+coauthor:
+  - name: Florent Plane
+    affiliation: EPFL
+duration: short

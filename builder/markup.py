@@ -1,3 +1,4 @@
+import typing
 from markdown import markdown
 import os
 import re
@@ -37,7 +38,11 @@ def markup(content, icons=True, paragraphs=True, year=None):
     if "{% no markup %}" in content:
         before, after = content.split("{% no markup %}", 1)
         middle, after = after.split("{% end no markup %}", 1)
-        return markup(before, icons, paragraphs, year) + middle + markup(after, icons, paragraphs, year)
+        return (
+            markup(before, icons, paragraphs, year)
+            + middle
+            + markup(after, icons, paragraphs, year)
+        )
 
     while "{{if " in content:
         pre, rest = content.split("{{if ", 1)
@@ -84,8 +89,20 @@ def markup(content, icons=True, paragraphs=True, year=None):
     page_references = []
 
     if year is not None:
-        months = ["January", "February", "March", "April", "May", "June", "July",
-                  "August", "September", "October", "November", "December"]
+        months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ]
         dir_path = os.path.dirname(os.path.realpath(__file__))
         with open(join(dir_path, "..", "info.yml")) as f:
             info_yaml = yaml.load(f, Loader=yaml.FullLoader)
@@ -108,7 +125,10 @@ def markup(content, icons=True, paragraphs=True, year=None):
         out = re.sub(r"<time ([0-2][0-9]):([0-6][0-9])>", dayless_time_format, out)
         out = re.sub(r"<time ([A-Za-z]+) ([0-2][0-9]):([0-6][0-9])>", time_format, out)
         out = re.sub(r"<tzone>", r"<span class='tzone'> BST</span>", out)
-        out = out.replace("<timeselector>", "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>")
+        out = out.replace(
+            "<timeselector>",
+            "<select id='tzselect' onchange='change_timezone_dropdown(this.value)'></select>",
+        )
     else:
         assert "<time" not in out
 
@@ -124,8 +144,12 @@ def markup(content, icons=True, paragraphs=True, year=None):
     if len(page_references) > 0:
         out += "<h2>References</h2>"
         out += "<ul class='citations'>"
-        out += "".join([f"<li><a class='refid' id='ref{i+1}'>[{i+1}]</a> {j}</li>"
-                        for i, j in enumerate(page_references)])
+        out += "".join(
+            [
+                f"<li><a class='refid' id='ref{i + 1}'>[{i + 1}]</a> {j}</li>"
+                for i, j in enumerate(page_references)
+            ]
+        )
         out += "</ul>"
 
     out = insert_dates(out)
@@ -162,21 +186,38 @@ def insert_icons(txt):
             txt = re.sub(
                 r"(^|[>\s.!?\(\/])" + t + r"([\s.!?\)\/,']|(?:-based))",
                 r"\1<a href='" + url + "' class='icon'>" + t + r"</a>\2",
-                txt, 1)
+                txt,
+                1,
+            )
         else:
             txt = re.sub(
                 r"(^|[>\s.!?\(\/])" + t + r"([\s.!?\)\/,']|(?:-based))",
-                r"\1<a href='" + url + "' class='icon'><img src='/img/" + icon + "'>" + t + r"</a>\2",
-                txt, 1)
+                r"\1<a href='"
+                + url
+                + "' class='icon'><img src='/img/"
+                + icon
+                + "'>"
+                + t
+                + r"</a>\2",
+                txt,
+                1,
+            )
     for e, url in defelementlist:
-        txt = txt.replace(e, f"<a class='icon' href='https://defelement.com/elements/{url}.html'>"
-                          f"<img src='/img/defelement.png'>{e}</a>", 1)
+        txt = txt.replace(
+            e,
+            f"<a class='icon' href='https://defelement.com/elements/{url}.html'>"
+            f"<img src='/img/defelement.png'>{e}</a>",
+            1,
+        )
     return txt
 
 
 def insert_links(txt):
-    txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\)\{([^\}]+)\}",
-                 r"<a class='icon' href='\2'><img src='/img/\3'>\1</a>", txt)
+    txt = re.sub(
+        r"\[([^\]]+)\]\(([^\)]+)\)\{([^\}]+)\}",
+        r"<a class='icon' href='\2'><img src='/img/\3'>\1</a>",
+        txt,
+    )
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\.md\)", r"<a href='\2.html'>\1</a>", txt)
     txt = re.sub(r"\[([^\]]+)\]\(([^\)]+)\)", r"<a href='\2'>\1</a>", txt)
     txt = re.sub(r"([^'\"])(https?:\/\/)([^\s<\)]+)", r'\1<a href="\2\3">\3</a>', txt)
@@ -219,17 +260,132 @@ def python_highlight(txt):
             line = lsp[0]
             comment = f"<span style='color:#F77237'>#{lsp[1]}</span>"
 
-        lsp = line.split("\"")
+        lsp = line.split('"')
         line = lsp[0]
 
         for i, j in enumerate(lsp[1:]):
             if i % 2 == 0:
                 line += f"<span style='color:#DD2299'>\"{j}"
             else:
-                line += f"\"</span>{j}"
+                line += f'"</span>{j}'
 
         out.append(line + comment)
     return "<br />".join(out)
+
+
+def extract_social_links(info):
+    links = []
+    if "website" in info:
+        links.append(
+            (
+                info["website"],
+                "<i class='fa-brands fa-internet-explorer'></i>",
+                info["website"].split("://")[1],
+            )
+        )
+    if "email" in info:
+        links.append(
+            (
+                f"mailto:{info['email']}",
+                "<i class='fa-solid fa-envelope'></i>",
+                info["email"],
+            )
+        )
+    if "github" in info:
+        links.append(
+            (
+                f"https://github.com/{info['github']}",
+                "<i class='fa-brands fa-github'></i>",
+                info["github"],
+            )
+        )
+    if "codeberg" in info:
+        links.append(
+            (
+                f"https://codeberg.org/{info['codeberg']}",
+                "<i class='fa-solid fa-code-pull-request'></i>",
+                info["codeberg"],
+            )
+        )
+    if "zulip" in info:
+        links.append(
+            (
+                "https://rust-scicomp.zulipchat.com",
+                (
+                    "<svg class='brand-logo' role='img' aria-label='Zulip' xmlns='http://www.w3.org/2000/svg' viewBox='68.96 55.62 450 450.43' height='16'>"
+                    "<path class='filled' d='M473.09 122.97c0 22.69-10.19 42.85-25.72 55.08L296.61 312.69c-2.8 2.4-6.44-1.47-4.42-4.7l55.3-110.72c1.55-3.1-.46-6.91-3.64-6.91H129.36c-33.22 0-60.4-30.32-60.4-67.37 0-37.06 27.18-67.37 60.4-67.37h283.33c33.22-.02 60.4 30.3 60.4 67.35zM129.36 506.05h283.33c33.22 0 60.4-30.32 60.4-67.37 0-37.06-27.18-67.37-60.4-67.37H198.2c-3.18 0-5.19-3.81-3.64-6.91l55.3-110.72c2.02-3.23-1.62-7.1-4.42-4.7L94.68 383.6c-15.53 12.22-25.72 32.39-25.72 55.08 0 37.05 27.18 67.37 60.4 67.37zm522.5-124.15l124.78-179.6v-1.56H663.52v-48.98h190.09v34.21L731.55 363.24v1.56h124.01v48.98h-203.7V381.9zm338.98-230.14V302.6c0 45.09 17.1 68.03 47.43 68.03 31.1 0 48.2-21.77 48.2-68.03V151.76h59.09V298.7c0 80.86-40.82 119.34-109.24 119.34-66.09 0-104.96-36.54-104.96-120.12V151.76h59.48zm244.91 0h59.48v212.25h104.18v49.76h-163.66V151.76zm297 0v262.01h-59.48V151.76h59.48zm90.18 3.5c18.27-3.11 43.93-5.44 80.08-5.44 36.54 0 62.59 7 80.08 20.99 16.72 13.22 27.99 34.99 27.99 60.64 0 25.66-8.55 47.43-24.1 62.2-20.21 19.05-50.15 27.6-85.13 27.6-7.77 0-14.77-.39-20.21-1.17v93.69h-58.7V155.26zm58.7 118.96c5.05 1.17 11.27 1.55 19.83 1.55 31.49 0 50.92-15.94 50.92-42.76 0-24.1-16.72-38.49-46.26-38.49-12.05 0-20.21 1.17-24.49 2.33v77.37z'></path>"
+                    "</svg>"
+                ),
+                f"{info['zulip']} on Rust-SciComp Zulip",
+            )
+        )
+    if "mastodon" in info:
+        username, domain = info["mastodon"].split("@")
+        links.append(
+            (
+                f"https://{domain}/@{username}",
+                "<i class='fa-brands fa-mastodon'></i>",
+                f"@{username}@{domain}",
+            )
+        )
+    if "bluesky" in info:
+        links.append(
+            (
+                f"https://bsky.app/profile/{info['bluesky']}",
+                "<i class='fa-brands fa-bluesky'></i>",
+                info["bluesky"],
+            )
+        )
+    if "linkedin" in info:
+        links.append(
+            (
+                f"https://www.linkedin.com/in/{info['linkedin']}",
+                "<i class='fa-brands fa-linkedin'></i>",
+                info["linkedin"],
+            )
+        )
+    if "twitter" in info:
+        links.append(
+            (
+                f"https://twitter.com/{info['twitter']}",
+                "<i class='fa-brands fa-twitter'></i>",
+                info["twitter"],
+            )
+        )
+    if "matrix" in info:
+        links.append(
+            (
+                f"https://matrix.to/#/@{info['matrix']}",
+                "<i class='fas fa-comment'></i>",
+                f"@{info['matrix']}",
+            )
+        )
+    for item in info.get("custom", []):
+        links.append(
+            (
+                item["url"],
+                f"<i class='{item['icon']}'></i>",
+                item.get("caption", item["url"]),
+            )
+        )
+    return links
+
+
+def person(p: typing.Dict, bold: bool = False) -> str:
+    info = ""
+    if bold:
+        info += "<b>"
+    info += p["name"]
+    if bold:
+        info += "</b>"
+    for url, icon, txt in extract_social_links(p):
+        txt = txt.replace("'", "\\'")
+        info += f" <a href='{url}' class='falink' title='{txt}'>{icon}</a>"
+
+    if "affiliation" in p:
+        info += f" ({p['affiliation']}"
+        info += ")"
+    return info
 
 
 def markup_person(details):
@@ -248,43 +404,10 @@ def markup_person(details):
     out += f"<h3>{info['name']}</h3>\n{info['about']}"
     if "rust-about" in info:
         out += f" {info['rust-about']}"
-    out += "<ul class='sociallist'>"
-    if "email" in info:
-        out += f"<li><a href='mailto:{info['email']}'><i class='fa-solid fa-envelope'></i>&nbsp;"
-        out += info["email"]
-        out += "</a></li>"
-    if "website" in info:
-        out += f"<li><a href='{info['website']}'><i class='fa-brands fa-internet-explorer'></i>&nbsp;"
-        out += info["website"].split("://")[1]
-        out += "</a></li>"
-    if "github" in info:
-        out += f"<li><a href='https://github.com/{info['github']}'>"
-        out += "<i class='fa-brands fa-github'></i>&nbsp;"
-        out += info["github"]
-        out += "</a></li>"
-    if "zulip" in info:
-        out += "<li><a href='https://rust-scicomp.zulipchat.com'>"
-        out += "<svg class='brand-logo' role='img' aria-label='Zulip' xmlns='http://www.w3.org/2000/svg' viewBox='68.96 55.62 450 450.43' height='15.5'>"
-        out += "<path class='filled' d='M473.09 122.97c0 22.69-10.19 42.85-25.72 55.08L296.61 312.69c-2.8 2.4-6.44-1.47-4.42-4.7l55.3-110.72c1.55-3.1-.46-6.91-3.64-6.91H129.36c-33.22 0-60.4-30.32-60.4-67.37 0-37.06 27.18-67.37 60.4-67.37h283.33c33.22-.02 60.4 30.3 60.4 67.35zM129.36 506.05h283.33c33.22 0 60.4-30.32 60.4-67.37 0-37.06-27.18-67.37-60.4-67.37H198.2c-3.18 0-5.19-3.81-3.64-6.91l55.3-110.72c2.02-3.23-1.62-7.1-4.42-4.7L94.68 383.6c-15.53 12.22-25.72 32.39-25.72 55.08 0 37.05 27.18 67.37 60.4 67.37zm522.5-124.15l124.78-179.6v-1.56H663.52v-48.98h190.09v34.21L731.55 363.24v1.56h124.01v48.98h-203.7V381.9zm338.98-230.14V302.6c0 45.09 17.1 68.03 47.43 68.03 31.1 0 48.2-21.77 48.2-68.03V151.76h59.09V298.7c0 80.86-40.82 119.34-109.24 119.34-66.09 0-104.96-36.54-104.96-120.12V151.76h59.48zm244.91 0h59.48v212.25h104.18v49.76h-163.66V151.76zm297 0v262.01h-59.48V151.76h59.48zm90.18 3.5c18.27-3.11 43.93-5.44 80.08-5.44 36.54 0 62.59 7 80.08 20.99 16.72 13.22 27.99 34.99 27.99 60.64 0 25.66-8.55 47.43-24.1 62.2-20.21 19.05-50.15 27.6-85.13 27.6-7.77 0-14.77-.39-20.21-1.17v93.69h-58.7V155.26zm58.7 118.96c5.05 1.17 11.27 1.55 19.83 1.55 31.49 0 50.92-15.94 50.92-42.76 0-24.1-16.72-38.49-46.26-38.49-12.05 0-20.21 1.17-24.49 2.33v77.37z'></path>"
-        out += "</svg>&nbsp;"
-        out += info["zulip"]
-        out += "</a></li>"
-    if "mastodon" in info:
-        username, domain = info['mastodon'].split('@')
-        out += f"<li><a href='https://{domain}/@{username}'>"
-        out += "<i class='fa-brands fa-mastodon'></i>&nbsp;"
-        out += "@" + info["mastodon"]
-        out += "</a></li>"
-    if "twitter" in info:
-        out += f"<li><a href='https://twitter.com/{info['twitter']}'>"
-        out += "<i class='fa-brands fa-twitter'></i>&nbsp;"
-        out += "@" + info["twitter"]
-        out += "</a></li>"
-    if "bluesky" in info:
-        out += f"<li><a href='https://bsky.app/profile/{info['bluesky']}'>"
-        out += "<i class='fa-brands fa-bluesky'></i>&nbsp;"
-        out += "@" + info["bluesky"]
-        out += "</a></li>"
 
+    out += "<ul class='sociallist'>"
+    for url, icon, txt in extract_social_links(info):
+        out += f"<li><a href='{url}' title='{txt}'>{icon}&nbsp;{txt}</a></li>"
     out += "</ul></div></div>"
+
     return out

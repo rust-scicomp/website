@@ -1,0 +1,10 @@
+title: "InterpN: Fast Interpolation"
+abstract:
+  - "Performance engineering techniques that allow InterpN's state-of-the-art numerical interpolation methods to achieve up to 300x speedup over Scipy entirely in safe, single-threaded Rust."
+speaker:
+  name: James Logan
+  email: jlogan03@gmail.com
+  website: https://jlogan.dev
+  github: jlogan03
+  mastodon: ponderingpothos@hachyderm.io
+duration: short

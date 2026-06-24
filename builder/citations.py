@@ -39,7 +39,7 @@ def markup_citation(r):
     out += "."
     if "url" in r:
         out += f" <a href='{r['url']}'>"
-        out += r['url'].split("://")[1]
+        out += r["url"].split("://")[1]
         out += "</a>"
     if "doi" in r:
         out += f" [DOI:&nbsp;<a href='https://doi.org/{r['doi']}'>{r['doi']}</a>]"
@@ -62,7 +62,7 @@ def html_to_tex(txt):
 
 
 def make_bibtex(id, r):
-    if 'type' not in r:
+    if "type" not in r:
         r["type"] = "article"
     out = f"@{r['type']}{{{id},\n"
 
@@ -88,8 +88,10 @@ def make_bibtex(id, r):
 
     # Numerical fields
     for i, j in [
-        ("VOLUME", "volume"), ("NUMBER", "issue"),
-        ("YEAR", "year"), ("DOI", "doi")
+        ("VOLUME", "volume"),
+        ("NUMBER", "issue"),
+        ("YEAR", "year"),
+        ("DOI", "doi"),
     ]:
         if j in r:
             out += " " * (10 - len(i)) + f"{i} = {{{r[j]}}},\n"

@@ -1,0 +1,13 @@
+title: "Backend agnostic linear algebra library based on mdarray"
+abstract:
+  - "We believe mdarray is the best array library in the Rust ecosystem: it offers a wide range of features: dynamic rank, compile-time constant dimensions, and more, with minimal overhead. It was however lacking solid linear algebra support, so we built one. mdarray-linalg lets users perform linear algebra over mdarray tensors using any available backend: from the tried-and-true BLAS/LAPACK to modern alternatives like faer or Nalgebra."
+speaker:
+  name: Pierre Wulles
+  affiliation: CEA
+  website: https://pierre.wulles.org
+  email: pierre.wulles@cea.fr
+  github: pwulles
+coauthor:
+  - name: Christoph Groth
+    affiliation: CEA
+duration: short

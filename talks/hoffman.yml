@@ -1,0 +1,10 @@
+title: "Minimization Algorithms in Rust"
+abstract:
+  - "An overview of my crate, ganesh, and how it extends the current landscape of minimization libraries in the Rust ecosystem. Particularly, I'll talk about bounded optimization algorithms and using ideas from MINUIT to add boundary constraints to unbounded algorithms."
+speaker:
+  name: Dene Hoffman
+  affiliation: College of William & Mary
+  email: nhoffman@wm.edu
+  website: https://denehoffman.com
+  github: denehoffman
+duration: short

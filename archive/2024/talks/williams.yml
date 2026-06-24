@@ -5,9 +5,9 @@ speaker:
   name: Spencer Williams
   affiliation: Biomechanics Foundation, Rice University
   email: stwilliamsmail@gmail.com
-  website: biomechanicsfoundation.org
+  website: https://biomechanicsfoundation.org
   github: SpencerTWilliams
-coauthors:
+coauthor:
   - name: Claire V. Hammond
     affiliation: Biomechanics Foundation, Rice University
 duration: short

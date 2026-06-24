@@ -1,0 +1,16 @@
+title: "High-performance Cloud-Native Geospatial Python packages using Rust"
+abstract:
+  - "\"Cloud-Native Geospatial\" (CNG) is a pattern of geospatial data storage and tooling that leverages cheap object storage, efficient data access, and open data formats to enable analytics and visualization directly from data (no servers required). While Python is the traditional language for geospatial processing and analytics, most high-performance tools require non-Python components to get acceptable performance (think numpy). In this talk, we describe a similar strategy of using Rust (via pyo3) to write highly-performant Python libraries for use in the CNG ecosystem and beyond. We'll highlight two in particular:"
+  - "- obstore: The simplest, highest-throughput Python interface to Amazon S3, Google Cloud Storage, Azure Storage, & other S3-compliant APIs, powered by Rust."
+  - "- rustac: A small Python library for the Spatio-Temporal Asset Catalog (STAC) specification, with support for stac-geoparquet and async API queries."
+  - "Some additional benefits of Rust-backed Python libraries are re-use (e.g. in the browser via wasm) and a reduction in Python dependency hell."
+speaker:
+  name: Pete Gadomski
+  website: https://www.gadom.ski/
+  affiliation: Development Seed
+  github: gadomski
+  bluesky: gadom.ski
+coauthor:
+  - name: Kyle Barron
+    affiliation: Development Seed
+duration: short
