@@ -13,7 +13,7 @@ from. The list of tutorials is given below.
 </div>
 
 This session is aimed at people who don't use Rust yet, but are attending the workshop as they
-are interested in starting to use it. We covered basic syntax in Rust and a few of the language's
+are interested in starting to use it. We will cover basic syntax in Rust and a few of the language's
 nicest features.
 
 Before this session, please install Rust on your computer. There are instructions for doing
