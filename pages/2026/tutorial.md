@@ -28,3 +28,11 @@ This session will guide the audience through the use of autodiff and gpu offload
 
 As of a few weeks ago, we ship all needed dependencies for `std::autodiff` via rustup and nightly, so installation now takes ~5 seconds! A <a href='https://summerofcode.withgoogle.com/'>GSoC</a> contributor
 is also working on adding rustup distribution for `std::offload` (gpu programming). Both these feature will be covered in this tutorial.0
+
+<h2 style='margin-bottom:0px'>Linear algebra in Rust with RLST</h2>
+<h3 style='margin-top:0px'>Timo Betcke</h3>
+
+RLST (the Rust Linear Solver Toolbox) is a Rust linear algebra library that contains a number of data-structures, algorithms, and interfaces
+to external solvers.
+
+In this tutorial, we will learn how to use many of the features of RLST.
