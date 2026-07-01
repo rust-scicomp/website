@@ -6,6 +6,8 @@ From <time Thursday 15:00> on Thursday 9 July, there will be a tutorial session.
 During this session, there are a number of tutorials running in parallel for you to choose
 from. The list of tutorials is given below.
 
+Note that one tutorial will also take place during the [topical discussions](/2026/discussions.md) session.
+
 <h2 style='margin-bottom:0px'>A beginner's guide to Rust</h2>
 <div>
 <div class='authors'><b>Ignacia Fierro Piccardo</b> (University of Bath)</div>
