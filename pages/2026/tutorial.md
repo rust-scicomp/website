@@ -30,9 +30,32 @@ As of a few weeks ago, we ship all needed dependencies for `std::autodiff` via r
 is also working on adding rustup distribution for `std::offload` (gpu programming). Both these feature will be covered in this tutorial.0
 
 <h2 style='margin-bottom:0px'>Linear algebra in Rust with RLST</h2>
-<h3 style='margin-top:0px'>Timo Betcke</h3>
+<div>
+<div class='authors'><b>Timo Betcke</b> (University College London)</div>
+<div>
 
 RLST (the Rust Linear Solver Toolbox) is a Rust linear algebra library that contains a number of data-structures, algorithms, and interfaces
 to external solvers.
 
 In this tutorial, we will learn how to use many of the features of RLST with a focus on distributed arrays.
+
+<h2 style='margin-bottom:0px'>3D Scene Inference in ModPPL</h2>
+<div>
+<div class='authors'><b>Austin Garrett</b> (Purdue University)</div>
+<div>
+
+This guided, hands-on tutorial introduces probabilistic programming through the lens of inverse graphics: the computer-vision paradigm of inferring the 3D scene that produced an image. Participants will combine a rendering-based generative scene model with user-space MCMC inference, written in ModPPL, to recover structured 3D scene hypotheses directly from images, and will visualize how inference converges on a scene. The tutorial emphasizes ModPPL's programmable inference: how custom proposals and block structure change inference quality and convergence rate.
+
+If you plan to attend this tutorial, please install and verify the following before the session:
+
+- Rust toolchain (stable, via [rustup](https://rustup.rs/)). The tutorial is written in Rust (edition 2021).
+- ffmpeg on your `PATH`, used to render the inference-convergence videos. Verify with `ffmpeg -version`.
+- Git, to clone the tutorial repository.
+- Pre-build the project ahead of time** so crates are downloaded and compiled in advance:
+  ```
+  git clone https://github.com/agarret7/modppl-derender
+  cd modppl-derender
+  cargo test --no-run
+  ```
+  (This fetches `modppl`, `glam`, etc. and warms the build cache. If it completes without error, you're ready.)
+- Any video player capable of MP4 playback, to view the rendered convergence videos, for example [VLC](https://www.videolan.org/).
