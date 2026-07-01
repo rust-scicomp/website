@@ -35,4 +35,4 @@ is also working on adding rustup distribution for `std::offload` (gpu programmin
 RLST (the Rust Linear Solver Toolbox) is a Rust linear algebra library that contains a number of data-structures, algorithms, and interfaces
 to external solvers.
 
-In this tutorial, we will learn how to use many of the features of RLST.
+In this tutorial, we will learn how to use many of the features of RLST with a focus on distributed arrays.
