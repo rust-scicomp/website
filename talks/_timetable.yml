@@ -7,6 +7,9 @@ Wednesday:
       - bastida
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Ignacia Fierro Piccardo
+      github: ignacia-fp
   - start: "15:00"
     end: "16:00"
     title: Topical discussions
@@ -21,6 +24,9 @@ Wednesday:
       - annamalai
     start: "16:00"
     end: "17:00"
+    chair:
+      name: Ignacia Fierro Piccardo
+      github: ignacia-fp
 Thursday:
   - talks:
       - pleyer
@@ -31,6 +37,8 @@ Thursday:
       - plique
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Shany Neeman
   - start: "15:00"
     end: "16:15"
     title: Tutorial
@@ -59,6 +67,14 @@ Friday:
       - outro
     start: "15:00"
     end: "16:00"
+    chair:
+      name: Matthew Scroggs
+      github: mscroggs
+      bluesky: mscroggs.co.uk
+      mastodon: mscroggs@mathstodon.xyz
+      website: https://mscroggs.co.uk
+      email: matthew.scroggs.14@ucl.ac.uk
+      zulip: Matthew Scroggs
   - start: "16:00"
     end: "17:00"
     title: Discussions
