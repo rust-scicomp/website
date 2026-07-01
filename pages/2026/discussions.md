@@ -7,8 +7,6 @@ During this session, there were be a number of discussions running in parallel f
 from. A summary of the outcomes of each discussions group will be included in the closing remarks
 at the end of the workshop.
 
-A list of topics for the discussions session will appear here soon.
-
 <h2 style='margin-bottom:0px'>Tutorial: Scientific computing with rustc</h2>
 <div>
 <div class='authors'><b>Manuel Drehwald</b> <a href='mailto:manuel.drehwald@utoronto.ca' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/ZuseZ4' class='falink'><i class='fa-brands fa-github'></i></a> (University of Toronto)</div>
