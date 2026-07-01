@@ -19,16 +19,6 @@ nicest features.
 Before this session, please install Rust on your computer. There are instructions for doing
 this at [rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 
-<h2 style='margin-bottom:0px'>Scientific computing with rustc</h2>
-<div>
-<div class='authors'><b>Manuel Drehwald</b> <a href='mailto:eiffertbc@ornl.gov' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/bretteiffert' class='falink'><i class='fa-brands fa-github'></i></a> (University of Toronto)</div>
-</div>
-
-This session will guide the audience through the use of autodiff and gpu offloading in Rust.
-
-As of a few weeks ago, we ship all needed dependencies for `std::autodiff` via rustup and nightly, so installation now takes ~5 seconds! A <a href='https://summerofcode.withgoogle.com/'>GSoC</a> contributor
-is also working on adding rustup distribution for `std::offload` (gpu programming). Both these feature will be covered in this tutorial.0
-
 <h2 style='margin-bottom:0px'>Linear algebra in Rust with RLST</h2>
 <div>
 <div class='authors'><b>Timo Betcke</b> (University College London)</div>
@@ -41,7 +31,7 @@ In this tutorial, we will learn how to use many of the features of RLST with a f
 
 <h2 style='margin-bottom:0px'>3D Scene Inference in ModPPL</h2>
 <div>
-<div class='authors'><b>Austin Garrett</b> (Purdue University)</div>
+<div class='authors'><b>Austin Garrett</b> <a href='https://austingarrett.dev' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='mailto:ajg@purdue.edu' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/agarret7' class='falink'><i class='fa-brands fa-github'></i></a> (Purdue University)</div>
 <div>
 
 This guided, hands-on tutorial introduces probabilistic programming through the lens of inverse graphics: the computer-vision paradigm of inferring the 3D scene that produced an image. Participants will combine a rendering-based generative scene model with user-space MCMC inference, written in ModPPL, to recover structured 3D scene hypotheses directly from images, and will visualize how inference converges on a scene. The tutorial emphasizes ModPPL's programmable inference: how custom proposals and block structure change inference quality and convergence rate.
