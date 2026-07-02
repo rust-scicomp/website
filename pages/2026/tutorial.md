@@ -6,8 +6,6 @@ From <time Thursday 15:00> on Thursday 9 July, there will be a tutorial session.
 During this session, there are a number of tutorials running in parallel for you to choose
 from. The list of tutorials is given below.
 
-Note that one tutorial will also take place during the [topical discussions](/2026/discussions.md) session.
-
 <h2 style='margin-bottom:0px'>A beginner's guide to Rust</h2>
 <div>
 <div class='authors'><b>Ignacia Fierro Piccardo</b> (University of Bath)</div>
@@ -20,6 +18,16 @@ nicest features.
 
 Before this session, please install Rust on your computer. There are instructions for doing
 this at [rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
+
+<h2 style='margin-bottom:0px'>Scientific computing with rustc</h2>
+<div>
+<div class='authors'><b>Manuel Drehwald</b> <a href='mailto:manuel.drehwald@utoronto.ca' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/ZuseZ4' class='falink'><i class='fa-brands fa-github'></i></a> (University of Toronto)</div>
+</div>
+
+This session will guide the audience through the use of autodiff and gpu offloading in Rust.
+
+As of a few weeks ago, we ship all needed dependencies for `std::autodiff` via rustup and nightly, so installation now takes ~5 seconds! A <a href='https://summerofcode.withgoogle.com/'>GSoC</a> contributor
+is also working on adding rustup distribution for `std::offload` (gpu programming). Both these feature will be covered in this tutorial.0
 
 <h2 style='margin-bottom:0px'>Linear algebra in Rust with RLST</h2>
 <div>
