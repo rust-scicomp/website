@@ -1,5 +1,15 @@
-title: "Debugging MPI Rust codes with mdb"
-abstract: "TBC"
+title: "Debugging HPC Applications with `mdb`"
+abstract:
+  - "The problem:"
+  - "The current landscape of Free and Open-Source (FOS) MPI-debuggers is bleak. There are proprietary options available (e.g., linaro ddt, TotalView), but these require paid-for licenses. As a research software engineer, I work with my collaborators on whichever systems they have access to -- meaning that I frequently move from one HPC system to another. Some HPC service providers simply cannot afford the license costs and may provide one tool, the other or none. As a result relying on these tools can leave you in the dark when they are no longer available. Furthermore, each of these proprietary tools has a different interface and commands that would need to be re-learnt when you move to a different system."
+  - "My proposed solution:"
+  - "`mdb` is a new FOS debugger for MPI applications, supporting Rust, C, C++ and Fortran. It is essentially a wrapper around CLI debuggers e.g., `gdb`, `lldb` etc. The GNU debugger `gdb` is a de facto standard for serial program debugging. Due to the ubiquity of `gdb`, `mdb` allows users to re-use their existing knowledge of debugging commands to debug MPI code on pretty much any system they want to run on. `mdb` is mostly a superset of `gdb` providing most of the core-functionality with some parallel-specific additions that help when debugging MPI applications."
+  - "In this talk, I will explain why I built mdb, how it works and I will provide a live-demo of how to debug a simple MPI code written in rust."
+  - "**New** AMD support:"
+  - "I am excited to share that I recently added support for `rocgdb` which allows users to debug MPI-aware kernels and memory on AMD GPUs e.g., MI300's."
+  - "[`mdb` Github repository](https://github.com/TomMelt/mdb)"
 speaker:
   name: "Tom Meltzer"
+  linkedin: tommelt
+  github: TomMelt
 duration: long
