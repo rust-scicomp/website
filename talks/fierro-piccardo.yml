@@ -1,6 +1,8 @@
-title: "The RSRS algorithm in Rust"
+title: "A Rust implementation of RSRS for Boundary Integral Equations in 3D"
 abstract:
-  - "TBC"
+  - "Recursive Strong Skeletonization (RSRS)<ref doi='10.1007/s10915-025-03157-9' author='Anna Yesypenko, Per-Gunnar Martinsson' title='Randomized Strong Recursive Skeletonization: Simultaneous Compression and LU Factorization of Hierarchical Matrices using Matrix–Vector Products' journal='Journal of Scientific Computing' volume='106' issue='3' pagestart='63'> is a randomised framework designed for the factorisation of structured linear systems. By requiring only a hierarchical partitioning of the matrix entries and matrix-vector products, RSRS enables matrix-free fast direct solvers for problems with millions of unknowns."
+  - "In this talk, we present a Rust high performance implementation of RSRS for large-scale 3D boundary integral equations. We base our implementation on RLST traits for the linear algebra components involved in the factorisation, and Rayon for shared-memory parallelism during both compression and application phases."
+  - "We also describe some algorithmic and implementation improvements that significantly accelerate the original RSRS approach when applied to 3D problems. Benchmark results on boundary integral equations demonstrate substantial speedups and good scalability on multicore systems."
 speaker:
   name: Ignacia Fierro Piccardo
   affiliation: University of Bath
