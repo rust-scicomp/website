@@ -32,7 +32,7 @@ is also working on adding rustup distribution for `std::offload` (gpu programmin
 <h2 style='margin-bottom:0px'>Linear algebra in Rust with RLST</h2>
 <div>
 <div class='authors'><b>Timo Betcke</b> (University College London)</div>
-<div>
+</div>
 
 RLST (the Rust Linear Solver Toolbox) is a Rust linear algebra library that contains a number of data-structures, algorithms, and interfaces
 to external solvers.
@@ -42,7 +42,7 @@ In this tutorial, we will learn how to use many of the features of RLST with a f
 <h2 style='margin-bottom:0px'>3D Scene Inference in ModPPL</h2>
 <div>
 <div class='authors'><b>Austin Garrett</b> <a href='https://austingarrett.dev' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='mailto:ajg@purdue.edu' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/agarret7' class='falink'><i class='fa-brands fa-github'></i></a> (Purdue University)</div>
-<div>
+</div>
 
 This session introduces participants to probabilistic programming via inverse graphics: the computer-vision paradigm of inferring the 3D scene that produced an image. Participants will use ModPPL to 
 combine rendering-based generative scene models with user-space MCMC inference, recovering structured 3D scene hypotheses directly from images across a series of scenes of increasing complexity, and 
