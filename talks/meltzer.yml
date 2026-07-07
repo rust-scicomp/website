@@ -10,6 +10,7 @@ abstract:
   - "[`mdb` Github repository](https://github.com/TomMelt/mdb)"
 speaker:
   name: "Tom Meltzer"
+  affiliation: University of Cambridge
   linkedin: tommelt
   github: TomMelt
 duration: long
