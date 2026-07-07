@@ -59,6 +59,14 @@ Friday:
       - schmidt
     start: "13:00"
     end: "14:30"
+    chair:
+      name: Matthew Scroggs
+      github: mscroggs
+      bluesky: mscroggs.co.uk
+      mastodon: mscroggs@mathstodon.xyz
+      website: https://mscroggs.co.uk
+      email: matthew.scroggs.14@ucl.ac.uk
+      zulip: Matthew Scroggs
   - talks:
       - gadomski
       - garrett
