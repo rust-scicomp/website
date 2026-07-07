@@ -53,15 +53,9 @@ alongside the talks from 2023 to 2025.
 You can register to attend the Scientific Computing in Rust 2026 workshop using [the form on the registration page](/2026/register).
 Registration is free, and the workshop will take place virtually so there is no need to book travel or accommodation.
 
-## Proposing a talk
-The Scientific Computing in Rust 2026 workshop will feature a mixture of 30 minute talks by invited
-speakers, 10 minute talks by workshop attendees, and interactive discussion/tutorial sessions.
-
-Submissions for 10 minute talks are now closed, but you can still submit longer interactive tutorials via [the form on talk proposal page](/2026/submit-talk).
-The deadline for tutorial submissions is Monday 29 June.
-
-If you have any questions for the organisers (about proposing a talk or anything else), you can email
-[contact@scientificcomputing.rs](mailto:contact@scientificcomputing.rs), or you can ask in the [rust-scicomp Zulip chat](https://rust-scicomp.zulipchat.com/).
+## Schedule
+The schedule for the workshop can be found on the [timetable](/2026/timetable) and [list of talks](/2026/talklist) pages.
+An ical calendar for the workshop can be found at [scientificcomputing.rs/2026/calendar.ics](https://scientificcomputing.rs/2026/calendar.ics).
 
 ## Code of conduct
 We expect all attendees of Scientific Computing in Rust to follow the [code of conduct](/code-of-conduct.md).
