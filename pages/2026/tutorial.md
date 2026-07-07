@@ -44,18 +44,10 @@ In this tutorial, we will learn how to use many of the features of RLST with a f
 <div class='authors'><b>Austin Garrett</b> <a href='https://austingarrett.dev' class='falink'><i class='fa-brands fa-internet-explorer'></i></a> <a href='mailto:ajg@purdue.edu' class='falink'><i class='fa-solid fa-envelope'></i></a> <a href='https://github.com/agarret7' class='falink'><i class='fa-brands fa-github'></i></a> (Purdue University)</div>
 <div>
 
-This guided, hands-on tutorial introduces probabilistic programming through the lens of inverse graphics: the computer-vision paradigm of inferring the 3D scene that produced an image. Participants will combine a rendering-based generative scene model with user-space MCMC inference, written in ModPPL, to recover structured 3D scene hypotheses directly from images, and will visualize how inference converges on a scene. The tutorial emphasizes ModPPL's programmable inference: how custom proposals and block structure change inference quality and convergence rate.
+This session introduces participants to probabilistic programming via inverse graphics: the computer-vision paradigm of inferring the 3D scene that produced an image. Participants will use ModPPL to 
+combine rendering-based generative scene models with user-space MCMC inference, recovering structured 3D scene hypotheses directly from images across a series of scenes of increasing complexity, and 
+will watch each hypothesis converge onto its observed image in real time.
 
-If you plan to attend this tutorial, please install and verify the following before the session:
+Note this tutorial uses a live window display. Before this session, please install Rust (stable) and Git, then clone and build the repository
+[https://github.com/agarret7/modppl-derender](https://github.com/agarret7/modppl-derender).
 
-- Rust toolchain (stable, via [rustup](https://rustup.rs/)). The tutorial is written in Rust (edition 2021).
-- ffmpeg on your `PATH`, used to render the inference-convergence videos. Verify with `ffmpeg -version`.
-- Git, to clone the tutorial repository.
-- Pre-build the project ahead of time** so crates are downloaded and compiled in advance:
-  ```
-  git clone https://github.com/agarret7/modppl-derender
-  cd modppl-derender
-  cargo test --no-run
-  ```
-  (This fetches `modppl`, `glam`, etc. and warms the build cache. If it completes without error, you're ready.)
-- Any video player capable of MP4 playback, to view the rendered convergence videos, for example [VLC](https://www.videolan.org/).
