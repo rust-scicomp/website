@@ -50,8 +50,8 @@ from the workshop will be made available on [YouTube](https://www.youtube.com/@S
 alongside the talks from 2023 to 2025.
 
 ## Registration
-You can register to attend the Scientific Computing in Rust 2026 workshop using [the form on the registration page](/2026/register).
-Registration is free, and the workshop will take place virtually so there is no need to book travel or accommodation.
+Registration for the Scientific Computing in Rust 2026 workshop is now closed.
+Registration was free, and the workshop is taking place virtually so there is no need to book travel or accommodation.
 
 ## Schedule
 The schedule for the workshop can be found on the [timetable](/2026/timetable) and [list of talks](/2026/talklist) pages.
