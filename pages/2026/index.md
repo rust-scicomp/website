@@ -7,9 +7,9 @@ It was first held in [2023](/2023).
 Recordings of the talks for every workshop are available on the
 [Scientific Computing in Rust YouTube channel](https://www.youtube.com/@ScientificComputinginRust).
 
-The Scientific Computing in Rust 2026 workshop will take place on Wednesday 8 July to Friday 10
+The Scientific Computing in Rust 2026 workshop took place on Wednesday 8 July to Friday 10
 July between <a href='javascript:toggle_times()'>13:00 BST and 17:00 BST</a>.
-This will the third Scientific Computing in Rust workshop; archived information about
+This was the fourth Scientific Computing in Rust workshop; archived information about
 Scientific Computing in Rust 2023 to 2025 can be found at
 [scientificcomputing.rs/2023](/2023),
 [scientificcomputing.rs/2024](/2024) and
@@ -45,13 +45,9 @@ function toggle_times() {
 </script>
 {% end no markup %}
 
-The workshop will be held virtually and will be free to attend. Recordings of the talks
-from the workshop will be made available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
+The workshop was held virtually and was free to attend. Recordings of the talks
+from the workshop are available on [YouTube](https://www.youtube.com/@ScientificComputinginRust),
 alongside the talks from 2023 to 2025.
-
-## Registration
-Registration for the Scientific Computing in Rust 2026 workshop is now closed.
-Registration was free, and the workshop is taking place virtually so there is no need to book travel or accommodation.
 
 ## Schedule
 The schedule for the workshop can be found on the [timetable](/2026/timetable) and [list of talks](/2026/talklist) pages.

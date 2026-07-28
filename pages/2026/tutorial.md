@@ -2,8 +2,8 @@
 
 Show times in: <timeselector>
 
-From <time Thursday 15:00> on Thursday 9 July, there will be a tutorial session.
-During this session, there are a number of tutorials running in parallel for you to choose
+From <time Thursday 15:00> on Thursday 9 July, there was be a tutorial session.
+During this session, there were a number of tutorials running in parallel for you to choose
 from. The list of tutorials is given below.
 
 <h2 style='margin-bottom:0px'>A beginner's guide to Rust</h2>
